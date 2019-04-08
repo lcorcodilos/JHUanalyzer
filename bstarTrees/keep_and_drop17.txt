@@ -1,0 +1,32 @@
+drop *
+
+keep *FatJet*
+keep *SubJet*
+keep run
+keep luminosityBlock
+
+keep *event*
+keep *Flag*
+keep *GenPart*
+keep HLT_PFJet*
+keep HLT_PFHT*
+keep HLT_AK8PFJet*
+keep HLT_AK8PFHT*
+keep HLT_Mu*
+keep HLT_IsoMu*
+keep *LHEPdfWeight*
+keep *LHEWeight*
+keep *LHEScaleWeight*
+keep *Pileup*
+keep *genWeight*
+keep Generator_scalePDF
+
+keep Electron_*Iso*
+keep Electron_pt
+keep Electron_eta
+keep Electron_cutBased
+
+keep Muon_pt
+keep Muon_eta
+keep Muon_tightId
+keep Muon_*Iso*

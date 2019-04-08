@@ -1,0 +1,2280 @@
+-s QCDHT1000 -r ttbar -d off -t loose -j 5 -n 1 -y 16
+-s QCDHT1000 -r ttbar -d off -t loose -j 5 -n 2 -y 16
+-s QCDHT1000 -r ttbar -d off -t loose -j 5 -n 3 -y 16
+-s QCDHT1000 -r ttbar -d off -t loose -j 5 -n 4 -y 16
+-s QCDHT1000 -r ttbar -d off -t loose -j 5 -n 5 -y 16
+-s QCDHT1500 -r ttbar -d off -t loose -j 1 -n 1 -y 16
+-s QCDHT1000ext -r ttbar -d off -t loose -j 5 -n 1 -y 16
+-s QCDHT1000ext -r ttbar -d off -t loose -j 5 -n 2 -y 16
+-s QCDHT1000ext -r ttbar -d off -t loose -j 5 -n 3 -y 16
+-s QCDHT1000ext -r ttbar -d off -t loose -j 5 -n 4 -y 16
+-s QCDHT1000ext -r ttbar -d off -t loose -j 5 -n 5 -y 16
+-s QCDHT700 -r ttbar -d off -t loose -j 1 -n 1 -y 16
+-s QCDHT1500ext -r ttbar -d off -t loose -j 1 -n 1 -y 16
+-s QCDHT2000 -r ttbar -d off -t loose -j 1 -n 1 -y 16
+-s QCDHT2000ext -r ttbar -d off -t loose -j 1 -n 1 -y 16
+-s ttbar -r ttbar -d off -t loose -j 1 -n 1 -y 16
+-s ttbar -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J up
+-s ttbar -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R up
+-s ttbar -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a up
+-s ttbar -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b up
+-s ttbar -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J down
+-s ttbar -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R down
+-s ttbar -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a down
+-s ttbar -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b down
+-s singletop_tB -r ttbar -d off -t loose -j 1 -n 1 -y 16
+-s singletop_tB -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J up
+-s singletop_tB -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R up
+-s singletop_tB -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a up
+-s singletop_tB -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b up
+-s singletop_tB -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J down
+-s singletop_tB -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R down
+-s singletop_tB -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a down
+-s singletop_tB -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b down
+-s singletop_tW -r ttbar -d off -t loose -j 1 -n 1 -y 16
+-s singletop_tW -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J up
+-s singletop_tW -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R up
+-s singletop_tW -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a up
+-s singletop_tW -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b up
+-s singletop_tW -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J down
+-s singletop_tW -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R down
+-s singletop_tW -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a down
+-s singletop_tW -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b down
+-s singletop_tWB -r ttbar -d off -t loose -j 1 -n 1 -y 16
+-s singletop_tWB -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J up
+-s singletop_tWB -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R up
+-s singletop_tWB -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a up
+-s singletop_tWB -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b up
+-s singletop_tWB -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J down
+-s singletop_tWB -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R down
+-s singletop_tWB -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a down
+-s singletop_tWB -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b down
+-s singletop_t -r ttbar -d off -t loose -j 1 -n 1 -y 16
+-s singletop_t -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J up
+-s singletop_t -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R up
+-s singletop_t -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a up
+-s singletop_t -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b up
+-s singletop_t -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J down
+-s singletop_t -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R down
+-s singletop_t -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a down
+-s singletop_t -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalLH1200 -r ttbar -d off -t loose -j 1 -n 1 -y 16
+-s signalLH1200 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalLH1200 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalLH1200 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalLH1200 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalLH1200 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalLH1200 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalLH1200 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalLH1200 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalLH1400 -r ttbar -d off -t loose -j 1 -n 1 -y 16
+-s signalLH1400 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalLH1400 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalLH1400 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalLH1400 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalLH1400 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalLH1400 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalLH1400 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalLH1400 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalLH1600 -r ttbar -d off -t loose -j 1 -n 1 -y 16
+-s signalLH1600 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalLH1600 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalLH1600 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalLH1600 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalLH1600 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalLH1600 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalLH1600 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalLH1600 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalLH1800 -r ttbar -d off -t loose -j 1 -n 1 -y 16
+-s signalLH1800 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalLH1800 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalLH1800 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalLH1800 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalLH1800 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalLH1800 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalLH1800 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalLH1800 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalLH2000 -r ttbar -d off -t loose -j 1 -n 1 -y 16
+-s signalLH2000 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalLH2000 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalLH2000 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalLH2000 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalLH2000 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalLH2000 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalLH2000 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalLH2000 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalLH2200 -r ttbar -d off -t loose -j 1 -n 1 -y 16
+-s signalLH2200 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalLH2200 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalLH2200 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalLH2200 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalLH2200 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalLH2200 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalLH2200 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalLH2200 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalLH2400 -r ttbar -d off -t loose -j 1 -n 1 -y 16
+-s signalLH2400 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalLH2400 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalLH2400 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalLH2400 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalLH2400 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalLH2400 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalLH2400 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalLH2400 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalLH2600 -r ttbar -d off -t loose -j 1 -n 1 -y 16
+-s signalLH2600 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalLH2600 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalLH2600 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalLH2600 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalLH2600 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalLH2600 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalLH2600 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalLH2600 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalLH2800 -r ttbar -d off -t loose -j 1 -n 1 -y 16
+-s signalLH2800 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalLH2800 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalLH2800 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalLH2800 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalLH2800 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalLH2800 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalLH2800 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalLH2800 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalLH3000 -r ttbar -d off -t loose -j 1 -n 1 -y 16
+-s signalLH3000 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalLH3000 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalLH3000 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalLH3000 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalLH3000 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalLH3000 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalLH3000 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalLH3000 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalRH1200 -r ttbar -d off -t loose -j 1 -n 1 -y 16
+-s signalRH1200 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalRH1200 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalRH1200 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalRH1200 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalRH1200 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalRH1200 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalRH1200 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalRH1200 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalRH1400 -r ttbar -d off -t loose -j 1 -n 1 -y 16
+-s signalRH1400 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalRH1400 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalRH1400 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalRH1400 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalRH1400 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalRH1400 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalRH1400 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalRH1400 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalRH1600 -r ttbar -d off -t loose -j 1 -n 1 -y 16
+-s signalRH1600 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalRH1600 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalRH1600 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalRH1600 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalRH1600 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalRH1600 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalRH1600 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalRH1600 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalRH1800 -r ttbar -d off -t loose -j 1 -n 1 -y 16
+-s signalRH1800 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalRH1800 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalRH1800 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalRH1800 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalRH1800 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalRH1800 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalRH1800 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalRH1800 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalRH2000 -r ttbar -d off -t loose -j 1 -n 1 -y 16
+-s signalRH2000 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalRH2000 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalRH2000 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalRH2000 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalRH2000 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalRH2000 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalRH2000 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalRH2000 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalRH2200 -r ttbar -d off -t loose -j 1 -n 1 -y 16
+-s signalRH2200 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalRH2200 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalRH2200 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalRH2200 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalRH2200 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalRH2200 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalRH2200 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalRH2200 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalRH2400 -r ttbar -d off -t loose -j 1 -n 1 -y 16
+-s signalRH2400 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalRH2400 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalRH2400 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalRH2400 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalRH2400 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalRH2400 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalRH2400 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalRH2400 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalRH2600 -r ttbar -d off -t loose -j 1 -n 1 -y 16
+-s signalRH2600 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalRH2600 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalRH2600 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalRH2600 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalRH2600 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalRH2600 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalRH2600 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalRH2600 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalRH2800 -r ttbar -d off -t loose -j 1 -n 1 -y 16
+-s signalRH2800 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalRH2800 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalRH2800 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalRH2800 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalRH2800 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalRH2800 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalRH2800 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalRH2800 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalRH3000 -r ttbar -d off -t loose -j 1 -n 1 -y 16
+-s signalRH3000 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalRH3000 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalRH3000 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalRH3000 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalRH3000 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalRH3000 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalRH3000 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalRH3000 -r ttbar -d off -t loose -j 1 -n 1 -y 16 -b down
+-s data -r ttbar -d off -t loose -j 20 -n 1 -y 16
+-s data -r ttbar -d off -t loose -j 20 -n 2 -y 16
+-s data -r ttbar -d off -t loose -j 20 -n 3 -y 16
+-s data -r ttbar -d off -t loose -j 20 -n 4 -y 16
+-s data -r ttbar -d off -t loose -j 20 -n 5 -y 16
+-s data -r ttbar -d off -t loose -j 20 -n 6 -y 16
+-s data -r ttbar -d off -t loose -j 20 -n 7 -y 16
+-s data -r ttbar -d off -t loose -j 20 -n 8 -y 16
+-s data -r ttbar -d off -t loose -j 20 -n 9 -y 16
+-s data -r ttbar -d off -t loose -j 20 -n 10 -y 16
+-s data -r ttbar -d off -t loose -j 20 -n 11 -y 16
+-s data -r ttbar -d off -t loose -j 20 -n 12 -y 16
+-s data -r ttbar -d off -t loose -j 20 -n 13 -y 16
+-s data -r ttbar -d off -t loose -j 20 -n 14 -y 16
+-s data -r ttbar -d off -t loose -j 20 -n 15 -y 16
+-s data -r ttbar -d off -t loose -j 20 -n 16 -y 16
+-s data -r ttbar -d off -t loose -j 20 -n 17 -y 16
+-s data -r ttbar -d off -t loose -j 20 -n 18 -y 16
+-s data -r ttbar -d off -t loose -j 20 -n 19 -y 16
+-s data -r ttbar -d off -t loose -j 20 -n 20 -y 16
+-s QCDHT1000 -r default -d off -t loose -j 5 -n 1 -y 16
+-s QCDHT1000 -r default -d off -t loose -j 5 -n 2 -y 16
+-s QCDHT1000 -r default -d off -t loose -j 5 -n 3 -y 16
+-s QCDHT1000 -r default -d off -t loose -j 5 -n 4 -y 16
+-s QCDHT1000 -r default -d off -t loose -j 5 -n 5 -y 16
+-s QCDHT1500 -r default -d off -t loose -j 1 -n 1 -y 16
+-s QCDHT1000ext -r default -d off -t loose -j 5 -n 1 -y 16
+-s QCDHT1000ext -r default -d off -t loose -j 5 -n 2 -y 16
+-s QCDHT1000ext -r default -d off -t loose -j 5 -n 3 -y 16
+-s QCDHT1000ext -r default -d off -t loose -j 5 -n 4 -y 16
+-s QCDHT1000ext -r default -d off -t loose -j 5 -n 5 -y 16
+-s QCDHT700 -r default -d off -t loose -j 1 -n 1 -y 16
+-s QCDHT1500ext -r default -d off -t loose -j 1 -n 1 -y 16
+-s QCDHT2000 -r default -d off -t loose -j 1 -n 1 -y 16
+-s QCDHT2000ext -r default -d off -t loose -j 1 -n 1 -y 16
+-s ttbar -r default -d off -t loose -j 1 -n 1 -y 16
+-s ttbar -r default -d off -t loose -j 1 -n 1 -y 16 -J up
+-s ttbar -r default -d off -t loose -j 1 -n 1 -y 16 -R up
+-s ttbar -r default -d off -t loose -j 1 -n 1 -y 16 -a up
+-s ttbar -r default -d off -t loose -j 1 -n 1 -y 16 -b up
+-s ttbar -r default -d off -t loose -j 1 -n 1 -y 16 -J down
+-s ttbar -r default -d off -t loose -j 1 -n 1 -y 16 -R down
+-s ttbar -r default -d off -t loose -j 1 -n 1 -y 16 -a down
+-s ttbar -r default -d off -t loose -j 1 -n 1 -y 16 -b down
+-s singletop_tB -r default -d off -t loose -j 1 -n 1 -y 16
+-s singletop_tB -r default -d off -t loose -j 1 -n 1 -y 16 -J up
+-s singletop_tB -r default -d off -t loose -j 1 -n 1 -y 16 -R up
+-s singletop_tB -r default -d off -t loose -j 1 -n 1 -y 16 -a up
+-s singletop_tB -r default -d off -t loose -j 1 -n 1 -y 16 -b up
+-s singletop_tB -r default -d off -t loose -j 1 -n 1 -y 16 -J down
+-s singletop_tB -r default -d off -t loose -j 1 -n 1 -y 16 -R down
+-s singletop_tB -r default -d off -t loose -j 1 -n 1 -y 16 -a down
+-s singletop_tB -r default -d off -t loose -j 1 -n 1 -y 16 -b down
+-s singletop_tW -r default -d off -t loose -j 1 -n 1 -y 16
+-s singletop_tW -r default -d off -t loose -j 1 -n 1 -y 16 -J up
+-s singletop_tW -r default -d off -t loose -j 1 -n 1 -y 16 -R up
+-s singletop_tW -r default -d off -t loose -j 1 -n 1 -y 16 -a up
+-s singletop_tW -r default -d off -t loose -j 1 -n 1 -y 16 -b up
+-s singletop_tW -r default -d off -t loose -j 1 -n 1 -y 16 -J down
+-s singletop_tW -r default -d off -t loose -j 1 -n 1 -y 16 -R down
+-s singletop_tW -r default -d off -t loose -j 1 -n 1 -y 16 -a down
+-s singletop_tW -r default -d off -t loose -j 1 -n 1 -y 16 -b down
+-s singletop_tWB -r default -d off -t loose -j 1 -n 1 -y 16
+-s singletop_tWB -r default -d off -t loose -j 1 -n 1 -y 16 -J up
+-s singletop_tWB -r default -d off -t loose -j 1 -n 1 -y 16 -R up
+-s singletop_tWB -r default -d off -t loose -j 1 -n 1 -y 16 -a up
+-s singletop_tWB -r default -d off -t loose -j 1 -n 1 -y 16 -b up
+-s singletop_tWB -r default -d off -t loose -j 1 -n 1 -y 16 -J down
+-s singletop_tWB -r default -d off -t loose -j 1 -n 1 -y 16 -R down
+-s singletop_tWB -r default -d off -t loose -j 1 -n 1 -y 16 -a down
+-s singletop_tWB -r default -d off -t loose -j 1 -n 1 -y 16 -b down
+-s singletop_t -r default -d off -t loose -j 1 -n 1 -y 16
+-s singletop_t -r default -d off -t loose -j 1 -n 1 -y 16 -J up
+-s singletop_t -r default -d off -t loose -j 1 -n 1 -y 16 -R up
+-s singletop_t -r default -d off -t loose -j 1 -n 1 -y 16 -a up
+-s singletop_t -r default -d off -t loose -j 1 -n 1 -y 16 -b up
+-s singletop_t -r default -d off -t loose -j 1 -n 1 -y 16 -J down
+-s singletop_t -r default -d off -t loose -j 1 -n 1 -y 16 -R down
+-s singletop_t -r default -d off -t loose -j 1 -n 1 -y 16 -a down
+-s singletop_t -r default -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalLH1200 -r default -d off -t loose -j 1 -n 1 -y 16
+-s signalLH1200 -r default -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalLH1200 -r default -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalLH1200 -r default -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalLH1200 -r default -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalLH1200 -r default -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalLH1200 -r default -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalLH1200 -r default -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalLH1200 -r default -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalLH1400 -r default -d off -t loose -j 1 -n 1 -y 16
+-s signalLH1400 -r default -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalLH1400 -r default -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalLH1400 -r default -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalLH1400 -r default -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalLH1400 -r default -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalLH1400 -r default -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalLH1400 -r default -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalLH1400 -r default -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalLH1600 -r default -d off -t loose -j 1 -n 1 -y 16
+-s signalLH1600 -r default -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalLH1600 -r default -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalLH1600 -r default -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalLH1600 -r default -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalLH1600 -r default -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalLH1600 -r default -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalLH1600 -r default -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalLH1600 -r default -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalLH1800 -r default -d off -t loose -j 1 -n 1 -y 16
+-s signalLH1800 -r default -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalLH1800 -r default -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalLH1800 -r default -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalLH1800 -r default -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalLH1800 -r default -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalLH1800 -r default -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalLH1800 -r default -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalLH1800 -r default -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalLH2000 -r default -d off -t loose -j 1 -n 1 -y 16
+-s signalLH2000 -r default -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalLH2000 -r default -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalLH2000 -r default -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalLH2000 -r default -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalLH2000 -r default -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalLH2000 -r default -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalLH2000 -r default -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalLH2000 -r default -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalLH2200 -r default -d off -t loose -j 1 -n 1 -y 16
+-s signalLH2200 -r default -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalLH2200 -r default -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalLH2200 -r default -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalLH2200 -r default -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalLH2200 -r default -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalLH2200 -r default -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalLH2200 -r default -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalLH2200 -r default -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalLH2400 -r default -d off -t loose -j 1 -n 1 -y 16
+-s signalLH2400 -r default -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalLH2400 -r default -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalLH2400 -r default -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalLH2400 -r default -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalLH2400 -r default -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalLH2400 -r default -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalLH2400 -r default -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalLH2400 -r default -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalLH2600 -r default -d off -t loose -j 1 -n 1 -y 16
+-s signalLH2600 -r default -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalLH2600 -r default -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalLH2600 -r default -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalLH2600 -r default -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalLH2600 -r default -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalLH2600 -r default -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalLH2600 -r default -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalLH2600 -r default -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalLH2800 -r default -d off -t loose -j 1 -n 1 -y 16
+-s signalLH2800 -r default -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalLH2800 -r default -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalLH2800 -r default -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalLH2800 -r default -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalLH2800 -r default -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalLH2800 -r default -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalLH2800 -r default -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalLH2800 -r default -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalLH3000 -r default -d off -t loose -j 1 -n 1 -y 16
+-s signalLH3000 -r default -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalLH3000 -r default -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalLH3000 -r default -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalLH3000 -r default -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalLH3000 -r default -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalLH3000 -r default -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalLH3000 -r default -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalLH3000 -r default -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalRH1200 -r default -d off -t loose -j 1 -n 1 -y 16
+-s signalRH1200 -r default -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalRH1200 -r default -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalRH1200 -r default -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalRH1200 -r default -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalRH1200 -r default -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalRH1200 -r default -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalRH1200 -r default -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalRH1200 -r default -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalRH1400 -r default -d off -t loose -j 1 -n 1 -y 16
+-s signalRH1400 -r default -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalRH1400 -r default -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalRH1400 -r default -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalRH1400 -r default -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalRH1400 -r default -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalRH1400 -r default -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalRH1400 -r default -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalRH1400 -r default -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalRH1600 -r default -d off -t loose -j 1 -n 1 -y 16
+-s signalRH1600 -r default -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalRH1600 -r default -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalRH1600 -r default -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalRH1600 -r default -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalRH1600 -r default -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalRH1600 -r default -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalRH1600 -r default -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalRH1600 -r default -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalRH1800 -r default -d off -t loose -j 1 -n 1 -y 16
+-s signalRH1800 -r default -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalRH1800 -r default -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalRH1800 -r default -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalRH1800 -r default -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalRH1800 -r default -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalRH1800 -r default -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalRH1800 -r default -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalRH1800 -r default -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalRH2000 -r default -d off -t loose -j 1 -n 1 -y 16
+-s signalRH2000 -r default -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalRH2000 -r default -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalRH2000 -r default -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalRH2000 -r default -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalRH2000 -r default -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalRH2000 -r default -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalRH2000 -r default -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalRH2000 -r default -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalRH2200 -r default -d off -t loose -j 1 -n 1 -y 16
+-s signalRH2200 -r default -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalRH2200 -r default -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalRH2200 -r default -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalRH2200 -r default -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalRH2200 -r default -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalRH2200 -r default -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalRH2200 -r default -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalRH2200 -r default -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalRH2400 -r default -d off -t loose -j 1 -n 1 -y 16
+-s signalRH2400 -r default -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalRH2400 -r default -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalRH2400 -r default -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalRH2400 -r default -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalRH2400 -r default -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalRH2400 -r default -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalRH2400 -r default -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalRH2400 -r default -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalRH2600 -r default -d off -t loose -j 1 -n 1 -y 16
+-s signalRH2600 -r default -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalRH2600 -r default -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalRH2600 -r default -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalRH2600 -r default -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalRH2600 -r default -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalRH2600 -r default -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalRH2600 -r default -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalRH2600 -r default -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalRH2800 -r default -d off -t loose -j 1 -n 1 -y 16
+-s signalRH2800 -r default -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalRH2800 -r default -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalRH2800 -r default -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalRH2800 -r default -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalRH2800 -r default -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalRH2800 -r default -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalRH2800 -r default -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalRH2800 -r default -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalRH3000 -r default -d off -t loose -j 1 -n 1 -y 16
+-s signalRH3000 -r default -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalRH3000 -r default -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalRH3000 -r default -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalRH3000 -r default -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalRH3000 -r default -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalRH3000 -r default -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalRH3000 -r default -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalRH3000 -r default -d off -t loose -j 1 -n 1 -y 16 -b down
+-s data -r default -d off -t loose -j 20 -n 1 -y 16
+-s data -r default -d off -t loose -j 20 -n 2 -y 16
+-s data -r default -d off -t loose -j 20 -n 3 -y 16
+-s data -r default -d off -t loose -j 20 -n 4 -y 16
+-s data -r default -d off -t loose -j 20 -n 5 -y 16
+-s data -r default -d off -t loose -j 20 -n 6 -y 16
+-s data -r default -d off -t loose -j 20 -n 7 -y 16
+-s data -r default -d off -t loose -j 20 -n 8 -y 16
+-s data -r default -d off -t loose -j 20 -n 9 -y 16
+-s data -r default -d off -t loose -j 20 -n 10 -y 16
+-s data -r default -d off -t loose -j 20 -n 11 -y 16
+-s data -r default -d off -t loose -j 20 -n 12 -y 16
+-s data -r default -d off -t loose -j 20 -n 13 -y 16
+-s data -r default -d off -t loose -j 20 -n 14 -y 16
+-s data -r default -d off -t loose -j 20 -n 15 -y 16
+-s data -r default -d off -t loose -j 20 -n 16 -y 16
+-s data -r default -d off -t loose -j 20 -n 17 -y 16
+-s data -r default -d off -t loose -j 20 -n 18 -y 16
+-s data -r default -d off -t loose -j 20 -n 19 -y 16
+-s data -r default -d off -t loose -j 20 -n 20 -y 16
+-s QCDHT1000 -r sideband -d off -t loose -j 5 -n 1 -y 16
+-s QCDHT1000 -r sideband -d off -t loose -j 5 -n 2 -y 16
+-s QCDHT1000 -r sideband -d off -t loose -j 5 -n 3 -y 16
+-s QCDHT1000 -r sideband -d off -t loose -j 5 -n 4 -y 16
+-s QCDHT1000 -r sideband -d off -t loose -j 5 -n 5 -y 16
+-s QCDHT1500 -r sideband -d off -t loose -j 1 -n 1 -y 16
+-s QCDHT1000ext -r sideband -d off -t loose -j 5 -n 1 -y 16
+-s QCDHT1000ext -r sideband -d off -t loose -j 5 -n 2 -y 16
+-s QCDHT1000ext -r sideband -d off -t loose -j 5 -n 3 -y 16
+-s QCDHT1000ext -r sideband -d off -t loose -j 5 -n 4 -y 16
+-s QCDHT1000ext -r sideband -d off -t loose -j 5 -n 5 -y 16
+-s QCDHT700 -r sideband -d off -t loose -j 1 -n 1 -y 16
+-s QCDHT1500ext -r sideband -d off -t loose -j 1 -n 1 -y 16
+-s QCDHT2000 -r sideband -d off -t loose -j 1 -n 1 -y 16
+-s QCDHT2000ext -r sideband -d off -t loose -j 1 -n 1 -y 16
+-s ttbar -r sideband -d off -t loose -j 1 -n 1 -y 16
+-s ttbar -r sideband -d off -t loose -j 1 -n 1 -y 16 -J up
+-s ttbar -r sideband -d off -t loose -j 1 -n 1 -y 16 -R up
+-s ttbar -r sideband -d off -t loose -j 1 -n 1 -y 16 -a up
+-s ttbar -r sideband -d off -t loose -j 1 -n 1 -y 16 -b up
+-s ttbar -r sideband -d off -t loose -j 1 -n 1 -y 16 -J down
+-s ttbar -r sideband -d off -t loose -j 1 -n 1 -y 16 -R down
+-s ttbar -r sideband -d off -t loose -j 1 -n 1 -y 16 -a down
+-s ttbar -r sideband -d off -t loose -j 1 -n 1 -y 16 -b down
+-s singletop_tB -r sideband -d off -t loose -j 1 -n 1 -y 16
+-s singletop_tB -r sideband -d off -t loose -j 1 -n 1 -y 16 -J up
+-s singletop_tB -r sideband -d off -t loose -j 1 -n 1 -y 16 -R up
+-s singletop_tB -r sideband -d off -t loose -j 1 -n 1 -y 16 -a up
+-s singletop_tB -r sideband -d off -t loose -j 1 -n 1 -y 16 -b up
+-s singletop_tB -r sideband -d off -t loose -j 1 -n 1 -y 16 -J down
+-s singletop_tB -r sideband -d off -t loose -j 1 -n 1 -y 16 -R down
+-s singletop_tB -r sideband -d off -t loose -j 1 -n 1 -y 16 -a down
+-s singletop_tB -r sideband -d off -t loose -j 1 -n 1 -y 16 -b down
+-s singletop_tW -r sideband -d off -t loose -j 1 -n 1 -y 16
+-s singletop_tW -r sideband -d off -t loose -j 1 -n 1 -y 16 -J up
+-s singletop_tW -r sideband -d off -t loose -j 1 -n 1 -y 16 -R up
+-s singletop_tW -r sideband -d off -t loose -j 1 -n 1 -y 16 -a up
+-s singletop_tW -r sideband -d off -t loose -j 1 -n 1 -y 16 -b up
+-s singletop_tW -r sideband -d off -t loose -j 1 -n 1 -y 16 -J down
+-s singletop_tW -r sideband -d off -t loose -j 1 -n 1 -y 16 -R down
+-s singletop_tW -r sideband -d off -t loose -j 1 -n 1 -y 16 -a down
+-s singletop_tW -r sideband -d off -t loose -j 1 -n 1 -y 16 -b down
+-s singletop_tWB -r sideband -d off -t loose -j 1 -n 1 -y 16
+-s singletop_tWB -r sideband -d off -t loose -j 1 -n 1 -y 16 -J up
+-s singletop_tWB -r sideband -d off -t loose -j 1 -n 1 -y 16 -R up
+-s singletop_tWB -r sideband -d off -t loose -j 1 -n 1 -y 16 -a up
+-s singletop_tWB -r sideband -d off -t loose -j 1 -n 1 -y 16 -b up
+-s singletop_tWB -r sideband -d off -t loose -j 1 -n 1 -y 16 -J down
+-s singletop_tWB -r sideband -d off -t loose -j 1 -n 1 -y 16 -R down
+-s singletop_tWB -r sideband -d off -t loose -j 1 -n 1 -y 16 -a down
+-s singletop_tWB -r sideband -d off -t loose -j 1 -n 1 -y 16 -b down
+-s singletop_t -r sideband -d off -t loose -j 1 -n 1 -y 16
+-s singletop_t -r sideband -d off -t loose -j 1 -n 1 -y 16 -J up
+-s singletop_t -r sideband -d off -t loose -j 1 -n 1 -y 16 -R up
+-s singletop_t -r sideband -d off -t loose -j 1 -n 1 -y 16 -a up
+-s singletop_t -r sideband -d off -t loose -j 1 -n 1 -y 16 -b up
+-s singletop_t -r sideband -d off -t loose -j 1 -n 1 -y 16 -J down
+-s singletop_t -r sideband -d off -t loose -j 1 -n 1 -y 16 -R down
+-s singletop_t -r sideband -d off -t loose -j 1 -n 1 -y 16 -a down
+-s singletop_t -r sideband -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalLH1200 -r sideband -d off -t loose -j 1 -n 1 -y 16
+-s signalLH1200 -r sideband -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalLH1200 -r sideband -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalLH1200 -r sideband -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalLH1200 -r sideband -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalLH1200 -r sideband -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalLH1200 -r sideband -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalLH1200 -r sideband -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalLH1200 -r sideband -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalLH1400 -r sideband -d off -t loose -j 1 -n 1 -y 16
+-s signalLH1400 -r sideband -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalLH1400 -r sideband -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalLH1400 -r sideband -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalLH1400 -r sideband -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalLH1400 -r sideband -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalLH1400 -r sideband -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalLH1400 -r sideband -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalLH1400 -r sideband -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalLH1600 -r sideband -d off -t loose -j 1 -n 1 -y 16
+-s signalLH1600 -r sideband -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalLH1600 -r sideband -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalLH1600 -r sideband -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalLH1600 -r sideband -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalLH1600 -r sideband -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalLH1600 -r sideband -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalLH1600 -r sideband -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalLH1600 -r sideband -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalLH1800 -r sideband -d off -t loose -j 1 -n 1 -y 16
+-s signalLH1800 -r sideband -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalLH1800 -r sideband -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalLH1800 -r sideband -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalLH1800 -r sideband -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalLH1800 -r sideband -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalLH1800 -r sideband -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalLH1800 -r sideband -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalLH1800 -r sideband -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalLH2000 -r sideband -d off -t loose -j 1 -n 1 -y 16
+-s signalLH2000 -r sideband -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalLH2000 -r sideband -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalLH2000 -r sideband -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalLH2000 -r sideband -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalLH2000 -r sideband -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalLH2000 -r sideband -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalLH2000 -r sideband -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalLH2000 -r sideband -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalLH2200 -r sideband -d off -t loose -j 1 -n 1 -y 16
+-s signalLH2200 -r sideband -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalLH2200 -r sideband -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalLH2200 -r sideband -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalLH2200 -r sideband -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalLH2200 -r sideband -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalLH2200 -r sideband -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalLH2200 -r sideband -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalLH2200 -r sideband -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalLH2400 -r sideband -d off -t loose -j 1 -n 1 -y 16
+-s signalLH2400 -r sideband -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalLH2400 -r sideband -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalLH2400 -r sideband -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalLH2400 -r sideband -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalLH2400 -r sideband -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalLH2400 -r sideband -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalLH2400 -r sideband -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalLH2400 -r sideband -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalLH2600 -r sideband -d off -t loose -j 1 -n 1 -y 16
+-s signalLH2600 -r sideband -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalLH2600 -r sideband -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalLH2600 -r sideband -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalLH2600 -r sideband -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalLH2600 -r sideband -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalLH2600 -r sideband -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalLH2600 -r sideband -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalLH2600 -r sideband -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalLH2800 -r sideband -d off -t loose -j 1 -n 1 -y 16
+-s signalLH2800 -r sideband -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalLH2800 -r sideband -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalLH2800 -r sideband -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalLH2800 -r sideband -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalLH2800 -r sideband -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalLH2800 -r sideband -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalLH2800 -r sideband -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalLH2800 -r sideband -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalLH3000 -r sideband -d off -t loose -j 1 -n 1 -y 16
+-s signalLH3000 -r sideband -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalLH3000 -r sideband -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalLH3000 -r sideband -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalLH3000 -r sideband -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalLH3000 -r sideband -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalLH3000 -r sideband -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalLH3000 -r sideband -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalLH3000 -r sideband -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalRH1200 -r sideband -d off -t loose -j 1 -n 1 -y 16
+-s signalRH1200 -r sideband -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalRH1200 -r sideband -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalRH1200 -r sideband -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalRH1200 -r sideband -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalRH1200 -r sideband -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalRH1200 -r sideband -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalRH1200 -r sideband -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalRH1200 -r sideband -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalRH1400 -r sideband -d off -t loose -j 1 -n 1 -y 16
+-s signalRH1400 -r sideband -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalRH1400 -r sideband -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalRH1400 -r sideband -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalRH1400 -r sideband -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalRH1400 -r sideband -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalRH1400 -r sideband -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalRH1400 -r sideband -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalRH1400 -r sideband -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalRH1600 -r sideband -d off -t loose -j 1 -n 1 -y 16
+-s signalRH1600 -r sideband -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalRH1600 -r sideband -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalRH1600 -r sideband -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalRH1600 -r sideband -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalRH1600 -r sideband -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalRH1600 -r sideband -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalRH1600 -r sideband -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalRH1600 -r sideband -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalRH1800 -r sideband -d off -t loose -j 1 -n 1 -y 16
+-s signalRH1800 -r sideband -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalRH1800 -r sideband -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalRH1800 -r sideband -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalRH1800 -r sideband -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalRH1800 -r sideband -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalRH1800 -r sideband -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalRH1800 -r sideband -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalRH1800 -r sideband -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalRH2000 -r sideband -d off -t loose -j 1 -n 1 -y 16
+-s signalRH2000 -r sideband -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalRH2000 -r sideband -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalRH2000 -r sideband -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalRH2000 -r sideband -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalRH2000 -r sideband -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalRH2000 -r sideband -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalRH2000 -r sideband -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalRH2000 -r sideband -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalRH2200 -r sideband -d off -t loose -j 1 -n 1 -y 16
+-s signalRH2200 -r sideband -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalRH2200 -r sideband -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalRH2200 -r sideband -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalRH2200 -r sideband -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalRH2200 -r sideband -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalRH2200 -r sideband -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalRH2200 -r sideband -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalRH2200 -r sideband -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalRH2400 -r sideband -d off -t loose -j 1 -n 1 -y 16
+-s signalRH2400 -r sideband -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalRH2400 -r sideband -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalRH2400 -r sideband -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalRH2400 -r sideband -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalRH2400 -r sideband -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalRH2400 -r sideband -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalRH2400 -r sideband -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalRH2400 -r sideband -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalRH2600 -r sideband -d off -t loose -j 1 -n 1 -y 16
+-s signalRH2600 -r sideband -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalRH2600 -r sideband -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalRH2600 -r sideband -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalRH2600 -r sideband -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalRH2600 -r sideband -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalRH2600 -r sideband -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalRH2600 -r sideband -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalRH2600 -r sideband -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalRH2800 -r sideband -d off -t loose -j 1 -n 1 -y 16
+-s signalRH2800 -r sideband -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalRH2800 -r sideband -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalRH2800 -r sideband -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalRH2800 -r sideband -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalRH2800 -r sideband -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalRH2800 -r sideband -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalRH2800 -r sideband -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalRH2800 -r sideband -d off -t loose -j 1 -n 1 -y 16 -b down
+-s signalRH3000 -r sideband -d off -t loose -j 1 -n 1 -y 16
+-s signalRH3000 -r sideband -d off -t loose -j 1 -n 1 -y 16 -J up
+-s signalRH3000 -r sideband -d off -t loose -j 1 -n 1 -y 16 -R up
+-s signalRH3000 -r sideband -d off -t loose -j 1 -n 1 -y 16 -a up
+-s signalRH3000 -r sideband -d off -t loose -j 1 -n 1 -y 16 -b up
+-s signalRH3000 -r sideband -d off -t loose -j 1 -n 1 -y 16 -J down
+-s signalRH3000 -r sideband -d off -t loose -j 1 -n 1 -y 16 -R down
+-s signalRH3000 -r sideband -d off -t loose -j 1 -n 1 -y 16 -a down
+-s signalRH3000 -r sideband -d off -t loose -j 1 -n 1 -y 16 -b down
+-s data -r sideband -d off -t loose -j 20 -n 1 -y 16
+-s data -r sideband -d off -t loose -j 20 -n 2 -y 16
+-s data -r sideband -d off -t loose -j 20 -n 3 -y 16
+-s data -r sideband -d off -t loose -j 20 -n 4 -y 16
+-s data -r sideband -d off -t loose -j 20 -n 5 -y 16
+-s data -r sideband -d off -t loose -j 20 -n 6 -y 16
+-s data -r sideband -d off -t loose -j 20 -n 7 -y 16
+-s data -r sideband -d off -t loose -j 20 -n 8 -y 16
+-s data -r sideband -d off -t loose -j 20 -n 9 -y 16
+-s data -r sideband -d off -t loose -j 20 -n 10 -y 16
+-s data -r sideband -d off -t loose -j 20 -n 11 -y 16
+-s data -r sideband -d off -t loose -j 20 -n 12 -y 16
+-s data -r sideband -d off -t loose -j 20 -n 13 -y 16
+-s data -r sideband -d off -t loose -j 20 -n 14 -y 16
+-s data -r sideband -d off -t loose -j 20 -n 15 -y 16
+-s data -r sideband -d off -t loose -j 20 -n 16 -y 16
+-s data -r sideband -d off -t loose -j 20 -n 17 -y 16
+-s data -r sideband -d off -t loose -j 20 -n 18 -y 16
+-s data -r sideband -d off -t loose -j 20 -n 19 -y 16
+-s data -r sideband -d off -t loose -j 20 -n 20 -y 16
+-s QCDHT1000 -r ttbar -d off -t medium -j 5 -n 1 -y 16
+-s QCDHT1000 -r ttbar -d off -t medium -j 5 -n 2 -y 16
+-s QCDHT1000 -r ttbar -d off -t medium -j 5 -n 3 -y 16
+-s QCDHT1000 -r ttbar -d off -t medium -j 5 -n 4 -y 16
+-s QCDHT1000 -r ttbar -d off -t medium -j 5 -n 5 -y 16
+-s QCDHT1500 -r ttbar -d off -t medium -j 1 -n 1 -y 16
+-s QCDHT1000ext -r ttbar -d off -t medium -j 5 -n 1 -y 16
+-s QCDHT1000ext -r ttbar -d off -t medium -j 5 -n 2 -y 16
+-s QCDHT1000ext -r ttbar -d off -t medium -j 5 -n 3 -y 16
+-s QCDHT1000ext -r ttbar -d off -t medium -j 5 -n 4 -y 16
+-s QCDHT1000ext -r ttbar -d off -t medium -j 5 -n 5 -y 16
+-s QCDHT700 -r ttbar -d off -t medium -j 1 -n 1 -y 16
+-s QCDHT1500ext -r ttbar -d off -t medium -j 1 -n 1 -y 16
+-s QCDHT2000 -r ttbar -d off -t medium -j 1 -n 1 -y 16
+-s QCDHT2000ext -r ttbar -d off -t medium -j 1 -n 1 -y 16
+-s ttbar -r ttbar -d off -t medium -j 1 -n 1 -y 16
+-s ttbar -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J up
+-s ttbar -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R up
+-s ttbar -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a up
+-s ttbar -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b up
+-s ttbar -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J down
+-s ttbar -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R down
+-s ttbar -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a down
+-s ttbar -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b down
+-s singletop_tB -r ttbar -d off -t medium -j 1 -n 1 -y 16
+-s singletop_tB -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J up
+-s singletop_tB -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R up
+-s singletop_tB -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a up
+-s singletop_tB -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b up
+-s singletop_tB -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J down
+-s singletop_tB -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R down
+-s singletop_tB -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a down
+-s singletop_tB -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b down
+-s singletop_tW -r ttbar -d off -t medium -j 1 -n 1 -y 16
+-s singletop_tW -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J up
+-s singletop_tW -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R up
+-s singletop_tW -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a up
+-s singletop_tW -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b up
+-s singletop_tW -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J down
+-s singletop_tW -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R down
+-s singletop_tW -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a down
+-s singletop_tW -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b down
+-s singletop_tWB -r ttbar -d off -t medium -j 1 -n 1 -y 16
+-s singletop_tWB -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J up
+-s singletop_tWB -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R up
+-s singletop_tWB -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a up
+-s singletop_tWB -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b up
+-s singletop_tWB -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J down
+-s singletop_tWB -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R down
+-s singletop_tWB -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a down
+-s singletop_tWB -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b down
+-s singletop_t -r ttbar -d off -t medium -j 1 -n 1 -y 16
+-s singletop_t -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J up
+-s singletop_t -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R up
+-s singletop_t -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a up
+-s singletop_t -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b up
+-s singletop_t -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J down
+-s singletop_t -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R down
+-s singletop_t -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a down
+-s singletop_t -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalLH1200 -r ttbar -d off -t medium -j 1 -n 1 -y 16
+-s signalLH1200 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalLH1200 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalLH1200 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalLH1200 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalLH1200 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalLH1200 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalLH1200 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalLH1200 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalLH1400 -r ttbar -d off -t medium -j 1 -n 1 -y 16
+-s signalLH1400 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalLH1400 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalLH1400 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalLH1400 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalLH1400 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalLH1400 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalLH1400 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalLH1400 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalLH1600 -r ttbar -d off -t medium -j 1 -n 1 -y 16
+-s signalLH1600 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalLH1600 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalLH1600 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalLH1600 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalLH1600 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalLH1600 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalLH1600 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalLH1600 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalLH1800 -r ttbar -d off -t medium -j 1 -n 1 -y 16
+-s signalLH1800 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalLH1800 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalLH1800 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalLH1800 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalLH1800 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalLH1800 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalLH1800 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalLH1800 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalLH2000 -r ttbar -d off -t medium -j 1 -n 1 -y 16
+-s signalLH2000 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalLH2000 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalLH2000 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalLH2000 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalLH2000 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalLH2000 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalLH2000 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalLH2000 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalLH2200 -r ttbar -d off -t medium -j 1 -n 1 -y 16
+-s signalLH2200 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalLH2200 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalLH2200 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalLH2200 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalLH2200 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalLH2200 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalLH2200 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalLH2200 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalLH2400 -r ttbar -d off -t medium -j 1 -n 1 -y 16
+-s signalLH2400 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalLH2400 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalLH2400 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalLH2400 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalLH2400 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalLH2400 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalLH2400 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalLH2400 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalLH2600 -r ttbar -d off -t medium -j 1 -n 1 -y 16
+-s signalLH2600 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalLH2600 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalLH2600 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalLH2600 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalLH2600 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalLH2600 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalLH2600 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalLH2600 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalLH2800 -r ttbar -d off -t medium -j 1 -n 1 -y 16
+-s signalLH2800 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalLH2800 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalLH2800 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalLH2800 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalLH2800 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalLH2800 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalLH2800 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalLH2800 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalLH3000 -r ttbar -d off -t medium -j 1 -n 1 -y 16
+-s signalLH3000 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalLH3000 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalLH3000 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalLH3000 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalLH3000 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalLH3000 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalLH3000 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalLH3000 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalRH1200 -r ttbar -d off -t medium -j 1 -n 1 -y 16
+-s signalRH1200 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalRH1200 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalRH1200 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalRH1200 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalRH1200 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalRH1200 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalRH1200 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalRH1200 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalRH1400 -r ttbar -d off -t medium -j 1 -n 1 -y 16
+-s signalRH1400 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalRH1400 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalRH1400 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalRH1400 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalRH1400 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalRH1400 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalRH1400 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalRH1400 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalRH1600 -r ttbar -d off -t medium -j 1 -n 1 -y 16
+-s signalRH1600 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalRH1600 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalRH1600 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalRH1600 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalRH1600 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalRH1600 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalRH1600 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalRH1600 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalRH1800 -r ttbar -d off -t medium -j 1 -n 1 -y 16
+-s signalRH1800 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalRH1800 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalRH1800 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalRH1800 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalRH1800 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalRH1800 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalRH1800 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalRH1800 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalRH2000 -r ttbar -d off -t medium -j 1 -n 1 -y 16
+-s signalRH2000 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalRH2000 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalRH2000 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalRH2000 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalRH2000 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalRH2000 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalRH2000 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalRH2000 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalRH2200 -r ttbar -d off -t medium -j 1 -n 1 -y 16
+-s signalRH2200 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalRH2200 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalRH2200 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalRH2200 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalRH2200 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalRH2200 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalRH2200 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalRH2200 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalRH2400 -r ttbar -d off -t medium -j 1 -n 1 -y 16
+-s signalRH2400 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalRH2400 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalRH2400 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalRH2400 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalRH2400 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalRH2400 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalRH2400 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalRH2400 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalRH2600 -r ttbar -d off -t medium -j 1 -n 1 -y 16
+-s signalRH2600 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalRH2600 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalRH2600 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalRH2600 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalRH2600 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalRH2600 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalRH2600 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalRH2600 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalRH2800 -r ttbar -d off -t medium -j 1 -n 1 -y 16
+-s signalRH2800 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalRH2800 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalRH2800 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalRH2800 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalRH2800 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalRH2800 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalRH2800 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalRH2800 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalRH3000 -r ttbar -d off -t medium -j 1 -n 1 -y 16
+-s signalRH3000 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalRH3000 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalRH3000 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalRH3000 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalRH3000 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalRH3000 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalRH3000 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalRH3000 -r ttbar -d off -t medium -j 1 -n 1 -y 16 -b down
+-s data -r ttbar -d off -t medium -j 20 -n 1 -y 16
+-s data -r ttbar -d off -t medium -j 20 -n 2 -y 16
+-s data -r ttbar -d off -t medium -j 20 -n 3 -y 16
+-s data -r ttbar -d off -t medium -j 20 -n 4 -y 16
+-s data -r ttbar -d off -t medium -j 20 -n 5 -y 16
+-s data -r ttbar -d off -t medium -j 20 -n 6 -y 16
+-s data -r ttbar -d off -t medium -j 20 -n 7 -y 16
+-s data -r ttbar -d off -t medium -j 20 -n 8 -y 16
+-s data -r ttbar -d off -t medium -j 20 -n 9 -y 16
+-s data -r ttbar -d off -t medium -j 20 -n 10 -y 16
+-s data -r ttbar -d off -t medium -j 20 -n 11 -y 16
+-s data -r ttbar -d off -t medium -j 20 -n 12 -y 16
+-s data -r ttbar -d off -t medium -j 20 -n 13 -y 16
+-s data -r ttbar -d off -t medium -j 20 -n 14 -y 16
+-s data -r ttbar -d off -t medium -j 20 -n 15 -y 16
+-s data -r ttbar -d off -t medium -j 20 -n 16 -y 16
+-s data -r ttbar -d off -t medium -j 20 -n 17 -y 16
+-s data -r ttbar -d off -t medium -j 20 -n 18 -y 16
+-s data -r ttbar -d off -t medium -j 20 -n 19 -y 16
+-s data -r ttbar -d off -t medium -j 20 -n 20 -y 16
+-s QCDHT1000 -r default -d off -t medium -j 5 -n 1 -y 16
+-s QCDHT1000 -r default -d off -t medium -j 5 -n 2 -y 16
+-s QCDHT1000 -r default -d off -t medium -j 5 -n 3 -y 16
+-s QCDHT1000 -r default -d off -t medium -j 5 -n 4 -y 16
+-s QCDHT1000 -r default -d off -t medium -j 5 -n 5 -y 16
+-s QCDHT1500 -r default -d off -t medium -j 1 -n 1 -y 16
+-s QCDHT1000ext -r default -d off -t medium -j 5 -n 1 -y 16
+-s QCDHT1000ext -r default -d off -t medium -j 5 -n 2 -y 16
+-s QCDHT1000ext -r default -d off -t medium -j 5 -n 3 -y 16
+-s QCDHT1000ext -r default -d off -t medium -j 5 -n 4 -y 16
+-s QCDHT1000ext -r default -d off -t medium -j 5 -n 5 -y 16
+-s QCDHT700 -r default -d off -t medium -j 1 -n 1 -y 16
+-s QCDHT1500ext -r default -d off -t medium -j 1 -n 1 -y 16
+-s QCDHT2000 -r default -d off -t medium -j 1 -n 1 -y 16
+-s QCDHT2000ext -r default -d off -t medium -j 1 -n 1 -y 16
+-s ttbar -r default -d off -t medium -j 1 -n 1 -y 16
+-s ttbar -r default -d off -t medium -j 1 -n 1 -y 16 -J up
+-s ttbar -r default -d off -t medium -j 1 -n 1 -y 16 -R up
+-s ttbar -r default -d off -t medium -j 1 -n 1 -y 16 -a up
+-s ttbar -r default -d off -t medium -j 1 -n 1 -y 16 -b up
+-s ttbar -r default -d off -t medium -j 1 -n 1 -y 16 -J down
+-s ttbar -r default -d off -t medium -j 1 -n 1 -y 16 -R down
+-s ttbar -r default -d off -t medium -j 1 -n 1 -y 16 -a down
+-s ttbar -r default -d off -t medium -j 1 -n 1 -y 16 -b down
+-s singletop_tB -r default -d off -t medium -j 1 -n 1 -y 16
+-s singletop_tB -r default -d off -t medium -j 1 -n 1 -y 16 -J up
+-s singletop_tB -r default -d off -t medium -j 1 -n 1 -y 16 -R up
+-s singletop_tB -r default -d off -t medium -j 1 -n 1 -y 16 -a up
+-s singletop_tB -r default -d off -t medium -j 1 -n 1 -y 16 -b up
+-s singletop_tB -r default -d off -t medium -j 1 -n 1 -y 16 -J down
+-s singletop_tB -r default -d off -t medium -j 1 -n 1 -y 16 -R down
+-s singletop_tB -r default -d off -t medium -j 1 -n 1 -y 16 -a down
+-s singletop_tB -r default -d off -t medium -j 1 -n 1 -y 16 -b down
+-s singletop_tW -r default -d off -t medium -j 1 -n 1 -y 16
+-s singletop_tW -r default -d off -t medium -j 1 -n 1 -y 16 -J up
+-s singletop_tW -r default -d off -t medium -j 1 -n 1 -y 16 -R up
+-s singletop_tW -r default -d off -t medium -j 1 -n 1 -y 16 -a up
+-s singletop_tW -r default -d off -t medium -j 1 -n 1 -y 16 -b up
+-s singletop_tW -r default -d off -t medium -j 1 -n 1 -y 16 -J down
+-s singletop_tW -r default -d off -t medium -j 1 -n 1 -y 16 -R down
+-s singletop_tW -r default -d off -t medium -j 1 -n 1 -y 16 -a down
+-s singletop_tW -r default -d off -t medium -j 1 -n 1 -y 16 -b down
+-s singletop_tWB -r default -d off -t medium -j 1 -n 1 -y 16
+-s singletop_tWB -r default -d off -t medium -j 1 -n 1 -y 16 -J up
+-s singletop_tWB -r default -d off -t medium -j 1 -n 1 -y 16 -R up
+-s singletop_tWB -r default -d off -t medium -j 1 -n 1 -y 16 -a up
+-s singletop_tWB -r default -d off -t medium -j 1 -n 1 -y 16 -b up
+-s singletop_tWB -r default -d off -t medium -j 1 -n 1 -y 16 -J down
+-s singletop_tWB -r default -d off -t medium -j 1 -n 1 -y 16 -R down
+-s singletop_tWB -r default -d off -t medium -j 1 -n 1 -y 16 -a down
+-s singletop_tWB -r default -d off -t medium -j 1 -n 1 -y 16 -b down
+-s singletop_t -r default -d off -t medium -j 1 -n 1 -y 16
+-s singletop_t -r default -d off -t medium -j 1 -n 1 -y 16 -J up
+-s singletop_t -r default -d off -t medium -j 1 -n 1 -y 16 -R up
+-s singletop_t -r default -d off -t medium -j 1 -n 1 -y 16 -a up
+-s singletop_t -r default -d off -t medium -j 1 -n 1 -y 16 -b up
+-s singletop_t -r default -d off -t medium -j 1 -n 1 -y 16 -J down
+-s singletop_t -r default -d off -t medium -j 1 -n 1 -y 16 -R down
+-s singletop_t -r default -d off -t medium -j 1 -n 1 -y 16 -a down
+-s singletop_t -r default -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalLH1200 -r default -d off -t medium -j 1 -n 1 -y 16
+-s signalLH1200 -r default -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalLH1200 -r default -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalLH1200 -r default -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalLH1200 -r default -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalLH1200 -r default -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalLH1200 -r default -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalLH1200 -r default -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalLH1200 -r default -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalLH1400 -r default -d off -t medium -j 1 -n 1 -y 16
+-s signalLH1400 -r default -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalLH1400 -r default -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalLH1400 -r default -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalLH1400 -r default -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalLH1400 -r default -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalLH1400 -r default -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalLH1400 -r default -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalLH1400 -r default -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalLH1600 -r default -d off -t medium -j 1 -n 1 -y 16
+-s signalLH1600 -r default -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalLH1600 -r default -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalLH1600 -r default -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalLH1600 -r default -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalLH1600 -r default -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalLH1600 -r default -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalLH1600 -r default -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalLH1600 -r default -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalLH1800 -r default -d off -t medium -j 1 -n 1 -y 16
+-s signalLH1800 -r default -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalLH1800 -r default -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalLH1800 -r default -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalLH1800 -r default -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalLH1800 -r default -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalLH1800 -r default -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalLH1800 -r default -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalLH1800 -r default -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalLH2000 -r default -d off -t medium -j 1 -n 1 -y 16
+-s signalLH2000 -r default -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalLH2000 -r default -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalLH2000 -r default -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalLH2000 -r default -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalLH2000 -r default -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalLH2000 -r default -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalLH2000 -r default -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalLH2000 -r default -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalLH2200 -r default -d off -t medium -j 1 -n 1 -y 16
+-s signalLH2200 -r default -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalLH2200 -r default -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalLH2200 -r default -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalLH2200 -r default -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalLH2200 -r default -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalLH2200 -r default -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalLH2200 -r default -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalLH2200 -r default -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalLH2400 -r default -d off -t medium -j 1 -n 1 -y 16
+-s signalLH2400 -r default -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalLH2400 -r default -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalLH2400 -r default -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalLH2400 -r default -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalLH2400 -r default -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalLH2400 -r default -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalLH2400 -r default -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalLH2400 -r default -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalLH2600 -r default -d off -t medium -j 1 -n 1 -y 16
+-s signalLH2600 -r default -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalLH2600 -r default -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalLH2600 -r default -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalLH2600 -r default -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalLH2600 -r default -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalLH2600 -r default -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalLH2600 -r default -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalLH2600 -r default -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalLH2800 -r default -d off -t medium -j 1 -n 1 -y 16
+-s signalLH2800 -r default -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalLH2800 -r default -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalLH2800 -r default -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalLH2800 -r default -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalLH2800 -r default -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalLH2800 -r default -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalLH2800 -r default -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalLH2800 -r default -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalLH3000 -r default -d off -t medium -j 1 -n 1 -y 16
+-s signalLH3000 -r default -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalLH3000 -r default -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalLH3000 -r default -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalLH3000 -r default -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalLH3000 -r default -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalLH3000 -r default -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalLH3000 -r default -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalLH3000 -r default -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalRH1200 -r default -d off -t medium -j 1 -n 1 -y 16
+-s signalRH1200 -r default -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalRH1200 -r default -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalRH1200 -r default -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalRH1200 -r default -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalRH1200 -r default -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalRH1200 -r default -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalRH1200 -r default -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalRH1200 -r default -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalRH1400 -r default -d off -t medium -j 1 -n 1 -y 16
+-s signalRH1400 -r default -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalRH1400 -r default -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalRH1400 -r default -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalRH1400 -r default -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalRH1400 -r default -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalRH1400 -r default -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalRH1400 -r default -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalRH1400 -r default -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalRH1600 -r default -d off -t medium -j 1 -n 1 -y 16
+-s signalRH1600 -r default -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalRH1600 -r default -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalRH1600 -r default -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalRH1600 -r default -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalRH1600 -r default -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalRH1600 -r default -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalRH1600 -r default -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalRH1600 -r default -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalRH1800 -r default -d off -t medium -j 1 -n 1 -y 16
+-s signalRH1800 -r default -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalRH1800 -r default -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalRH1800 -r default -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalRH1800 -r default -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalRH1800 -r default -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalRH1800 -r default -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalRH1800 -r default -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalRH1800 -r default -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalRH2000 -r default -d off -t medium -j 1 -n 1 -y 16
+-s signalRH2000 -r default -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalRH2000 -r default -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalRH2000 -r default -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalRH2000 -r default -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalRH2000 -r default -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalRH2000 -r default -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalRH2000 -r default -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalRH2000 -r default -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalRH2200 -r default -d off -t medium -j 1 -n 1 -y 16
+-s signalRH2200 -r default -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalRH2200 -r default -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalRH2200 -r default -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalRH2200 -r default -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalRH2200 -r default -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalRH2200 -r default -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalRH2200 -r default -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalRH2200 -r default -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalRH2400 -r default -d off -t medium -j 1 -n 1 -y 16
+-s signalRH2400 -r default -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalRH2400 -r default -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalRH2400 -r default -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalRH2400 -r default -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalRH2400 -r default -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalRH2400 -r default -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalRH2400 -r default -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalRH2400 -r default -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalRH2600 -r default -d off -t medium -j 1 -n 1 -y 16
+-s signalRH2600 -r default -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalRH2600 -r default -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalRH2600 -r default -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalRH2600 -r default -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalRH2600 -r default -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalRH2600 -r default -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalRH2600 -r default -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalRH2600 -r default -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalRH2800 -r default -d off -t medium -j 1 -n 1 -y 16
+-s signalRH2800 -r default -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalRH2800 -r default -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalRH2800 -r default -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalRH2800 -r default -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalRH2800 -r default -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalRH2800 -r default -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalRH2800 -r default -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalRH2800 -r default -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalRH3000 -r default -d off -t medium -j 1 -n 1 -y 16
+-s signalRH3000 -r default -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalRH3000 -r default -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalRH3000 -r default -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalRH3000 -r default -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalRH3000 -r default -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalRH3000 -r default -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalRH3000 -r default -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalRH3000 -r default -d off -t medium -j 1 -n 1 -y 16 -b down
+-s data -r default -d off -t medium -j 20 -n 1 -y 16
+-s data -r default -d off -t medium -j 20 -n 2 -y 16
+-s data -r default -d off -t medium -j 20 -n 3 -y 16
+-s data -r default -d off -t medium -j 20 -n 4 -y 16
+-s data -r default -d off -t medium -j 20 -n 5 -y 16
+-s data -r default -d off -t medium -j 20 -n 6 -y 16
+-s data -r default -d off -t medium -j 20 -n 7 -y 16
+-s data -r default -d off -t medium -j 20 -n 8 -y 16
+-s data -r default -d off -t medium -j 20 -n 9 -y 16
+-s data -r default -d off -t medium -j 20 -n 10 -y 16
+-s data -r default -d off -t medium -j 20 -n 11 -y 16
+-s data -r default -d off -t medium -j 20 -n 12 -y 16
+-s data -r default -d off -t medium -j 20 -n 13 -y 16
+-s data -r default -d off -t medium -j 20 -n 14 -y 16
+-s data -r default -d off -t medium -j 20 -n 15 -y 16
+-s data -r default -d off -t medium -j 20 -n 16 -y 16
+-s data -r default -d off -t medium -j 20 -n 17 -y 16
+-s data -r default -d off -t medium -j 20 -n 18 -y 16
+-s data -r default -d off -t medium -j 20 -n 19 -y 16
+-s data -r default -d off -t medium -j 20 -n 20 -y 16
+-s QCDHT1000 -r sideband -d off -t medium -j 5 -n 1 -y 16
+-s QCDHT1000 -r sideband -d off -t medium -j 5 -n 2 -y 16
+-s QCDHT1000 -r sideband -d off -t medium -j 5 -n 3 -y 16
+-s QCDHT1000 -r sideband -d off -t medium -j 5 -n 4 -y 16
+-s QCDHT1000 -r sideband -d off -t medium -j 5 -n 5 -y 16
+-s QCDHT1500 -r sideband -d off -t medium -j 1 -n 1 -y 16
+-s QCDHT1000ext -r sideband -d off -t medium -j 5 -n 1 -y 16
+-s QCDHT1000ext -r sideband -d off -t medium -j 5 -n 2 -y 16
+-s QCDHT1000ext -r sideband -d off -t medium -j 5 -n 3 -y 16
+-s QCDHT1000ext -r sideband -d off -t medium -j 5 -n 4 -y 16
+-s QCDHT1000ext -r sideband -d off -t medium -j 5 -n 5 -y 16
+-s QCDHT700 -r sideband -d off -t medium -j 1 -n 1 -y 16
+-s QCDHT1500ext -r sideband -d off -t medium -j 1 -n 1 -y 16
+-s QCDHT2000 -r sideband -d off -t medium -j 1 -n 1 -y 16
+-s QCDHT2000ext -r sideband -d off -t medium -j 1 -n 1 -y 16
+-s ttbar -r sideband -d off -t medium -j 1 -n 1 -y 16
+-s ttbar -r sideband -d off -t medium -j 1 -n 1 -y 16 -J up
+-s ttbar -r sideband -d off -t medium -j 1 -n 1 -y 16 -R up
+-s ttbar -r sideband -d off -t medium -j 1 -n 1 -y 16 -a up
+-s ttbar -r sideband -d off -t medium -j 1 -n 1 -y 16 -b up
+-s ttbar -r sideband -d off -t medium -j 1 -n 1 -y 16 -J down
+-s ttbar -r sideband -d off -t medium -j 1 -n 1 -y 16 -R down
+-s ttbar -r sideband -d off -t medium -j 1 -n 1 -y 16 -a down
+-s ttbar -r sideband -d off -t medium -j 1 -n 1 -y 16 -b down
+-s singletop_tB -r sideband -d off -t medium -j 1 -n 1 -y 16
+-s singletop_tB -r sideband -d off -t medium -j 1 -n 1 -y 16 -J up
+-s singletop_tB -r sideband -d off -t medium -j 1 -n 1 -y 16 -R up
+-s singletop_tB -r sideband -d off -t medium -j 1 -n 1 -y 16 -a up
+-s singletop_tB -r sideband -d off -t medium -j 1 -n 1 -y 16 -b up
+-s singletop_tB -r sideband -d off -t medium -j 1 -n 1 -y 16 -J down
+-s singletop_tB -r sideband -d off -t medium -j 1 -n 1 -y 16 -R down
+-s singletop_tB -r sideband -d off -t medium -j 1 -n 1 -y 16 -a down
+-s singletop_tB -r sideband -d off -t medium -j 1 -n 1 -y 16 -b down
+-s singletop_tW -r sideband -d off -t medium -j 1 -n 1 -y 16
+-s singletop_tW -r sideband -d off -t medium -j 1 -n 1 -y 16 -J up
+-s singletop_tW -r sideband -d off -t medium -j 1 -n 1 -y 16 -R up
+-s singletop_tW -r sideband -d off -t medium -j 1 -n 1 -y 16 -a up
+-s singletop_tW -r sideband -d off -t medium -j 1 -n 1 -y 16 -b up
+-s singletop_tW -r sideband -d off -t medium -j 1 -n 1 -y 16 -J down
+-s singletop_tW -r sideband -d off -t medium -j 1 -n 1 -y 16 -R down
+-s singletop_tW -r sideband -d off -t medium -j 1 -n 1 -y 16 -a down
+-s singletop_tW -r sideband -d off -t medium -j 1 -n 1 -y 16 -b down
+-s singletop_tWB -r sideband -d off -t medium -j 1 -n 1 -y 16
+-s singletop_tWB -r sideband -d off -t medium -j 1 -n 1 -y 16 -J up
+-s singletop_tWB -r sideband -d off -t medium -j 1 -n 1 -y 16 -R up
+-s singletop_tWB -r sideband -d off -t medium -j 1 -n 1 -y 16 -a up
+-s singletop_tWB -r sideband -d off -t medium -j 1 -n 1 -y 16 -b up
+-s singletop_tWB -r sideband -d off -t medium -j 1 -n 1 -y 16 -J down
+-s singletop_tWB -r sideband -d off -t medium -j 1 -n 1 -y 16 -R down
+-s singletop_tWB -r sideband -d off -t medium -j 1 -n 1 -y 16 -a down
+-s singletop_tWB -r sideband -d off -t medium -j 1 -n 1 -y 16 -b down
+-s singletop_t -r sideband -d off -t medium -j 1 -n 1 -y 16
+-s singletop_t -r sideband -d off -t medium -j 1 -n 1 -y 16 -J up
+-s singletop_t -r sideband -d off -t medium -j 1 -n 1 -y 16 -R up
+-s singletop_t -r sideband -d off -t medium -j 1 -n 1 -y 16 -a up
+-s singletop_t -r sideband -d off -t medium -j 1 -n 1 -y 16 -b up
+-s singletop_t -r sideband -d off -t medium -j 1 -n 1 -y 16 -J down
+-s singletop_t -r sideband -d off -t medium -j 1 -n 1 -y 16 -R down
+-s singletop_t -r sideband -d off -t medium -j 1 -n 1 -y 16 -a down
+-s singletop_t -r sideband -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalLH1200 -r sideband -d off -t medium -j 1 -n 1 -y 16
+-s signalLH1200 -r sideband -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalLH1200 -r sideband -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalLH1200 -r sideband -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalLH1200 -r sideband -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalLH1200 -r sideband -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalLH1200 -r sideband -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalLH1200 -r sideband -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalLH1200 -r sideband -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalLH1400 -r sideband -d off -t medium -j 1 -n 1 -y 16
+-s signalLH1400 -r sideband -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalLH1400 -r sideband -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalLH1400 -r sideband -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalLH1400 -r sideband -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalLH1400 -r sideband -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalLH1400 -r sideband -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalLH1400 -r sideband -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalLH1400 -r sideband -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalLH1600 -r sideband -d off -t medium -j 1 -n 1 -y 16
+-s signalLH1600 -r sideband -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalLH1600 -r sideband -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalLH1600 -r sideband -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalLH1600 -r sideband -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalLH1600 -r sideband -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalLH1600 -r sideband -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalLH1600 -r sideband -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalLH1600 -r sideband -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalLH1800 -r sideband -d off -t medium -j 1 -n 1 -y 16
+-s signalLH1800 -r sideband -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalLH1800 -r sideband -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalLH1800 -r sideband -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalLH1800 -r sideband -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalLH1800 -r sideband -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalLH1800 -r sideband -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalLH1800 -r sideband -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalLH1800 -r sideband -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalLH2000 -r sideband -d off -t medium -j 1 -n 1 -y 16
+-s signalLH2000 -r sideband -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalLH2000 -r sideband -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalLH2000 -r sideband -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalLH2000 -r sideband -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalLH2000 -r sideband -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalLH2000 -r sideband -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalLH2000 -r sideband -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalLH2000 -r sideband -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalLH2200 -r sideband -d off -t medium -j 1 -n 1 -y 16
+-s signalLH2200 -r sideband -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalLH2200 -r sideband -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalLH2200 -r sideband -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalLH2200 -r sideband -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalLH2200 -r sideband -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalLH2200 -r sideband -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalLH2200 -r sideband -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalLH2200 -r sideband -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalLH2400 -r sideband -d off -t medium -j 1 -n 1 -y 16
+-s signalLH2400 -r sideband -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalLH2400 -r sideband -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalLH2400 -r sideband -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalLH2400 -r sideband -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalLH2400 -r sideband -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalLH2400 -r sideband -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalLH2400 -r sideband -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalLH2400 -r sideband -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalLH2600 -r sideband -d off -t medium -j 1 -n 1 -y 16
+-s signalLH2600 -r sideband -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalLH2600 -r sideband -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalLH2600 -r sideband -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalLH2600 -r sideband -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalLH2600 -r sideband -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalLH2600 -r sideband -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalLH2600 -r sideband -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalLH2600 -r sideband -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalLH2800 -r sideband -d off -t medium -j 1 -n 1 -y 16
+-s signalLH2800 -r sideband -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalLH2800 -r sideband -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalLH2800 -r sideband -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalLH2800 -r sideband -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalLH2800 -r sideband -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalLH2800 -r sideband -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalLH2800 -r sideband -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalLH2800 -r sideband -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalLH3000 -r sideband -d off -t medium -j 1 -n 1 -y 16
+-s signalLH3000 -r sideband -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalLH3000 -r sideband -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalLH3000 -r sideband -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalLH3000 -r sideband -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalLH3000 -r sideband -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalLH3000 -r sideband -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalLH3000 -r sideband -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalLH3000 -r sideband -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalRH1200 -r sideband -d off -t medium -j 1 -n 1 -y 16
+-s signalRH1200 -r sideband -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalRH1200 -r sideband -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalRH1200 -r sideband -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalRH1200 -r sideband -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalRH1200 -r sideband -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalRH1200 -r sideband -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalRH1200 -r sideband -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalRH1200 -r sideband -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalRH1400 -r sideband -d off -t medium -j 1 -n 1 -y 16
+-s signalRH1400 -r sideband -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalRH1400 -r sideband -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalRH1400 -r sideband -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalRH1400 -r sideband -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalRH1400 -r sideband -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalRH1400 -r sideband -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalRH1400 -r sideband -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalRH1400 -r sideband -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalRH1600 -r sideband -d off -t medium -j 1 -n 1 -y 16
+-s signalRH1600 -r sideband -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalRH1600 -r sideband -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalRH1600 -r sideband -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalRH1600 -r sideband -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalRH1600 -r sideband -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalRH1600 -r sideband -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalRH1600 -r sideband -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalRH1600 -r sideband -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalRH1800 -r sideband -d off -t medium -j 1 -n 1 -y 16
+-s signalRH1800 -r sideband -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalRH1800 -r sideband -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalRH1800 -r sideband -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalRH1800 -r sideband -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalRH1800 -r sideband -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalRH1800 -r sideband -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalRH1800 -r sideband -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalRH1800 -r sideband -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalRH2000 -r sideband -d off -t medium -j 1 -n 1 -y 16
+-s signalRH2000 -r sideband -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalRH2000 -r sideband -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalRH2000 -r sideband -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalRH2000 -r sideband -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalRH2000 -r sideband -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalRH2000 -r sideband -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalRH2000 -r sideband -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalRH2000 -r sideband -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalRH2200 -r sideband -d off -t medium -j 1 -n 1 -y 16
+-s signalRH2200 -r sideband -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalRH2200 -r sideband -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalRH2200 -r sideband -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalRH2200 -r sideband -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalRH2200 -r sideband -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalRH2200 -r sideband -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalRH2200 -r sideband -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalRH2200 -r sideband -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalRH2400 -r sideband -d off -t medium -j 1 -n 1 -y 16
+-s signalRH2400 -r sideband -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalRH2400 -r sideband -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalRH2400 -r sideband -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalRH2400 -r sideband -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalRH2400 -r sideband -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalRH2400 -r sideband -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalRH2400 -r sideband -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalRH2400 -r sideband -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalRH2600 -r sideband -d off -t medium -j 1 -n 1 -y 16
+-s signalRH2600 -r sideband -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalRH2600 -r sideband -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalRH2600 -r sideband -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalRH2600 -r sideband -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalRH2600 -r sideband -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalRH2600 -r sideband -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalRH2600 -r sideband -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalRH2600 -r sideband -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalRH2800 -r sideband -d off -t medium -j 1 -n 1 -y 16
+-s signalRH2800 -r sideband -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalRH2800 -r sideband -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalRH2800 -r sideband -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalRH2800 -r sideband -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalRH2800 -r sideband -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalRH2800 -r sideband -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalRH2800 -r sideband -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalRH2800 -r sideband -d off -t medium -j 1 -n 1 -y 16 -b down
+-s signalRH3000 -r sideband -d off -t medium -j 1 -n 1 -y 16
+-s signalRH3000 -r sideband -d off -t medium -j 1 -n 1 -y 16 -J up
+-s signalRH3000 -r sideband -d off -t medium -j 1 -n 1 -y 16 -R up
+-s signalRH3000 -r sideband -d off -t medium -j 1 -n 1 -y 16 -a up
+-s signalRH3000 -r sideband -d off -t medium -j 1 -n 1 -y 16 -b up
+-s signalRH3000 -r sideband -d off -t medium -j 1 -n 1 -y 16 -J down
+-s signalRH3000 -r sideband -d off -t medium -j 1 -n 1 -y 16 -R down
+-s signalRH3000 -r sideband -d off -t medium -j 1 -n 1 -y 16 -a down
+-s signalRH3000 -r sideband -d off -t medium -j 1 -n 1 -y 16 -b down
+-s data -r sideband -d off -t medium -j 20 -n 1 -y 16
+-s data -r sideband -d off -t medium -j 20 -n 2 -y 16
+-s data -r sideband -d off -t medium -j 20 -n 3 -y 16
+-s data -r sideband -d off -t medium -j 20 -n 4 -y 16
+-s data -r sideband -d off -t medium -j 20 -n 5 -y 16
+-s data -r sideband -d off -t medium -j 20 -n 6 -y 16
+-s data -r sideband -d off -t medium -j 20 -n 7 -y 16
+-s data -r sideband -d off -t medium -j 20 -n 8 -y 16
+-s data -r sideband -d off -t medium -j 20 -n 9 -y 16
+-s data -r sideband -d off -t medium -j 20 -n 10 -y 16
+-s data -r sideband -d off -t medium -j 20 -n 11 -y 16
+-s data -r sideband -d off -t medium -j 20 -n 12 -y 16
+-s data -r sideband -d off -t medium -j 20 -n 13 -y 16
+-s data -r sideband -d off -t medium -j 20 -n 14 -y 16
+-s data -r sideband -d off -t medium -j 20 -n 15 -y 16
+-s data -r sideband -d off -t medium -j 20 -n 16 -y 16
+-s data -r sideband -d off -t medium -j 20 -n 17 -y 16
+-s data -r sideband -d off -t medium -j 20 -n 18 -y 16
+-s data -r sideband -d off -t medium -j 20 -n 19 -y 16
+-s data -r sideband -d off -t medium -j 20 -n 20 -y 16
+-s QCDHT1000 -r ttbar -d off -t loose -j 1 -n 1 -y 17
+-s QCDHT1500 -r ttbar -d off -t loose -j 1 -n 1 -y 17
+-s QCDHT2000 -r ttbar -d off -t loose -j 1 -n 1 -y 17
+-s QCDHT700 -r ttbar -d off -t loose -j 1 -n 1 -y 17
+-s ttbar -r ttbar -d off -t loose -j 1 -n 1 -y 17
+-s ttbar -r ttbar -d off -t loose -j 1 -n 1 -y 17 -J up
+-s ttbar -r ttbar -d off -t loose -j 1 -n 1 -y 17 -R up
+-s ttbar -r ttbar -d off -t loose -j 1 -n 1 -y 17 -a up
+-s ttbar -r ttbar -d off -t loose -j 1 -n 1 -y 17 -b up
+-s ttbar -r ttbar -d off -t loose -j 1 -n 1 -y 17 -J down
+-s ttbar -r ttbar -d off -t loose -j 1 -n 1 -y 17 -R down
+-s ttbar -r ttbar -d off -t loose -j 1 -n 1 -y 17 -a down
+-s ttbar -r ttbar -d off -t loose -j 1 -n 1 -y 17 -b down
+-s singletop_tB -r ttbar -d off -t loose -j 1 -n 1 -y 17
+-s singletop_tB -r ttbar -d off -t loose -j 1 -n 1 -y 17 -J up
+-s singletop_tB -r ttbar -d off -t loose -j 1 -n 1 -y 17 -R up
+-s singletop_tB -r ttbar -d off -t loose -j 1 -n 1 -y 17 -a up
+-s singletop_tB -r ttbar -d off -t loose -j 1 -n 1 -y 17 -b up
+-s singletop_tB -r ttbar -d off -t loose -j 1 -n 1 -y 17 -J down
+-s singletop_tB -r ttbar -d off -t loose -j 1 -n 1 -y 17 -R down
+-s singletop_tB -r ttbar -d off -t loose -j 1 -n 1 -y 17 -a down
+-s singletop_tB -r ttbar -d off -t loose -j 1 -n 1 -y 17 -b down
+-s singletop_tW -r ttbar -d off -t loose -j 1 -n 1 -y 17
+-s singletop_tW -r ttbar -d off -t loose -j 1 -n 1 -y 17 -J up
+-s singletop_tW -r ttbar -d off -t loose -j 1 -n 1 -y 17 -R up
+-s singletop_tW -r ttbar -d off -t loose -j 1 -n 1 -y 17 -a up
+-s singletop_tW -r ttbar -d off -t loose -j 1 -n 1 -y 17 -b up
+-s singletop_tW -r ttbar -d off -t loose -j 1 -n 1 -y 17 -J down
+-s singletop_tW -r ttbar -d off -t loose -j 1 -n 1 -y 17 -R down
+-s singletop_tW -r ttbar -d off -t loose -j 1 -n 1 -y 17 -a down
+-s singletop_tW -r ttbar -d off -t loose -j 1 -n 1 -y 17 -b down
+-s singletop_tWB -r ttbar -d off -t loose -j 1 -n 1 -y 17
+-s singletop_tWB -r ttbar -d off -t loose -j 1 -n 1 -y 17 -J up
+-s singletop_tWB -r ttbar -d off -t loose -j 1 -n 1 -y 17 -R up
+-s singletop_tWB -r ttbar -d off -t loose -j 1 -n 1 -y 17 -a up
+-s singletop_tWB -r ttbar -d off -t loose -j 1 -n 1 -y 17 -b up
+-s singletop_tWB -r ttbar -d off -t loose -j 1 -n 1 -y 17 -J down
+-s singletop_tWB -r ttbar -d off -t loose -j 1 -n 1 -y 17 -R down
+-s singletop_tWB -r ttbar -d off -t loose -j 1 -n 1 -y 17 -a down
+-s singletop_tWB -r ttbar -d off -t loose -j 1 -n 1 -y 17 -b down
+-s singletop_t -r ttbar -d off -t loose -j 1 -n 1 -y 17
+-s singletop_t -r ttbar -d off -t loose -j 1 -n 1 -y 17 -J up
+-s singletop_t -r ttbar -d off -t loose -j 1 -n 1 -y 17 -R up
+-s singletop_t -r ttbar -d off -t loose -j 1 -n 1 -y 17 -a up
+-s singletop_t -r ttbar -d off -t loose -j 1 -n 1 -y 17 -b up
+-s singletop_t -r ttbar -d off -t loose -j 1 -n 1 -y 17 -J down
+-s singletop_t -r ttbar -d off -t loose -j 1 -n 1 -y 17 -R down
+-s singletop_t -r ttbar -d off -t loose -j 1 -n 1 -y 17 -a down
+-s singletop_t -r ttbar -d off -t loose -j 1 -n 1 -y 17 -b down
+-s data -r ttbar -d off -t loose -j 20 -n 1 -y 17
+-s data -r ttbar -d off -t loose -j 20 -n 2 -y 17
+-s data -r ttbar -d off -t loose -j 20 -n 3 -y 17
+-s data -r ttbar -d off -t loose -j 20 -n 4 -y 17
+-s data -r ttbar -d off -t loose -j 20 -n 5 -y 17
+-s data -r ttbar -d off -t loose -j 20 -n 6 -y 17
+-s data -r ttbar -d off -t loose -j 20 -n 7 -y 17
+-s data -r ttbar -d off -t loose -j 20 -n 8 -y 17
+-s data -r ttbar -d off -t loose -j 20 -n 9 -y 17
+-s data -r ttbar -d off -t loose -j 20 -n 10 -y 17
+-s data -r ttbar -d off -t loose -j 20 -n 11 -y 17
+-s data -r ttbar -d off -t loose -j 20 -n 12 -y 17
+-s data -r ttbar -d off -t loose -j 20 -n 13 -y 17
+-s data -r ttbar -d off -t loose -j 20 -n 14 -y 17
+-s data -r ttbar -d off -t loose -j 20 -n 15 -y 17
+-s data -r ttbar -d off -t loose -j 20 -n 16 -y 17
+-s data -r ttbar -d off -t loose -j 20 -n 17 -y 17
+-s data -r ttbar -d off -t loose -j 20 -n 18 -y 17
+-s data -r ttbar -d off -t loose -j 20 -n 19 -y 17
+-s data -r ttbar -d off -t loose -j 20 -n 20 -y 17
+-s QCDHT1000 -r default -d off -t loose -j 1 -n 1 -y 17
+-s QCDHT1500 -r default -d off -t loose -j 1 -n 1 -y 17
+-s QCDHT2000 -r default -d off -t loose -j 1 -n 1 -y 17
+-s QCDHT700 -r default -d off -t loose -j 1 -n 1 -y 17
+-s ttbar -r default -d off -t loose -j 1 -n 1 -y 17
+-s ttbar -r default -d off -t loose -j 1 -n 1 -y 17 -J up
+-s ttbar -r default -d off -t loose -j 1 -n 1 -y 17 -R up
+-s ttbar -r default -d off -t loose -j 1 -n 1 -y 17 -a up
+-s ttbar -r default -d off -t loose -j 1 -n 1 -y 17 -b up
+-s ttbar -r default -d off -t loose -j 1 -n 1 -y 17 -J down
+-s ttbar -r default -d off -t loose -j 1 -n 1 -y 17 -R down
+-s ttbar -r default -d off -t loose -j 1 -n 1 -y 17 -a down
+-s ttbar -r default -d off -t loose -j 1 -n 1 -y 17 -b down
+-s singletop_tB -r default -d off -t loose -j 1 -n 1 -y 17
+-s singletop_tB -r default -d off -t loose -j 1 -n 1 -y 17 -J up
+-s singletop_tB -r default -d off -t loose -j 1 -n 1 -y 17 -R up
+-s singletop_tB -r default -d off -t loose -j 1 -n 1 -y 17 -a up
+-s singletop_tB -r default -d off -t loose -j 1 -n 1 -y 17 -b up
+-s singletop_tB -r default -d off -t loose -j 1 -n 1 -y 17 -J down
+-s singletop_tB -r default -d off -t loose -j 1 -n 1 -y 17 -R down
+-s singletop_tB -r default -d off -t loose -j 1 -n 1 -y 17 -a down
+-s singletop_tB -r default -d off -t loose -j 1 -n 1 -y 17 -b down
+-s singletop_tW -r default -d off -t loose -j 1 -n 1 -y 17
+-s singletop_tW -r default -d off -t loose -j 1 -n 1 -y 17 -J up
+-s singletop_tW -r default -d off -t loose -j 1 -n 1 -y 17 -R up
+-s singletop_tW -r default -d off -t loose -j 1 -n 1 -y 17 -a up
+-s singletop_tW -r default -d off -t loose -j 1 -n 1 -y 17 -b up
+-s singletop_tW -r default -d off -t loose -j 1 -n 1 -y 17 -J down
+-s singletop_tW -r default -d off -t loose -j 1 -n 1 -y 17 -R down
+-s singletop_tW -r default -d off -t loose -j 1 -n 1 -y 17 -a down
+-s singletop_tW -r default -d off -t loose -j 1 -n 1 -y 17 -b down
+-s singletop_tWB -r default -d off -t loose -j 1 -n 1 -y 17
+-s singletop_tWB -r default -d off -t loose -j 1 -n 1 -y 17 -J up
+-s singletop_tWB -r default -d off -t loose -j 1 -n 1 -y 17 -R up
+-s singletop_tWB -r default -d off -t loose -j 1 -n 1 -y 17 -a up
+-s singletop_tWB -r default -d off -t loose -j 1 -n 1 -y 17 -b up
+-s singletop_tWB -r default -d off -t loose -j 1 -n 1 -y 17 -J down
+-s singletop_tWB -r default -d off -t loose -j 1 -n 1 -y 17 -R down
+-s singletop_tWB -r default -d off -t loose -j 1 -n 1 -y 17 -a down
+-s singletop_tWB -r default -d off -t loose -j 1 -n 1 -y 17 -b down
+-s singletop_t -r default -d off -t loose -j 1 -n 1 -y 17
+-s singletop_t -r default -d off -t loose -j 1 -n 1 -y 17 -J up
+-s singletop_t -r default -d off -t loose -j 1 -n 1 -y 17 -R up
+-s singletop_t -r default -d off -t loose -j 1 -n 1 -y 17 -a up
+-s singletop_t -r default -d off -t loose -j 1 -n 1 -y 17 -b up
+-s singletop_t -r default -d off -t loose -j 1 -n 1 -y 17 -J down
+-s singletop_t -r default -d off -t loose -j 1 -n 1 -y 17 -R down
+-s singletop_t -r default -d off -t loose -j 1 -n 1 -y 17 -a down
+-s singletop_t -r default -d off -t loose -j 1 -n 1 -y 17 -b down
+-s data -r default -d off -t loose -j 20 -n 1 -y 17
+-s data -r default -d off -t loose -j 20 -n 2 -y 17
+-s data -r default -d off -t loose -j 20 -n 3 -y 17
+-s data -r default -d off -t loose -j 20 -n 4 -y 17
+-s data -r default -d off -t loose -j 20 -n 5 -y 17
+-s data -r default -d off -t loose -j 20 -n 6 -y 17
+-s data -r default -d off -t loose -j 20 -n 7 -y 17
+-s data -r default -d off -t loose -j 20 -n 8 -y 17
+-s data -r default -d off -t loose -j 20 -n 9 -y 17
+-s data -r default -d off -t loose -j 20 -n 10 -y 17
+-s data -r default -d off -t loose -j 20 -n 11 -y 17
+-s data -r default -d off -t loose -j 20 -n 12 -y 17
+-s data -r default -d off -t loose -j 20 -n 13 -y 17
+-s data -r default -d off -t loose -j 20 -n 14 -y 17
+-s data -r default -d off -t loose -j 20 -n 15 -y 17
+-s data -r default -d off -t loose -j 20 -n 16 -y 17
+-s data -r default -d off -t loose -j 20 -n 17 -y 17
+-s data -r default -d off -t loose -j 20 -n 18 -y 17
+-s data -r default -d off -t loose -j 20 -n 19 -y 17
+-s data -r default -d off -t loose -j 20 -n 20 -y 17
+-s QCDHT1000 -r sideband -d off -t loose -j 1 -n 1 -y 17
+-s QCDHT1500 -r sideband -d off -t loose -j 1 -n 1 -y 17
+-s QCDHT2000 -r sideband -d off -t loose -j 1 -n 1 -y 17
+-s QCDHT700 -r sideband -d off -t loose -j 1 -n 1 -y 17
+-s ttbar -r sideband -d off -t loose -j 1 -n 1 -y 17
+-s ttbar -r sideband -d off -t loose -j 1 -n 1 -y 17 -J up
+-s ttbar -r sideband -d off -t loose -j 1 -n 1 -y 17 -R up
+-s ttbar -r sideband -d off -t loose -j 1 -n 1 -y 17 -a up
+-s ttbar -r sideband -d off -t loose -j 1 -n 1 -y 17 -b up
+-s ttbar -r sideband -d off -t loose -j 1 -n 1 -y 17 -J down
+-s ttbar -r sideband -d off -t loose -j 1 -n 1 -y 17 -R down
+-s ttbar -r sideband -d off -t loose -j 1 -n 1 -y 17 -a down
+-s ttbar -r sideband -d off -t loose -j 1 -n 1 -y 17 -b down
+-s singletop_tB -r sideband -d off -t loose -j 1 -n 1 -y 17
+-s singletop_tB -r sideband -d off -t loose -j 1 -n 1 -y 17 -J up
+-s singletop_tB -r sideband -d off -t loose -j 1 -n 1 -y 17 -R up
+-s singletop_tB -r sideband -d off -t loose -j 1 -n 1 -y 17 -a up
+-s singletop_tB -r sideband -d off -t loose -j 1 -n 1 -y 17 -b up
+-s singletop_tB -r sideband -d off -t loose -j 1 -n 1 -y 17 -J down
+-s singletop_tB -r sideband -d off -t loose -j 1 -n 1 -y 17 -R down
+-s singletop_tB -r sideband -d off -t loose -j 1 -n 1 -y 17 -a down
+-s singletop_tB -r sideband -d off -t loose -j 1 -n 1 -y 17 -b down
+-s singletop_tW -r sideband -d off -t loose -j 1 -n 1 -y 17
+-s singletop_tW -r sideband -d off -t loose -j 1 -n 1 -y 17 -J up
+-s singletop_tW -r sideband -d off -t loose -j 1 -n 1 -y 17 -R up
+-s singletop_tW -r sideband -d off -t loose -j 1 -n 1 -y 17 -a up
+-s singletop_tW -r sideband -d off -t loose -j 1 -n 1 -y 17 -b up
+-s singletop_tW -r sideband -d off -t loose -j 1 -n 1 -y 17 -J down
+-s singletop_tW -r sideband -d off -t loose -j 1 -n 1 -y 17 -R down
+-s singletop_tW -r sideband -d off -t loose -j 1 -n 1 -y 17 -a down
+-s singletop_tW -r sideband -d off -t loose -j 1 -n 1 -y 17 -b down
+-s singletop_tWB -r sideband -d off -t loose -j 1 -n 1 -y 17
+-s singletop_tWB -r sideband -d off -t loose -j 1 -n 1 -y 17 -J up
+-s singletop_tWB -r sideband -d off -t loose -j 1 -n 1 -y 17 -R up
+-s singletop_tWB -r sideband -d off -t loose -j 1 -n 1 -y 17 -a up
+-s singletop_tWB -r sideband -d off -t loose -j 1 -n 1 -y 17 -b up
+-s singletop_tWB -r sideband -d off -t loose -j 1 -n 1 -y 17 -J down
+-s singletop_tWB -r sideband -d off -t loose -j 1 -n 1 -y 17 -R down
+-s singletop_tWB -r sideband -d off -t loose -j 1 -n 1 -y 17 -a down
+-s singletop_tWB -r sideband -d off -t loose -j 1 -n 1 -y 17 -b down
+-s singletop_t -r sideband -d off -t loose -j 1 -n 1 -y 17
+-s singletop_t -r sideband -d off -t loose -j 1 -n 1 -y 17 -J up
+-s singletop_t -r sideband -d off -t loose -j 1 -n 1 -y 17 -R up
+-s singletop_t -r sideband -d off -t loose -j 1 -n 1 -y 17 -a up
+-s singletop_t -r sideband -d off -t loose -j 1 -n 1 -y 17 -b up
+-s singletop_t -r sideband -d off -t loose -j 1 -n 1 -y 17 -J down
+-s singletop_t -r sideband -d off -t loose -j 1 -n 1 -y 17 -R down
+-s singletop_t -r sideband -d off -t loose -j 1 -n 1 -y 17 -a down
+-s singletop_t -r sideband -d off -t loose -j 1 -n 1 -y 17 -b down
+-s data -r sideband -d off -t loose -j 20 -n 1 -y 17
+-s data -r sideband -d off -t loose -j 20 -n 2 -y 17
+-s data -r sideband -d off -t loose -j 20 -n 3 -y 17
+-s data -r sideband -d off -t loose -j 20 -n 4 -y 17
+-s data -r sideband -d off -t loose -j 20 -n 5 -y 17
+-s data -r sideband -d off -t loose -j 20 -n 6 -y 17
+-s data -r sideband -d off -t loose -j 20 -n 7 -y 17
+-s data -r sideband -d off -t loose -j 20 -n 8 -y 17
+-s data -r sideband -d off -t loose -j 20 -n 9 -y 17
+-s data -r sideband -d off -t loose -j 20 -n 10 -y 17
+-s data -r sideband -d off -t loose -j 20 -n 11 -y 17
+-s data -r sideband -d off -t loose -j 20 -n 12 -y 17
+-s data -r sideband -d off -t loose -j 20 -n 13 -y 17
+-s data -r sideband -d off -t loose -j 20 -n 14 -y 17
+-s data -r sideband -d off -t loose -j 20 -n 15 -y 17
+-s data -r sideband -d off -t loose -j 20 -n 16 -y 17
+-s data -r sideband -d off -t loose -j 20 -n 17 -y 17
+-s data -r sideband -d off -t loose -j 20 -n 18 -y 17
+-s data -r sideband -d off -t loose -j 20 -n 19 -y 17
+-s data -r sideband -d off -t loose -j 20 -n 20 -y 17
+-s QCDHT1000 -r ttbar -d off -t medium -j 1 -n 1 -y 17
+-s QCDHT1500 -r ttbar -d off -t medium -j 1 -n 1 -y 17
+-s QCDHT2000 -r ttbar -d off -t medium -j 1 -n 1 -y 17
+-s QCDHT700 -r ttbar -d off -t medium -j 1 -n 1 -y 17
+-s ttbar -r ttbar -d off -t medium -j 1 -n 1 -y 17
+-s ttbar -r ttbar -d off -t medium -j 1 -n 1 -y 17 -J up
+-s ttbar -r ttbar -d off -t medium -j 1 -n 1 -y 17 -R up
+-s ttbar -r ttbar -d off -t medium -j 1 -n 1 -y 17 -a up
+-s ttbar -r ttbar -d off -t medium -j 1 -n 1 -y 17 -b up
+-s ttbar -r ttbar -d off -t medium -j 1 -n 1 -y 17 -J down
+-s ttbar -r ttbar -d off -t medium -j 1 -n 1 -y 17 -R down
+-s ttbar -r ttbar -d off -t medium -j 1 -n 1 -y 17 -a down
+-s ttbar -r ttbar -d off -t medium -j 1 -n 1 -y 17 -b down
+-s singletop_tB -r ttbar -d off -t medium -j 1 -n 1 -y 17
+-s singletop_tB -r ttbar -d off -t medium -j 1 -n 1 -y 17 -J up
+-s singletop_tB -r ttbar -d off -t medium -j 1 -n 1 -y 17 -R up
+-s singletop_tB -r ttbar -d off -t medium -j 1 -n 1 -y 17 -a up
+-s singletop_tB -r ttbar -d off -t medium -j 1 -n 1 -y 17 -b up
+-s singletop_tB -r ttbar -d off -t medium -j 1 -n 1 -y 17 -J down
+-s singletop_tB -r ttbar -d off -t medium -j 1 -n 1 -y 17 -R down
+-s singletop_tB -r ttbar -d off -t medium -j 1 -n 1 -y 17 -a down
+-s singletop_tB -r ttbar -d off -t medium -j 1 -n 1 -y 17 -b down
+-s singletop_tW -r ttbar -d off -t medium -j 1 -n 1 -y 17
+-s singletop_tW -r ttbar -d off -t medium -j 1 -n 1 -y 17 -J up
+-s singletop_tW -r ttbar -d off -t medium -j 1 -n 1 -y 17 -R up
+-s singletop_tW -r ttbar -d off -t medium -j 1 -n 1 -y 17 -a up
+-s singletop_tW -r ttbar -d off -t medium -j 1 -n 1 -y 17 -b up
+-s singletop_tW -r ttbar -d off -t medium -j 1 -n 1 -y 17 -J down
+-s singletop_tW -r ttbar -d off -t medium -j 1 -n 1 -y 17 -R down
+-s singletop_tW -r ttbar -d off -t medium -j 1 -n 1 -y 17 -a down
+-s singletop_tW -r ttbar -d off -t medium -j 1 -n 1 -y 17 -b down
+-s singletop_tWB -r ttbar -d off -t medium -j 1 -n 1 -y 17
+-s singletop_tWB -r ttbar -d off -t medium -j 1 -n 1 -y 17 -J up
+-s singletop_tWB -r ttbar -d off -t medium -j 1 -n 1 -y 17 -R up
+-s singletop_tWB -r ttbar -d off -t medium -j 1 -n 1 -y 17 -a up
+-s singletop_tWB -r ttbar -d off -t medium -j 1 -n 1 -y 17 -b up
+-s singletop_tWB -r ttbar -d off -t medium -j 1 -n 1 -y 17 -J down
+-s singletop_tWB -r ttbar -d off -t medium -j 1 -n 1 -y 17 -R down
+-s singletop_tWB -r ttbar -d off -t medium -j 1 -n 1 -y 17 -a down
+-s singletop_tWB -r ttbar -d off -t medium -j 1 -n 1 -y 17 -b down
+-s singletop_t -r ttbar -d off -t medium -j 1 -n 1 -y 17
+-s singletop_t -r ttbar -d off -t medium -j 1 -n 1 -y 17 -J up
+-s singletop_t -r ttbar -d off -t medium -j 1 -n 1 -y 17 -R up
+-s singletop_t -r ttbar -d off -t medium -j 1 -n 1 -y 17 -a up
+-s singletop_t -r ttbar -d off -t medium -j 1 -n 1 -y 17 -b up
+-s singletop_t -r ttbar -d off -t medium -j 1 -n 1 -y 17 -J down
+-s singletop_t -r ttbar -d off -t medium -j 1 -n 1 -y 17 -R down
+-s singletop_t -r ttbar -d off -t medium -j 1 -n 1 -y 17 -a down
+-s singletop_t -r ttbar -d off -t medium -j 1 -n 1 -y 17 -b down
+-s data -r ttbar -d off -t medium -j 20 -n 1 -y 17
+-s data -r ttbar -d off -t medium -j 20 -n 2 -y 17
+-s data -r ttbar -d off -t medium -j 20 -n 3 -y 17
+-s data -r ttbar -d off -t medium -j 20 -n 4 -y 17
+-s data -r ttbar -d off -t medium -j 20 -n 5 -y 17
+-s data -r ttbar -d off -t medium -j 20 -n 6 -y 17
+-s data -r ttbar -d off -t medium -j 20 -n 7 -y 17
+-s data -r ttbar -d off -t medium -j 20 -n 8 -y 17
+-s data -r ttbar -d off -t medium -j 20 -n 9 -y 17
+-s data -r ttbar -d off -t medium -j 20 -n 10 -y 17
+-s data -r ttbar -d off -t medium -j 20 -n 11 -y 17
+-s data -r ttbar -d off -t medium -j 20 -n 12 -y 17
+-s data -r ttbar -d off -t medium -j 20 -n 13 -y 17
+-s data -r ttbar -d off -t medium -j 20 -n 14 -y 17
+-s data -r ttbar -d off -t medium -j 20 -n 15 -y 17
+-s data -r ttbar -d off -t medium -j 20 -n 16 -y 17
+-s data -r ttbar -d off -t medium -j 20 -n 17 -y 17
+-s data -r ttbar -d off -t medium -j 20 -n 18 -y 17
+-s data -r ttbar -d off -t medium -j 20 -n 19 -y 17
+-s data -r ttbar -d off -t medium -j 20 -n 20 -y 17
+-s QCDHT1000 -r default -d off -t medium -j 1 -n 1 -y 17
+-s QCDHT1500 -r default -d off -t medium -j 1 -n 1 -y 17
+-s QCDHT2000 -r default -d off -t medium -j 1 -n 1 -y 17
+-s QCDHT700 -r default -d off -t medium -j 1 -n 1 -y 17
+-s ttbar -r default -d off -t medium -j 1 -n 1 -y 17
+-s ttbar -r default -d off -t medium -j 1 -n 1 -y 17 -J up
+-s ttbar -r default -d off -t medium -j 1 -n 1 -y 17 -R up
+-s ttbar -r default -d off -t medium -j 1 -n 1 -y 17 -a up
+-s ttbar -r default -d off -t medium -j 1 -n 1 -y 17 -b up
+-s ttbar -r default -d off -t medium -j 1 -n 1 -y 17 -J down
+-s ttbar -r default -d off -t medium -j 1 -n 1 -y 17 -R down
+-s ttbar -r default -d off -t medium -j 1 -n 1 -y 17 -a down
+-s ttbar -r default -d off -t medium -j 1 -n 1 -y 17 -b down
+-s singletop_tB -r default -d off -t medium -j 1 -n 1 -y 17
+-s singletop_tB -r default -d off -t medium -j 1 -n 1 -y 17 -J up
+-s singletop_tB -r default -d off -t medium -j 1 -n 1 -y 17 -R up
+-s singletop_tB -r default -d off -t medium -j 1 -n 1 -y 17 -a up
+-s singletop_tB -r default -d off -t medium -j 1 -n 1 -y 17 -b up
+-s singletop_tB -r default -d off -t medium -j 1 -n 1 -y 17 -J down
+-s singletop_tB -r default -d off -t medium -j 1 -n 1 -y 17 -R down
+-s singletop_tB -r default -d off -t medium -j 1 -n 1 -y 17 -a down
+-s singletop_tB -r default -d off -t medium -j 1 -n 1 -y 17 -b down
+-s singletop_tW -r default -d off -t medium -j 1 -n 1 -y 17
+-s singletop_tW -r default -d off -t medium -j 1 -n 1 -y 17 -J up
+-s singletop_tW -r default -d off -t medium -j 1 -n 1 -y 17 -R up
+-s singletop_tW -r default -d off -t medium -j 1 -n 1 -y 17 -a up
+-s singletop_tW -r default -d off -t medium -j 1 -n 1 -y 17 -b up
+-s singletop_tW -r default -d off -t medium -j 1 -n 1 -y 17 -J down
+-s singletop_tW -r default -d off -t medium -j 1 -n 1 -y 17 -R down
+-s singletop_tW -r default -d off -t medium -j 1 -n 1 -y 17 -a down
+-s singletop_tW -r default -d off -t medium -j 1 -n 1 -y 17 -b down
+-s singletop_tWB -r default -d off -t medium -j 1 -n 1 -y 17
+-s singletop_tWB -r default -d off -t medium -j 1 -n 1 -y 17 -J up
+-s singletop_tWB -r default -d off -t medium -j 1 -n 1 -y 17 -R up
+-s singletop_tWB -r default -d off -t medium -j 1 -n 1 -y 17 -a up
+-s singletop_tWB -r default -d off -t medium -j 1 -n 1 -y 17 -b up
+-s singletop_tWB -r default -d off -t medium -j 1 -n 1 -y 17 -J down
+-s singletop_tWB -r default -d off -t medium -j 1 -n 1 -y 17 -R down
+-s singletop_tWB -r default -d off -t medium -j 1 -n 1 -y 17 -a down
+-s singletop_tWB -r default -d off -t medium -j 1 -n 1 -y 17 -b down
+-s singletop_t -r default -d off -t medium -j 1 -n 1 -y 17
+-s singletop_t -r default -d off -t medium -j 1 -n 1 -y 17 -J up
+-s singletop_t -r default -d off -t medium -j 1 -n 1 -y 17 -R up
+-s singletop_t -r default -d off -t medium -j 1 -n 1 -y 17 -a up
+-s singletop_t -r default -d off -t medium -j 1 -n 1 -y 17 -b up
+-s singletop_t -r default -d off -t medium -j 1 -n 1 -y 17 -J down
+-s singletop_t -r default -d off -t medium -j 1 -n 1 -y 17 -R down
+-s singletop_t -r default -d off -t medium -j 1 -n 1 -y 17 -a down
+-s singletop_t -r default -d off -t medium -j 1 -n 1 -y 17 -b down
+-s data -r default -d off -t medium -j 20 -n 1 -y 17
+-s data -r default -d off -t medium -j 20 -n 2 -y 17
+-s data -r default -d off -t medium -j 20 -n 3 -y 17
+-s data -r default -d off -t medium -j 20 -n 4 -y 17
+-s data -r default -d off -t medium -j 20 -n 5 -y 17
+-s data -r default -d off -t medium -j 20 -n 6 -y 17
+-s data -r default -d off -t medium -j 20 -n 7 -y 17
+-s data -r default -d off -t medium -j 20 -n 8 -y 17
+-s data -r default -d off -t medium -j 20 -n 9 -y 17
+-s data -r default -d off -t medium -j 20 -n 10 -y 17
+-s data -r default -d off -t medium -j 20 -n 11 -y 17
+-s data -r default -d off -t medium -j 20 -n 12 -y 17
+-s data -r default -d off -t medium -j 20 -n 13 -y 17
+-s data -r default -d off -t medium -j 20 -n 14 -y 17
+-s data -r default -d off -t medium -j 20 -n 15 -y 17
+-s data -r default -d off -t medium -j 20 -n 16 -y 17
+-s data -r default -d off -t medium -j 20 -n 17 -y 17
+-s data -r default -d off -t medium -j 20 -n 18 -y 17
+-s data -r default -d off -t medium -j 20 -n 19 -y 17
+-s data -r default -d off -t medium -j 20 -n 20 -y 17
+-s QCDHT1000 -r sideband -d off -t medium -j 1 -n 1 -y 17
+-s QCDHT1500 -r sideband -d off -t medium -j 1 -n 1 -y 17
+-s QCDHT2000 -r sideband -d off -t medium -j 1 -n 1 -y 17
+-s QCDHT700 -r sideband -d off -t medium -j 1 -n 1 -y 17
+-s ttbar -r sideband -d off -t medium -j 1 -n 1 -y 17
+-s ttbar -r sideband -d off -t medium -j 1 -n 1 -y 17 -J up
+-s ttbar -r sideband -d off -t medium -j 1 -n 1 -y 17 -R up
+-s ttbar -r sideband -d off -t medium -j 1 -n 1 -y 17 -a up
+-s ttbar -r sideband -d off -t medium -j 1 -n 1 -y 17 -b up
+-s ttbar -r sideband -d off -t medium -j 1 -n 1 -y 17 -J down
+-s ttbar -r sideband -d off -t medium -j 1 -n 1 -y 17 -R down
+-s ttbar -r sideband -d off -t medium -j 1 -n 1 -y 17 -a down
+-s ttbar -r sideband -d off -t medium -j 1 -n 1 -y 17 -b down
+-s singletop_tB -r sideband -d off -t medium -j 1 -n 1 -y 17
+-s singletop_tB -r sideband -d off -t medium -j 1 -n 1 -y 17 -J up
+-s singletop_tB -r sideband -d off -t medium -j 1 -n 1 -y 17 -R up
+-s singletop_tB -r sideband -d off -t medium -j 1 -n 1 -y 17 -a up
+-s singletop_tB -r sideband -d off -t medium -j 1 -n 1 -y 17 -b up
+-s singletop_tB -r sideband -d off -t medium -j 1 -n 1 -y 17 -J down
+-s singletop_tB -r sideband -d off -t medium -j 1 -n 1 -y 17 -R down
+-s singletop_tB -r sideband -d off -t medium -j 1 -n 1 -y 17 -a down
+-s singletop_tB -r sideband -d off -t medium -j 1 -n 1 -y 17 -b down
+-s singletop_tW -r sideband -d off -t medium -j 1 -n 1 -y 17
+-s singletop_tW -r sideband -d off -t medium -j 1 -n 1 -y 17 -J up
+-s singletop_tW -r sideband -d off -t medium -j 1 -n 1 -y 17 -R up
+-s singletop_tW -r sideband -d off -t medium -j 1 -n 1 -y 17 -a up
+-s singletop_tW -r sideband -d off -t medium -j 1 -n 1 -y 17 -b up
+-s singletop_tW -r sideband -d off -t medium -j 1 -n 1 -y 17 -J down
+-s singletop_tW -r sideband -d off -t medium -j 1 -n 1 -y 17 -R down
+-s singletop_tW -r sideband -d off -t medium -j 1 -n 1 -y 17 -a down
+-s singletop_tW -r sideband -d off -t medium -j 1 -n 1 -y 17 -b down
+-s singletop_tWB -r sideband -d off -t medium -j 1 -n 1 -y 17
+-s singletop_tWB -r sideband -d off -t medium -j 1 -n 1 -y 17 -J up
+-s singletop_tWB -r sideband -d off -t medium -j 1 -n 1 -y 17 -R up
+-s singletop_tWB -r sideband -d off -t medium -j 1 -n 1 -y 17 -a up
+-s singletop_tWB -r sideband -d off -t medium -j 1 -n 1 -y 17 -b up
+-s singletop_tWB -r sideband -d off -t medium -j 1 -n 1 -y 17 -J down
+-s singletop_tWB -r sideband -d off -t medium -j 1 -n 1 -y 17 -R down
+-s singletop_tWB -r sideband -d off -t medium -j 1 -n 1 -y 17 -a down
+-s singletop_tWB -r sideband -d off -t medium -j 1 -n 1 -y 17 -b down
+-s singletop_t -r sideband -d off -t medium -j 1 -n 1 -y 17
+-s singletop_t -r sideband -d off -t medium -j 1 -n 1 -y 17 -J up
+-s singletop_t -r sideband -d off -t medium -j 1 -n 1 -y 17 -R up
+-s singletop_t -r sideband -d off -t medium -j 1 -n 1 -y 17 -a up
+-s singletop_t -r sideband -d off -t medium -j 1 -n 1 -y 17 -b up
+-s singletop_t -r sideband -d off -t medium -j 1 -n 1 -y 17 -J down
+-s singletop_t -r sideband -d off -t medium -j 1 -n 1 -y 17 -R down
+-s singletop_t -r sideband -d off -t medium -j 1 -n 1 -y 17 -a down
+-s singletop_t -r sideband -d off -t medium -j 1 -n 1 -y 17 -b down
+-s data -r sideband -d off -t medium -j 20 -n 1 -y 17
+-s data -r sideband -d off -t medium -j 20 -n 2 -y 17
+-s data -r sideband -d off -t medium -j 20 -n 3 -y 17
+-s data -r sideband -d off -t medium -j 20 -n 4 -y 17
+-s data -r sideband -d off -t medium -j 20 -n 5 -y 17
+-s data -r sideband -d off -t medium -j 20 -n 6 -y 17
+-s data -r sideband -d off -t medium -j 20 -n 7 -y 17
+-s data -r sideband -d off -t medium -j 20 -n 8 -y 17
+-s data -r sideband -d off -t medium -j 20 -n 9 -y 17
+-s data -r sideband -d off -t medium -j 20 -n 10 -y 17
+-s data -r sideband -d off -t medium -j 20 -n 11 -y 17
+-s data -r sideband -d off -t medium -j 20 -n 12 -y 17
+-s data -r sideband -d off -t medium -j 20 -n 13 -y 17
+-s data -r sideband -d off -t medium -j 20 -n 14 -y 17
+-s data -r sideband -d off -t medium -j 20 -n 15 -y 17
+-s data -r sideband -d off -t medium -j 20 -n 16 -y 17
+-s data -r sideband -d off -t medium -j 20 -n 17 -y 17
+-s data -r sideband -d off -t medium -j 20 -n 18 -y 17
+-s data -r sideband -d off -t medium -j 20 -n 19 -y 17
+-s data -r sideband -d off -t medium -j 20 -n 20 -y 17
+-s QCDHT1000 -r ttbar -d off -t loose -j 1 -n 1 -y 18
+-s QCDHT1500 -r ttbar -d off -t loose -j 1 -n 1 -y 18
+-s QCDHT2000 -r ttbar -d off -t loose -j 1 -n 1 -y 18
+-s QCDHT700 -r ttbar -d off -t loose -j 1 -n 1 -y 18
+-s ttbar -r ttbar -d off -t loose -j 1 -n 1 -y 18
+-s ttbar -r ttbar -d off -t loose -j 1 -n 1 -y 18 -J up
+-s ttbar -r ttbar -d off -t loose -j 1 -n 1 -y 18 -R up
+-s ttbar -r ttbar -d off -t loose -j 1 -n 1 -y 18 -a up
+-s ttbar -r ttbar -d off -t loose -j 1 -n 1 -y 18 -b up
+-s ttbar -r ttbar -d off -t loose -j 1 -n 1 -y 18 -J down
+-s ttbar -r ttbar -d off -t loose -j 1 -n 1 -y 18 -R down
+-s ttbar -r ttbar -d off -t loose -j 1 -n 1 -y 18 -a down
+-s ttbar -r ttbar -d off -t loose -j 1 -n 1 -y 18 -b down
+-s singletop_tW -r ttbar -d off -t loose -j 1 -n 1 -y 18
+-s singletop_tW -r ttbar -d off -t loose -j 1 -n 1 -y 18 -J up
+-s singletop_tW -r ttbar -d off -t loose -j 1 -n 1 -y 18 -R up
+-s singletop_tW -r ttbar -d off -t loose -j 1 -n 1 -y 18 -a up
+-s singletop_tW -r ttbar -d off -t loose -j 1 -n 1 -y 18 -b up
+-s singletop_tW -r ttbar -d off -t loose -j 1 -n 1 -y 18 -J down
+-s singletop_tW -r ttbar -d off -t loose -j 1 -n 1 -y 18 -R down
+-s singletop_tW -r ttbar -d off -t loose -j 1 -n 1 -y 18 -a down
+-s singletop_tW -r ttbar -d off -t loose -j 1 -n 1 -y 18 -b down
+-s singletop_tWB -r ttbar -d off -t loose -j 1 -n 1 -y 18
+-s singletop_tWB -r ttbar -d off -t loose -j 1 -n 1 -y 18 -J up
+-s singletop_tWB -r ttbar -d off -t loose -j 1 -n 1 -y 18 -R up
+-s singletop_tWB -r ttbar -d off -t loose -j 1 -n 1 -y 18 -a up
+-s singletop_tWB -r ttbar -d off -t loose -j 1 -n 1 -y 18 -b up
+-s singletop_tWB -r ttbar -d off -t loose -j 1 -n 1 -y 18 -J down
+-s singletop_tWB -r ttbar -d off -t loose -j 1 -n 1 -y 18 -R down
+-s singletop_tWB -r ttbar -d off -t loose -j 1 -n 1 -y 18 -a down
+-s singletop_tWB -r ttbar -d off -t loose -j 1 -n 1 -y 18 -b down
+-s data -r ttbar -d off -t loose -j 20 -n 1 -y 18
+-s data -r ttbar -d off -t loose -j 20 -n 2 -y 18
+-s data -r ttbar -d off -t loose -j 20 -n 3 -y 18
+-s data -r ttbar -d off -t loose -j 20 -n 4 -y 18
+-s data -r ttbar -d off -t loose -j 20 -n 5 -y 18
+-s data -r ttbar -d off -t loose -j 20 -n 6 -y 18
+-s data -r ttbar -d off -t loose -j 20 -n 7 -y 18
+-s data -r ttbar -d off -t loose -j 20 -n 8 -y 18
+-s data -r ttbar -d off -t loose -j 20 -n 9 -y 18
+-s data -r ttbar -d off -t loose -j 20 -n 10 -y 18
+-s data -r ttbar -d off -t loose -j 20 -n 11 -y 18
+-s data -r ttbar -d off -t loose -j 20 -n 12 -y 18
+-s data -r ttbar -d off -t loose -j 20 -n 13 -y 18
+-s data -r ttbar -d off -t loose -j 20 -n 14 -y 18
+-s data -r ttbar -d off -t loose -j 20 -n 15 -y 18
+-s data -r ttbar -d off -t loose -j 20 -n 16 -y 18
+-s data -r ttbar -d off -t loose -j 20 -n 17 -y 18
+-s data -r ttbar -d off -t loose -j 20 -n 18 -y 18
+-s data -r ttbar -d off -t loose -j 20 -n 19 -y 18
+-s data -r ttbar -d off -t loose -j 20 -n 20 -y 18
+-s QCDHT1000 -r default -d off -t loose -j 1 -n 1 -y 18
+-s QCDHT1500 -r default -d off -t loose -j 1 -n 1 -y 18
+-s QCDHT2000 -r default -d off -t loose -j 1 -n 1 -y 18
+-s QCDHT700 -r default -d off -t loose -j 1 -n 1 -y 18
+-s ttbar -r default -d off -t loose -j 1 -n 1 -y 18
+-s ttbar -r default -d off -t loose -j 1 -n 1 -y 18 -J up
+-s ttbar -r default -d off -t loose -j 1 -n 1 -y 18 -R up
+-s ttbar -r default -d off -t loose -j 1 -n 1 -y 18 -a up
+-s ttbar -r default -d off -t loose -j 1 -n 1 -y 18 -b up
+-s ttbar -r default -d off -t loose -j 1 -n 1 -y 18 -J down
+-s ttbar -r default -d off -t loose -j 1 -n 1 -y 18 -R down
+-s ttbar -r default -d off -t loose -j 1 -n 1 -y 18 -a down
+-s ttbar -r default -d off -t loose -j 1 -n 1 -y 18 -b down
+-s singletop_tW -r default -d off -t loose -j 1 -n 1 -y 18
+-s singletop_tW -r default -d off -t loose -j 1 -n 1 -y 18 -J up
+-s singletop_tW -r default -d off -t loose -j 1 -n 1 -y 18 -R up
+-s singletop_tW -r default -d off -t loose -j 1 -n 1 -y 18 -a up
+-s singletop_tW -r default -d off -t loose -j 1 -n 1 -y 18 -b up
+-s singletop_tW -r default -d off -t loose -j 1 -n 1 -y 18 -J down
+-s singletop_tW -r default -d off -t loose -j 1 -n 1 -y 18 -R down
+-s singletop_tW -r default -d off -t loose -j 1 -n 1 -y 18 -a down
+-s singletop_tW -r default -d off -t loose -j 1 -n 1 -y 18 -b down
+-s singletop_tWB -r default -d off -t loose -j 1 -n 1 -y 18
+-s singletop_tWB -r default -d off -t loose -j 1 -n 1 -y 18 -J up
+-s singletop_tWB -r default -d off -t loose -j 1 -n 1 -y 18 -R up
+-s singletop_tWB -r default -d off -t loose -j 1 -n 1 -y 18 -a up
+-s singletop_tWB -r default -d off -t loose -j 1 -n 1 -y 18 -b up
+-s singletop_tWB -r default -d off -t loose -j 1 -n 1 -y 18 -J down
+-s singletop_tWB -r default -d off -t loose -j 1 -n 1 -y 18 -R down
+-s singletop_tWB -r default -d off -t loose -j 1 -n 1 -y 18 -a down
+-s singletop_tWB -r default -d off -t loose -j 1 -n 1 -y 18 -b down
+-s data -r default -d off -t loose -j 20 -n 1 -y 18
+-s data -r default -d off -t loose -j 20 -n 2 -y 18
+-s data -r default -d off -t loose -j 20 -n 3 -y 18
+-s data -r default -d off -t loose -j 20 -n 4 -y 18
+-s data -r default -d off -t loose -j 20 -n 5 -y 18
+-s data -r default -d off -t loose -j 20 -n 6 -y 18
+-s data -r default -d off -t loose -j 20 -n 7 -y 18
+-s data -r default -d off -t loose -j 20 -n 8 -y 18
+-s data -r default -d off -t loose -j 20 -n 9 -y 18
+-s data -r default -d off -t loose -j 20 -n 10 -y 18
+-s data -r default -d off -t loose -j 20 -n 11 -y 18
+-s data -r default -d off -t loose -j 20 -n 12 -y 18
+-s data -r default -d off -t loose -j 20 -n 13 -y 18
+-s data -r default -d off -t loose -j 20 -n 14 -y 18
+-s data -r default -d off -t loose -j 20 -n 15 -y 18
+-s data -r default -d off -t loose -j 20 -n 16 -y 18
+-s data -r default -d off -t loose -j 20 -n 17 -y 18
+-s data -r default -d off -t loose -j 20 -n 18 -y 18
+-s data -r default -d off -t loose -j 20 -n 19 -y 18
+-s data -r default -d off -t loose -j 20 -n 20 -y 18
+-s QCDHT1000 -r sideband -d off -t loose -j 1 -n 1 -y 18
+-s QCDHT1500 -r sideband -d off -t loose -j 1 -n 1 -y 18
+-s QCDHT2000 -r sideband -d off -t loose -j 1 -n 1 -y 18
+-s QCDHT700 -r sideband -d off -t loose -j 1 -n 1 -y 18
+-s ttbar -r sideband -d off -t loose -j 1 -n 1 -y 18
+-s ttbar -r sideband -d off -t loose -j 1 -n 1 -y 18 -J up
+-s ttbar -r sideband -d off -t loose -j 1 -n 1 -y 18 -R up
+-s ttbar -r sideband -d off -t loose -j 1 -n 1 -y 18 -a up
+-s ttbar -r sideband -d off -t loose -j 1 -n 1 -y 18 -b up
+-s ttbar -r sideband -d off -t loose -j 1 -n 1 -y 18 -J down
+-s ttbar -r sideband -d off -t loose -j 1 -n 1 -y 18 -R down
+-s ttbar -r sideband -d off -t loose -j 1 -n 1 -y 18 -a down
+-s ttbar -r sideband -d off -t loose -j 1 -n 1 -y 18 -b down
+-s singletop_tW -r sideband -d off -t loose -j 1 -n 1 -y 18
+-s singletop_tW -r sideband -d off -t loose -j 1 -n 1 -y 18 -J up
+-s singletop_tW -r sideband -d off -t loose -j 1 -n 1 -y 18 -R up
+-s singletop_tW -r sideband -d off -t loose -j 1 -n 1 -y 18 -a up
+-s singletop_tW -r sideband -d off -t loose -j 1 -n 1 -y 18 -b up
+-s singletop_tW -r sideband -d off -t loose -j 1 -n 1 -y 18 -J down
+-s singletop_tW -r sideband -d off -t loose -j 1 -n 1 -y 18 -R down
+-s singletop_tW -r sideband -d off -t loose -j 1 -n 1 -y 18 -a down
+-s singletop_tW -r sideband -d off -t loose -j 1 -n 1 -y 18 -b down
+-s singletop_tWB -r sideband -d off -t loose -j 1 -n 1 -y 18
+-s singletop_tWB -r sideband -d off -t loose -j 1 -n 1 -y 18 -J up
+-s singletop_tWB -r sideband -d off -t loose -j 1 -n 1 -y 18 -R up
+-s singletop_tWB -r sideband -d off -t loose -j 1 -n 1 -y 18 -a up
+-s singletop_tWB -r sideband -d off -t loose -j 1 -n 1 -y 18 -b up
+-s singletop_tWB -r sideband -d off -t loose -j 1 -n 1 -y 18 -J down
+-s singletop_tWB -r sideband -d off -t loose -j 1 -n 1 -y 18 -R down
+-s singletop_tWB -r sideband -d off -t loose -j 1 -n 1 -y 18 -a down
+-s singletop_tWB -r sideband -d off -t loose -j 1 -n 1 -y 18 -b down
+-s data -r sideband -d off -t loose -j 20 -n 1 -y 18
+-s data -r sideband -d off -t loose -j 20 -n 2 -y 18
+-s data -r sideband -d off -t loose -j 20 -n 3 -y 18
+-s data -r sideband -d off -t loose -j 20 -n 4 -y 18
+-s data -r sideband -d off -t loose -j 20 -n 5 -y 18
+-s data -r sideband -d off -t loose -j 20 -n 6 -y 18
+-s data -r sideband -d off -t loose -j 20 -n 7 -y 18
+-s data -r sideband -d off -t loose -j 20 -n 8 -y 18
+-s data -r sideband -d off -t loose -j 20 -n 9 -y 18
+-s data -r sideband -d off -t loose -j 20 -n 10 -y 18
+-s data -r sideband -d off -t loose -j 20 -n 11 -y 18
+-s data -r sideband -d off -t loose -j 20 -n 12 -y 18
+-s data -r sideband -d off -t loose -j 20 -n 13 -y 18
+-s data -r sideband -d off -t loose -j 20 -n 14 -y 18
+-s data -r sideband -d off -t loose -j 20 -n 15 -y 18
+-s data -r sideband -d off -t loose -j 20 -n 16 -y 18
+-s data -r sideband -d off -t loose -j 20 -n 17 -y 18
+-s data -r sideband -d off -t loose -j 20 -n 18 -y 18
+-s data -r sideband -d off -t loose -j 20 -n 19 -y 18
+-s data -r sideband -d off -t loose -j 20 -n 20 -y 18
+-s QCDHT1000 -r ttbar -d off -t medium -j 1 -n 1 -y 18
+-s QCDHT1500 -r ttbar -d off -t medium -j 1 -n 1 -y 18
+-s QCDHT2000 -r ttbar -d off -t medium -j 1 -n 1 -y 18
+-s QCDHT700 -r ttbar -d off -t medium -j 1 -n 1 -y 18
+-s ttbar -r ttbar -d off -t medium -j 1 -n 1 -y 18
+-s ttbar -r ttbar -d off -t medium -j 1 -n 1 -y 18 -J up
+-s ttbar -r ttbar -d off -t medium -j 1 -n 1 -y 18 -R up
+-s ttbar -r ttbar -d off -t medium -j 1 -n 1 -y 18 -a up
+-s ttbar -r ttbar -d off -t medium -j 1 -n 1 -y 18 -b up
+-s ttbar -r ttbar -d off -t medium -j 1 -n 1 -y 18 -J down
+-s ttbar -r ttbar -d off -t medium -j 1 -n 1 -y 18 -R down
+-s ttbar -r ttbar -d off -t medium -j 1 -n 1 -y 18 -a down
+-s ttbar -r ttbar -d off -t medium -j 1 -n 1 -y 18 -b down
+-s singletop_tW -r ttbar -d off -t medium -j 1 -n 1 -y 18
+-s singletop_tW -r ttbar -d off -t medium -j 1 -n 1 -y 18 -J up
+-s singletop_tW -r ttbar -d off -t medium -j 1 -n 1 -y 18 -R up
+-s singletop_tW -r ttbar -d off -t medium -j 1 -n 1 -y 18 -a up
+-s singletop_tW -r ttbar -d off -t medium -j 1 -n 1 -y 18 -b up
+-s singletop_tW -r ttbar -d off -t medium -j 1 -n 1 -y 18 -J down
+-s singletop_tW -r ttbar -d off -t medium -j 1 -n 1 -y 18 -R down
+-s singletop_tW -r ttbar -d off -t medium -j 1 -n 1 -y 18 -a down
+-s singletop_tW -r ttbar -d off -t medium -j 1 -n 1 -y 18 -b down
+-s singletop_tWB -r ttbar -d off -t medium -j 1 -n 1 -y 18
+-s singletop_tWB -r ttbar -d off -t medium -j 1 -n 1 -y 18 -J up
+-s singletop_tWB -r ttbar -d off -t medium -j 1 -n 1 -y 18 -R up
+-s singletop_tWB -r ttbar -d off -t medium -j 1 -n 1 -y 18 -a up
+-s singletop_tWB -r ttbar -d off -t medium -j 1 -n 1 -y 18 -b up
+-s singletop_tWB -r ttbar -d off -t medium -j 1 -n 1 -y 18 -J down
+-s singletop_tWB -r ttbar -d off -t medium -j 1 -n 1 -y 18 -R down
+-s singletop_tWB -r ttbar -d off -t medium -j 1 -n 1 -y 18 -a down
+-s singletop_tWB -r ttbar -d off -t medium -j 1 -n 1 -y 18 -b down
+-s data -r ttbar -d off -t medium -j 20 -n 1 -y 18
+-s data -r ttbar -d off -t medium -j 20 -n 2 -y 18
+-s data -r ttbar -d off -t medium -j 20 -n 3 -y 18
+-s data -r ttbar -d off -t medium -j 20 -n 4 -y 18
+-s data -r ttbar -d off -t medium -j 20 -n 5 -y 18
+-s data -r ttbar -d off -t medium -j 20 -n 6 -y 18
+-s data -r ttbar -d off -t medium -j 20 -n 7 -y 18
+-s data -r ttbar -d off -t medium -j 20 -n 8 -y 18
+-s data -r ttbar -d off -t medium -j 20 -n 9 -y 18
+-s data -r ttbar -d off -t medium -j 20 -n 10 -y 18
+-s data -r ttbar -d off -t medium -j 20 -n 11 -y 18
+-s data -r ttbar -d off -t medium -j 20 -n 12 -y 18
+-s data -r ttbar -d off -t medium -j 20 -n 13 -y 18
+-s data -r ttbar -d off -t medium -j 20 -n 14 -y 18
+-s data -r ttbar -d off -t medium -j 20 -n 15 -y 18
+-s data -r ttbar -d off -t medium -j 20 -n 16 -y 18
+-s data -r ttbar -d off -t medium -j 20 -n 17 -y 18
+-s data -r ttbar -d off -t medium -j 20 -n 18 -y 18
+-s data -r ttbar -d off -t medium -j 20 -n 19 -y 18
+-s data -r ttbar -d off -t medium -j 20 -n 20 -y 18
+-s QCDHT1000 -r default -d off -t medium -j 1 -n 1 -y 18
+-s QCDHT1500 -r default -d off -t medium -j 1 -n 1 -y 18
+-s QCDHT2000 -r default -d off -t medium -j 1 -n 1 -y 18
+-s QCDHT700 -r default -d off -t medium -j 1 -n 1 -y 18
+-s ttbar -r default -d off -t medium -j 1 -n 1 -y 18
+-s ttbar -r default -d off -t medium -j 1 -n 1 -y 18 -J up
+-s ttbar -r default -d off -t medium -j 1 -n 1 -y 18 -R up
+-s ttbar -r default -d off -t medium -j 1 -n 1 -y 18 -a up
+-s ttbar -r default -d off -t medium -j 1 -n 1 -y 18 -b up
+-s ttbar -r default -d off -t medium -j 1 -n 1 -y 18 -J down
+-s ttbar -r default -d off -t medium -j 1 -n 1 -y 18 -R down
+-s ttbar -r default -d off -t medium -j 1 -n 1 -y 18 -a down
+-s ttbar -r default -d off -t medium -j 1 -n 1 -y 18 -b down
+-s singletop_tW -r default -d off -t medium -j 1 -n 1 -y 18
+-s singletop_tW -r default -d off -t medium -j 1 -n 1 -y 18 -J up
+-s singletop_tW -r default -d off -t medium -j 1 -n 1 -y 18 -R up
+-s singletop_tW -r default -d off -t medium -j 1 -n 1 -y 18 -a up
+-s singletop_tW -r default -d off -t medium -j 1 -n 1 -y 18 -b up
+-s singletop_tW -r default -d off -t medium -j 1 -n 1 -y 18 -J down
+-s singletop_tW -r default -d off -t medium -j 1 -n 1 -y 18 -R down
+-s singletop_tW -r default -d off -t medium -j 1 -n 1 -y 18 -a down
+-s singletop_tW -r default -d off -t medium -j 1 -n 1 -y 18 -b down
+-s singletop_tWB -r default -d off -t medium -j 1 -n 1 -y 18
+-s singletop_tWB -r default -d off -t medium -j 1 -n 1 -y 18 -J up
+-s singletop_tWB -r default -d off -t medium -j 1 -n 1 -y 18 -R up
+-s singletop_tWB -r default -d off -t medium -j 1 -n 1 -y 18 -a up
+-s singletop_tWB -r default -d off -t medium -j 1 -n 1 -y 18 -b up
+-s singletop_tWB -r default -d off -t medium -j 1 -n 1 -y 18 -J down
+-s singletop_tWB -r default -d off -t medium -j 1 -n 1 -y 18 -R down
+-s singletop_tWB -r default -d off -t medium -j 1 -n 1 -y 18 -a down
+-s singletop_tWB -r default -d off -t medium -j 1 -n 1 -y 18 -b down
+-s data -r default -d off -t medium -j 20 -n 1 -y 18
+-s data -r default -d off -t medium -j 20 -n 2 -y 18
+-s data -r default -d off -t medium -j 20 -n 3 -y 18
+-s data -r default -d off -t medium -j 20 -n 4 -y 18
+-s data -r default -d off -t medium -j 20 -n 5 -y 18
+-s data -r default -d off -t medium -j 20 -n 6 -y 18
+-s data -r default -d off -t medium -j 20 -n 7 -y 18
+-s data -r default -d off -t medium -j 20 -n 8 -y 18
+-s data -r default -d off -t medium -j 20 -n 9 -y 18
+-s data -r default -d off -t medium -j 20 -n 10 -y 18
+-s data -r default -d off -t medium -j 20 -n 11 -y 18
+-s data -r default -d off -t medium -j 20 -n 12 -y 18
+-s data -r default -d off -t medium -j 20 -n 13 -y 18
+-s data -r default -d off -t medium -j 20 -n 14 -y 18
+-s data -r default -d off -t medium -j 20 -n 15 -y 18
+-s data -r default -d off -t medium -j 20 -n 16 -y 18
+-s data -r default -d off -t medium -j 20 -n 17 -y 18
+-s data -r default -d off -t medium -j 20 -n 18 -y 18
+-s data -r default -d off -t medium -j 20 -n 19 -y 18
+-s data -r default -d off -t medium -j 20 -n 20 -y 18
+-s QCDHT1000 -r sideband -d off -t medium -j 1 -n 1 -y 18
+-s QCDHT1500 -r sideband -d off -t medium -j 1 -n 1 -y 18
+-s QCDHT2000 -r sideband -d off -t medium -j 1 -n 1 -y 18
+-s QCDHT700 -r sideband -d off -t medium -j 1 -n 1 -y 18
+-s ttbar -r sideband -d off -t medium -j 1 -n 1 -y 18
+-s ttbar -r sideband -d off -t medium -j 1 -n 1 -y 18 -J up
+-s ttbar -r sideband -d off -t medium -j 1 -n 1 -y 18 -R up
+-s ttbar -r sideband -d off -t medium -j 1 -n 1 -y 18 -a up
+-s ttbar -r sideband -d off -t medium -j 1 -n 1 -y 18 -b up
+-s ttbar -r sideband -d off -t medium -j 1 -n 1 -y 18 -J down
+-s ttbar -r sideband -d off -t medium -j 1 -n 1 -y 18 -R down
+-s ttbar -r sideband -d off -t medium -j 1 -n 1 -y 18 -a down
+-s ttbar -r sideband -d off -t medium -j 1 -n 1 -y 18 -b down
+-s singletop_tW -r sideband -d off -t medium -j 1 -n 1 -y 18
+-s singletop_tW -r sideband -d off -t medium -j 1 -n 1 -y 18 -J up
+-s singletop_tW -r sideband -d off -t medium -j 1 -n 1 -y 18 -R up
+-s singletop_tW -r sideband -d off -t medium -j 1 -n 1 -y 18 -a up
+-s singletop_tW -r sideband -d off -t medium -j 1 -n 1 -y 18 -b up
+-s singletop_tW -r sideband -d off -t medium -j 1 -n 1 -y 18 -J down
+-s singletop_tW -r sideband -d off -t medium -j 1 -n 1 -y 18 -R down
+-s singletop_tW -r sideband -d off -t medium -j 1 -n 1 -y 18 -a down
+-s singletop_tW -r sideband -d off -t medium -j 1 -n 1 -y 18 -b down
+-s singletop_tWB -r sideband -d off -t medium -j 1 -n 1 -y 18
+-s singletop_tWB -r sideband -d off -t medium -j 1 -n 1 -y 18 -J up
+-s singletop_tWB -r sideband -d off -t medium -j 1 -n 1 -y 18 -R up
+-s singletop_tWB -r sideband -d off -t medium -j 1 -n 1 -y 18 -a up
+-s singletop_tWB -r sideband -d off -t medium -j 1 -n 1 -y 18 -b up
+-s singletop_tWB -r sideband -d off -t medium -j 1 -n 1 -y 18 -J down
+-s singletop_tWB -r sideband -d off -t medium -j 1 -n 1 -y 18 -R down
+-s singletop_tWB -r sideband -d off -t medium -j 1 -n 1 -y 18 -a down
+-s singletop_tWB -r sideband -d off -t medium -j 1 -n 1 -y 18 -b down
+-s data -r sideband -d off -t medium -j 20 -n 1 -y 18
+-s data -r sideband -d off -t medium -j 20 -n 2 -y 18
+-s data -r sideband -d off -t medium -j 20 -n 3 -y 18
+-s data -r sideband -d off -t medium -j 20 -n 4 -y 18
+-s data -r sideband -d off -t medium -j 20 -n 5 -y 18
+-s data -r sideband -d off -t medium -j 20 -n 6 -y 18
+-s data -r sideband -d off -t medium -j 20 -n 7 -y 18
+-s data -r sideband -d off -t medium -j 20 -n 8 -y 18
+-s data -r sideband -d off -t medium -j 20 -n 9 -y 18
+-s data -r sideband -d off -t medium -j 20 -n 10 -y 18
+-s data -r sideband -d off -t medium -j 20 -n 11 -y 18
+-s data -r sideband -d off -t medium -j 20 -n 12 -y 18
+-s data -r sideband -d off -t medium -j 20 -n 13 -y 18
+-s data -r sideband -d off -t medium -j 20 -n 14 -y 18
+-s data -r sideband -d off -t medium -j 20 -n 15 -y 18
+-s data -r sideband -d off -t medium -j 20 -n 16 -y 18
+-s data -r sideband -d off -t medium -j 20 -n 17 -y 18
+-s data -r sideband -d off -t medium -j 20 -n 18 -y 18
+-s data -r sideband -d off -t medium -j 20 -n 19 -y 18
+-s data -r sideband -d off -t medium -j 20 -n 20 -y 18
