@@ -125,7 +125,7 @@ for l in list_of_files[split_start:split_end]:
     n = l.rstrip('\n')
     #if options.year == '17':
     # if not (options.year == '16' and 'signal' in options.set):
-    #     n = 'root://cms-xrd-global.cern.ch/'+n 
+    n = 'root://cms-xrd-global.cern.ch/'+n 
     new_list.append(n)
 
 output_dir = setname+'-'+options.year+'_'+options.job+'-'+options.njobs

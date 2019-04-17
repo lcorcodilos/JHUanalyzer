@@ -22,8 +22,8 @@ for f in files:
     if hasError:
         stdoutFile = open(f.replace('notneeded/','').replace('.stderr','.stdout'),'r')
         for l in stdoutFile:
-            if 'bstarTreeMaker.py ' in l:
-                jobsToReRun.append(l.replace('bstarTreeMaker.py ',''))
+            if 'hhTreeMaker.py ' in l:
+                jobsToReRun.append(l.replace('hhTreeMaker.py ',''))
                 break 
 
 with open('jobsToReRun.txt', 'w') as f:
