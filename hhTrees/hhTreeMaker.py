@@ -42,31 +42,31 @@ if setname == None:
 # Setup modules to use
 if 'data' in setname:
     mymodules = []
-    if options.year == '16':
-        if options.set in ['dataB','dataB2','dataC','dataD']:
-            mymodules.append(jetRecalib2016BCDAK8Puppi())
-        elif options.set in ['dataE','dataF']:
-            mymodules.append(jetRecalib2016EFAK8Puppi())
-        elif options.set in ['dataG','dataH']:
-            mymodules.append(jetRecalib2016GHAK8Puppi())
-        else:
-            print options.set + ' in year '+options.year+' not supported. Quitting...'
-            quit()
+    # if options.year == '16':
+    #     if options.set in ['dataB','dataB2','dataC','dataD']:
+    #         mymodules.append(jetRecalib2016BCDAK8Puppi())
+    #     elif options.set in ['dataE','dataF']:
+    #         mymodules.append(jetRecalib2016EFAK8Puppi())
+    #     elif options.set in ['dataG','dataH']:
+    #         mymodules.append(jetRecalib2016GHAK8Puppi())
+    #     else:
+    #         print options.set + ' in year '+options.year+' not supported. Quitting...'
+    #         quit()
             
-    elif options.year == '17':
-        if options.set == 'dataB':
-            mymodules.append(jetRecalib2017BAK8Puppi())
-        elif options.set == 'dataC':
-            mymodules.append(jetRecalib2017CAK8Puppi())
-        elif options.set in ['dataD','dataE']:
-            mymodules.append(jetRecalib2017DEAK8Puppi())
-        elif options.set == 'dataF':
-            mymodules.append(jetRecalib2017FAK8Puppi())
-        else:
-            print options.set + ' in year '+options.year+' not supported. Quitting...'
-            quit()
+    # elif options.year == '17':
+    #     if options.set == 'dataB':
+    #         mymodules.append(jetRecalib2017BAK8Puppi())
+    #     elif options.set == 'dataC':
+    #         mymodules.append(jetRecalib2017CAK8Puppi())
+    #     elif options.set in ['dataD','dataE']:
+    #         mymodules.append(jetRecalib2017DEAK8Puppi())
+    #     elif options.set == 'dataF':
+    #         mymodules.append(jetRecalib2017FAK8Puppi())
+    #     else:
+    #         print options.set + ' in year '+options.year+' not supported. Quitting...'
+    #         quit()
 
-    elif options.year == '18':
+    if options.year == '18':
         if options.set == 'dataA':
             mymodules.append(jetRecalib2018AAK8Puppi())
         elif options.set == 'dataB':
@@ -84,13 +84,13 @@ if 'data' in setname:
         quit()
 
 else:
-    if options.year == '16':
-        mymodules = [jetmetUncertainties2016AK8Puppi(),puAutoWeight16()]
+    # if options.year == '16':
+    #     mymodules = [jetmetUncertainties2016AK8Puppi(),puAutoWeight16()]
             
-    elif options.year == '17':
-        mymodules = [jetmetUncertainties2017AK8Puppi(),puAutoWeight17()]
+    # elif options.year == '17':
+    #     mymodules = [jetmetUncertainties2017AK8Puppi(),puAutoWeight17()]
 
-    elif options.year == '18':
+    if options.year == '18':
         mymodules = [jetmetUncertainties2018AK8Puppi(),puAutoWeight18()]
 
     else:
@@ -124,8 +124,8 @@ print 'Splitting into '+options.njobs+ ' jobs - Indices ['+ str(split_start)+':'
 for l in list_of_files[split_start:split_end]:
     n = l.rstrip('\n')
     #if options.year == '17':
-    if not (options.year == '16' and 'signal' in options.set):
-        n = 'root://cms-xrd-global.cern.ch/'+n 
+    # if not (options.year == '16' and 'signal' in options.set):
+    #     n = 'root://cms-xrd-global.cern.ch/'+n 
     new_list.append(n)
 
 output_dir = setname+'-'+options.year+'_'+options.job+'-'+options.njobs
