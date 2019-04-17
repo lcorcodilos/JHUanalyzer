@@ -60,6 +60,7 @@ for i in input_subs.keys():
     executables.append('dasgoclient -query "file dataset='+input_subs[i]+'" > '+i+'_loc.txt')
     # loj.write("python tardir/bstarTreeMaker.py "+i+'\n')
 for s in executables:
+    print 'Executing: '+s
     subprocess.call([s],shell=True)
 
 

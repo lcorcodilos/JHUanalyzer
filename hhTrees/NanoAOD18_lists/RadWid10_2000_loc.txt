@@ -1,0 +1,1 @@
+/store/mc/RunIIAutumn18NanoAODv4/RadionTohhTohbbhbb_width0p10_M-2000_TuneCP2_PSweights_13TeV-madgraph_pythia8/NANOAODSIM/Nano14Dec2018_102X_upgrade2018_realistic_v16-v1/120000/725FADFC-184D-654B-B222-9AB54A2B4513.root
