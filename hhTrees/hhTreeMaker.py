@@ -39,7 +39,6 @@ if setname == None:
     print 'Setname not given to PostProcessor. Quitting'
     quit()
 
-jetcoll = "FatJet"
 # Setup modules to use
 if 'data' in setname:
     mymodules = []
@@ -130,12 +129,14 @@ for l in list_of_files[split_start:split_end]:
     new_list.append(n)
 
 output_dir = setname+'-'+options.year+'_'+options.job+'-'+options.njobs
-hadded_file = "bstarTrees"+options.year+"_"+setname+'_'+options.job+'-'+options.njobs+'.root'
+hadded_file = "hhTrees"+options.year+"_"+setname+'_'+options.job+'-'+options.njobs+'.root'
+
+cutstring =  "( (FatJet_pt[0]>250)&&(FatJet_eta[0]<2.5) )&&( ((FatJet_pt[1]>250)&&(FatJet_eta[1]<2.5)) || ((Jet_pt[0]>50)&&(Jet_pt[1]>50)&&(Jet_eta[0]<2.5)&&(Jet_eta[1]<2.5)) )"
 
 # Postprocessor
 if (split_end - split_start) > 1:
     p=PostProcessor(output_dir+'/',new_list,
-                "("+jetcoll+"_pt[0]>350)&&("+jetcoll+"_pt[1]>350)&&("+jetcoll+"_eta[0]<2.5)&&("+jetcoll+"_eta[1]<2.5)&&(Electron_pt[0]<50)&&(Muon_pt[0]<30)",
+                cutstring,
                 branchsel='keep_and_drop'+options.year+'.txt',
                 outputbranchsel='keep_and_drop'+options.year+'.txt',
                 modules=mymodules,
@@ -143,7 +144,7 @@ if (split_end - split_start) > 1:
 # Need to skip haddnano step if there's only one file processed
 else:
     p=PostProcessor(output_dir+'/',new_list,
-                "("+jetcoll+"_pt[0]>350)&&("+jetcoll+"_pt[1]>350)&&("+jetcoll+"_eta[0]<2.5)&&("+jetcoll+"_eta[1]<2.5)&&(Electron_pt[0]<50)&&(Muon_pt[0]<30)",
+                cutstring,
                 branchsel='keep_and_drop'+options.year+'.txt',
                 outputbranchsel='keep_and_drop'+options.year+'.txt',
                 modules=mymodules,

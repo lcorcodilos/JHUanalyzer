@@ -1,7 +1,6 @@
 drop *
 
-keep *FatJet*
-keep *SubJet*
+keep *Jet*
 keep run
 keep luminosityBlock
 
