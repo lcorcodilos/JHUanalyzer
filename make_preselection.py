@@ -44,28 +44,10 @@ if __name__ == "__main__":
                     default   =   'default',
                     dest      =   'region',
                     help      =   'default, sideband, ttbar')
-    parser.add_option('-d', '--deepak8', metavar='F', type='string', action='store',
-                    default   =   'off',
-                    dest      =   'deepak8',
-                    help      =   'Cut strength (off, (MD)loose, (MD)medium, (MD)tight, (MD)very_tight)')
-    parser.add_option('-t', '--tau32', metavar='F', type='string', action='store',
-                    default   =   'off',
-                    dest      =   'tau32',
-                    help      =   'Cut strength (off, loose, medium, tight')
     parser.add_option('-y', '--year', metavar='FILE', type='string', action='store',
-                default   =   '',
-                dest      =   'year',
-                help      =   'Year (16,17,18)')
-
-    # parser.add_option('-t', '--tname', metavar='F', type='string', action='store',
-    #                 default  =   'HLT_PFHT900,HLT_PFHT800,HLT_AK8PFJet450',
-    #                 dest     =   'tname',
-    #                 help     =   'trigger name')
-
-    parser.add_option('-x', '--pileup', metavar='F', type='string', action='store',
-                    default   =   'on',
-                    dest      =   'pileup',
-                    help      =   'If not data do pileup reweighting?')
+                    default   =   '',
+                    dest      =   'year',
+                    help      =   'Year (16,17,18)')
     parser.add_option('-J', '--JES', metavar='F', type='string', action='store',
                     default   =   'nominal',
                     dest      =   'JES',
@@ -82,20 +64,6 @@ if __name__ == "__main__":
                     default   =   'nominal',
                     dest      =   'JMR',
                     help      =   'nominal, up, or down')
-    parser.add_option('-u', '--ptreweight', metavar='F', type='string', action='store',
-                    default   =   'on',
-                    dest      =   'ptreweight',
-                    help      =   'on or off')
-    # parser.add_option('-p', '--pdfweights', metavar='F', type='string', action='store',
-    #                 default   =   'nominal',
-    #                 dest      =   'pdfweights',
-    #                 help      =   'nominal, up, or down')
-
-
-    # parser.add_option('-g', '--grid', metavar='F', type='string', action='store',
-    #                 default   =   'off',
-    #                 dest      =   'grid',
-    #                 help      =   'running on grid off or on')
     parser.add_option('-n', '--num', metavar='F', type='string', action='store',
                     default   =   'all',
                     dest      =   'num',
@@ -104,10 +72,6 @@ if __name__ == "__main__":
                     default   =   '1',
                     dest      =   'jobs',
                     help      =   'number of jobs')
-    # parser.add_option('-m', '--remake', action='store_true',
-    #             default   =   False,
-    #             dest      =   'remake',
-    #             help      =   'Remake summed CSV files stored locally')
 
     (options, args) = parser.parse_args()
 
@@ -116,11 +80,11 @@ if __name__ == "__main__":
     if options.deepak8 == 'off':
         gSystem.Load('libCondFormatsBTauObjects') 
         gSystem.Load('libCondToolsBTau') 
-        if options.year == '16':
-            calib = BTagCalibration('DeepCSV', 'SFs/DeepCSV_2016LegacySF_V1.csv')
-        elif options.year == '17':
-            calib = BTagCalibration('DeepCSV', 'SFs/subjet_DeepCSV_94XSF_V4_B_F.csv')
-        elif options.year == '18':
+        # if options.year == '16':
+        #     calib = BTagCalibration('DeepCSV', 'SFs/DeepCSV_2016LegacySF_V1.csv')
+        # elif options.year == '17':
+        #     calib = BTagCalibration('DeepCSV', 'SFs/subjet_DeepCSV_94XSF_V4_B_F.csv')
+        if options.year == '18':
             calib = BTagCalibration('DeepCSV', 'SFs/DeepCSV_102XSF_V1.csv')
             
         v_sys = getattr(ROOT, 'vector<string>')()
@@ -139,30 +103,23 @@ if __name__ == "__main__":
             "incl"      # measurement type
         ) 
 
-    if options.region == 'ttbar' and options.deepak8 == 'off':
-        wIsTtagged = True
-        print 'W side will be top tagged'
-    else:
-        wIsTtagged = False
-
     ######################################
     # Make strings for final file naming #
     ######################################
 
     # Trigger
-    if options.year == '16':
-        tname = 'HLT_PFHT800ORHLT_PFHT900ORHLT_PFJet450'
-        pretrig_string = 'HLT_Mu50'
-        # btagtype = 'btagCSVV2'
-    elif options.year == '17' or options.year == '18':
-        tname = 'HLT_PFHT1050ORHLT_PFJet500'
-        pretrig_string = 'HLT_IsoMu27'
+    # if options.year == '16':
+    #     tname = 'HLT_PFHT800ORHLT_PFHT900ORHLT_PFJet450'
+    #     pretrig_string = 'HLT_Mu50'
+    #     # btagtype = 'btagCSVV2'
+    # elif options.year == '17' or options.year == '18':
+    #     tname = 'HLT_PFHT1050ORHLT_PFJet500'
+    #     pretrig_string = 'HLT_IsoMu27'
+    
+    tname = 
+    pretrig_string = 
     btagtype = 'btagDeepB'
 
-    # if tname == 'HLT_PFHT900ORHLT_PFHT800ORHLT_AK8PFJet450':
-    #     tnamestr = 'nominal'
-    # else:
-    #     tnamestr = tname
 
     # JECs
     runOthers = True
@@ -188,32 +145,6 @@ if __name__ == "__main__":
         mass_name = '_jmr'+options.JMR.capitalize()
         runOthers = False
 
-    # if options.year == '16':
-    #     jetcoll = "FatJet"#"CustomAK8Puppi"
-    # elif options.year == '17':
-    jetcoll = "FatJet"
-
-    print 'Jet collection is '+jetcoll
-
-    if options.deepak8 == 'off' and options.tau32 == 'off':
-        print 'ERROR: tau32 and deepak8 both off. Please turn one on. Quitting...'
-        quit()
-    elif options.deepak8 != 'off':
-        ttagstring = 'DAK8'+options.deepak8
-    elif options.tau32 != 'off':
-        ttagstring = 'tau32'+options.tau32
-
-    ######################################
-    # Setup grid production if necessary #
-    ######################################
-
-    #If running on the grid we access the script within a tarred directory
-    di = ""
-    # if options.grid == 'on':
-    #     di = "tardir/"
-    #     sys.path.insert(0, 'tardir/')
-
-    # gROOT.Macro(di+"rootlogon.C")
 
     #######################
     # Setup job splitting #
@@ -235,227 +166,99 @@ if __name__ == "__main__":
 
     Cuts = LoadCuts(options.region,options.year)
 
-    tempyear = options.year
-    if options.year == '18':
-        tempyear = '17'
-
     ##########################################################
     # Load Trigger, Pileup reweight, and ttag sf if not data #
     ##########################################################
-    if options.set != 'data':
-        
+    if False:#options.set != 'data':
         print "Triggerweight_data"+options.year+"_pre_"+pretrig_string+".root"
         print 'TriggerWeight_'+tname+'_Ht'
         TrigFile = TFile.Open("trigger/Triggerweight_data"+options.year+"_pre_"+pretrig_string+".root")
         TrigPlot = TrigFile.Get('TriggerWeight_'+tname+'_Ht')
         TrigPlot1 = TrigPlot.Clone()
         
+    if options.set != 'data':
         PileFile = TFile.Open("pileup/PileUp_Ratio_ttbar"+tempyear+".root")
         PilePlots = {
             "nom": PileFile.Get("Pileup_Ratio"),
             "up": PileFile.Get("Pileup_Ratio_up"),
             "down": PileFile.Get("Pileup_Ratio_down")}
         
-        if options.deepak8 != 'off':
-            if 'MD' in options.deepak8:
-                ttagsfPlots = {
-                    "nom": TFile.Open('TopSFs.root').Get('fj_decorr_nn_top'+options.deepak8[2:]+'syst'),
-                    "up": TFile.Open('TopSFs.root').Get('fj_decorr_nn_top'+options.deepak8[2:]+'syst_up'),
-                    "down": TFile.Open('TopSFs.root').Get('fj_decorr_nn_top'+options.deepak8[2:]+'syst_down')
-                }
-            else:
-                ttagsfPlots = {
-                    "nom": TFile.Open('TopSFs.root').Get('fj_nn_top'+options.deepak8+'syst'),
-                    "up": TFile.Open('TopSFs.root').Get('fj_nn_top'+options.deepak8+'syst_up'),
-                    "down": TFile.Open('TopSFs.root').Get('fj_nn_top'+options.deepak8+'syst_down')
-                }
-
-        else:
-            ttagsffile = TFile.Open('SFs/20'+tempyear+'TopTaggingScaleFactors.root')
-
-    ##########################
-    # Get DeepAK8 csv values #
-    ##########################
-    # DeepAK8_csv_locations = FindDeepAK8csv(options.set)
-    # if (not os.path.exists('DeepAK8Results/'+options.set+'.csv')) or options.remake:
-    #     print 'Making DeepAK8Results/'+options.set+'.csv'
-    #     # Grab all csv file names
-    #     csv_files = []
-    #     for subset in DeepAK8_csv_locations:
-    #         base_dir = '/eos/uscms/store/user/lcorcodi/DeepAK8Results/'
-    #         fs = glob.glob(base_dir+subset+'*/*/output_94X*.csv')
-    #         csv_files.extend(fs)
-
-    #     frames = []
-    #     for file in csv_files:
-    #         temp_df = pandas.read_csv(file)
-    #         frames.append(temp_df)
-        
-    #     full_frame = pandas.concat(frames)
-
-    #     full_frame.to_csv('DeepAK8Results/'+options.set+'.csv')
-
-    #     del full_frame
-
-    # DAK8_Helper = FatJetNNHelper('DeepAK8Results/'+options.set+'.csv',True)
+        # ttagsffile = TFile.Open('SFs/20'+tempyear+'TopTaggingScaleFactors.root')
 
     #############################
     # Make new file for storage #
     #############################
     if jobs!=1:
-        f = TFile( "TWpreselection"+options.year+"_"+options.set+"_job"+options.num+"of"+options.jobs+"_"+ttagstring+mod+'_'+options.region+".root", "recreate" )
+        f = TFile( "HHpreselection"+options.year+"_"+options.set+"_job"+options.num+"of"+options.jobs+"_"+mod+'_'+options.region+".root", "recreate" )
     else:
-        f = TFile( "TWpreselection"+options.year+"_"+options.set+"_"+ttagstring+mod+'_'+options.region+".root", "recreate" )
+        f = TFile( "HHpreselection"+options.year+"_"+options.set+"_"+mod+'_'+options.region+".root", "recreate" )
     f.cd()
 
     
-    #########################################################################
-    # Book kinematic variables of interest for pre and post selection trees #
-    # Will want preselection for N-1 studies, etc                           #
-    #########################################################################
-    # preTreeVars = {
-    #     'pt_top':array('d',[0]),
-    #     'mass_top':array('d',[0]),
-    #     'SDmass_top':array('d',[0]),
-    #     'eta_top':array('d',[0]),
-    #     'phi_top':array('d',[0]),
-    #     'flavor_top':array('d',[0]),
-    #     'DeepAK8_top':array('d',[0]),
-    #     'tau32':array('d',[0]),
-    #     'sjbtag':array('d',[0]),
-        
-    #     'pt_w':array('d',[0]),
-    #     'mass_w':array('d',[0]),
-    #     'SDmass_w':array('d',[0]),
-    #     'eta_w':array('d',[0]),
-    #     'phi_w':array('d',[0]),
-    #     'flavor_w':array('d',[0]),
-    #     'tau21':array('d',[0]),
-    #     # 'DeepAK8_w':array('d',[0]),
-
-    #     'mass_tw':array('d',[0]),
-    #     'ht':array('d',[0]),
-
-    #     'weight':array('d',[0])}
-
-    # preTree = Make_Trees(preTreeVars,'preTree')
-
     ###################
     # Book histograms #
     ###################
-    MtwvMtPass     = TH2F("MtwvMtPass",     "mass of tw vs mass of top - Pass", 60, 50, 350, 35, 500, 4000 )
-    MtwvMtFail     = TH2F("MtwvMtFail",     "mass of tw vs mass of top - Fail", 60, 50, 350, 35, 500, 4000 )
-    MtwvMtPass.Sumw2()
-    MtwvMtFail.Sumw2()
+    MhhvMhPass     = TH2F("MhhvMhPass",     "mass of tw vs mass of top - Pass", 60, 50, 350, 35, 500, 4000 )
+    MhhvMhFail     = TH2F("MhhvMhFail",     "mass of tw vs mass of top - Fail", 60, 50, 350, 35, 500, 4000 )
+    MhhvMhPass.Sumw2()
+    MhhvMhFail.Sumw2()
 
     nev = TH1F("nev",   "nev",      1, 0, 1 )
 
     if runOthers == True:
         if options.set != 'data':
-            MtwvMtPassPDFup   = TH2F("MtwvMtPassPDFup", "mass of tw vs mass of top PDF up - Pass", 60, 50, 350, 35, 500, 4000 )
-            MtwvMtPassPDFdown = TH2F("MtwvMtPassPDFdown",   "mass of tw vs mass of top PDF down - Pass", 60, 50, 350, 35, 500, 4000 )
-            MtwvMtPassPDFup.Sumw2()
-            MtwvMtPassPDFdown.Sumw2()
+            MhhvMhPassPDFup   = TH2F("MhhvMhPassPDFup", "mass of tw vs mass of top PDF up - Pass", 60, 50, 350, 35, 500, 4000 )
+            MhhvMhPassPDFdown = TH2F("MhhvMhPassPDFdown",   "mass of tw vs mass of top PDF down - Pass", 60, 50, 350, 35, 500, 4000 )
+            MhhvMhPassPDFup.Sumw2()
+            MhhvMhPassPDFdown.Sumw2()
 
-            MtwvMtPassPUup   = TH2F("MtwvMtPassPUup", "mass of tw vs mass of top PU up - Pass", 60, 50, 350, 35, 500, 4000 )
-            MtwvMtPassPUdown = TH2F("MtwvMtPassPUdown",   "mass of tw vs mass of top PU down - Pass", 60, 50, 350, 35, 500, 4000 )
-            MtwvMtPassPUup.Sumw2()
-            MtwvMtPassPUdown.Sumw2()
+            MhhvMhPassPUup   = TH2F("MhhvMhPassPUup", "mass of tw vs mass of top PU up - Pass", 60, 50, 350, 35, 500, 4000 )
+            MhhvMhPassPUdown = TH2F("MhhvMhPassPUdown",   "mass of tw vs mass of top PU down - Pass", 60, 50, 350, 35, 500, 4000 )
+            MhhvMhPassPUup.Sumw2()
+            MhhvMhPassPUdown.Sumw2()
 
-            MtwvMtPassTopup   = TH2F("MtwvMtPassTopup", "mass of tw vs mass of top sf up - Pass", 60, 50, 350, 35, 500, 4000 )
-            MtwvMtPassTopdown = TH2F("MtwvMtPassTopdown",   "mass of tw vs mass of top sf down - Pass", 60, 50, 350, 35, 500, 4000 )
-            MtwvMtPassTopup.Sumw2()
-            MtwvMtPassTopdown.Sumw2()
+            MhhvMhPassScaleup   = TH2F("MhhvMhPassScaleup", "mass of tw vs mass of Q^2 scale up - Pass", 60, 50, 350, 35, 500, 4000 )
+            MhhvMhPassScaledown = TH2F("MhhvMhPassScaledown",   "mass of tw vs mass of Q^2 scale down - Pass", 60, 50, 350, 35, 500, 4000 )
+            MhhvMhPassScaleup.Sumw2()
+            MhhvMhPassScaledown.Sumw2()
 
-            MtwvMtPassScaleup   = TH2F("MtwvMtPassScaleup", "mass of tw vs mass of Q^2 scale up - Pass", 60, 50, 350, 35, 500, 4000 )
-            MtwvMtPassScaledown = TH2F("MtwvMtPassScaledown",   "mass of tw vs mass of Q^2 scale down - Pass", 60, 50, 350, 35, 500, 4000 )
-            MtwvMtPassScaleup.Sumw2()
-            MtwvMtPassScaledown.Sumw2()
-
-            MtwvMtPassSjbtagup   = TH2F("MtwvMtPassSjbtagup", "mass of tw vs mass of sjbtag sf up - Pass", 60, 50, 350, 35, 500, 4000 )
-            MtwvMtPassSjbtagdown = TH2F("MtwvMtPassSjbtagdown",   "mass of tw vs mass of sjbtag sf down - Pass", 60, 50, 350, 35, 500, 4000 )
-            MtwvMtPassSjbtagup.Sumw2()
-            MtwvMtPassSjbtagdown.Sumw2()
-
-            MtwvMtPassTrigup   = TH2F("MtwvMtPassTrigup", "mass of tw vs mass of top trig up - Pass", 60, 50, 350, 35, 500, 4000 )
-            MtwvMtPassTrigdown = TH2F("MtwvMtPassTrigdown",   "mass of tw vs mass of top trig down - Pass", 60, 50, 350, 35, 500, 4000 )
-            MtwvMtPassTrigup.Sumw2()
-            MtwvMtPassTrigdown.Sumw2()
-
-            MtwvMtPassWup      = TH2F("MtwvMtPassWup",    "mass of tw vs mass of top w tag SF up - Pass", 60, 50, 350, 35, 500, 4000 )
-            MtwvMtPassWdown    = TH2F("MtwvMtPassWdown",  "mass of tw vs mass of top w tag SF down - Pass",   60, 50, 350, 35, 500, 4000 )
-            MtwvMtPassWup.Sumw2()
-            MtwvMtPassWdown.Sumw2()
-
-            MtwvMtPassTptup    = TH2F("MtwvMtPassTptup",  "mass of tw vs mass of top top pt reweight up - Pass",  60, 50, 350, 35, 500, 4000 )
-            MtwvMtPassTptdown  = TH2F("MtwvMtPassTptdown",    "mass of tw vs mass of top top pt reweight down - Pass",60, 50, 350, 35, 500, 4000 )
-            MtwvMtPassTptup.Sumw2()
-            MtwvMtPassTptdown.Sumw2()
-
-            if options.region != 'ttbar':
-                MtwvMtPassExtrapUp = TH2F("MtwvMtPassExtrapUp", "mass of tw vs mass of top extrapolation uncertainty up - Pass", 60, 50, 350, 35, 500, 4000)
-                MtwvMtPassExtrapDown = TH2F("MtwvMtPassExtrapDown", "mass of tw vs mass of top extrapolation uncertainty down - Pass", 60, 50, 350, 35, 500, 4000)
-                MtwvMtPassExtrapUp.Sumw2()
-                MtwvMtPassExtrapDown.Sumw2()
+            MhhvMhPassTrigup   = TH2F("MhhvMhPassTrigup", "mass of tw vs mass of top trig up - Pass", 60, 50, 350, 35, 500, 4000 )
+            MhhvMhPassTrigdown = TH2F("MhhvMhPassTrigdown",   "mass of tw vs mass of top trig down - Pass", 60, 50, 350, 35, 500, 4000 )
+            MhhvMhPassTrigup.Sumw2()
+            MhhvMhPassTrigdown.Sumw2()
 
             # Fail
-            MtwvMtFailPDFup   = TH2F("MtwvMtFailPDFup", "mass of tw vs mass of top PDF up - Fail", 60, 50, 350, 35, 500, 4000 )
-            MtwvMtFailPDFdown = TH2F("MtwvMtFailPDFdown",   "mass of tw vs mass of top PDF up - Fail", 60, 50, 350, 35, 500, 4000 )
-            MtwvMtFailPDFup.Sumw2()
-            MtwvMtFailPDFdown.Sumw2()
+            MhhvMhFailPDFup   = TH2F("MhhvMhFailPDFup", "mass of tw vs mass of top PDF up - Fail", 60, 50, 350, 35, 500, 4000 )
+            MhhvMhFailPDFdown = TH2F("MhhvMhFailPDFdown",   "mass of tw vs mass of top PDF up - Fail", 60, 50, 350, 35, 500, 4000 )
+            MhhvMhFailPDFup.Sumw2()
+            MhhvMhFailPDFdown.Sumw2()
 
-            MtwvMtFailPUup   = TH2F("MtwvMtFailPUup", "mass of tw vs mass of top PU up - Fail", 60, 50, 350, 35, 500, 4000 )
-            MtwvMtFailPUdown = TH2F("MtwvMtFailPUdown",   "mass of tw vs mass of top PU up - Fail", 60, 50, 350, 35, 500, 4000 )
-            MtwvMtFailPUup.Sumw2()
-            MtwvMtFailPUdown.Sumw2()
+            MhhvMhFailPUup   = TH2F("MhhvMhFailPUup", "mass of tw vs mass of top PU up - Fail", 60, 50, 350, 35, 500, 4000 )
+            MhhvMhFailPUdown = TH2F("MhhvMhFailPUdown",   "mass of tw vs mass of top PU up - Fail", 60, 50, 350, 35, 500, 4000 )
+            MhhvMhFailPUup.Sumw2()
+            MhhvMhFailPUdown.Sumw2()
 
-            MtwvMtFailTopup   = TH2F("MtwvMtFailTopup", "mass of tw vs mass of top sf up - Fail", 60, 50, 350, 35, 500, 4000 )
-            MtwvMtFailTopdown = TH2F("MtwvMtFailTopdown",   "mass of tw vs mass of top sf up - Fail", 60, 50, 350, 35, 500, 4000 )
-            MtwvMtFailTopup.Sumw2()
-            MtwvMtFailTopdown.Sumw2()
+            MhhvMhFailScaleup   = TH2F("MhhvMhFailScaleup", "mass of tw vs mass of Q^2 scale up - Fail", 60, 50, 350, 35, 500, 4000 )
+            MhhvMhFailScaledown = TH2F("MhhvMhFailScaledown",   "mass of tw vs mass of Q^2 scale down - Fail", 60, 50, 350, 35, 500, 4000 )
+            MhhvMhFailScaleup.Sumw2()
+            MhhvMhFailScaledown.Sumw2()
 
-            MtwvMtFailScaleup   = TH2F("MtwvMtFailScaleup", "mass of tw vs mass of Q^2 scale up - Fail", 60, 50, 350, 35, 500, 4000 )
-            MtwvMtFailScaledown = TH2F("MtwvMtFailScaledown",   "mass of tw vs mass of Q^2 scale down - Fail", 60, 50, 350, 35, 500, 4000 )
-            MtwvMtFailScaleup.Sumw2()
-            MtwvMtFailScaledown.Sumw2()
-
-            MtwvMtFailSjbtagup   = TH2F("MtwvMtFailSjbtagup", "mass of tw vs mass of sjbtag sf up - Fail", 60, 50, 350, 35, 500, 4000 )
-            MtwvMtFailSjbtagdown = TH2F("MtwvMtFailSjbtagdown",   "mass of tw vs mass of sjbtag sf down - Fail", 60, 50, 350, 35, 500, 4000 )
-            MtwvMtFailSjbtagup.Sumw2()
-            MtwvMtFailSjbtagdown.Sumw2()
-
-            MtwvMtFailTrigup   = TH2F("MtwvMtFailTrigup", "mass of tw vs mass of top trig up - Fail", 60, 50, 350, 35, 500, 4000 )
-            MtwvMtFailTrigdown = TH2F("MtwvMtFailTrigdown",   "mass of tw vs mass of top trig up - Fail", 60, 50, 350, 35, 500, 4000 )
-            MtwvMtFailTrigup.Sumw2()
-            MtwvMtFailTrigdown.Sumw2()
-
-            MtwvMtFailWup      = TH2F("MtwvMtFailWup",    "mass of tw vs mass of top w tag SF up - Fail", 60, 50, 350, 35, 500, 4000 )
-            MtwvMtFailWdown    = TH2F("MtwvMtFailWdown",  "mass of tw vs mass of top w tag SF down - Fail",   60, 50, 350, 35, 500, 4000 )
-            MtwvMtFailWup.Sumw2()
-            MtwvMtFailWdown.Sumw2()
-
-            MtwvMtFailTptup    = TH2F("MtwvMtFailTptup",  "mass of tw vs mass of top top pt reweight up - Fail",  60, 50, 350, 35, 500, 4000 )
-            MtwvMtFailTptdown  = TH2F("MtwvMtFailTptdown",    "mass of tw vs mass of top top pt reweight down - Fail",60, 50, 350, 35, 500, 4000 )
-            MtwvMtFailTptup.Sumw2()
-            MtwvMtFailTptdown.Sumw2()
-
-            if options.region != 'ttbar':
-                MtwvMtFailExtrapUp = TH2F("MtwvMtFailExtrapUp", "mass of tw vs mass of top extrapolation uncertainty up - Fail", 60, 50, 350, 35, 500, 4000)
-                MtwvMtFailExtrapDown = TH2F("MtwvMtFailExtrapDown", "mass of tw vs mass of top extrapolation uncertainty down - Fail", 60, 50, 350, 35, 500, 4000)
-                MtwvMtFailExtrapUp.Sumw2()
-                MtwvMtFailExtrapDown.Sumw2()
+            MhhvMhFailTrigup   = TH2F("MhhvMhFailTrigup", "mass of tw vs mass of top trig up - Fail", 60, 50, 350, 35, 500, 4000 )
+            MhhvMhFailTrigdown = TH2F("MhhvMhFailTrigdown",   "mass of tw vs mass of top trig up - Fail", 60, 50, 350, 35, 500, 4000 )
+            MhhvMhFailTrigup.Sumw2()
+            MhhvMhFailTrigdown.Sumw2()
 
 
-        MtwvMt_cut1    = TH2F("MtwvMt_cut1",  "mass of tw after pt cuts and dy cuts", 60, 50, 350, 35, 500, 4000)
-        MtwvMt_cut2    = TH2F("MtwvMt_cut2",  "mass of tw after tau21 cut", 60, 50, 350, 35, 500, 4000)
-        MtwvMt_cut3    = TH2F("MtwvMt_cut3",  "mass of tw after wmass cut", 60, 50, 350, 35, 500, 4000)
-        MtwvMt_cut4    = TH2F("MtwvMt_cut4", "mass of tw after tau32 cut", 60, 50, 350, 35, 500, 4000)
-        MtwvMt_cut5    = TH2F("MtwvMt_cut5", "mass of tw after sjbtag cut", 60, 50, 350, 35, 500, 4000)
-        MtwvMt_cut1.Sumw2()
-        MtwvMt_cut2.Sumw2()
-        MtwvMt_cut3.Sumw2()
-        MtwvMt_cut4.Sumw2()
-        MtwvMt_cut5.Sumw2()
+        MhhvMh_cut1    = TH2F("MhhvMh_cut1",  "mass of tw after pt cuts and dy cuts", 60, 50, 350, 35, 500, 4000)
+        MhhvMh_cut2    = TH2F("MhhvMh_cut2",  "mass of tw after tau21 cut", 60, 50, 350, 35, 500, 4000)
+        MhhvMh_cut3    = TH2F("MhhvMh_cut3",  "mass of tw after wmass cut", 60, 50, 350, 35, 500, 4000)
+        MhhvMh_cut4    = TH2F("MhhvMh_cut4", "mass of tw after tau32 cut", 60, 50, 350, 35, 500, 4000)
+        MhhvMh_cut5    = TH2F("MhhvMh_cut5", "mass of tw after sjbtag cut", 60, 50, 350, 35, 500, 4000)
+        MhhvMh_cut1.Sumw2()
+        MhhvMh_cut2.Sumw2()
+        MhhvMh_cut3.Sumw2()
+        MhhvMh_cut4.Sumw2()
+        MhhvMh_cut5.Sumw2()
 
         Pt1presel = TH1F("Pt1presel",         "Leading jet pt (GeV)",             46, 350, 1500 )
         Pt2presel = TH1F("Pt2presel",         "Subleading jet pt (GeV)",             46, 350, 1500 )
@@ -483,43 +286,12 @@ if __name__ == "__main__":
         PhiW.Sumw2()
         dPhi.Sumw2()
 
-        MSDtop = TH1F("MSDtop",      "Top Candidate Soft Drop Mass (GeV)",                       30, 50, 350 )
-        MSDw = TH1F("MSDw",      "W Candidate Soft Drop Mass (GeV)",                       27, 30, 300 )
-
-        if options.deepak8 != 'off':
-            dak8Top      = TH1F("dak8Top",        "DAK8 Tagging Value for Top",          20, 0.0, 1.0 )
-            dak8Top_vs_mt = TH2F('dak8Top_vs_mt', "DAK8 Top vs M_{t}",          30, 50, 350, 20,0,1.0)
-            dak8Top_vs_mt_slice1 = TH2F('dak8Top_vs_mt_slice1', "DAK8 Top vs M_{t}, 900 < M_{res} < 1100",          30, 50, 350, 20,0,1.0)
-            dak8Top_vs_mt_slice2 = TH2F('dak8Top_vs_mt_slice2', "DAK8 Top vs M_{t}, 1100 < M_{res} < 2400",          30, 50, 350, 20,0,1.0)
-            dak8Top_vs_mt_slice3 = TH2F('dak8Top_vs_mt_slice3', "DAK8 Top vs M_{t}, M_{res} >2400",          30, 50, 350, 20,0,1.0)
-            
-
-            dak8Top.Sumw2()
-            dak8Top_vs_mt.Sumw2()
-            dak8Top_vs_mt_slice1.Sumw2()
-            dak8Top_vs_mt_slice2.Sumw2()
-            dak8Top_vs_mt_slice3.Sumw2()
-
-        else:
-            Tau32       = TH1F('Tau32',     'N-subjetiness Top',    20,0,1.0)
-            SJbtag      = TH1F('SJbtag',    'Subjet b-tag (DeepCSV)', 20,0,1.0)
-            Tau32.Sumw2()
-            SJbtag.Sumw2()
-
-
-    dumbTagPass = TH2F("dumbTagPass",     "mass of tw vs mass of top - Pass random tag", 60, 50, 350, 35, 500, 4000 )
-    dumbTagFail = TH2F("dumbTagFail",     "mass of tw vs mass of top - Fail random tag", 60, 50, 350, 35, 500, 4000 )
-
-    dumbTagPass.Sumw2()
-    dumbTagFail.Sumw2()
-
 
     ###############################
     # Grab root file that we want #
     ###############################
     file_string = Load_jetNano(options.set,options.year)
     file = TFile.Open(file_string)
-
 
     ################################
     # Grab event tree from nanoAOD #
@@ -599,13 +371,8 @@ if __name__ == "__main__":
         # Have to grab Collections for each collection of interest
         # -- collections are for types of objects where there could be multiple values
         #    for a single event
-        ak8JetsColl = Collection(event, jetcoll)
-        if options.deepak8 == 'off':
-            # if options.year == '16':
-            #     subJetsColl = Collection(event, 'SubJet')
-            #     #subJetsColl = Collection(event, jetcoll+'SubJet')
-            # else:
-            subJetsColl = Collection(event, 'SubJet')
+        ak8JetsColl = Collection(event, "FatJet")
+        ak4JetsColl = Collection(event, "Jet")
 
         # Now jetID which (in binary #s) is stored with bit1 as loose, bit2 as tight, and filters (after grabbing jet collections)
         try:
@@ -791,11 +558,11 @@ if __name__ == "__main__":
                     preselection = wpt_cut and tpt_cut and dy_cut and wmass_cut and tau21_cut
                 
                     if wpt_cut and tpt_cut and dy_cut:
-                        if runOthers: MtwvMt_cut1.Fill(tjet.M(),MtopW)
+                        if runOthers: MhhvMh_cut1.Fill(tjet.M(),MtopW)
                         if tau21_cut:
-                            if runOthers: MtwvMt_cut2.Fill(tjet.M(),MtopW)
+                            if runOthers: MhhvMh_cut2.Fill(tjet.M(),MtopW)
                             if wmass_cut:
-                                if runOthers: MtwvMt_cut3.Fill(tjet.M(),MtopW)
+                                if runOthers: MhhvMh_cut3.Fill(tjet.M(),MtopW)
 
                 # If tagging regular W as a top
                 else:
@@ -991,9 +758,9 @@ if __name__ == "__main__":
                         top_tag = sjbtag_cut and tau32_cut
 
                         if tau32_cut:
-                            if runOthers: MtwvMt_cut4.Fill(tjet.M(),MtopW)
+                            if runOthers: MhhvMh_cut4.Fill(tjet.M(),MtopW)
                             if sjbtag_cut:
-                                if runOthers: MtwvMt_cut5.Fill(tjet.M(),MtopW)
+                                if runOthers: MhhvMh_cut5.Fill(tjet.M(),MtopW)
 
                     else:
                         if 'MD' in options.deepak8:
@@ -1018,37 +785,37 @@ if __name__ == "__main__":
 
                     if top_tag:
 
-                        MtwvMtPass.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'nominal')) 
+                        MhhvMhPass.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'nominal')) 
 
                         if runOthers:
                             if options.set != 'data':
-                                MtwvMtPassPDFup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PDF_up'))
-                                MtwvMtPassPDFdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PDF_down'))
+                                MhhvMhPassPDFup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PDF_up'))
+                                MhhvMhPassPDFdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PDF_down'))
 
-                                MtwvMtPassPUup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Pileup_up'))
-                                MtwvMtPassPUdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Pileup_down'))
+                                MhhvMhPassPUup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Pileup_up'))
+                                MhhvMhPassPUdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Pileup_down'))
 
-                                MtwvMtPassTopup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Topsf_up'))
-                                MtwvMtPassTopdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Topsf_down'))
+                                MhhvMhPassTopup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Topsf_up'))
+                                MhhvMhPassTopdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Topsf_down'))
 
-                                MtwvMtPassScaleup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Q2_up'))
-                                MtwvMtPassScaledown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Q2_down'))
+                                MhhvMhPassScaleup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Q2_up'))
+                                MhhvMhPassScaledown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Q2_down'))
 
-                                MtwvMtPassSjbtagup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'sjbsf_up'))
-                                MtwvMtPassSjbtagdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'sjbsf_down'))
+                                MhhvMhPassSjbtagup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'sjbsf_up'))
+                                MhhvMhPassSjbtagdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'sjbsf_down'))
 
-                                MtwvMtPassTrigup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Trigger_up'))
-                                MtwvMtPassTrigdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Trigger_down'))
+                                MhhvMhPassTrigup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Trigger_up'))
+                                MhhvMhPassTrigdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Trigger_down'))
 
                                 if not wIsTtagged:
-                                    MtwvMtPassWup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Wsf_up')) 
-                                    MtwvMtPassWdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Wsf_down'))
+                                    MhhvMhPassWup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Wsf_up')) 
+                                    MhhvMhPassWdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Wsf_down'))
 
-                                    MtwvMtPassExtrapUp.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Extrap_up'))
-                                    MtwvMtPassExtrapDown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Extrap_down'))
+                                    MhhvMhPassExtrapUp.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Extrap_up'))
+                                    MhhvMhPassExtrapDown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Extrap_down'))
 
-                                MtwvMtPassTptup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Ptreweight_up'))
-                                MtwvMtPassTptdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Ptreweight_down')) 
+                                MhhvMhPassTptup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Ptreweight_up'))
+                                MhhvMhPassTptdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Ptreweight_down')) 
 
                             EtaTop.Fill(tjet.Eta(),norm_weight*Weightify(weights,'nominal'))
                             EtaW.Fill(wjet.Eta(),norm_weight*Weightify(weights,'nominal'))
@@ -1063,7 +830,7 @@ if __name__ == "__main__":
 
 
                     else:
-                        MtwvMtFail.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'nominal')) 
+                        MhhvMhFail.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'nominal')) 
 
                         if flatTag() < 0.1:
                             dumbTagPass.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'nominal')) 
@@ -1071,33 +838,33 @@ if __name__ == "__main__":
                             dumbTagFail.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'nominal')) 
 
                         if runOthers and options.set != 'data':
-                            MtwvMtFailPDFup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PDF_up'))
-                            MtwvMtFailPDFdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PDF_down'))
+                            MhhvMhFailPDFup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PDF_up'))
+                            MhhvMhFailPDFdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PDF_down'))
 
-                            MtwvMtFailPUup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Pileup_up'))
-                            MtwvMtFailPUdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Pileup_down'))
+                            MhhvMhFailPUup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Pileup_up'))
+                            MhhvMhFailPUdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Pileup_down'))
 
-                            MtwvMtFailTopup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Topsf_up'))
-                            MtwvMtFailTopdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Topsf_down'))
+                            MhhvMhFailTopup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Topsf_up'))
+                            MhhvMhFailTopdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Topsf_down'))
 
-                            MtwvMtFailScaleup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Q2_up'))
-                            MtwvMtFailScaledown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Q2_down'))
+                            MhhvMhFailScaleup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Q2_up'))
+                            MhhvMhFailScaledown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Q2_down'))
 
-                            MtwvMtFailSjbtagup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'sjbsf_up'))
-                            MtwvMtFailSjbtagdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'sjbsf_down'))
+                            MhhvMhFailSjbtagup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'sjbsf_up'))
+                            MhhvMhFailSjbtagdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'sjbsf_down'))
 
-                            MtwvMtFailTrigup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Trigger_up'))
-                            MtwvMtFailTrigdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Trigger_down'))
+                            MhhvMhFailTrigup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Trigger_up'))
+                            MhhvMhFailTrigdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Trigger_down'))
                             
                             if not wIsTtagged:
-                                MtwvMtFailWup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Wsf_up')) 
-                                MtwvMtFailWdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Wsf_down'))
+                                MhhvMhFailWup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Wsf_up')) 
+                                MhhvMhFailWdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Wsf_down'))
 
-                                MtwvMtFailExtrapUp.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Extrap_up'))
-                                MtwvMtFailExtrapDown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Extrap_down'))
+                                MhhvMhFailExtrapUp.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Extrap_up'))
+                                MhhvMhFailExtrapDown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Extrap_down'))
 
-                            MtwvMtFailTptup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Ptreweight_up'))
-                            MtwvMtFailTptdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Ptreweight_down')) 
+                            MhhvMhFailTptup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Ptreweight_up'))
+                            MhhvMhFailTptdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Ptreweight_down')) 
 
                             
     end = time.time()
