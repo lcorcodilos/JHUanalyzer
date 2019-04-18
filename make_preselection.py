@@ -111,15 +111,15 @@ if __name__ == "__main__":
     # if options.year == '16':
     #     tname = 'HLT_PFHT800ORHLT_PFHT900ORHLT_PFJet450'
     #     pretrig_string = 'HLT_Mu50'
-    #     # btagtype = 'btagCSVV2'
+        # btagtype = 'btagCSVV2'
     # elif options.year == '17' or options.year == '18':
-    #     tname = 'HLT_PFHT1050ORHLT_PFJet500'
-    #     pretrig_string = 'HLT_IsoMu27'
-    
-    tname = 
-    pretrig_string = 
-    btagtype = 'btagDeepB'
-
+    triggers = [
+        'HLT_PFHT780',
+        'HLT_AK8PFHT750_TrimMass50',
+        'HLT_AK8PFJet360_TrimMass30',
+        'HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p17'
+    ]
+    pretrig_string = 'HLT_IsoMu27'
 
     # JECs
     runOthers = True
@@ -177,7 +177,7 @@ if __name__ == "__main__":
         TrigPlot1 = TrigPlot.Clone()
         
     if options.set != 'data':
-        PileFile = TFile.Open("pileup/PileUp_Ratio_ttbar"+tempyear+".root")
+        PileFile = TFile.Open("pileup/PileUp_Ratio_ttbar"+options.year+".root")
         PilePlots = {
             "nom": PileFile.Get("Pileup_Ratio"),
             "up": PileFile.Get("Pileup_Ratio_up"),
@@ -217,10 +217,10 @@ if __name__ == "__main__":
             MhhvMhPassPUup.Sumw2()
             MhhvMhPassPUdown.Sumw2()
 
-            MhhvMhPassScaleup   = TH2F("MhhvMhPassScaleup", "mass of tw vs mass of Q^2 scale up - Pass", 60, 50, 350, 35, 500, 4000 )
-            MhhvMhPassScaledown = TH2F("MhhvMhPassScaledown",   "mass of tw vs mass of Q^2 scale down - Pass", 60, 50, 350, 35, 500, 4000 )
-            MhhvMhPassScaleup.Sumw2()
-            MhhvMhPassScaledown.Sumw2()
+            MhhvMhPassBtagup   = TH2F("MhhvMhPassBtagup", "mass of tw vs mass of top Btag up - Pass", 60, 50, 350, 35, 500, 4000 )
+            MhhvMhPassBtagdown = TH2F("MhhvMhPassBtagdown",   "mass of tw vs mass of top Btag down - Pass", 60, 50, 350, 35, 500, 4000 )
+            MhhvMhPassBtagup.Sumw2()
+            MhhvMhPassBtagdown.Sumw2()
 
             MhhvMhPassTrigup   = TH2F("MhhvMhPassTrigup", "mass of tw vs mass of top trig up - Pass", 60, 50, 350, 35, 500, 4000 )
             MhhvMhPassTrigdown = TH2F("MhhvMhPassTrigdown",   "mass of tw vs mass of top trig down - Pass", 60, 50, 350, 35, 500, 4000 )
@@ -238,53 +238,16 @@ if __name__ == "__main__":
             MhhvMhFailPUup.Sumw2()
             MhhvMhFailPUdown.Sumw2()
 
-            MhhvMhFailScaleup   = TH2F("MhhvMhFailScaleup", "mass of tw vs mass of Q^2 scale up - Fail", 60, 50, 350, 35, 500, 4000 )
-            MhhvMhFailScaledown = TH2F("MhhvMhFailScaledown",   "mass of tw vs mass of Q^2 scale down - Fail", 60, 50, 350, 35, 500, 4000 )
-            MhhvMhFailScaleup.Sumw2()
-            MhhvMhFailScaledown.Sumw2()
+            MhhvMhFailBtagup   = TH2F("MhhvMhFailBtagup", "mass of tw vs mass of top Btag up - Fail", 60, 50, 350, 35, 500, 4000 )
+            MhhvMhFailBtagdown = TH2F("MhhvMhFailBtagdown",   "mass of tw vs mass of top Btag up - Fail", 60, 50, 350, 35, 500, 4000 )
+            MhhvMhFailBtagup.Sumw2()
+            MhhvMhFailBtagdown.Sumw2()
 
             MhhvMhFailTrigup   = TH2F("MhhvMhFailTrigup", "mass of tw vs mass of top trig up - Fail", 60, 50, 350, 35, 500, 4000 )
             MhhvMhFailTrigdown = TH2F("MhhvMhFailTrigdown",   "mass of tw vs mass of top trig up - Fail", 60, 50, 350, 35, 500, 4000 )
             MhhvMhFailTrigup.Sumw2()
             MhhvMhFailTrigdown.Sumw2()
 
-
-        MhhvMh_cut1    = TH2F("MhhvMh_cut1",  "mass of tw after pt cuts and dy cuts", 60, 50, 350, 35, 500, 4000)
-        MhhvMh_cut2    = TH2F("MhhvMh_cut2",  "mass of tw after tau21 cut", 60, 50, 350, 35, 500, 4000)
-        MhhvMh_cut3    = TH2F("MhhvMh_cut3",  "mass of tw after wmass cut", 60, 50, 350, 35, 500, 4000)
-        MhhvMh_cut4    = TH2F("MhhvMh_cut4", "mass of tw after tau32 cut", 60, 50, 350, 35, 500, 4000)
-        MhhvMh_cut5    = TH2F("MhhvMh_cut5", "mass of tw after sjbtag cut", 60, 50, 350, 35, 500, 4000)
-        MhhvMh_cut1.Sumw2()
-        MhhvMh_cut2.Sumw2()
-        MhhvMh_cut3.Sumw2()
-        MhhvMh_cut4.Sumw2()
-        MhhvMh_cut5.Sumw2()
-
-        Pt1presel = TH1F("Pt1presel",         "Leading jet pt (GeV)",             46, 350, 1500 )
-        Pt2presel = TH1F("Pt2presel",         "Subleading jet pt (GeV)",             46, 350, 1500 )
-        deltaRap = TH1F("deltaY",         "Delta Y between leading jets (GeV)",             50, 0, 2.5)
-        Pt1presel.Sumw2()
-        Pt2presel.Sumw2()
-        deltaRap.Sumw2()
-
-        EtaTop      = TH1F("EtaTop",        "Top Candidate eta",                  12, -2.4, 2.4 )
-        EtaW   = TH1F("EtaW",     "W Candidate eta",              12, -2.4, 2.4 )
-        EtaTop.Sumw2()
-        EtaW.Sumw2()
-
-        PtTop       = TH1F("PtTop",         "Top Candidate pt (GeV)",             46, 350, 1500 )
-        PtW         = TH1F("PtW",           "W Candidate pt (GeV)",               46, 350, 1500 )
-        PtTopW      = TH1F("PtTopW",        "pt of tw system",                35,   0, 700 )
-        PtTop.Sumw2()
-        PtW.Sumw2()
-        PtTopW.Sumw2()
-
-        PhiTop    = TH1F("PhiTop",      "Top Candidate Phi (rad)",                       12, -math.pi, math.pi )
-        PhiW      = TH1F("PhiW",    "Top Candidate Phi (rad)",                       12, -math.pi, math.pi )
-        dPhi      = TH1F("dPhi",        "delta theat between Top and W Candidates",          12, 2.2, math.pi )
-        PhiTop.Sumw2()
-        PhiW.Sumw2()
-        dPhi.Sumw2()
 
 
     ###############################
@@ -342,13 +305,13 @@ if __name__ == "__main__":
     event_time_sum = 0
     for entry in range(lowBinEdge,highBinEdge):
         count   =   count + 1
-        # if count > 1:
-            # current_event_time = time.time()
-            # event_time_sum += (current_event_time - last_event_time)
-        # sys.stdout.write("%i / %i ... \r" % (count,(highBinEdge-lowBinEdge)))
-            # sys.stdout.write("Avg time = %f " % (event_time_sum/count) )
-        # sys.stdout.flush()
-            # last_event_time = current_event_time
+        if count > 1:
+            current_event_time = time.time()
+            event_time_sum += (current_event_time - last_event_time)
+        sys.stdout.write("%i / %i ... \r" % (count,(highBinEdge-lowBinEdge)))
+            sys.stdout.write("Avg time = %f " % (event_time_sum/count) )
+        sys.stdout.flush()
+            last_event_time = current_event_time
         if count % 10000 == 0 :
             print  '--------- Processing Event ' + str(count) +'   -- percent complete ' + str(100*count/(highBinEdge-lowBinEdge)) + '% -- '
 
@@ -358,7 +321,7 @@ if __name__ == "__main__":
         # Apply triggers first
         if options.set == 'data':
             passt = False
-            for t in tname.split('OR'):
+            for t in triggers:
                 try: 
                     if inTree.readBranch(t):
                         passt = True
@@ -401,470 +364,137 @@ if __name__ == "__main__":
         if filterFails > 0:
             continue
 
-        # Separate into hemispheres the leading and subleading jets
-        Jetsh0,Jetsh1 = Hemispherize(ak8JetsColl)
-
-        if (len(Jetsh1) < 1):
-            # print str(entry)
-            # print '\tJetsh0 = ',
-            # print Jetsh0
-            # print '\tJetsh1 = ',
-            # print Jetsh1
-
-            # for i in range(len(Jetsh0)):
-            #     for j in range(i,len(Jetsh0)):
-            #         if i != j:
-            #             sep = deltaPhi(ak8JetsColl[Jetsh0[i]].phi,ak8JetsColl[Jetsh0[j]].phi)
-            #             print '\tJet'+str(i)+' vs Jet'+str(j)+': ' + str(sep/3.1415)+'*pi'
+        # check if we have enough jets
+        if len(ak8JetsColl) < 1:
+            continue
+        if len(ak4JetsColl) < 2:
             continue
 
-        leadingJet = ak8JetsColl[Jetsh0[0]]
-        subleadingJet = ak8JetsColl[Jetsh1[0]]
+        # Separate into hemispheres the leading and subleading jets
+        candidateAK4s = Hemispherize(ak8JetsColl,ak4JetsColl)
 
-        # Get and make the DAK8 variables
-        if options.year == '16' and ('MD' not in options.deepak8) and options.deepak8 != 'off':
-            dak8_qcd_raw_lead = leadingJet.nnQCDb + leadingJet.nnQCDbb + leadingJet.nnQCDc + leadingJet.nnQCDcc + leadingJet.nnQCDothers
-            dak8_qcd_raw_sublead = subleadingJet.nnQCDb + subleadingJet.nnQCDbb + subleadingJet.nnQCDc + subleadingJet.nnQCDcc + subleadingJet.nnQCDothers
+        # If Hemispherize failed
+        if not candidateAK4s:
+            continue
 
-            dak8_top_raw_lead = leadingJet.nnTbcq + leadingJet.nnTbqq
-            dak8_top_raw_sublead = subleadingJet.nnTbcq + subleadingJet.nnTbqq
-
-            dak8_top_lead = dak8_top_raw_lead/(dak8_top_raw_lead+dak8_qcd_raw_lead) if (dak8_top_raw_lead+dak8_qcd_raw_lead) > 0 else 0
-            dak8_top_sublead = dak8_top_raw_sublead/(dak8_top_raw_sublead+dak8_qcd_raw_sublead) if (dak8_top_raw_sublead+dak8_qcd_raw_sublead) > 0 else 0
-
-        elif options.year == '16' and ('MD' in options.deepak8) and options.deepak8 != 'off':
-            dak8_qcd_raw_lead = leadingJet.nnMDQCDb + leadingJet.nnMDQCDbb + leadingJet.nnMDQCDc + leadingJet.nnMDQCDcc + leadingJet.nnMDQCDothers
-            dak8_qcd_raw_sublead = subleadingJet.nnMDQCDb + subleadingJet.nnMDQCDbb + subleadingJet.nnMDQCDc + subleadingJet.nnMDQCDcc + subleadingJet.nnMDQCDothers
-
-            dak8_top_raw_lead = leadingJet.nnMDTbcq + leadingJet.nnMDTbqq
-            dak8_top_raw_sublead = subleadingJet.nnMDTbcq + subleadingJet.nnMDTbqq
-
-            dak8_top_lead = dak8_top_raw_lead/(dak8_top_raw_lead+dak8_qcd_raw_lead) if (dak8_top_raw_lead+dak8_qcd_raw_lead) > 0 else 0
-            dak8_top_sublead = dak8_top_raw_sublead/(dak8_top_raw_sublead+dak8_qcd_raw_sublead) if (dak8_top_raw_sublead+dak8_qcd_raw_sublead) > 0 else 0
-        elif options.year == '17' and ('MD' not in options.deepak8) and options.deepak8 != 'off':
-            dak8_top_lead = leadingJet.deepTag_TvsQCD
-            dak8_top_sublead = subleadingJet.deepTag_TvsQCD
-        elif options.year == '17' and ('MD' in options.deepak8) and options.deepak8 != 'off':
-            dak8_top_lead = leadingJet.deepTagMD_TvsQCD
-            dak8_top_sublead = subleadingJet.deepTagMD_TvsQCD
-
-        elif options.deepak8 == 'off':
-            dak8_top_lead = -10
-            dak8_top_sublead = -10
-
-        # if LeptonVeto(Collection(event, "Electron"),Collection(event, "Muon")):
-        #     continue
+        leadingFatJet = ak8JetsColl[0]
+        leadingJet = ak4JetsColl[candidateAK4s]
+        subleadingJet = ak4JetsColl[candidateAK4s]
 
         eta_cut = (Cuts['eta'][0]<abs(leadingJet.eta)<Cuts['eta'][1]) and (Cuts['eta'][0]<abs(subleadingJet.eta)<Cuts['eta'][1])
 
         if eta_cut:
-            doneAlready = False
+            # Make the lorentz vectors
+            hjet = TLorentzVector()
+            hjet.SetPtEtaPhiM(leadingFatJet.pt,leadingFatJet.eta,leadingFatJet.phi,leadingFatJet.msoftdrop)
 
-            for hemis in ['hemis0','hemis1']:
-                if hemis == 'hemis0':
-                    # Load up the ttree values
-                    tVals = {
-                        "tau1":leadingJet.tau1,
-                        "tau2":leadingJet.tau2,
-                        "tau3":leadingJet.tau3,
-                        "phi":leadingJet.phi,
-                        "mass":getattr(leadingJet,'mass'+mass_name),
-                        "pt":leadingJet.pt,
-                        "eta":leadingJet.eta,
-                        "SDmass":leadingJet.msoftdrop,
-                        "dak8_top": dak8_top_lead,
-                        "subJetIdx1":leadingJet.subJetIdx1,
-                        "subJetIdx2":leadingJet.subJetIdx2
-                    }
-                    wVals = {
-                        "tau1":subleadingJet.tau1,
-                        "tau2":subleadingJet.tau2,
-                        "tau3":subleadingJet.tau3,
-                        "phi":subleadingJet.phi,
-                        "mass":getattr(subleadingJet,'mass'+mass_name),
-                        "pt":subleadingJet.pt,
-                        "eta":subleadingJet.eta,
-                        "SDmass":subleadingJet.msoftdrop,
-                        "dak8_top": dak8_top_sublead,
-                        "subJetIdx1":subleadingJet.subJetIdx1,
-                        "subJetIdx2":subleadingJet.subJetIdx2
-                    }
+            bjet1 = TLorentzVector()
+            bjet2 = TLorentzVector()
+            bjet1.SetPtEtaPhiM(leadingJet.pt,leadingJet.eta,leadingJet.phi,leadingJet.msoftdrop)
+            bjet2.SetPtEtaPhiM(subleadingJet.pt,subleadingJet.eta,subleadingJet.phi,subleadingJet.msoftdrop)
+
+            ht = hjet.Perp() + bjet1.Perp() + bjet2.Perp()
+            Mhh = (hjet+bjet1+bjet2).M()
+            Mbb = (bjet1+bjet2).M()
+            deltaEta = abs(hjet.Eta() - (bjet1+bjet2).Eta())
+            mreduced = Mhh - (hjet.M() - 125.) - (Mbb - 125)
+            
+            # Make and get all cuts
+            hpt_cut = Cuts['hpt'][0]<hjet.Perp()<Cuts['hpt'][1]
+            bpt_cut = Cuts['bpt'][0]<bjet1.Perp()<Cuts['bpt'][1] and Cuts['bpt'][0]<bjet2.Perp()<Cuts['bpt'][1]
+            
+            bbmass_cut = Cuts['bbmass'][0]<Mbb<Cuts['bbmass'][1]
+            deepbtag_cut = Cuts['deepbtag'][0]<leadingJet.btagDeepB<Cuts['deepbtag'][1] and Cuts['deepbtag'][0]<subleadingJet.btagDeepB<Cuts['deepbtag'][1]
+            deltaEta_cut = Cuts['deltaEta'][0]<deltaEta<Cuts['deltaEta'][1]
+            mreduced_cut = Cuts['mreduced'][0]<mreduced<Cuts['mreduced'][1]
+
+            preselection = hpt_cut and bpt_cut and bbmass_cut and deepbtag_cut and mreduced_cut and deltaEta_cut
+
+            if preselection: 
+                doubleB_cut = Cuts['doublebtag'][0]<leadingFatJet.btagHbb<Cuts['doublebtag'][1]
+                hmass_cut = Cuts['hmass'][0]<hjet.M()<Cuts['hmass'][1]
 
 
-                elif hemis == 'hemis1' and doneAlready == False:
-                    wVals = {
-                        "tau1":leadingJet.tau1,
-                        "tau2":leadingJet.tau2,
-                        "tau3":leadingJet.tau3,
-                        "phi":leadingJet.phi,
-                        "mass":getattr(leadingJet,'mass'+mass_name),
-                        "pt":leadingJet.pt,
-                        "eta":leadingJet.eta,
-                        "SDmass":leadingJet.msoftdrop,
-                        "dak8_top": dak8_top_lead,
-                        "subJetIdx1":leadingJet.subJetIdx1,
-                        "subJetIdx2":leadingJet.subJetIdx2
-                    }
-                    tVals = {
-                        "tau1":subleadingJet.tau1,
-                        "tau2":subleadingJet.tau2,
-                        "tau3":subleadingJet.tau3,
-                        "phi":subleadingJet.phi,
-                        "mass":getattr(subleadingJet,'mass'+mass_name),
-                        "pt":subleadingJet.pt,
-                        "eta":subleadingJet.eta,
-                        "SDmass":subleadingJet.msoftdrop,
-                        "dak8_top": dak8_top_sublead,
-                        "subJetIdx1":subleadingJet.subJetIdx1,
-                        "subJetIdx2":subleadingJet.subJetIdx2
-                    }
+                # Get GenParticles for use below
+                # if options.set != 'data':
+                #     GenParticles = Collection(event,'GenPart')
 
-                elif hemis == 'hemis1' and doneAlready == True:
-                    continue
+                ###############################
+                # Weighting and Uncertainties #
+                ###############################
 
+                # Initialize event weight
+                weights = { 'PDF':{},
+                            'Pileup':{},
+                            'Trigger':{},
+                            'btagSF':{}
+                            }
 
-                # Make the lorentz vectors
-                tjet = TLorentzVector()
-                tjet.SetPtEtaPhiM(tVals["pt"],tVals["eta"],tVals["phi"],tVals["mass"])
-
-                wjet = TLorentzVector()
-                wjet.SetPtEtaPhiM(wVals["pt"],wVals["eta"],wVals["phi"],wVals["mass"])
-
-                ht = tjet.Perp() + wjet.Perp()
-                MtopW = (tjet+wjet).M()
                 
-                # Make and get all cuts
-                dy_val = abs(tjet.Rapidity()-wjet.Rapidity())
-                wpt_cut = Cuts['wpt'][0]<wjet.Perp()<Cuts['wpt'][1]
-                tpt_cut = Cuts['tpt'][0]<tjet.Perp()<Cuts['tpt'][1]
-                dy_cut = Cuts['dy'][0]<=dy_val<Cuts['dy'][1]
+                if options.set!="data":
+                    # PDF weight
+                    weights['PDF']['up'] = PDF_Lookup(inTree.readBranch('LHEPdfWeight'),'up')
+                    weights['PDF']['down'] = PDF_Lookup(inTree.readBranch('LHEPdfWeight'),'down')
+
+                    # Pileup reweighting applied
+                    weights['Pileup']['nom'] = PU_Lookup(inTree.readBranch('Pileup_nPU'),PilePlots['nom'])
+                    weights['Pileup']['up'] = PU_Lookup(inTree.readBranch('Pileup_nPU'),PilePlots['up'])
+                    weights['Pileup']['down'] = PU_Lookup(inTree.readBranch('Pileup_nPU'),PilePlots['down'])
+
+                    # b tagging scale factor
+                    weights['btagSF']['nom'] = reader.eval_auto_bounds('central', 0, abs(bjet1.Eta()), bjet1.Perp())
+                    weights['btagSF']['up'] = reader.eval_auto_bounds('up', 0,  abs(bjet1.Eta()), bjet1.Perp())
+                    weights['btagSF']['down'] = reader.eval_auto_bounds('down', 0,  abs(bjet1.Eta()), bjet1.Perp())
+
+                    weights['btagSF']['nom'] *= reader.eval_auto_bounds('central', 0, abs(bjet2.Eta()), bjet2.Perp())
+                    weights['btagSF']['up'] *= reader.eval_auto_bounds('up', 0,  abs(bjet2.Eta()), bjet2.Perp())
+                    weights['btagSF']['down'] *= reader.eval_auto_bounds('down', 0,  abs(bjet2.Eta()), bjet2.Perp())
+
+                    weights['Trigger']['nom'] = 1#Trigger_Lookup( ht , TrigPlot1 )[0]
+                    weights['Trigger']['up'] = 1#Trigger_Lookup( ht , TrigPlot1 )[1]
+                    weights['Trigger']['down'] = 1#Trigger_Lookup( ht , TrigPlot1 )[2]
+ 
+
+                ####################################
+                # Split into top tag pass and fail #
+                ####################################
                 
-                if runOthers:
-                    deltaRap.Fill(dy_val)
-                    Pt1presel.Fill(leadingJet.pt)
-                    Pt2presel.Fill(subleadingJet.pt)
+                if doubleB_cut:
 
-                # Standard W tag
-                if options.region != 'ttbar':
-                    if wVals['tau1'] > 0:
-                        tau21val = wVals['tau2']/wVals['tau1']
-                    else:
-                        continue
+                    MhhvMhPass.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'nominal')) 
 
-                    tau21_cut =  Cuts['tau21'][0]<=tau21val<Cuts['tau21'][1]
-
-                    wmass_cut = Cuts['wmass'][0]<=wVals["SDmass"]<Cuts['wmass'][1]
-
-                    preselection = wpt_cut and tpt_cut and dy_cut and wmass_cut and tau21_cut
-                
-                    if wpt_cut and tpt_cut and dy_cut:
-                        if runOthers: MhhvMh_cut1.Fill(tjet.M(),MtopW)
-                        if tau21_cut:
-                            if runOthers: MhhvMh_cut2.Fill(tjet.M(),MtopW)
-                            if wmass_cut:
-                                if runOthers: MhhvMh_cut3.Fill(tjet.M(),MtopW)
-
-                # If tagging regular W as a top
-                else:
-                    wmass_cut = Cuts['tmass'][0]<=wVals["SDmass"]<Cuts['tmass'][1]
-
-                    if options.deepak8 != 'off':
-                        if 'MD' in options.deepak8:
-                            w_cut = Cuts['DeepAK8_top_'+options.deepak8[2:]][0]<=wVals['dak8_top']<Cuts['DeepAK8_top_'+options.deepak8[2:]][1]
-                        else:
-                            w_cut = Cuts['DeepAK8_top_'+options.deepak8][0]<=wVals['dak8_top']<Cuts['DeepAK8_top_'+options.deepak8][1]
-                        preselection = wpt_cut and tpt_cut and dy_cut and wmass_cut and w_cut
-
-                    else:
-                        if wVals['tau2'] > 0:
-                            w_tau32val = wVals['tau3']/wVals['tau2']
-                        else:
-                            continue
-                        w_tau32_cut = Cuts['tau32tight'][0]<=w_tau32val<Cuts['tau32tight'][1]
-
-                        if (wVals['subJetIdx1'] < 0) or (wVals['subJetIdx1'] >= len(subJetsColl)):
-                            if (wVals['subJetIdx2'] < 0) or (wVals['subJetIdx2'] >= len(subJetsColl)):  # if both negative, throw away event
-                                continue
-                            else:   # if idx2 not negative or bad index, use that
-                                w_btagval = getattr(subJetsColl[wVals['subJetIdx2']],btagtype)
-
-                        else:
-                            if (wVals['subJetIdx2'] < 0) or (wVals['subJetIdx2'] >= len(subJetsColl)): # if idx1 not negative, use that
-                                w_btagval = getattr(subJetsColl[wVals['subJetIdx1']],btagtype)
-                            # if both not negative, use largest
-                            else:
-                                # print str(wVals['subJetIdx1']) +' '+str(len(subJetsColl))
-                                # print str(wVals['subJetIdx2']) +' '+str(len(subJetsColl))
-                                w_btagval = max(getattr(subJetsColl[wVals['subJetIdx1']],btagtype), getattr(subJetsColl[wVals['subJetIdx2']],btagtype))
-                        
-                        # if options.year == '16':
-                        #     w_sjbtag_cut = Cuts['sjbtag'][0]<= w_btagval<Cuts['sjbtag'][1]
-                        # else:
-                        w_sjbtag_cut = Cuts['deepbtag'][0]<= w_btagval<Cuts['deepbtag'][1]
-
-                        preselection = wpt_cut and tpt_cut and dy_cut and wmass_cut and w_sjbtag_cut and w_tau32_cut
-
-                if preselection: 
-                    doneAlready = True
-                    # Get GenParticles for use below
-                    if options.set != 'data':
-                        GenParticles = Collection(event,'GenPart')
-
-                    ###############################
-                    # Weighting and Uncertainties #
-                    ###############################
-
-                    # Initialize event weight
-                    weights = { 'PDF':{},
-                                'Pileup':{},
-                                'Topsf':{},
-                                'Q2':{},
-                                'sjbsf':{},
-                                'Wsf':{},
-                                'Trigger':{},
-                                'Ptreweight':{},
-                                'Extrap':{}}
-
-                    
-                    if options.set!="data":
-                        # PDF weight
-                        weights['PDF']['up'] = PDF_Lookup(inTree.readBranch('LHEPdfWeight'),'up')
-                        weights['PDF']['down'] = PDF_Lookup(inTree.readBranch('LHEPdfWeight'),'down')
-
-                        # Q2 Scale
-                        weights['Q2']['up'] = inTree.readBranch('LHEScaleWeight')[8]
-                        weights['Q2']['down'] = inTree.readBranch('LHEScaleWeight')[0]
-
-                        # Pileup reweighting applied
-                        if options.pileup == 'on':
-                            weights['Pileup']['nom'] = PU_Lookup(inTree.readBranch('Pileup_nPU'),PilePlots['nom'])
-                            weights['Pileup']['up'] = PU_Lookup(inTree.readBranch('Pileup_nPU'),PilePlots['up'])
-                            weights['Pileup']['down'] = PU_Lookup(inTree.readBranch('Pileup_nPU'),PilePlots['down'])
-
-                        # Top tagging DAK8 scale factor 
-                        if "QCD" not in options.set and options.deepak8 != 'off':
-                            sftdeep = SFTdeep_Lookup(tVals['pt'],ttagsfPlots)
-                            weights['Topsf']['nom'] = sftdeep[0]
-                            weights['Topsf']['up'] = sftdeep[1]
-                            weights['Topsf']['down'] = sftdeep[2]
-                        # Top tagging tau32+sjbtag scale factor 
-                        elif "QCD" not in options.set and options.deepak8 == 'off':
-                            sft = SFT_Lookup_MERGEDONLY(tjet,ttagsffile)#(tjet, ttagsffile, GenParticles, options.tau32)#_MERGEDONLY(tjet, ttagsffile)#, GenParticles)
-                            weights['Topsf']['nom'] = sft[0]
-                            weights['Topsf']['up'] = sft[1]
-                            weights['Topsf']['down'] = sft[2]
-
-                            # Subjet b tagging scale factor
-                            weights['sjbsf']['nom'] = reader.eval_auto_bounds('central', 0, abs(tVals['eta']), tVals['pt'])
-                            weights['sjbsf']['up'] = reader.eval_auto_bounds('up', 0, abs(tVals['eta']), tVals['pt'])
-                            weights['sjbsf']['down'] = reader.eval_auto_bounds('down', 0, abs(tVals['eta']), tVals['pt'])
-
-
-                        if wIsTtagged:
-                            # Top tagging DAK8 scale factor 
-                            if "QCD" not in options.set and options.deepak8 != 'off':
-                                sftdeep = SFTdeep_Lookup(wVals['pt'],ttagsfPlots)
-                                weights['Topsf']['nom'] *= sftdeep[0]
-                                weights['Topsf']['up'] *= sftdeep[1]
-                                weights['Topsf']['down'] *= sftdeep[2]
-                            # Top tagging tau32+sjbtag scale factor 
-                            elif "QCD" not in options.set and options.deepak8 == 'off':
-                                sft = SFT_Lookup_MERGEDONLY(wjet,ttagsffile)#(wjet, ttagsffile, GenParticles, options.tau32)#, GenParticles)
-                                weights['Topsf']['nom'] *= sft[0]
-                                weights['Topsf']['up'] *= sft[1]
-                                weights['Topsf']['down'] *= sft[2]
-
-                                # Subjet b tagging scale factor
-                                weights['sjbsf']['nom'] *= reader.eval_auto_bounds('central', 0, abs(wVals['eta']), wVals['pt'])
-                                weights['sjbsf']['up'] *= reader.eval_auto_bounds('up', 0, abs(wVals['eta']), wVals['pt'])
-                                weights['sjbsf']['down'] *= reader.eval_auto_bounds('down', 0, abs(wVals['eta']), wVals['pt'])
-
-                    
-
-                    if not wIsTtagged:
-                        # Determine purity for scale factor
-                        if options.region == 'default':
-                            Wpurity = 'HP'
-                        elif options.region == 'sideband':
-                            if options.year == '16':
-                                Wpurity = 'LP'
-                            elif options.year != '16' and (Cuts['tau21LP'][0] < tau21val < Cuts['tau21LP'][1]):
-                                Wpurity = 'LP'
-                            else:
-                                Wpurity = False
-                        else:
-                            Wpurity = False
-
-                        # W matching
-                        WJetMatchingRequirement = 0
-                        if (options.set.find('tW') != -1 or options.set.find('signal') != -1) and not wIsTtagged:
-                            if WJetMatching(GenParticles) == 1 and Wpurity != False:
-                                wtagsf = Cons['wtagsf_'+Wpurity]
-                                wtagsfsig = Cons['wtagsfsig_'+Wpurity]
-
-                                weights['Wsf']['nom'] = wtagsf
-                                weights['Wsf']['up'] = (wtagsf + wtagsfsig)
-                                weights['Wsf']['down'] = (wtagsf - wtagsfsig)
-
-                        # Get the extrapolation uncertainty
-                        extrap = ExtrapUncert_Lookup(wjet.Perp(),Wpurity,options.year)
-                        weights['Extrap']['up'] = 1+extrap
-                        weights['Extrap']['down'] = 1-extrap
-
-                    # Trigger weight applied
-                    if tname != 'none' and options.set!='data' :
-                        weights['Trigger']['nom'] = Trigger_Lookup( ht , TrigPlot1 )[0]
-                        weights['Trigger']['up'] = Trigger_Lookup( ht , TrigPlot1 )[1]
-                        weights['Trigger']['down'] = Trigger_Lookup( ht , TrigPlot1 )[2]
-
-                    # Top pt reweighting
-                    if options.ptreweight == "on" and options.set.find('ttbar') != -1:
-                        weights['Ptreweight']['nom'] = PTW_Lookup(GenParticles)
-                        weights['Ptreweight']['up'] = 1.5*PTW_Lookup(GenParticles)
-                        weights['Ptreweight']['down'] = 0.5*PTW_Lookup(GenParticles)
-       
-
-                    
-
-                    ####################################
-                    # Split into top tag pass and fail #
-                    ####################################
-                    if options.deepak8 == 'off':
-                        if tVals['tau2'] > 0:
-                            tau32val = tVals['tau3']/tVals['tau2']
-                        else:
-                            continue
-                        tau32_cut = Cuts['tau32'+options.tau32][0]<=tau32val<Cuts['tau32'+options.tau32][1]
-
-                        if (tVals['subJetIdx1'] < 0) or (tVals['subJetIdx1'] >= len(subJetsColl)):
-                            if (tVals['subJetIdx2'] < 0) or (tVals['subJetIdx2'] >= len(subJetsColl)):  # if both negative, throw away event
-                                continue
-                            else:   # if idx2 not negative or bad index, use that
-                                btagval = getattr(subJetsColl[tVals['subJetIdx2']],btagtype)
-
-                        else:
-                            if (tVals['subJetIdx2'] < 0) or (tVals['subJetIdx2'] >= len(subJetsColl)): # if idx1 not negative, use that
-                                btagval = getattr(subJetsColl[tVals['subJetIdx1']],btagtype)
-                            # if both not negative, use largest
-                            else:
-                                btagval = max(getattr(subJetsColl[tVals['subJetIdx1']],btagtype), getattr(subJetsColl[tVals['subJetIdx2']],btagtype))
-                            
-                        # if options.year == '16':
-                        #     sjbtag_cut = Cuts['sjbtag'][0]<= btagval<Cuts['sjbtag'][1]
-                        # else:
-                        sjbtag_cut = Cuts['deepbtag'][0]<= btagval<Cuts['deepbtag'][1]
-                            
-
-                        top_tag = sjbtag_cut and tau32_cut
-
-                        if tau32_cut:
-                            if runOthers: MhhvMh_cut4.Fill(tjet.M(),MtopW)
-                            if sjbtag_cut:
-                                if runOthers: MhhvMh_cut5.Fill(tjet.M(),MtopW)
-
-                    else:
-                        if 'MD' in options.deepak8:
-                            top_tag = Cuts['DeepAK8_top_'+options.deepak8[2:]][0]<tVals['dak8_top']<Cuts['DeepAK8_top_'+options.deepak8[2:]][1]
-                        else:
-                            top_tag = Cuts['DeepAK8_top_'+options.deepak8][0]<tVals['dak8_top']<Cuts['DeepAK8_top_'+options.deepak8][1]
-    
                     if runOthers:
-                        if options.deepak8 != 'off':
-                            dak8Top.Fill(tVals['dak8_top'],norm_weight*Weightify(weights, 'nominal'))
-                            dak8Top_vs_mt.Fill(tjet.M(),tVals['dak8_top'],norm_weight*Weightify(weights,'nominal'))
-                            if MtopW > 900 and MtopW < 1100:
-                                dak8Top_vs_mt_slice1.Fill(tjet.M(),tVals['dak8_top'],norm_weight*Weightify(weights,'nominal'))
-                            elif MtopW > 1100 and MtopW < 2400:
-                                dak8Top_vs_mt_slice2.Fill(tjet.M(),tVals['dak8_top'],norm_weight*Weightify(weights,'nominal'))
-                            elif MtopW > 2400:
-                                dak8Top_vs_mt_slice3.Fill(tjet.M(),tVals['dak8_top'],norm_weight*Weightify(weights,'nominal'))
+                        if options.set != 'data':
+                            MhhvMhPassPDFup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'PDF_up'))
+                            MhhvMhPassPDFdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'PDF_down'))
 
-                        else:
-                            Tau32.Fill(tau32val,norm_weight*Weightify(weights, 'nominal'))
-                            SJbtag.Fill(btagval,norm_weight*Weightify(weights, 'nominal'))
+                            MhhvMhPassPUup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Pileup_up'))
+                            MhhvMhPassPUdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Pileup_down'))
 
-                    if top_tag:
+                            MhhvMhPassTrigup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Trigger_up'))
+                            MhhvMhPassTrigdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Trigger_down'))
 
-                        MhhvMhPass.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'nominal')) 
-
-                        if runOthers:
-                            if options.set != 'data':
-                                MhhvMhPassPDFup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PDF_up'))
-                                MhhvMhPassPDFdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PDF_down'))
-
-                                MhhvMhPassPUup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Pileup_up'))
-                                MhhvMhPassPUdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Pileup_down'))
-
-                                MhhvMhPassTopup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Topsf_up'))
-                                MhhvMhPassTopdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Topsf_down'))
-
-                                MhhvMhPassScaleup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Q2_up'))
-                                MhhvMhPassScaledown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Q2_down'))
-
-                                MhhvMhPassSjbtagup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'sjbsf_up'))
-                                MhhvMhPassSjbtagdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'sjbsf_down'))
-
-                                MhhvMhPassTrigup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Trigger_up'))
-                                MhhvMhPassTrigdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Trigger_down'))
-
-                                if not wIsTtagged:
-                                    MhhvMhPassWup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Wsf_up')) 
-                                    MhhvMhPassWdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Wsf_down'))
-
-                                    MhhvMhPassExtrapUp.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Extrap_up'))
-                                    MhhvMhPassExtrapDown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Extrap_down'))
-
-                                MhhvMhPassTptup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Ptreweight_up'))
-                                MhhvMhPassTptdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Ptreweight_down')) 
-
-                            EtaTop.Fill(tjet.Eta(),norm_weight*Weightify(weights,'nominal'))
-                            EtaW.Fill(wjet.Eta(),norm_weight*Weightify(weights,'nominal'))
-                            
-                            PtTop.Fill(tjet.Perp(),norm_weight*Weightify(weights,'nominal'))
-                            PtW.Fill(wjet.Perp(),norm_weight*Weightify(weights,'nominal'))
-                            PtTopW.Fill((tjet+wjet).Perp(),norm_weight*Weightify(weights,'nominal'))
-                            
-                            PhiTop.Fill(tjet.Phi(),norm_weight*Weightify(weights,'nominal'))
-                            PhiW.Fill(wjet.Phi(),norm_weight*Weightify(weights,'nominal'))
-                            dPhi.Fill(abs(tjet.Phi()-wjet.Phi()),norm_weight*Weightify(weights,'nominal'))
+                            MhhvMhPassBtagup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'btagSF_up'))
+                            MhhvMhPassBtagdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'btagSF_down'))
 
 
-                    else:
-                        MhhvMhFail.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'nominal')) 
 
-                        if flatTag() < 0.1:
-                            dumbTagPass.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'nominal')) 
-                        else:
-                            dumbTagFail.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'nominal')) 
+                else:
+                    MhhvMhFail.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'nominal')) 
 
-                        if runOthers and options.set != 'data':
-                            MhhvMhFailPDFup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PDF_up'))
-                            MhhvMhFailPDFdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'PDF_down'))
+                    if runOthers and options.set != 'data':
+                        MhhvMhFailPDFup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'PDF_up'))
+                        MhhvMhFailPDFdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'PDF_down'))
 
-                            MhhvMhFailPUup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Pileup_up'))
-                            MhhvMhFailPUdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Pileup_down'))
+                        MhhvMhFailPUup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Pileup_up'))
+                        MhhvMhFailPUdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Pileup_down'))
 
-                            MhhvMhFailTopup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Topsf_up'))
-                            MhhvMhFailTopdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Topsf_down'))
+                        MhhvMhFailTrigup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Trigger_up'))
+                        MhhvMhFailTrigdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Trigger_down'))
 
-                            MhhvMhFailScaleup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Q2_up'))
-                            MhhvMhFailScaledown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Q2_down'))
-
-                            MhhvMhFailSjbtagup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'sjbsf_up'))
-                            MhhvMhFailSjbtagdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'sjbsf_down'))
-
-                            MhhvMhFailTrigup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Trigger_up'))
-                            MhhvMhFailTrigdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Trigger_down'))
-                            
-                            if not wIsTtagged:
-                                MhhvMhFailWup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Wsf_up')) 
-                                MhhvMhFailWdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Wsf_down'))
-
-                                MhhvMhFailExtrapUp.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Extrap_up'))
-                                MhhvMhFailExtrapDown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Extrap_down'))
-
-                            MhhvMhFailTptup.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Ptreweight_up'))
-                            MhhvMhFailTptdown.Fill(tjet.M(),MtopW,norm_weight*Weightify(weights,'Ptreweight_down')) 
+                        MhhvMhFailBtagup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'btagSF_up'))
+                        MhhvMhFailBtagdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'btagSF_down'))
+                         
 
                             
     end = time.time()

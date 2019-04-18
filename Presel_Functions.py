@@ -19,6 +19,7 @@ import os
 import array
 import glob
 import math
+import itertools
 from random import random
 from math import sqrt, exp, log
 import ROOT
@@ -36,34 +37,43 @@ from PhysicsTools.NanoAODTools.postprocessing.tools import *
 #If I wanted to access the left handed W' cross section at 1900 GeV I could do Xsecl1900 = LoadConstants()['xsec_wpl']['1900']
 def LoadConstants(year):
     constants = {
-
-        'ttbar_xsec':831.76,
         'QCDHT700_xsec':6802,
         'QCDHT1000_xsec':1206,
         'QCDHT1500_xsec':120.4,
-        'QCDHT2000_xsec':25.25
+        'QCDHT2000_xsec':25.25,
+        'GravNar_1000_xsec':2.66,
+        # 'GravNar_1500_xsec':,
+        'GravNar_2000_xsec':0.041,
+        'GravNar_2500_xsec':0.007,
+        'GravNar_3000_xsec':0.0017
     }
     if year == '16':
+        constants['ttbar_xsec'] = 831.76,
         constants['lumi'] = 35872.301001
         
     elif year == '17':
         constants['lumi'] = 41518.865298,#35851.0,
-        constants['ttbar_xsec'] = 377.96, #uncertainty +4.8%-6.1%
+        constants['ttbar_xsec'] = 377.96 #uncertainty +4.8%-6.1%
+        constants['ttbar_semilep_xsec'] = 365.34
 
     elif year == '18':
-        constants['lumi'] = 59660.725495
+        constants['lumi'] = 59660.725495,
         constants['ttbar_xsec'] = 377.96, #uncertainty +4.8%-6.1%
+        constants['ttbar_semilep_xsec'] = 365.34
         
     return constants
     
 def LoadCuts(region,year):
     cuts = {
-        'hpt':[250.0,float("inf")],
+        'hpt':[400.0,float("inf")],
         'bpt':[50.0,float("inf")],
         'hmass':[105.0,135.0],
+        'bbmass':[90.,140.],
         'deepbtag':[0.4184,1.0],
         'doublebtag':[0.8,1.0],
         'eta':[0.0,2.4]
+        'deltaEta':[0.0,2.0]
+        'mreduced':[750.,float('inf')]
     }
 
     return cuts
@@ -129,16 +139,79 @@ def PU_Lookup(PU , PUP):
     return PUP.GetBinContent(thisbin)
 
 
-def Hemispherize(jetCollection):
-    Jetsh1 = []
-    Jetsh0 = []
-    for ijet in range(0,len(jetCollection)):
-        if abs(deltaPhi(jetCollection[0].phi,jetCollection[ijet].phi))>TMath.Pi()/2.0:
-            Jetsh1.append(ijet)
-        else:
-            Jetsh0.append(ijet)
+def Hemispherize(fatjetCollection,jetCollection):
+    # Compares ak4 jets against leading ak8 and looks for any in opposite hemisphere
 
-    return Jetsh0,Jetsh1
+    # First find the highest pt ak8 jet with mass > 40 geV
+    for fjet in range(0,len(fatjetCollection)):
+        if fatjetCollection[fjet].msoftdrop > 40:
+            candidateFatJetIndex = fjet
+            break
+    leadFatJet = fatjetCollection[candidateFatJetIndex]
+    
+    # Maintain same indexing for these throughout next bit
+    candidateJetIndices = []
+    candidateLVs = []
+
+    # Check the AK4s against the AK8
+    for ijet in range(0,len(jetCollection)):
+        if abs(deltaPhi(leadFatJet.phi,jetCollection[ijet].phi))>TMath.Pi()/2.0:
+            candidateJetIndices.append(ijet)
+            thisLV = TLorentzVector() # for later use
+            thisLV.SetPtEtaPhiM(jetCollection[ijet].pt,jetCollection[ijet].eta,jetCollection[ijet].phi,jetCollection[ijet].msoftdrop)
+            candidateLVs.append(thisLV)
+
+    # If not enough jets, end it
+    if len(candidateJetIndices) < 2:
+        return False
+    # Else compare jets and find those within R of 1.5 (make pairs)
+    else:
+        passing_pair_indices = []
+        passing_pair_lvs = []
+        # Compare all pairs
+        for pairs in itertools.combinations(range(0,len(candidateJetIndices)),2):   # this is providing pairs of indices of the candidateJetIndices list! (not the indices of the jetCollection!)
+            lv1 = candidateLVs[pairs[0]]
+            index1 = candidateJetIndices[pairs[0]]
+            lv2 = candidateLVs[pairs[1]]
+            index2 = candidateJetIndices[pairs[1]]
+            if lv1.deltaR(lv2) < 1.5:
+                # Save out collection index of those that pass
+                passing_pair_indices.append([index1,index2])
+                passing_pair_lvs.append([lv1,lv2])
+
+
+        while len(passing_pair_indices) > 0:
+            # Check if the ak4 jets are in a larger ak8
+            # If they are, pop them out of our two lists for consideration
+            for fjet in range(0,len(fatjetCollection)):
+                fjetLV = TLorentzVector()
+                fjetLV.SetPtEtaPhiM(fatjetCollection[fjet].pt,fatjetCollection[fjet].eta,fatjetCollection[fjet].phi,fatjetCollection[fjet].msoftdrop)
+                for i,p in enumerate(passing_pair_lvs):
+                    for lv in p:
+                        if fjetLV.deltaR(lv) < 0.8:
+                            passing_pair_lvs.pop(i)
+                            passing_pair_indices.pop(i)
+                            break # if we don't break, we could pop `p` while on the first lv and then who knows what gets read for second lv and we could start popping stuff we want to keep
+
+        # if STILL greater than 1 pair...
+        if len(passing_pair_indices) > 1:
+            # Now pick based on summed btag values
+            candidatePairIdx = []
+            candidatePairLV = []
+            btagsum = 0
+            for ipp in range(0,len(passing_pair_indices)):
+                thisbtagsum = jetCollection[passing_pair_indices[ipp][0]].btagDeepB + jetCollection[passing_pair_indices[ipp][1]].btagDeepB
+                if thisbtagsum > btagsum:
+                    btagsum = thisbtagsum
+                    candidatePairIdx = passing_pair_indices[ipp]
+                    candidatePairLV = passing_pair_lvs[ipp]
+
+        # finally return
+        if len(candidatePairIdx) == 0: # if no pairs, break out
+            return False
+        elif len(candidatePairIdx) == 1:
+            candidatePairIdx = passing_pair_indices[0]
+            return candidatePairIdx
 
 def Weightify(wd,outname):
     final_w = 1.0
