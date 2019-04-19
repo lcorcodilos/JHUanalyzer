@@ -308,9 +308,9 @@ if __name__ == "__main__":
         if count > 1:
             current_event_time = time.time()
             event_time_sum += (current_event_time - last_event_time)
-        sys.stdout.write("%i / %i ... \r" % (count,(highBinEdge-lowBinEdge)))
+            sys.stdout.write("%i / %i ... \r" % (count,(highBinEdge-lowBinEdge)))
             sys.stdout.write("Avg time = %f " % (event_time_sum/count) )
-        sys.stdout.flush()
+            sys.stdout.flush()
             last_event_time = current_event_time
         if count % 10000 == 0 :
             print  '--------- Processing Event ' + str(count) +'   -- percent complete ' + str(100*count/(highBinEdge-lowBinEdge)) + '% -- '
