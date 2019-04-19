@@ -16,7 +16,7 @@ for year in ['18']:
                 commands.append(qcd_job_string)
 
         # TTbar
-        ttbar_dict = {'ttbar': 16,'ttbar_semilep': 8}
+        ttbar_dict = {'ttbar': 16,'ttbar-semilep': 8}
         for ttbartype in ttbar_dict.keys():
             ttbar_jobs = ttbar_dict[ttbartype]
             ttbar_string = year_string.replace('TEMPSET',ttbartype).replace("NJOB",str(ttbar_jobs))
@@ -33,35 +33,35 @@ for year in ['18']:
         # Signal
         if year == '18':
             siglist = [
-                'RadNar_1000',
-                'RadNar_1500',
-                'RadNar_2000',
-                'RadNar_2500',
-                'RadNar_3000',
-                'RadWid05_1000',
-                'RadWid05_1500',
-                'RadWid05_2000',
-                'RadWid05_2400',
-                'RadWid05_3000',
-                'RadWid10_1500',
-                'RadWid10_2000',
-                'RadWid10_2400',
-                'RadWid10_3000',
-                'GravNar_1000',
-                'GravNar_1500',
-                'GravNar_2000',
-                'GravNar_2500',
-                'GravNar_3000',
-                'GravWid05_1000',
-                'GravWid05_1500',
-                'GravWid05_2000',
-                'GravWid05_2400',
-                'GravWid05_3000',
-                'GravWid10_1000',
-                'GravWid10_1500',
-                'GravWid10_2000',
-                'GravWid10_2400',
-                'GravWid10_3000'
+                #'RadNar_1000',
+                #'RadNar_1500',
+                #'RadNar_2000',
+                #'RadNar_2500',
+                #'RadNar_3000',
+                #'RadWid05_1000',
+                #'RadWid05_1500',
+                #'RadWid05_2000',
+                #'RadWid05_2400',
+                #'RadWid05_3000',
+                #'RadWid10_1500',
+                #'RadWid10_2000',
+                #'RadWid10_2400',
+                #'RadWid10_3000',
+                'GravNar-1000',
+                #'GravNar_1500',
+                'GravNar-2000',
+                'GravNar-2500',
+                'GravNar-3000',
+                #'GravWid05_1000',
+                #'GravWid05_1500',
+                #'GravWid05_2000',
+                #'GravWid05_2400',
+                #'GravWid05_3000',
+                #'GravWid10_1000',
+                #'GravWid10_1500',
+                #'GravWid10_2000',
+                #'GravWid10_2400',
+                #'GravWid10_3000'
             ]
             for sig_name in siglist:
                 commands.append(year_string.replace('TEMPSET',sig_name).replace('NJOB','1').replace('IJOB','1'))

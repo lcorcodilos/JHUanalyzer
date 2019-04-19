@@ -28,8 +28,8 @@ from math import sqrt
 import sys
 import time
 
-import Bstar_Functions_local
-from Bstar_Functions_local import *
+import Presel_Functions
+from Presel_Functions import *
 
 
 if __name__ == "__main__":
@@ -77,31 +77,30 @@ if __name__ == "__main__":
 
     # Prep for deepcsv b-tag if deepak8 is off
     # From https://twiki.cern.ch/twiki/bin/view/CMS/BTagCalibration
-    if options.deepak8 == 'off':
-        gSystem.Load('libCondFormatsBTauObjects') 
-        gSystem.Load('libCondToolsBTau') 
-        # if options.year == '16':
-        #     calib = BTagCalibration('DeepCSV', 'SFs/DeepCSV_2016LegacySF_V1.csv')
-        # elif options.year == '17':
-        #     calib = BTagCalibration('DeepCSV', 'SFs/subjet_DeepCSV_94XSF_V4_B_F.csv')
-        if options.year == '18':
-            calib = BTagCalibration('DeepCSV', 'SFs/DeepCSV_102XSF_V1.csv')
+    gSystem.Load('libCondFormatsBTauObjects') 
+    gSystem.Load('libCondToolsBTau') 
+    # if options.year == '16':
+    #     calib = BTagCalibration('DeepCSV', 'SFs/DeepCSV_2016LegacySF_V1.csv')
+    # elif options.year == '17':
+    #     calib = BTagCalibration('DeepCSV', 'SFs/subjet_DeepCSV_94XSF_V4_B_F.csv')
+    if options.year == '18':
+        calib = BTagCalibration('DeepCSV', 'SFs/DeepCSV_102XSF_V1.csv')
             
-        v_sys = getattr(ROOT, 'vector<string>')()
-        v_sys.push_back('up')
-        v_sys.push_back('down')
+    v_sys = getattr(ROOT, 'vector<string>')()
+    v_sys.push_back('up')
+    v_sys.push_back('down')
 
-        reader = BTagCalibrationReader(
+    reader = BTagCalibrationReader(
             0,              # 0 is for loose op, 1: medium, 2: tight, 3: discr. reshaping
             "central",      # central systematic type
             v_sys,          # vector of other sys. types
-        )   
+    )   
 
-        reader.load(
+    reader.load(
             calib, 
             0,          # 0 is for b flavour, 1: FLAV_C, 2: FLAV_UDSG 
             "incl"      # measurement type
-        ) 
+    ) 
 
     ######################################
     # Make strings for final file naming #
@@ -123,7 +122,7 @@ if __name__ == "__main__":
 
     # JECs
     runOthers = True
-    if options.set == 'data':
+    if 'data' not in options.set:
         mass_name = ''
     else:
         mass_name = '_nom'
@@ -176,7 +175,7 @@ if __name__ == "__main__":
         TrigPlot = TrigFile.Get('TriggerWeight_'+tname+'_Ht')
         TrigPlot1 = TrigPlot.Clone()
         
-    if options.set != 'data':
+    if 'data' not in options.set:
         PileFile = TFile.Open("pileup/PileUp_Ratio_ttbar"+options.year+".root")
         PilePlots = {
             "nom": PileFile.Get("Pileup_Ratio"),
@@ -189,9 +188,9 @@ if __name__ == "__main__":
     # Make new file for storage #
     #############################
     if jobs!=1:
-        f = TFile( "HHpreselection"+options.year+"_"+options.set+"_job"+options.num+"of"+options.jobs+"_"+mod+'_'+options.region+".root", "recreate" )
+        f = TFile( "HHpreselection"+options.year+"_"+options.set+"_job"+options.num+"of"+options.jobs+mod+'_'+options.region+".root", "recreate" )
     else:
-        f = TFile( "HHpreselection"+options.year+"_"+options.set+"_"+mod+'_'+options.region+".root", "recreate" )
+        f = TFile( "HHpreselection"+options.year+"_"+options.set+mod+'_'+options.region+".root", "recreate" )
     f.cd()
 
     
@@ -206,7 +205,7 @@ if __name__ == "__main__":
     nev = TH1F("nev",   "nev",      1, 0, 1 )
 
     if runOthers == True:
-        if options.set != 'data':
+        if 'data' not in options.set:
             MhhvMhPassPDFup   = TH2F("MhhvMhPassPDFup", "mass of HH vs mass of AK8 jet H PDF up - Pass", 60, 50, 350, 35, 500, 4000 )
             MhhvMhPassPDFdown = TH2F("MhhvMhPassPDFdown",   "mass of HH vs mass of AK8 jet H PDF down - Pass", 60, 50, 350, 35, 500, 4000 )
             MhhvMhPassPDFup.Sumw2()
@@ -268,14 +267,14 @@ if __name__ == "__main__":
     # Get process normalization #
     #############################
     norm_weight = 1
-    if options.set != 'data':
+    if 'data' not in options.set:
         runs_tree = file.Get("Runs")
         nevents_gen = 0
         
         for i in runs_tree:
             nevents_gen+=i.genEventCount
 
-        xsec = Cons[options.set+'_xsec']
+        xsec = Cons[options.set+'_xsec'] 
         norm_weight = lumi*xsec/float(nevents_gen)
 
     #####################################
@@ -305,13 +304,13 @@ if __name__ == "__main__":
     event_time_sum = 0
     for entry in range(lowBinEdge,highBinEdge):
         count   =   count + 1
-        if count > 1:
-            current_event_time = time.time()
-            event_time_sum += (current_event_time - last_event_time)
-            sys.stdout.write("%i / %i ... \r" % (count,(highBinEdge-lowBinEdge)))
-            sys.stdout.write("Avg time = %f " % (event_time_sum/count) )
-            sys.stdout.flush()
-            last_event_time = current_event_time
+        #if count > 1:
+        #    current_event_time = time.time()
+        #    event_time_sum += (current_event_time - last_event_time)
+        #    sys.stdout.write("%i / %i ... \r" % (count,(highBinEdge-lowBinEdge)))
+        #    sys.stdout.write("Avg time = %f " % (event_time_sum/count) )
+        #    sys.stdout.flush()
+        #    last_event_time = current_event_time
         if count % 10000 == 0 :
             print  '--------- Processing Event ' + str(count) +'   -- percent complete ' + str(100*count/(highBinEdge-lowBinEdge)) + '% -- '
 
@@ -319,7 +318,7 @@ if __name__ == "__main__":
         event = Event(inTree, entry)
 
         # Apply triggers first
-        if options.set == 'data':
+        if 'data' in options.set:
             passt = False
             for t in triggers:
                 try: 
@@ -378,8 +377,8 @@ if __name__ == "__main__":
             continue
 
         leadingFatJet = ak8JetsColl[0]
-        leadingJet = ak4JetsColl[candidateAK4s]
-        subleadingJet = ak4JetsColl[candidateAK4s]
+        leadingJet = ak4JetsColl[candidateAK4s[0]]
+        subleadingJet = ak4JetsColl[candidateAK4s[1]]
 
         eta_cut = (Cuts['eta'][0]<abs(leadingJet.eta)<Cuts['eta'][1]) and (Cuts['eta'][0]<abs(subleadingJet.eta)<Cuts['eta'][1])
 
@@ -390,8 +389,8 @@ if __name__ == "__main__":
 
             bjet1 = TLorentzVector()
             bjet2 = TLorentzVector()
-            bjet1.SetPtEtaPhiM(leadingJet.pt,leadingJet.eta,leadingJet.phi,leadingJet.msoftdrop)
-            bjet2.SetPtEtaPhiM(subleadingJet.pt,subleadingJet.eta,subleadingJet.phi,subleadingJet.msoftdrop)
+            bjet1.SetPtEtaPhiM(leadingJet.pt,leadingJet.eta,leadingJet.phi,leadingJet.mass)
+            bjet2.SetPtEtaPhiM(subleadingJet.pt,subleadingJet.eta,subleadingJet.phi,subleadingJet.mass)
 
             ht = hjet.Perp() + bjet1.Perp() + bjet2.Perp()
             Mhh = (hjet+bjet1+bjet2).M()
@@ -431,7 +430,7 @@ if __name__ == "__main__":
                             }
 
                 
-                if options.set!="data":
+                if 'data' not in options.set:
                     # PDF weight
                     weights['PDF']['up'] = PDF_Lookup(inTree.readBranch('LHEPdfWeight'),'up')
                     weights['PDF']['down'] = PDF_Lookup(inTree.readBranch('LHEPdfWeight'),'down')
@@ -464,7 +463,7 @@ if __name__ == "__main__":
                     MhhvMhPass.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'nominal')) 
 
                     if runOthers:
-                        if options.set != 'data':
+                        if 'data' not in options.set:
                             MhhvMhPassPDFup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'PDF_up'))
                             MhhvMhPassPDFdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'PDF_down'))
 
@@ -482,7 +481,7 @@ if __name__ == "__main__":
                 else:
                     MhhvMhFail.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'nominal')) 
 
-                    if runOthers and options.set != 'data':
+                    if runOthers and 'data' not in options.set:
                         MhhvMhFailPDFup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'PDF_up'))
                         MhhvMhFailPDFdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'PDF_down'))
 

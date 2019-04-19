@@ -41,7 +41,7 @@ if njobs > 100:
     execute.append('rm '+threeDayLifetime+'temp_wall_*.root')
 
     # Copy to eos and delete locally
-    execute.append('xrdcp -f '+threeDayLifetime+setname+'_hh'+year+'.root root://cmseos.fnal.gov//store/user/lcorcodi/bstar_nano/rootfiles/')
+    execute.append('xrdcp -f '+threeDayLifetime+setname+'_hh'+year+'.root root://cmseos.fnal.gov//store/user/lcorcodi/hhto4b_nano/rootfiles/')
     execute.append('rm '+threeDayLifetime+setname+'_hh'+year+'.root')
 
 else:
@@ -51,7 +51,7 @@ else:
 
     execute.append('python haddnano.py '+setname+'_hh'+year+'.root '+list_of_files)
 
-    execute.append('xrdcp -f '+setname+'_hh'+year+'.root root://cmseos.fnal.gov//store/user/lcorcodi/bstar_nano/rootfiles/'+setname+'_hh'+year+'.root')
+    execute.append('xrdcp -f '+setname+'_hh'+year+'.root root://cmseos.fnal.gov//store/user/lcorcodi/hhto4b_nano/rootfiles/'+setname+'_hh'+year+'.root')
     execute.append('rm '+setname+'_hh'+year+'.root')
 
 

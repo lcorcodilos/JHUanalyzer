@@ -244,339 +244,114 @@
 -s ttbar -r default -j 16 -n 14 -y 18 -b down
 -s ttbar -r default -j 16 -n 15 -y 18 -b down
 -s ttbar -r default -j 16 -n 16 -y 18 -b down
--s ttbar_semilep -r default -j 8 -n 1 -y 18
--s ttbar_semilep -r default -j 8 -n 2 -y 18
--s ttbar_semilep -r default -j 8 -n 3 -y 18
--s ttbar_semilep -r default -j 8 -n 4 -y 18
--s ttbar_semilep -r default -j 8 -n 5 -y 18
--s ttbar_semilep -r default -j 8 -n 6 -y 18
--s ttbar_semilep -r default -j 8 -n 7 -y 18
--s ttbar_semilep -r default -j 8 -n 8 -y 18
--s ttbar_semilep -r default -j 8 -n 1 -y 18 -J up
--s ttbar_semilep -r default -j 8 -n 2 -y 18 -J up
--s ttbar_semilep -r default -j 8 -n 3 -y 18 -J up
--s ttbar_semilep -r default -j 8 -n 4 -y 18 -J up
--s ttbar_semilep -r default -j 8 -n 5 -y 18 -J up
--s ttbar_semilep -r default -j 8 -n 6 -y 18 -J up
--s ttbar_semilep -r default -j 8 -n 7 -y 18 -J up
--s ttbar_semilep -r default -j 8 -n 8 -y 18 -J up
--s ttbar_semilep -r default -j 8 -n 1 -y 18 -R up
--s ttbar_semilep -r default -j 8 -n 2 -y 18 -R up
--s ttbar_semilep -r default -j 8 -n 3 -y 18 -R up
--s ttbar_semilep -r default -j 8 -n 4 -y 18 -R up
--s ttbar_semilep -r default -j 8 -n 5 -y 18 -R up
--s ttbar_semilep -r default -j 8 -n 6 -y 18 -R up
--s ttbar_semilep -r default -j 8 -n 7 -y 18 -R up
--s ttbar_semilep -r default -j 8 -n 8 -y 18 -R up
--s ttbar_semilep -r default -j 8 -n 1 -y 18 -a up
--s ttbar_semilep -r default -j 8 -n 2 -y 18 -a up
--s ttbar_semilep -r default -j 8 -n 3 -y 18 -a up
--s ttbar_semilep -r default -j 8 -n 4 -y 18 -a up
--s ttbar_semilep -r default -j 8 -n 5 -y 18 -a up
--s ttbar_semilep -r default -j 8 -n 6 -y 18 -a up
--s ttbar_semilep -r default -j 8 -n 7 -y 18 -a up
--s ttbar_semilep -r default -j 8 -n 8 -y 18 -a up
--s ttbar_semilep -r default -j 8 -n 1 -y 18 -b up
--s ttbar_semilep -r default -j 8 -n 2 -y 18 -b up
--s ttbar_semilep -r default -j 8 -n 3 -y 18 -b up
--s ttbar_semilep -r default -j 8 -n 4 -y 18 -b up
--s ttbar_semilep -r default -j 8 -n 5 -y 18 -b up
--s ttbar_semilep -r default -j 8 -n 6 -y 18 -b up
--s ttbar_semilep -r default -j 8 -n 7 -y 18 -b up
--s ttbar_semilep -r default -j 8 -n 8 -y 18 -b up
--s ttbar_semilep -r default -j 8 -n 1 -y 18 -J down
--s ttbar_semilep -r default -j 8 -n 2 -y 18 -J down
--s ttbar_semilep -r default -j 8 -n 3 -y 18 -J down
--s ttbar_semilep -r default -j 8 -n 4 -y 18 -J down
--s ttbar_semilep -r default -j 8 -n 5 -y 18 -J down
--s ttbar_semilep -r default -j 8 -n 6 -y 18 -J down
--s ttbar_semilep -r default -j 8 -n 7 -y 18 -J down
--s ttbar_semilep -r default -j 8 -n 8 -y 18 -J down
--s ttbar_semilep -r default -j 8 -n 1 -y 18 -R down
--s ttbar_semilep -r default -j 8 -n 2 -y 18 -R down
--s ttbar_semilep -r default -j 8 -n 3 -y 18 -R down
--s ttbar_semilep -r default -j 8 -n 4 -y 18 -R down
--s ttbar_semilep -r default -j 8 -n 5 -y 18 -R down
--s ttbar_semilep -r default -j 8 -n 6 -y 18 -R down
--s ttbar_semilep -r default -j 8 -n 7 -y 18 -R down
--s ttbar_semilep -r default -j 8 -n 8 -y 18 -R down
--s ttbar_semilep -r default -j 8 -n 1 -y 18 -a down
--s ttbar_semilep -r default -j 8 -n 2 -y 18 -a down
--s ttbar_semilep -r default -j 8 -n 3 -y 18 -a down
--s ttbar_semilep -r default -j 8 -n 4 -y 18 -a down
--s ttbar_semilep -r default -j 8 -n 5 -y 18 -a down
--s ttbar_semilep -r default -j 8 -n 6 -y 18 -a down
--s ttbar_semilep -r default -j 8 -n 7 -y 18 -a down
--s ttbar_semilep -r default -j 8 -n 8 -y 18 -a down
--s ttbar_semilep -r default -j 8 -n 1 -y 18 -b down
--s ttbar_semilep -r default -j 8 -n 2 -y 18 -b down
--s ttbar_semilep -r default -j 8 -n 3 -y 18 -b down
--s ttbar_semilep -r default -j 8 -n 4 -y 18 -b down
--s ttbar_semilep -r default -j 8 -n 5 -y 18 -b down
--s ttbar_semilep -r default -j 8 -n 6 -y 18 -b down
--s ttbar_semilep -r default -j 8 -n 7 -y 18 -b down
--s ttbar_semilep -r default -j 8 -n 8 -y 18 -b down
--s RadNar_1000 -r default -j 1 -n 1 -y 18
--s RadNar_1000 -r default -j 1 -n 1 -y 18 -J up
--s RadNar_1000 -r default -j 1 -n 1 -y 18 -R up
--s RadNar_1000 -r default -j 1 -n 1 -y 18 -a up
--s RadNar_1000 -r default -j 1 -n 1 -y 18 -b up
--s RadNar_1000 -r default -j 1 -n 1 -y 18 -J down
--s RadNar_1000 -r default -j 1 -n 1 -y 18 -R down
--s RadNar_1000 -r default -j 1 -n 1 -y 18 -a down
--s RadNar_1000 -r default -j 1 -n 1 -y 18 -b down
--s RadNar_1500 -r default -j 1 -n 1 -y 18
--s RadNar_1500 -r default -j 1 -n 1 -y 18 -J up
--s RadNar_1500 -r default -j 1 -n 1 -y 18 -R up
--s RadNar_1500 -r default -j 1 -n 1 -y 18 -a up
--s RadNar_1500 -r default -j 1 -n 1 -y 18 -b up
--s RadNar_1500 -r default -j 1 -n 1 -y 18 -J down
--s RadNar_1500 -r default -j 1 -n 1 -y 18 -R down
--s RadNar_1500 -r default -j 1 -n 1 -y 18 -a down
--s RadNar_1500 -r default -j 1 -n 1 -y 18 -b down
--s RadNar_2000 -r default -j 1 -n 1 -y 18
--s RadNar_2000 -r default -j 1 -n 1 -y 18 -J up
--s RadNar_2000 -r default -j 1 -n 1 -y 18 -R up
--s RadNar_2000 -r default -j 1 -n 1 -y 18 -a up
--s RadNar_2000 -r default -j 1 -n 1 -y 18 -b up
--s RadNar_2000 -r default -j 1 -n 1 -y 18 -J down
--s RadNar_2000 -r default -j 1 -n 1 -y 18 -R down
--s RadNar_2000 -r default -j 1 -n 1 -y 18 -a down
--s RadNar_2000 -r default -j 1 -n 1 -y 18 -b down
--s RadNar_2500 -r default -j 1 -n 1 -y 18
--s RadNar_2500 -r default -j 1 -n 1 -y 18 -J up
--s RadNar_2500 -r default -j 1 -n 1 -y 18 -R up
--s RadNar_2500 -r default -j 1 -n 1 -y 18 -a up
--s RadNar_2500 -r default -j 1 -n 1 -y 18 -b up
--s RadNar_2500 -r default -j 1 -n 1 -y 18 -J down
--s RadNar_2500 -r default -j 1 -n 1 -y 18 -R down
--s RadNar_2500 -r default -j 1 -n 1 -y 18 -a down
--s RadNar_2500 -r default -j 1 -n 1 -y 18 -b down
--s RadNar_3000 -r default -j 1 -n 1 -y 18
--s RadNar_3000 -r default -j 1 -n 1 -y 18 -J up
--s RadNar_3000 -r default -j 1 -n 1 -y 18 -R up
--s RadNar_3000 -r default -j 1 -n 1 -y 18 -a up
--s RadNar_3000 -r default -j 1 -n 1 -y 18 -b up
--s RadNar_3000 -r default -j 1 -n 1 -y 18 -J down
--s RadNar_3000 -r default -j 1 -n 1 -y 18 -R down
--s RadNar_3000 -r default -j 1 -n 1 -y 18 -a down
--s RadNar_3000 -r default -j 1 -n 1 -y 18 -b down
--s RadWid05_1000 -r default -j 1 -n 1 -y 18
--s RadWid05_1000 -r default -j 1 -n 1 -y 18 -J up
--s RadWid05_1000 -r default -j 1 -n 1 -y 18 -R up
--s RadWid05_1000 -r default -j 1 -n 1 -y 18 -a up
--s RadWid05_1000 -r default -j 1 -n 1 -y 18 -b up
--s RadWid05_1000 -r default -j 1 -n 1 -y 18 -J down
--s RadWid05_1000 -r default -j 1 -n 1 -y 18 -R down
--s RadWid05_1000 -r default -j 1 -n 1 -y 18 -a down
--s RadWid05_1000 -r default -j 1 -n 1 -y 18 -b down
--s RadWid05_1500 -r default -j 1 -n 1 -y 18
--s RadWid05_1500 -r default -j 1 -n 1 -y 18 -J up
--s RadWid05_1500 -r default -j 1 -n 1 -y 18 -R up
--s RadWid05_1500 -r default -j 1 -n 1 -y 18 -a up
--s RadWid05_1500 -r default -j 1 -n 1 -y 18 -b up
--s RadWid05_1500 -r default -j 1 -n 1 -y 18 -J down
--s RadWid05_1500 -r default -j 1 -n 1 -y 18 -R down
--s RadWid05_1500 -r default -j 1 -n 1 -y 18 -a down
--s RadWid05_1500 -r default -j 1 -n 1 -y 18 -b down
--s RadWid05_2000 -r default -j 1 -n 1 -y 18
--s RadWid05_2000 -r default -j 1 -n 1 -y 18 -J up
--s RadWid05_2000 -r default -j 1 -n 1 -y 18 -R up
--s RadWid05_2000 -r default -j 1 -n 1 -y 18 -a up
--s RadWid05_2000 -r default -j 1 -n 1 -y 18 -b up
--s RadWid05_2000 -r default -j 1 -n 1 -y 18 -J down
--s RadWid05_2000 -r default -j 1 -n 1 -y 18 -R down
--s RadWid05_2000 -r default -j 1 -n 1 -y 18 -a down
--s RadWid05_2000 -r default -j 1 -n 1 -y 18 -b down
--s RadWid05_2400 -r default -j 1 -n 1 -y 18
--s RadWid05_2400 -r default -j 1 -n 1 -y 18 -J up
--s RadWid05_2400 -r default -j 1 -n 1 -y 18 -R up
--s RadWid05_2400 -r default -j 1 -n 1 -y 18 -a up
--s RadWid05_2400 -r default -j 1 -n 1 -y 18 -b up
--s RadWid05_2400 -r default -j 1 -n 1 -y 18 -J down
--s RadWid05_2400 -r default -j 1 -n 1 -y 18 -R down
--s RadWid05_2400 -r default -j 1 -n 1 -y 18 -a down
--s RadWid05_2400 -r default -j 1 -n 1 -y 18 -b down
--s RadWid05_3000 -r default -j 1 -n 1 -y 18
--s RadWid05_3000 -r default -j 1 -n 1 -y 18 -J up
--s RadWid05_3000 -r default -j 1 -n 1 -y 18 -R up
--s RadWid05_3000 -r default -j 1 -n 1 -y 18 -a up
--s RadWid05_3000 -r default -j 1 -n 1 -y 18 -b up
--s RadWid05_3000 -r default -j 1 -n 1 -y 18 -J down
--s RadWid05_3000 -r default -j 1 -n 1 -y 18 -R down
--s RadWid05_3000 -r default -j 1 -n 1 -y 18 -a down
--s RadWid05_3000 -r default -j 1 -n 1 -y 18 -b down
--s RadWid10_1500 -r default -j 1 -n 1 -y 18
--s RadWid10_1500 -r default -j 1 -n 1 -y 18 -J up
--s RadWid10_1500 -r default -j 1 -n 1 -y 18 -R up
--s RadWid10_1500 -r default -j 1 -n 1 -y 18 -a up
--s RadWid10_1500 -r default -j 1 -n 1 -y 18 -b up
--s RadWid10_1500 -r default -j 1 -n 1 -y 18 -J down
--s RadWid10_1500 -r default -j 1 -n 1 -y 18 -R down
--s RadWid10_1500 -r default -j 1 -n 1 -y 18 -a down
--s RadWid10_1500 -r default -j 1 -n 1 -y 18 -b down
--s RadWid10_2000 -r default -j 1 -n 1 -y 18
--s RadWid10_2000 -r default -j 1 -n 1 -y 18 -J up
--s RadWid10_2000 -r default -j 1 -n 1 -y 18 -R up
--s RadWid10_2000 -r default -j 1 -n 1 -y 18 -a up
--s RadWid10_2000 -r default -j 1 -n 1 -y 18 -b up
--s RadWid10_2000 -r default -j 1 -n 1 -y 18 -J down
--s RadWid10_2000 -r default -j 1 -n 1 -y 18 -R down
--s RadWid10_2000 -r default -j 1 -n 1 -y 18 -a down
--s RadWid10_2000 -r default -j 1 -n 1 -y 18 -b down
--s RadWid10_2400 -r default -j 1 -n 1 -y 18
--s RadWid10_2400 -r default -j 1 -n 1 -y 18 -J up
--s RadWid10_2400 -r default -j 1 -n 1 -y 18 -R up
--s RadWid10_2400 -r default -j 1 -n 1 -y 18 -a up
--s RadWid10_2400 -r default -j 1 -n 1 -y 18 -b up
--s RadWid10_2400 -r default -j 1 -n 1 -y 18 -J down
--s RadWid10_2400 -r default -j 1 -n 1 -y 18 -R down
--s RadWid10_2400 -r default -j 1 -n 1 -y 18 -a down
--s RadWid10_2400 -r default -j 1 -n 1 -y 18 -b down
--s RadWid10_3000 -r default -j 1 -n 1 -y 18
--s RadWid10_3000 -r default -j 1 -n 1 -y 18 -J up
--s RadWid10_3000 -r default -j 1 -n 1 -y 18 -R up
--s RadWid10_3000 -r default -j 1 -n 1 -y 18 -a up
--s RadWid10_3000 -r default -j 1 -n 1 -y 18 -b up
--s RadWid10_3000 -r default -j 1 -n 1 -y 18 -J down
--s RadWid10_3000 -r default -j 1 -n 1 -y 18 -R down
--s RadWid10_3000 -r default -j 1 -n 1 -y 18 -a down
--s RadWid10_3000 -r default -j 1 -n 1 -y 18 -b down
--s GravNar_1000 -r default -j 1 -n 1 -y 18
--s GravNar_1000 -r default -j 1 -n 1 -y 18 -J up
--s GravNar_1000 -r default -j 1 -n 1 -y 18 -R up
--s GravNar_1000 -r default -j 1 -n 1 -y 18 -a up
--s GravNar_1000 -r default -j 1 -n 1 -y 18 -b up
--s GravNar_1000 -r default -j 1 -n 1 -y 18 -J down
--s GravNar_1000 -r default -j 1 -n 1 -y 18 -R down
--s GravNar_1000 -r default -j 1 -n 1 -y 18 -a down
--s GravNar_1000 -r default -j 1 -n 1 -y 18 -b down
--s GravNar_1500 -r default -j 1 -n 1 -y 18
--s GravNar_1500 -r default -j 1 -n 1 -y 18 -J up
--s GravNar_1500 -r default -j 1 -n 1 -y 18 -R up
--s GravNar_1500 -r default -j 1 -n 1 -y 18 -a up
--s GravNar_1500 -r default -j 1 -n 1 -y 18 -b up
--s GravNar_1500 -r default -j 1 -n 1 -y 18 -J down
--s GravNar_1500 -r default -j 1 -n 1 -y 18 -R down
--s GravNar_1500 -r default -j 1 -n 1 -y 18 -a down
--s GravNar_1500 -r default -j 1 -n 1 -y 18 -b down
--s GravNar_2000 -r default -j 1 -n 1 -y 18
--s GravNar_2000 -r default -j 1 -n 1 -y 18 -J up
--s GravNar_2000 -r default -j 1 -n 1 -y 18 -R up
--s GravNar_2000 -r default -j 1 -n 1 -y 18 -a up
--s GravNar_2000 -r default -j 1 -n 1 -y 18 -b up
--s GravNar_2000 -r default -j 1 -n 1 -y 18 -J down
--s GravNar_2000 -r default -j 1 -n 1 -y 18 -R down
--s GravNar_2000 -r default -j 1 -n 1 -y 18 -a down
--s GravNar_2000 -r default -j 1 -n 1 -y 18 -b down
--s GravNar_2500 -r default -j 1 -n 1 -y 18
--s GravNar_2500 -r default -j 1 -n 1 -y 18 -J up
--s GravNar_2500 -r default -j 1 -n 1 -y 18 -R up
--s GravNar_2500 -r default -j 1 -n 1 -y 18 -a up
--s GravNar_2500 -r default -j 1 -n 1 -y 18 -b up
--s GravNar_2500 -r default -j 1 -n 1 -y 18 -J down
--s GravNar_2500 -r default -j 1 -n 1 -y 18 -R down
--s GravNar_2500 -r default -j 1 -n 1 -y 18 -a down
--s GravNar_2500 -r default -j 1 -n 1 -y 18 -b down
--s GravNar_3000 -r default -j 1 -n 1 -y 18
--s GravNar_3000 -r default -j 1 -n 1 -y 18 -J up
--s GravNar_3000 -r default -j 1 -n 1 -y 18 -R up
--s GravNar_3000 -r default -j 1 -n 1 -y 18 -a up
--s GravNar_3000 -r default -j 1 -n 1 -y 18 -b up
--s GravNar_3000 -r default -j 1 -n 1 -y 18 -J down
--s GravNar_3000 -r default -j 1 -n 1 -y 18 -R down
--s GravNar_3000 -r default -j 1 -n 1 -y 18 -a down
--s GravNar_3000 -r default -j 1 -n 1 -y 18 -b down
--s GravWid05_1000 -r default -j 1 -n 1 -y 18
--s GravWid05_1000 -r default -j 1 -n 1 -y 18 -J up
--s GravWid05_1000 -r default -j 1 -n 1 -y 18 -R up
--s GravWid05_1000 -r default -j 1 -n 1 -y 18 -a up
--s GravWid05_1000 -r default -j 1 -n 1 -y 18 -b up
--s GravWid05_1000 -r default -j 1 -n 1 -y 18 -J down
--s GravWid05_1000 -r default -j 1 -n 1 -y 18 -R down
--s GravWid05_1000 -r default -j 1 -n 1 -y 18 -a down
--s GravWid05_1000 -r default -j 1 -n 1 -y 18 -b down
--s GravWid05_1500 -r default -j 1 -n 1 -y 18
--s GravWid05_1500 -r default -j 1 -n 1 -y 18 -J up
--s GravWid05_1500 -r default -j 1 -n 1 -y 18 -R up
--s GravWid05_1500 -r default -j 1 -n 1 -y 18 -a up
--s GravWid05_1500 -r default -j 1 -n 1 -y 18 -b up
--s GravWid05_1500 -r default -j 1 -n 1 -y 18 -J down
--s GravWid05_1500 -r default -j 1 -n 1 -y 18 -R down
--s GravWid05_1500 -r default -j 1 -n 1 -y 18 -a down
--s GravWid05_1500 -r default -j 1 -n 1 -y 18 -b down
--s GravWid05_2000 -r default -j 1 -n 1 -y 18
--s GravWid05_2000 -r default -j 1 -n 1 -y 18 -J up
--s GravWid05_2000 -r default -j 1 -n 1 -y 18 -R up
--s GravWid05_2000 -r default -j 1 -n 1 -y 18 -a up
--s GravWid05_2000 -r default -j 1 -n 1 -y 18 -b up
--s GravWid05_2000 -r default -j 1 -n 1 -y 18 -J down
--s GravWid05_2000 -r default -j 1 -n 1 -y 18 -R down
--s GravWid05_2000 -r default -j 1 -n 1 -y 18 -a down
--s GravWid05_2000 -r default -j 1 -n 1 -y 18 -b down
--s GravWid05_2400 -r default -j 1 -n 1 -y 18
--s GravWid05_2400 -r default -j 1 -n 1 -y 18 -J up
--s GravWid05_2400 -r default -j 1 -n 1 -y 18 -R up
--s GravWid05_2400 -r default -j 1 -n 1 -y 18 -a up
--s GravWid05_2400 -r default -j 1 -n 1 -y 18 -b up
--s GravWid05_2400 -r default -j 1 -n 1 -y 18 -J down
--s GravWid05_2400 -r default -j 1 -n 1 -y 18 -R down
--s GravWid05_2400 -r default -j 1 -n 1 -y 18 -a down
--s GravWid05_2400 -r default -j 1 -n 1 -y 18 -b down
--s GravWid05_3000 -r default -j 1 -n 1 -y 18
--s GravWid05_3000 -r default -j 1 -n 1 -y 18 -J up
--s GravWid05_3000 -r default -j 1 -n 1 -y 18 -R up
--s GravWid05_3000 -r default -j 1 -n 1 -y 18 -a up
--s GravWid05_3000 -r default -j 1 -n 1 -y 18 -b up
--s GravWid05_3000 -r default -j 1 -n 1 -y 18 -J down
--s GravWid05_3000 -r default -j 1 -n 1 -y 18 -R down
--s GravWid05_3000 -r default -j 1 -n 1 -y 18 -a down
--s GravWid05_3000 -r default -j 1 -n 1 -y 18 -b down
--s GravWid10_1000 -r default -j 1 -n 1 -y 18
--s GravWid10_1000 -r default -j 1 -n 1 -y 18 -J up
--s GravWid10_1000 -r default -j 1 -n 1 -y 18 -R up
--s GravWid10_1000 -r default -j 1 -n 1 -y 18 -a up
--s GravWid10_1000 -r default -j 1 -n 1 -y 18 -b up
--s GravWid10_1000 -r default -j 1 -n 1 -y 18 -J down
--s GravWid10_1000 -r default -j 1 -n 1 -y 18 -R down
--s GravWid10_1000 -r default -j 1 -n 1 -y 18 -a down
--s GravWid10_1000 -r default -j 1 -n 1 -y 18 -b down
--s GravWid10_1500 -r default -j 1 -n 1 -y 18
--s GravWid10_1500 -r default -j 1 -n 1 -y 18 -J up
--s GravWid10_1500 -r default -j 1 -n 1 -y 18 -R up
--s GravWid10_1500 -r default -j 1 -n 1 -y 18 -a up
--s GravWid10_1500 -r default -j 1 -n 1 -y 18 -b up
--s GravWid10_1500 -r default -j 1 -n 1 -y 18 -J down
--s GravWid10_1500 -r default -j 1 -n 1 -y 18 -R down
--s GravWid10_1500 -r default -j 1 -n 1 -y 18 -a down
--s GravWid10_1500 -r default -j 1 -n 1 -y 18 -b down
--s GravWid10_2000 -r default -j 1 -n 1 -y 18
--s GravWid10_2000 -r default -j 1 -n 1 -y 18 -J up
--s GravWid10_2000 -r default -j 1 -n 1 -y 18 -R up
--s GravWid10_2000 -r default -j 1 -n 1 -y 18 -a up
--s GravWid10_2000 -r default -j 1 -n 1 -y 18 -b up
--s GravWid10_2000 -r default -j 1 -n 1 -y 18 -J down
--s GravWid10_2000 -r default -j 1 -n 1 -y 18 -R down
--s GravWid10_2000 -r default -j 1 -n 1 -y 18 -a down
--s GravWid10_2000 -r default -j 1 -n 1 -y 18 -b down
--s GravWid10_2400 -r default -j 1 -n 1 -y 18
--s GravWid10_2400 -r default -j 1 -n 1 -y 18 -J up
--s GravWid10_2400 -r default -j 1 -n 1 -y 18 -R up
--s GravWid10_2400 -r default -j 1 -n 1 -y 18 -a up
--s GravWid10_2400 -r default -j 1 -n 1 -y 18 -b up
--s GravWid10_2400 -r default -j 1 -n 1 -y 18 -J down
--s GravWid10_2400 -r default -j 1 -n 1 -y 18 -R down
--s GravWid10_2400 -r default -j 1 -n 1 -y 18 -a down
--s GravWid10_2400 -r default -j 1 -n 1 -y 18 -b down
--s GravWid10_3000 -r default -j 1 -n 1 -y 18
--s GravWid10_3000 -r default -j 1 -n 1 -y 18 -J up
--s GravWid10_3000 -r default -j 1 -n 1 -y 18 -R up
--s GravWid10_3000 -r default -j 1 -n 1 -y 18 -a up
--s GravWid10_3000 -r default -j 1 -n 1 -y 18 -b up
--s GravWid10_3000 -r default -j 1 -n 1 -y 18 -J down
--s GravWid10_3000 -r default -j 1 -n 1 -y 18 -R down
--s GravWid10_3000 -r default -j 1 -n 1 -y 18 -a down
--s GravWid10_3000 -r default -j 1 -n 1 -y 18 -b down
+-s ttbar-semilep -r default -j 8 -n 1 -y 18
+-s ttbar-semilep -r default -j 8 -n 2 -y 18
+-s ttbar-semilep -r default -j 8 -n 3 -y 18
+-s ttbar-semilep -r default -j 8 -n 4 -y 18
+-s ttbar-semilep -r default -j 8 -n 5 -y 18
+-s ttbar-semilep -r default -j 8 -n 6 -y 18
+-s ttbar-semilep -r default -j 8 -n 7 -y 18
+-s ttbar-semilep -r default -j 8 -n 8 -y 18
+-s ttbar-semilep -r default -j 8 -n 1 -y 18 -J up
+-s ttbar-semilep -r default -j 8 -n 2 -y 18 -J up
+-s ttbar-semilep -r default -j 8 -n 3 -y 18 -J up
+-s ttbar-semilep -r default -j 8 -n 4 -y 18 -J up
+-s ttbar-semilep -r default -j 8 -n 5 -y 18 -J up
+-s ttbar-semilep -r default -j 8 -n 6 -y 18 -J up
+-s ttbar-semilep -r default -j 8 -n 7 -y 18 -J up
+-s ttbar-semilep -r default -j 8 -n 8 -y 18 -J up
+-s ttbar-semilep -r default -j 8 -n 1 -y 18 -R up
+-s ttbar-semilep -r default -j 8 -n 2 -y 18 -R up
+-s ttbar-semilep -r default -j 8 -n 3 -y 18 -R up
+-s ttbar-semilep -r default -j 8 -n 4 -y 18 -R up
+-s ttbar-semilep -r default -j 8 -n 5 -y 18 -R up
+-s ttbar-semilep -r default -j 8 -n 6 -y 18 -R up
+-s ttbar-semilep -r default -j 8 -n 7 -y 18 -R up
+-s ttbar-semilep -r default -j 8 -n 8 -y 18 -R up
+-s ttbar-semilep -r default -j 8 -n 1 -y 18 -a up
+-s ttbar-semilep -r default -j 8 -n 2 -y 18 -a up
+-s ttbar-semilep -r default -j 8 -n 3 -y 18 -a up
+-s ttbar-semilep -r default -j 8 -n 4 -y 18 -a up
+-s ttbar-semilep -r default -j 8 -n 5 -y 18 -a up
+-s ttbar-semilep -r default -j 8 -n 6 -y 18 -a up
+-s ttbar-semilep -r default -j 8 -n 7 -y 18 -a up
+-s ttbar-semilep -r default -j 8 -n 8 -y 18 -a up
+-s ttbar-semilep -r default -j 8 -n 1 -y 18 -b up
+-s ttbar-semilep -r default -j 8 -n 2 -y 18 -b up
+-s ttbar-semilep -r default -j 8 -n 3 -y 18 -b up
+-s ttbar-semilep -r default -j 8 -n 4 -y 18 -b up
+-s ttbar-semilep -r default -j 8 -n 5 -y 18 -b up
+-s ttbar-semilep -r default -j 8 -n 6 -y 18 -b up
+-s ttbar-semilep -r default -j 8 -n 7 -y 18 -b up
+-s ttbar-semilep -r default -j 8 -n 8 -y 18 -b up
+-s ttbar-semilep -r default -j 8 -n 1 -y 18 -J down
+-s ttbar-semilep -r default -j 8 -n 2 -y 18 -J down
+-s ttbar-semilep -r default -j 8 -n 3 -y 18 -J down
+-s ttbar-semilep -r default -j 8 -n 4 -y 18 -J down
+-s ttbar-semilep -r default -j 8 -n 5 -y 18 -J down
+-s ttbar-semilep -r default -j 8 -n 6 -y 18 -J down
+-s ttbar-semilep -r default -j 8 -n 7 -y 18 -J down
+-s ttbar-semilep -r default -j 8 -n 8 -y 18 -J down
+-s ttbar-semilep -r default -j 8 -n 1 -y 18 -R down
+-s ttbar-semilep -r default -j 8 -n 2 -y 18 -R down
+-s ttbar-semilep -r default -j 8 -n 3 -y 18 -R down
+-s ttbar-semilep -r default -j 8 -n 4 -y 18 -R down
+-s ttbar-semilep -r default -j 8 -n 5 -y 18 -R down
+-s ttbar-semilep -r default -j 8 -n 6 -y 18 -R down
+-s ttbar-semilep -r default -j 8 -n 7 -y 18 -R down
+-s ttbar-semilep -r default -j 8 -n 8 -y 18 -R down
+-s ttbar-semilep -r default -j 8 -n 1 -y 18 -a down
+-s ttbar-semilep -r default -j 8 -n 2 -y 18 -a down
+-s ttbar-semilep -r default -j 8 -n 3 -y 18 -a down
+-s ttbar-semilep -r default -j 8 -n 4 -y 18 -a down
+-s ttbar-semilep -r default -j 8 -n 5 -y 18 -a down
+-s ttbar-semilep -r default -j 8 -n 6 -y 18 -a down
+-s ttbar-semilep -r default -j 8 -n 7 -y 18 -a down
+-s ttbar-semilep -r default -j 8 -n 8 -y 18 -a down
+-s ttbar-semilep -r default -j 8 -n 1 -y 18 -b down
+-s ttbar-semilep -r default -j 8 -n 2 -y 18 -b down
+-s ttbar-semilep -r default -j 8 -n 3 -y 18 -b down
+-s ttbar-semilep -r default -j 8 -n 4 -y 18 -b down
+-s ttbar-semilep -r default -j 8 -n 5 -y 18 -b down
+-s ttbar-semilep -r default -j 8 -n 6 -y 18 -b down
+-s ttbar-semilep -r default -j 8 -n 7 -y 18 -b down
+-s ttbar-semilep -r default -j 8 -n 8 -y 18 -b down
+-s GravNar-1000 -r default -j 1 -n 1 -y 18
+-s GravNar-1000 -r default -j 1 -n 1 -y 18 -J up
+-s GravNar-1000 -r default -j 1 -n 1 -y 18 -R up
+-s GravNar-1000 -r default -j 1 -n 1 -y 18 -a up
+-s GravNar-1000 -r default -j 1 -n 1 -y 18 -b up
+-s GravNar-1000 -r default -j 1 -n 1 -y 18 -J down
+-s GravNar-1000 -r default -j 1 -n 1 -y 18 -R down
+-s GravNar-1000 -r default -j 1 -n 1 -y 18 -a down
+-s GravNar-1000 -r default -j 1 -n 1 -y 18 -b down
+-s GravNar-2000 -r default -j 1 -n 1 -y 18
+-s GravNar-2000 -r default -j 1 -n 1 -y 18 -J up
+-s GravNar-2000 -r default -j 1 -n 1 -y 18 -R up
+-s GravNar-2000 -r default -j 1 -n 1 -y 18 -a up
+-s GravNar-2000 -r default -j 1 -n 1 -y 18 -b up
+-s GravNar-2000 -r default -j 1 -n 1 -y 18 -J down
+-s GravNar-2000 -r default -j 1 -n 1 -y 18 -R down
+-s GravNar-2000 -r default -j 1 -n 1 -y 18 -a down
+-s GravNar-2000 -r default -j 1 -n 1 -y 18 -b down
+-s GravNar-2500 -r default -j 1 -n 1 -y 18
+-s GravNar-2500 -r default -j 1 -n 1 -y 18 -J up
+-s GravNar-2500 -r default -j 1 -n 1 -y 18 -R up
+-s GravNar-2500 -r default -j 1 -n 1 -y 18 -a up
+-s GravNar-2500 -r default -j 1 -n 1 -y 18 -b up
+-s GravNar-2500 -r default -j 1 -n 1 -y 18 -J down
+-s GravNar-2500 -r default -j 1 -n 1 -y 18 -R down
+-s GravNar-2500 -r default -j 1 -n 1 -y 18 -a down
+-s GravNar-2500 -r default -j 1 -n 1 -y 18 -b down
+-s GravNar-3000 -r default -j 1 -n 1 -y 18
+-s GravNar-3000 -r default -j 1 -n 1 -y 18 -J up
+-s GravNar-3000 -r default -j 1 -n 1 -y 18 -R up
+-s GravNar-3000 -r default -j 1 -n 1 -y 18 -a up
+-s GravNar-3000 -r default -j 1 -n 1 -y 18 -b up
+-s GravNar-3000 -r default -j 1 -n 1 -y 18 -J down
+-s GravNar-3000 -r default -j 1 -n 1 -y 18 -R down
+-s GravNar-3000 -r default -j 1 -n 1 -y 18 -a down
+-s GravNar-3000 -r default -j 1 -n 1 -y 18 -b down
 -s dataD -r default -j 100 -n 1 -y 18
 -s dataD -r default -j 100 -n 2 -y 18
 -s dataD -r default -j 100 -n 3 -y 18
