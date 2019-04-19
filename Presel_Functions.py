@@ -41,11 +41,11 @@ def LoadConstants(year):
         'QCDHT1000_xsec':1206,
         'QCDHT1500_xsec':120.4,
         'QCDHT2000_xsec':25.25,
-        'GravNar_1000_xsec':2.66,
+        'GravNar-1000_xsec':2.66,
         # 'GravNar_1500_xsec':,
-        'GravNar_2000_xsec':0.041,
-        'GravNar_2500_xsec':0.007,
-        'GravNar_3000_xsec':0.0017
+        'GravNar-2000_xsec':0.041,
+        'GravNar-2500_xsec':0.007,
+        'GravNar-3000_xsec':0.0017
     }
     if year == '16':
         constants['ttbar_xsec'] = 831.76
@@ -54,12 +54,12 @@ def LoadConstants(year):
     elif year == '17':
         constants['lumi'] = 41518.865298#35851.0,
         constants['ttbar_xsec'] = 377.96 #uncertainty +4.8%-6.1%
-        constants['ttbar_semilep_xsec'] = 365.34
+        constants['ttbar-semilep_xsec'] = 365.34
 
     elif year == '18':
         constants['lumi'] = 59660.725495
         constants['ttbar_xsec'] = 377.96 #uncertainty +4.8%-6.1%
-        constants['ttbar_semilep_xsec'] = 365.34
+        constants['ttbar-semilep_xsec'] = 365.34
         
     return constants
     
