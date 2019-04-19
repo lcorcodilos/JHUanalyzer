@@ -65,12 +65,12 @@ def LoadConstants(year):
     
 def LoadCuts(region,year):
     cuts = {
-        'hpt':[400.0,float("inf")],
-        'bpt':[50.0,float("inf")],
+        'hpt':[300.0,float("inf")],
+        'bpt':[30.0,float("inf")],
         'hmass':[105.0,135.0],
         'bbmass':[90.,140.],
         'deepbtag':[0.4184,1.0],
-        'doublebtag':[0.8,1.0],
+        'doublebtag':[0.6,1.0],
         'eta':[0.0,2.4],
         'deltaEta':[0.0,2.0],
         'mreduced':[750.,float('inf')]

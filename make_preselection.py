@@ -407,7 +407,7 @@ if __name__ == "__main__":
             deltaEta_cut = Cuts['deltaEta'][0]<deltaEta<Cuts['deltaEta'][1]
             mreduced_cut = Cuts['mreduced'][0]<mreduced<Cuts['mreduced'][1]
 
-            preselection = hpt_cut and bpt_cut and bbmass_cut and deepbtag_cut and mreduced_cut and deltaEta_cut
+            preselection = hpt_cut and bpt_cut and bbmass_cut and deepbtag_cut and deltaEta_cut # and mreduced_cut 
 
             if preselection: 
                 doubleB_cut = Cuts['doublebtag'][0]<leadingFatJet.btagHbb<Cuts['doublebtag'][1]
