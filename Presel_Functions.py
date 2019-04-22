@@ -41,11 +41,11 @@ def LoadConstants(year):
         'QCDHT1000_xsec':1206,
         'QCDHT1500_xsec':120.4,
         'QCDHT2000_xsec':25.25,
-        'GravNar-1000_xsec':2.66,
-        # 'GravNar_1500_xsec':,
-        'GravNar-2000_xsec':0.041,
-        'GravNar-2500_xsec':0.007,
-        'GravNar-3000_xsec':0.0017
+        'GravNar-1000_xsec':0.000559#2.66,
+        'GravNar_1500_xsec':0.000057,
+        'GravNar-2000_xsec':9.03e-06,
+        'GravNar-2500_xsec':1.86e-06,
+        'GravNar-3000_xsec':4.41e-07
     }
     if year == '16':
         constants['ttbar_xsec'] = 831.76
