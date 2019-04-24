@@ -113,11 +113,12 @@ if __name__ == "__main__":
         # btagtype = 'btagCSVV2'
     # elif options.year == '17' or options.year == '18':
     triggers = [
-        'HLT_PFHT780',
-        'HLT_AK8PFHT750_TrimMass50',
-        'HLT_AK8PFJet360_TrimMass30',
-        'HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p17'
+        'HLT_PFHT1050',
+        'HLT_AK8PFHT900_TrimMass50',
+        'HLT_AK8PFJet420_TrimMass30',
+        'HLT_AK8PFJet500'
     ]
+
     pretrig_string = 'HLT_IsoMu27'
 
     # JECs

@@ -325,6 +325,15 @@
 -s GravNar-1000 -r default -j 1 -n 1 -y 18 -R down
 -s GravNar-1000 -r default -j 1 -n 1 -y 18 -a down
 -s GravNar-1000 -r default -j 1 -n 1 -y 18 -b down
+-s GravNar-1500 -r default -j 1 -n 1 -y 18
+-s GravNar-1500 -r default -j 1 -n 1 -y 18 -J up
+-s GravNar-1500 -r default -j 1 -n 1 -y 18 -R up
+-s GravNar-1500 -r default -j 1 -n 1 -y 18 -a up
+-s GravNar-1500 -r default -j 1 -n 1 -y 18 -b up
+-s GravNar-1500 -r default -j 1 -n 1 -y 18 -J down
+-s GravNar-1500 -r default -j 1 -n 1 -y 18 -R down
+-s GravNar-1500 -r default -j 1 -n 1 -y 18 -a down
+-s GravNar-1500 -r default -j 1 -n 1 -y 18 -b down
 -s GravNar-2000 -r default -j 1 -n 1 -y 18
 -s GravNar-2000 -r default -j 1 -n 1 -y 18 -J up
 -s GravNar-2000 -r default -j 1 -n 1 -y 18 -R up
