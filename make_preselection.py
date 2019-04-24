@@ -205,6 +205,8 @@ if __name__ == "__main__":
 
     nev = TH1F("nev",   "nev",      1, 0, 1 )
 
+    cutflow = TH1F("cutflow","cutflow",8,0,8)
+
     if runOthers == True:
         if 'data' not in options.set:
             MhhvMhPassPDFup   = TH2F("MhhvMhPassPDFup", "mass of HH vs mass of AK8 jet H PDF up - Pass", 9, 40, 220, 20, 1000, 3000 )
@@ -296,6 +298,13 @@ if __name__ == "__main__":
     print "Range of events: (" + str(lowBinEdge) + ", " + str(highBinEdge) + ")"
 
     count = 0
+    eta_count = 0
+    hpt_count = 0
+    bpt_count = 0
+    bbmass_count = 0
+    deepbtag_count = 0
+    deltaEta_count = 0
+    doubleB_count = 0
 
     ##############
     # Begin Loop #
@@ -384,6 +393,7 @@ if __name__ == "__main__":
         eta_cut = (Cuts['eta'][0]<abs(leadingJet.eta)<Cuts['eta'][1]) and (Cuts['eta'][0]<abs(subleadingJet.eta)<Cuts['eta'][1])
 
         if eta_cut:
+            eta_count+=1
             # Make the lorentz vectors
             hjet = TLorentzVector()
             hjet.SetPtEtaPhiM(leadingFatJet.pt,leadingFatJet.eta,leadingFatJet.phi,leadingFatJet.msoftdrop)
@@ -409,6 +419,17 @@ if __name__ == "__main__":
             mreduced_cut = Cuts['mreduced'][0]<mreduced<Cuts['mreduced'][1]
 
             preselection = hpt_cut and bpt_cut and bbmass_cut and deepbtag_cut and deltaEta_cut # and mreduced_cut 
+
+            if hpt_cut:
+                hpt_count+=1
+                if bpt_cut:
+                    bpt_count+=1
+                    if bbmass_cut:
+                        bbmass_count+=1
+                        if deepbtag_cut:
+                            deepbtag_count+=1
+                            if deltaEta_cut:
+                                deltaEta_count+=1
 
             if preselection: 
                 doubleB_cut = Cuts['doublebtag'][0]<leadingFatJet.btagHbb<Cuts['doublebtag'][1]
@@ -460,7 +481,7 @@ if __name__ == "__main__":
                 ####################################
                 
                 if doubleB_cut:
-
+                    doubleB_count+=1
                     MhhvMhPass.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'nominal')) 
 
                     if runOthers:
@@ -495,6 +516,14 @@ if __name__ == "__main__":
                         MhhvMhFailBtagup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'btagSF_up'))
                         MhhvMhFailBtagdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'btagSF_down'))
                          
+    cutflow.SetBinContent(0,count)
+    cutflow.SetBinContent(1,eta_count)
+    cutflow.SetBinContent(2,hpt_count)
+    cutflow.SetBinContent(3,bpt_count)
+    cutflow.SetBinContent(4,bbmass_count)
+    cutflow.SetBinContent(5,deepbtag_count)
+    cutflow.SetBinContent(6,deltaEta_count)
+    cutflow.SetBinContent(7,doubleB_count)
 
                             
     end = time.time()
