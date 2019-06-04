@@ -21,8 +21,9 @@ for k in sorted(distsDict.keys()):
     dist = distsDict[k].Get('cutflow')
     dist.SetLineColor(kRed+color_index)
     dist.SetTitle('Cutflow - 2+1 HH#rightarrowbbbb')
-    dist.SetMinimum(1)
-    dist.GetYaxis().SetTitle('Events')
+    dist.SetMinimum(1e-5)
+    dist.SetMaximum(1.2)
+    dist.GetYaxis().SetTitle('Efficiency')
     dist.SetLineWidth(2)
     leg.AddEntry(dist,k,'l')
     if not same:
