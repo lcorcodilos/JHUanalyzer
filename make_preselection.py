@@ -64,14 +64,15 @@ if __name__ == "__main__":
                     default   =   'nominal',
                     dest      =   'JMR',
                     help      =   'nominal, up, or down')
-    parser.add_option('-n', '--num', metavar='F', type='string', action='store',
-                    default   =   'all',
-                    dest      =   'num',
-                    help      =   'job number')
     parser.add_option('-j', '--jobs', metavar='F', type='string', action='store',
-                    default   =   '1',
+                    default   =   'all',
                     dest      =   'jobs',
+                    help      =   'job number')
+    parser.add_option('-n', '--num', metavar='F', type='string', action='store',
+                    default   =   '1',
+                    dest      =   'num',
                     help      =   'number of jobs')
+    
 
     (options, args) = parser.parse_args()
 
@@ -262,7 +263,7 @@ if __name__ == "__main__":
     # Grab event tree from nanoAOD #
     ################################
     inTree = file.Get("Events")
-    elist,jsonFiter = preSkim(inTree,None,'')
+    elist,jsonFilter = preSkim(inTree,None,'')
     inTree = InputTree(inTree,elist)
     treeEntries = inTree.entries
 
