@@ -362,7 +362,7 @@ if __name__ == "__main__":
         except:
             # print 'Skipping event ' + str(entry) + ' because fewer than two jets exist - ' + str(len(ak8JetsColl))
             continue
-        print("Jwt ID processed")
+        print("Jet ID processed")
         # Now filters/flags
         # flagColl = Collection(event,'Flag')
         filters = [inTree.readBranch('Flag_goodVertices'),
