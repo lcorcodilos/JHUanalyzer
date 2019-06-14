@@ -25,11 +25,11 @@ for year in ['18']:
     #     ttbar_jobs = 75
     # elif year == '17':
     #     ttbar_jobs = 30
-    for ttbartype in ['ttbar','ttbar_semilep']:
+    for ttbartype in ['ttbar','ttbar-semilep']:
         if year == '18':
             if ttbartype == 'ttbar':
                 ttbar_jobs = 133
-            elif ttbartype == 'ttbar_semilep':
+            elif ttbartype == 'ttbar-semilep':
                 ttbar_jobs = 70
         ttbar_string = year_string.replace('TEMPSET',ttbartype).replace("NJOB",str(ttbar_jobs))
         for i in range(1,ttbar_jobs+1):
