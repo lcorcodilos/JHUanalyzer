@@ -34,7 +34,7 @@ python hadd_and_organize.py QCDHT1500 18
 python hadd_and_organize.py QCDHT2000 18
 
 python hadd_and_organize.py ttbar 18
-python hadd_and_organize.py ttbar_semilep 18
+python hadd_and_organize.py ttbar-semilep 18
 
 python hadd_and_organize.py dataA 18
 python hadd_and_organize.py dataB 18
