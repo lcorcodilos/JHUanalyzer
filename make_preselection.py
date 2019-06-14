@@ -257,10 +257,7 @@ if __name__ == "__main__":
     ###############################
     # Grab root file that we want #
     ###############################
-    if len(options.set.split('-')) > 1:
-        file_string = Load_jetNano(options.set.split('-')[0]+'_'+options.set.split('-')[1],options.year)
-    else:
-        file_string = Load_jetNano(options.set,options.year)
+    file_string = Load_jetNano(options.set,options.year)
     file = TFile.Open(file_string)
     print("root file"+file_string+" loaded")
 
