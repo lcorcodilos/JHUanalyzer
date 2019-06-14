@@ -35,7 +35,7 @@ if __name__ == "__main__":
     input_subs = pickle.load(open('JHitos16Info_'+options.version+'.p','rb'))
     
     if options.hadd:
-        myEosDir = '/eos/uscms/store/user/lcorcodi/bstar_nano/'
+        myEosDir = '/eos/uscms/store/user/dbrehm/bstar_nano/'
         result_locations = {}
 
         commands = []
