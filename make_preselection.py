@@ -257,10 +257,7 @@ if __name__ == "__main__":
     ###############################
     # Grab root file that we want #
     ###############################
-    if len(options.set.split('-')) > 1:
-        file_string = Load_jetNano(options.set.split('-')[0]+'_'+options.set.split('-')[1],options.year)
-    else:
-        file_string = Load_jetNano(options.set,options.year)
+    file_string = Load_jetNano(options.set,options.year)
     file = TFile.Open(file_string)
     print("root file"+file_string+" loaded")
 
@@ -365,7 +362,7 @@ if __name__ == "__main__":
         except:
             # print 'Skipping event ' + str(entry) + ' because fewer than two jets exist - ' + str(len(ak8JetsColl))
             continue
-        print("Jwt ID processed")
+        print("Jet ID processed")
         # Now filters/flags
         # flagColl = Collection(event,'Flag')
         filters = [inTree.readBranch('Flag_goodVertices'),
