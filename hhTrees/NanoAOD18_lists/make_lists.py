@@ -57,8 +57,11 @@ executables = []
 # loj = open('../../treeMaker.listOfJobs','w')
 
 for i in input_subs.keys():
-    executables.append('dasgoclient -query "file dataset='+input_subs[i]+'" > '+i+'_loc.txt')
-    # loj.write("python tardir/bstarTreeMaker.py "+i+'\n')
+    if '/store/user' in input_subs[i]:
+        executables.append('ls /eos/uscms'+input_subs[i]+' > '+i+'_loc.txt')
+        executables.append('sed -i s%/eos/uscms/%/%g '+i+'_loc.txt')
+    else:
+        executables.append('dasgoclient -query "file dataset='+input_subs[i]+'" > '+i+'_loc.txt')
 for s in executables:
     print 'Executing: '+s
     subprocess.call([s],shell=True)
