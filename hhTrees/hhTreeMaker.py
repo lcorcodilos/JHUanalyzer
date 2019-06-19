@@ -134,7 +134,7 @@ for l in list_of_files[split_start:split_end]:
 output_dir = setname+'-'+options.year+'_'+options.job+'-'+options.njobs
 hadded_file = "hhTrees"+options.year+"_"+setname+'_'+options.job+'-'+options.njobs+'.root'
 
-cutstring =  "( (FatJet_pt[0]>250)&&(FatJet_eta[0]<2.5) )&&( ((FatJet_pt[1]>250)&&(FatJet_eta[1]<2.5)) || ((Jet_pt[0]>50)&&(Jet_pt[1]>50)&&(Jet_eta[0]<2.5)&&(Jet_eta[1]<2.5)) )"
+cutstring =  "( (FatJet_pt[0]>350)&&(abs(FatJet_eta[0])<2.4) )&&( ((FatJet_pt[1]>350)&&(abs(FatJet_eta[1])<2.4)) || ( (FatJet_pt[0]>250)&&(abs(FatJet_eta[0])<2.4))&&(Jet_pt[0]>50)&&(Jet_pt[1]>50)&&(Jet_eta[0]<2.4)&&(Jet_eta[1]<2.4)) )"
 
 # Postprocessor
 if (split_end - split_start) > 1:
