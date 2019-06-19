@@ -64,13 +64,13 @@ if __name__ == "__main__":
                     default   =   'nominal',
                     dest      =   'JMR',
                     help      =   'nominal, up, or down')
-    parser.add_option('-j', '--jobs', metavar='F', type='string', action='store',
+    parser.add_option('-j', '--job', metavar='F', type='string', action='store',
                     default   =   'all',
-                    dest      =   'jobs',
+                    dest      =   'job',
                     help      =   'job number')
-    parser.add_option('-n', '--num', metavar='F', type='string', action='store',
+    parser.add_option('-n', '--njobs', metavar='F', type='string', action='store',
                     default   =   '1',
-                    dest      =   'num',
+                    dest      =   'njobs',
                     help      =   'number of jobs')
     
 
@@ -150,10 +150,12 @@ if __name__ == "__main__":
     #######################
     # Setup job splitting #
     #######################
-    jobs=int(options.jobs)
+    if ijob > njobs:
+        raise RuntimeError('ERROR: Trying to run job '+options.job+' out of '+options.njobs)
+    jobs=int(options.job)
     if jobs != 1:
-        num=int(options.num)
-        jobs=int(options.jobs)
+        num=int(options.njobs)
+        jobs=int(options.job)
         print "Running over " +str(jobs)+ " jobs"
         print "This will process job " +str(num)
     else:
@@ -191,7 +193,7 @@ if __name__ == "__main__":
     # Make new file for storage #
     #############################
     if jobs!=1:
-        f = TFile( "HHpreselection"+options.year+"_"+options.set+"_job"+options.num+"of"+options.jobs+mod+'_'+options.region+".root", "recreate" )
+        f = TFile( "HHpreselection"+options.year+"_"+options.set+"_job"+options.njobs+"of"+options.job+mod+'_'+options.region+".root", "recreate" )
     else:
         f = TFile( "HHpreselection"+options.year+"_"+options.set+mod+'_'+options.region+".root", "recreate" )
     f.cd()

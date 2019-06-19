@@ -101,6 +101,9 @@ else:
 ijob = int(options.job)
 njobs = int(options.njobs)
 
+if ijob > njobs:
+    raise RuntimeError('ERROR: Trying to run job '+options.job+' out of '+options.njobs)
+
 # Open list of all files for this set
 list_of_files = open('NanoAOD'+options.year+'_lists/'+setname+'_loc.txt','r').readlines()
 new_list = []
