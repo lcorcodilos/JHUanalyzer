@@ -134,8 +134,8 @@ for l in list_of_files[split_start:split_end]:
 output_dir = setname+'-'+options.year+'_'+options.job+'-'+options.njobs
 hadded_file = "hhTrees"+options.year+"_"+setname+'_'+options.job+'-'+options.njobs+'.root'
 
-cutstring_11 = "(FatJet_pt[0]>350)&&(abs(FatJet_eta[0])<2.4)) && (FatJet_pt[1]>350) && (abs(FatJet_eta[1])<2.4)"
-cutstring_21 = '(FatJet_pt[0]>250)&&(abs(FatJet_eta[0])<2.4)) && (Jet_pt[0]>50) && (Jet_pt[1]>50) && (Jet_eta[0]<2.4) && (Jet_eta[1]<2.4)'
+cutstring_11 = '(FatJet_pt[0]>350)&&(abs(FatJet_eta[0])<2.4) && (FatJet_pt[1]>350) && (abs(FatJet_eta[1])<2.4)'
+cutstring_21 = '(FatJet_pt[0]>250)&&(abs(FatJet_eta[0])<2.4) && (Jet_pt[0]>50) && (Jet_pt[1]>50) && (abs(Jet_eta[0])<2.4) && (abs(Jet_eta[1])<2.4)'
 cutstring = '('+cutstring_11+') || ('+cutstring_21+')'
 
 # Postprocessor
@@ -151,7 +151,7 @@ else:
     p=PostProcessor(output_dir+'/',new_list,
                 cutstring,
                 branchsel='keep_and_drop'+options.year+'.txt',
-                outputbranchsel='keep_and_drop'+options.year+'.txt',
+                outputbranchsel='keep_and_drop'+options.year+'_out.txt',
                 modules=mymodules,
                 provenance=True)
 
