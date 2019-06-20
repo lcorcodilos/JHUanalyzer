@@ -1,6 +1,7 @@
 drop *
 
 keep *FatJet*
+keep *SubJet*
 keep Jet*
 keep nJet
 keep *Electron*
