@@ -71,7 +71,7 @@ if 'data' in setname:
             mymodules.append(jetRecalib2018AAK8Puppi())
         elif options.set == 'dataB':
             mymodules.append(jetRecalib2018BAK8Puppi())
-        elif options.set == 'dataC':
+        elif 'dataC' in options.set:
             mymodules.append(jetRecalib2018CAK8Puppi())
         elif options.set == 'dataD':
             mymodules.append(jetRecalib2018DAK8Puppi())
@@ -91,7 +91,7 @@ else:
     #     mymodules = [jetmetUncertainties2017AK8Puppi(),puAutoWeight17()]
 
     if options.year == '18':
-        mymodules = [jetmetUncertainties2018AK8Puppi(),puAutoWeight18()]
+        mymodules = [jetmetUncertainties2018AK8Puppi(),puAutoWeight_2018()]
 
     else:
         print options.year+' not supported yet. Quitting...'
