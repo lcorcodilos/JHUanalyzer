@@ -150,7 +150,7 @@ if __name__ == "__main__":
     #######################
     # Setup job splitting #
     #######################
-    if ijob > njobs:
+    if options.job > options.njobs:
         raise RuntimeError('ERROR: Trying to run job '+options.job+' out of '+options.njobs)
     jobs=int(options.job)
     if jobs != 1:
@@ -187,7 +187,7 @@ if __name__ == "__main__":
             "down": PileFile.Get("Pileup_Ratio_down")}
         
         # ttagsffile = TFile.Open('SFs/20'+tempyear+'TopTaggingScaleFactors.root')
-    print("Trigger loaded")
+    # print("Trigger loaded")
 
     #############################
     # Make new file for storage #
@@ -198,7 +198,7 @@ if __name__ == "__main__":
         f = TFile( "HHpreselection"+options.year+"_"+options.set+mod+'_'+options.region+".root", "recreate" )
     f.cd()
 
-    print("New rootfile made")
+    # print("New rootfile made")
     ###################
     # Book histograms #
     ###################
@@ -332,7 +332,7 @@ if __name__ == "__main__":
 
         # Grab the event
         event = Event(inTree, entry)
-        print("Event grabbed")
+        # print("Event grabbed")
 
         # Apply triggers first
         if 'data' in options.set:
@@ -346,13 +346,13 @@ if __name__ == "__main__":
 
             if not passt:
                 continue
-        print("Triggers applied")
+        # print("Triggers applied")
         # Have to grab Collections for each collection of interest
         # -- collections are for types of objects where there could be multiple values
         #    for a single event
         ak8JetsColl = Collection(event, "FatJet")
         ak4JetsColl = Collection(event, "Jet")
-        print("Collections grabbed")
+        # print("Collections grabbed")
 
         # Now jetID which (in binary #s) is stored with bit1 as loose, bit2 as tight, and filters (after grabbing jet collections)
         try:
@@ -364,7 +364,7 @@ if __name__ == "__main__":
         except:
             # print 'Skipping event ' + str(entry) + ' because fewer than two jets exist - ' + str(len(ak8JetsColl))
             continue
-        print("Jet ID processed")
+        # print("Jet ID processed")
         # Now filters/flags
         # flagColl = Collection(event,'Flag')
         filters = [inTree.readBranch('Flag_goodVertices'),
@@ -399,7 +399,7 @@ if __name__ == "__main__":
         subleadingJet = ak4JetsColl[candidateAK4s[1]]
 
         eta_cut = (Cuts['eta'][0]<abs(leadingJet.eta)<Cuts['eta'][1]) and (Cuts['eta'][0]<abs(subleadingJet.eta)<Cuts['eta'][1])
-        print("start eta cut")
+        # print("start eta cut")
         if eta_cut:
             eta_count+=1
             # Make the lorentz vectors
