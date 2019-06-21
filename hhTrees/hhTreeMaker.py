@@ -143,7 +143,7 @@ if (split_end - split_start) > 1:
     p=PostProcessor(output_dir+'/',new_list,
                 cutstring,
                 branchsel='keep_and_drop'+options.year+'.txt',
-                outputbranchsel='keep_and_drop'+options.year+'.txt',
+                outputbranchsel='keep_and_drop'+options.year+'_out.txt',
                 modules=mymodules,
                 provenance=True,haddFileName=hadded_file)#,fwkJobReport=True,jsonInput=runsAndLumis())
 # Need to skip haddnano step if there's only one file processed
