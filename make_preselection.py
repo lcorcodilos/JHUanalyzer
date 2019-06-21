@@ -154,8 +154,8 @@ if __name__ == "__main__":
         raise RuntimeError('ERROR: Trying to run job '+options.job+' out of '+options.njobs)
     jobs=int(options.job)
     if jobs != 1:
-        num=int(options.njobs)
-        jobs=int(options.job)
+        num=int(options.job)
+        jobs=int(options.njobs)
         print "Running over " +str(jobs)+ " jobs"
         print "This will process job " +str(num)
     else:
