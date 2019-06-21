@@ -152,7 +152,7 @@ if __name__ == "__main__":
     #######################
     if options.job > options.njobs:
         raise RuntimeError('ERROR: Trying to run job '+options.job+' out of '+options.njobs)
-    jobs=int(options.job)
+    jobs=int(options.njobs)
     if jobs != 1:
         num=int(options.job)
         jobs=int(options.njobs)
@@ -193,7 +193,7 @@ if __name__ == "__main__":
     # Make new file for storage #
     #############################
     if jobs!=1:
-        f = TFile( "HHpreselection"+options.year+"_"+options.set+"_job"+options.njobs+"of"+options.job+mod+'_'+options.region+".root", "recreate" )
+        f = TFile( "HHpreselection"+options.year+"_"+options.set+"_job"+options.job+"of"+options.njobs+mod+'_'+options.region+".root", "recreate" )
     else:
         f = TFile( "HHpreselection"+options.year+"_"+options.set+mod+'_'+options.region+".root", "recreate" )
     f.cd()
