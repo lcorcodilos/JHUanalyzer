@@ -150,7 +150,7 @@ if __name__ == "__main__":
     #######################
     # Setup job splitting #
     #######################
-    if options.job > options.njobs:
+    if int(options.job) > int(options.njobs):
         raise RuntimeError('ERROR: Trying to run job '+options.job+' out of '+options.njobs)
     jobs=int(options.njobs)
     if jobs != 1:
