@@ -4,16 +4,14 @@ keep *FatJet*
 keep *SubJet*
 keep Jet*
 keep nJet
-keep *Electron*
-keep *Muon*
 
 keep run
 keep luminosityBlock
 keep event
 
-keep Flag*
-keep nFlag
 keep *GenPart*
+keep *Pileup*
+
 keep HLT_PFJet*
 keep HLT_PFHT*
 keep HLT_AK8PFJet*
@@ -23,6 +21,8 @@ keep HLT_IsoMu*
 keep *LHEPdfWeight*
 keep *LHEWeight*
 keep *LHEScaleWeight*
-keep *Pileup*
 keep genWeight
 keep Generator_scalePDF
+keep Flag_*
+keep *Electron*
+keep *Muon*

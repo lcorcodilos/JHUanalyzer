@@ -1,10 +1,11 @@
 drop *
 
+keep *GenJet*
+
 keep *FatJet*
 keep *SubJet*
 keep Jet*
 keep nJet
-keep *GenJet*
 
 keep run
 keep luminosityBlock
@@ -13,4 +14,17 @@ keep event
 keep *GenPart*
 keep *Pileup*
 
-
+keep HLT_PFJet*
+keep HLT_PFHT*
+keep HLT_AK8PFJet*
+keep HLT_AK8PFHT*
+keep HLT_Mu*
+keep HLT_IsoMu*
+keep *LHEPdfWeight*
+keep *LHEWeight*
+keep *LHEScaleWeight*
+keep genWeight
+keep Generator_scalePDF
+keep Flag_*
+keep *Electron*
+keep *Muon*
