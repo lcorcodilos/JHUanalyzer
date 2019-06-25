@@ -70,9 +70,12 @@ def LoadCuts(region,year):
         'hmass':[105.0,135.0],
         'bbmass':[90.,140.],
         'deepbtag':[0.4184,1.0],
-        'doublebtag':[0.6,1.0],
+        'doublebtagTight':[0.8,1.0],
+        'doublebtagLoose':[0.3,1.0],
         'eta':[0.0,2.4],
-        'deltaEta':[0.0,2.0],
+        'tau21':[0.0,0.45],
+        'dEtaAK8':[0.0,1.3],
+        'dEtaAK4':[0.0,2.0],
         'mreduced':[750.,float('inf')]
     }
 

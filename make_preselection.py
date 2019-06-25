@@ -106,22 +106,6 @@ if __name__ == "__main__":
     ######################################
     # Make strings for final file naming #
     ######################################
-
-    # Trigger
-    # if options.year == '16':
-    #     tname = 'HLT_PFHT800ORHLT_PFHT900ORHLT_PFJet450'
-    #     pretrig_string = 'HLT_Mu50'
-        # btagtype = 'btagCSVV2'
-    # elif options.year == '17' or options.year == '18':
-    triggers = [
-        'HLT_PFHT1050',
-        'HLT_AK8PFHT900_TrimMass50',
-        'HLT_AK8PFJet420_TrimMass30',
-        'HLT_AK8PFJet500'
-    ]
-
-    pretrig_string = 'HLT_IsoMu27'
-
     # JECs
     runOthers = True
     if 'data' not in options.set:
@@ -405,10 +389,8 @@ if __name__ == "__main__":
     #####################################
     if jobs != 1:
         evInJob = int(treeEntries/jobs)
-        
         lowBinEdge = evInJob*(num-1)
         highBinEdge = evInJob*num
-
         if num == jobs:
             highBinEdge = treeEntries
     else:
@@ -418,13 +400,6 @@ if __name__ == "__main__":
     print "Range of events: (" + str(lowBinEdge) + ", " + str(highBinEdge) + ")"
 
     count = 0
-    eta_count = 0
-    hpt_count = 0
-    bpt_count = 0
-    bbmass_count = 0
-    deepbtag_count = 0
-    deltaEta_count = 0
-    doubleB_count = 0
     
     ##############
     # Begin Loop #
@@ -433,6 +408,7 @@ if __name__ == "__main__":
     last_event_time = start
     event_time_sum = 0
     for entry in range(lowBinEdge,highBinEdge):
+        hh21_cutflow.Fill(1)
         count   =   count + 1
         #if count > 1:
         #    current_event_time = time.time()
@@ -449,44 +425,31 @@ if __name__ == "__main__":
         # print("Event grabbed")
 
         # Apply triggers first
-        if 'data' in options.set:
-            passt = False
-            for t in triggers:
-                try: 
-                    if inTree.readBranch(t):
-                        passt = True
-                except:
-                    continue
+        if 'Data' in args.files: 
+            isData = True
+        else:
+            isData = False
+        if isData:
+            isTriggered = event.HLT_PFHT1050 \
+              or event.HLT_AK8PFHT900_TrimMass50 \
+              or event.HLT_AK8PFJet420_TrimMass30 \
+              or event.HLT_AK8PFJet500 
+        else:
+            isTriggered = event.HLT_PFHT780 \
+              or event.HLT_AK8PFHT750_TrimMass50 \
+              or event.HLT_AK8PFJet360_TrimMass30 \
+              or event.HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p17 
 
-            if not passt:
-                continue
-        # print("Triggers applied")
-        # Have to grab Collections for each collection of interest
-        # -- collections are for types of objects where there could be multiple values
-        #    for a single event
-        ak8JetsColl = Collection(event, "FatJet")
-        ak4JetsColl = Collection(event, "Jet")
-        # print("Collections grabbed")
-
-        # Now jetID which (in binary #s) is stored with bit1 as loose, bit2 as tight, and filters (after grabbing jet collections)
-        try:
-            for i in range(2):
-                looseJetID = ak8JetsColl[i].jetId 
-                if (ak8JetsColl[i].jetId & 1 == 0):    # if not loose
-                    if (ak8JetsColl[i].jetId & 2 == 0): # and if not tight - Need to check here because loose is always false in 2017
-                        continue                      # move on
-        except:
-            # print 'Skipping event ' + str(entry) + ' because fewer than two jets exist - ' + str(len(ak8JetsColl))
+        if not isTriggered: 
             continue
-        # print("Jet ID processed")
-        # Now filters/flags
-        # flagColl = Collection(event,'Flag')
-        filters = [inTree.readBranch('Flag_goodVertices'),
-                   inTree.readBranch('Flag_HBHENoiseFilter'),
-                   inTree.readBranch('Flag_HBHENoiseIsoFilter'),
-                   inTree.readBranch('Flag_globalTightHalo2016Filter'),
-                   inTree.readBranch('Flag_EcalDeadCellTriggerPrimitiveFilter'),
-                   inTree.readBranch('Flag_eeBadScFilter')]
+
+        # Filters
+        filters = [event.Flag_goodVertices,
+                   event.Flag_HBHENoiseFilter,
+                   event.Flag_HBHENoiseIsoFilter,
+                   event.Flag_globalTightHalo2016Filter,
+                   event.Flag_EcalDeadCellTriggerPrimitiveFilter,
+                   event.Flag_eeBadScFilter]
 
         filterFails = 0
         for thisFilter in filters:
@@ -495,11 +458,62 @@ if __name__ == "__main__":
         if filterFails > 0:
             continue
 
+        # Have to grab Collections for each collection of interest
+        # -- collections are for types of objects where there could be multiple values
+        #    for a single event
+        ak8JetsColl = Collection(event, "FatJet")
+        ak4JetsColl = Collection(event, "Jet")
+
+        # Selections
+        HHsel11 = {}
+        HHsel21 = {}
+
+        # Now jetID which (in binary #s) is stored with bit1 as loose, bit2 as tight, and filters (after grabbing jet collections)
+        if (ak8JetsColl[0].jetId & 1 == 1) or (ak8JetsColl[0].jetId & 2 == 1):
+            HHsel21['jetIds'] = True
+            if ((ak8JetsColl[1].jetId & 1 == 1) or (ak8JetsColl[1].jetId & 2 == 1)):    
+                HHsel11['jetIds'] = True
+            else:
+                HHsel11['jetIds'] = False
+        else:
+            # HHsel11['jetIds'] = False
+            # HHsel21['jetIds'] = False
+            continue
+
+
         # check if we have enough jets
-        if len(ak8JetsColl) < 1:
+        if len(ak8JetsColl) >= 2:
+            HHsel11['nFatJet'] = True
+            HHsel21['nFatJet'] = True
+        elif len(ak8JetsColl) == 1:
+            HHsel11['nFatJet'] = False
+            HHsel21['nFatJet'] = True
+        if len(ak4JetsColl) < 1:
+            # HHsel11['nFatJet'] = False
+            # HHsel21['nFatJet'] = False
             continue
-        if len(ak4JetsColl) < 2:
+
+        # Start 1+1 stuff
+        HHsel11['eta'] = (Cuts['eta'][0]<abs(ak8JetsColl[0].eta)<Cuts['eta'][1]) and (Cuts['eta'][0]<abs(ak8JetsColl[1].eta)<Cuts['eta'][1])
+        HHsel11['dEta'] = Cuts['dEtaAK8'][0] < abs(ak8JetsColl[0].eta - ak8JetsColl[1].eta) < Cuts['dEtaAK8'][1]
+        HHsel11['pt'] = Cuts['hpt'][0] < ak8JetsColl[0].pt < Cuts['hpt'][1] and Cuts['hpt'][0] < ak8JetsColl[1].pt < Cuts['hpt'][1]
+        HHsel11['hmass'] = Cuts['hmass'][0] < ak8JetsColl[1].msoftdrop < Cuts['hmass'][1]
+        if ak8JetsColl[0].tau1 > 0 and ak8JetsColl[1].tau1 > 0:
+            HHsel11['tau21'] = (Cuts['tau21'][0] < ak8JetsColl[0].tau2/ak8JetsColl[0].tau1 < Cuts['tau21'][1]) and (Cuts['tau21'][0] < ak8JetsColl[1].tau2/ak8JetsColl[1].tau1 < Cuts['tau21'][1])            
+        else:
             continue
+        p4_jet0, p4_jet1 = ROOT.TLorentzVector(), ROOT.TLorentzVector()
+        p4_jet0.SetPtEtaPhiM(ak8JetsColl[0].pt, ak8JetsColl[0].eta, ak8JetsColl[0].phi, ak8JetsColl[0].msoftdrop)
+        p4_jet1.SetPtEtaPhiM(ak8JetsColl[1].pt, ak8JetsColl[1].eta, ak8JetsColl[1].phi, ak8JetsColl[1].msoftdrop)
+        mjj = (p4_jet0 + p4_jet1).M()
+        mjjred = mjj - p4_jet0.M() - p4_jet1.M() + 250
+        isAK8Mjj = mjjred > 750. ###6
+        HHsel11['reduced_hhmass'] = Cuts['mreduced'][0] < mjjred < Cuts['mreduced'][1]
+
+        HHsel11['SRTT'] = (Cuts['doublebtagTight'][0] < ak8JetsColl[0].btagHbb < Cuts['doublebtagTight'][1]) and (Cuts['doublebtagTight'][0] < ak8JetsColl[1].btagHbb < Cuts['doublebtagTight'][1])
+        HHsel11['SRLL'] = (Cuts['doublebtagLoose'][0] < ak8JetsColl[0].btagHbb < Cuts['doublebtagLoose'][1]) and (Cuts['doublebtagLoose'][0] < ak8JetsColl[1].btagHbb < Cuts['doublebtagLoose'][1]) and not isSRTT ###9
+        HHsel11['ATTT'] = (0.0 < ak8JetsColl[0].btagHbb < Cuts['doublebtagLoose'][0]) and (Cuts['doublebtagTight'][0] < ak8JetsColl[1].btagHbb < Cuts['doublebtagTight'][1])
+        HHsel11['ATLL'] = (0.0 < ak8JetsColl[0].btagHbb < Cuts['doublebtagLoose'][0]) and (Cuts['doublebtagLoose'][0] < ak8JetsColl[1].btagHbb < Cuts['doublebtagTight'][0])
 
         # Separate into hemispheres the leading and subleading jets
         candidateAK4s = Hemispherize(ak8JetsColl,ak4JetsColl)
@@ -508,6 +522,9 @@ if __name__ == "__main__":
         if not candidateAK4s:
             continue
 
+        # Start 2+1 stuff
+        HHsel21['eta'] = (Cuts['eta'][0]<abs(ak8JetsColl[0].eta)<Cuts['eta'][1])
+
         leadingFatJet = ak8JetsColl[0]
         leadingJet = ak4JetsColl[candidateAK4s[0]]
         subleadingJet = ak4JetsColl[candidateAK4s[1]]
@@ -515,7 +532,7 @@ if __name__ == "__main__":
         eta_cut = (Cuts['eta'][0]<abs(leadingJet.eta)<Cuts['eta'][1]) and (Cuts['eta'][0]<abs(subleadingJet.eta)<Cuts['eta'][1])
         # print("start eta cut")
         if eta_cut:
-            eta_count+=1
+            hh21_cutflow.Fill(2)
             # Make the lorentz vectors
             hjet = TLorentzVector()
             hjet.SetPtEtaPhiM(leadingFatJet.pt,leadingFatJet.eta,leadingFatJet.phi,leadingFatJet.msoftdrop)
@@ -543,15 +560,15 @@ if __name__ == "__main__":
             preselection = hpt_cut and bpt_cut and bbmass_cut and deepbtag_cut and deltaEta_cut # and mreduced_cut 
 
             if hpt_cut:
-                hpt_count+=1
+                hh21_cutflow.Fill(3)
                 if bpt_cut:
-                    bpt_count+=1
+                    hh21_cutflow.Fill(4)
                     if bbmass_cut:
-                        bbmass_count+=1
+                        hh21_cutflow.Fill(5)
                         if deepbtag_cut:
-                            deepbtag_count+=1
+                            hh21_cutflow.Fill(6)
                             if deltaEta_cut:
-                                deltaEta_count+=1
+                                hh21_cutflow.Fill(7)
 
             if preselection: 
                 doubleB_cut = Cuts['doublebtag'][0]<leadingFatJet.btagHbb<Cuts['doublebtag'][1]
@@ -603,7 +620,7 @@ if __name__ == "__main__":
                 ####################################
                 
                 if doubleB_cut:
-                    doubleB_count+=1
+                    hh21_cutflow.Fill(8)
                     MhhvMhPass.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'nominal')) 
 
                     if runOthers:
@@ -638,18 +655,6 @@ if __name__ == "__main__":
                         MhhvMhFailBtagup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'btagSF_up'))
                         MhhvMhFailBtagdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'btagSF_down'))
                          
-    count = float(count)
-    cutflow.SetBinContent(1,count/count)
-    cutflow.SetBinContent(2,eta_count/count)
-    cutflow.SetBinContent(3,hpt_count/count)
-    cutflow.SetBinContent(4,bpt_count/count)
-    cutflow.SetBinContent(5,bbmass_count/count)
-    cutflow.SetBinContent(6,deepbtag_count/count)
-    cutflow.SetBinContent(7,deltaEta_count/count)
-    cutflow.SetBinContent(8,doubleB_count/count)
-
-    
-
                             
     end = time.time()
     print '\n'
