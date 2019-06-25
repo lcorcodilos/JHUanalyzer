@@ -202,17 +202,131 @@ if __name__ == "__main__":
     ###################
     # Book histograms #
     ###################
-    MhhvMhPass     = TH2F("MhhvMhPass",     "mass of HH vs mass of AK8 jet H - Pass", 9, 40, 220, 20, 1000, 3000 )
-    MhhvMhFail     = TH2F("MhhvMhFail",     "mass of HH vs mass of AK8 jet H - Fail", 9, 40, 220, 20, 1000, 3000 )
-    MhhvMhPass.Sumw2()
-    MhhvMhFail.Sumw2()
+    hh11_cutflow        = ROOT.TH1D('hh11_cutflow', 'hh11_cutflow', 10, 0.5, 10.5)
+    hh11_cutflow.GetXaxis().SetBinLabel(1,"All")
+    hh11_cutflow.GetXaxis().SetBinLabel(2,"Trig+N(AK8) #ge 2") 
+    hh11_cutflow.GetXaxis().SetBinLabel(3 ,"p_{T}+#eta")
+    hh11_cutflow.GetXaxis().SetBinLabel(4,"|#Delta#eta(J_{0}, J_{1}|)")
+    hh11_cutflow.GetXaxis().SetBinLabel(5,"#tau_{21}")
+    hh11_cutflow.GetXaxis().SetBinLabel(6,"M(jets)")
+    hh11_cutflow.GetXaxis().SetBinLabel(7,"m_{JJ,red}")
+    hh11_cutflow.GetXaxis().SetBinLabel(8,"LL")
+    hh11_cutflow.GetXaxis().SetBinLabel(9,"TT")
+
+    hh21_cutflow = TH1F("hh21_cutflow","hh21_cutflow",8,0,8)
+    hh21_cutflow.GetXaxis().SetBinLabel(1, "no cuts")
+    hh21_cutflow.GetXaxis().SetBinLabel(2, "eta")
+    hh21_cutflow.GetXaxis().SetBinLabel(3, "p_{T}(H)")
+    hh21_cutflow.GetXaxis().SetBinLabel(4, "p_{T}(b)")
+    hh21_cutflow.GetXaxis().SetBinLabel(5, "m_{bb}")
+    hh21_cutflow.GetXaxis().SetBinLabel(6, "DeepCSV")
+    hh21_cutflow.GetXaxis().SetBinLabel(7, "|\Delta \eta|")
+    hh21_cutflow.GetXaxis().SetBinLabel(8, "DeepDoubleB")
+
+
+    MhhvMh21Pass     = TH2F("MhhvMh21Pass",     "2+1 mass of HH vs mass of AK8 jet H - Pass", 9, 40, 220, 13, 700, 2000 )
+    MhhvMh21Fail     = TH2F("MhhvMh21Fail",     "2+1 mass of HH vs mass of AK8 jet H - Fail", 9, 40, 220, 13, 700, 2000 )
+    MhhvMh21Pass.Sumw2()
+    MhhvMh21Fail.Sumw2()
+
+    MhhvMh11TTPass = ROOT.TH2D('MhhvMh11TTPass' ,'1+1 mass of HH vs mass of AK8 jet H - Pass TT' ,9 ,40 ,220 ,20 ,1000 ,3000) 
+    MhhvMh11LLPass = ROOT.TH2D('MhhvMh11LLPass' ,'1+1 mass of HH vs mass of AK8 jet H - Pass LL' ,9 ,40 ,220 ,20 ,1000 ,3000) 
+    MhhvMh11TTFail = ROOT.TH2D('MhhvMh11TTFail' ,'1+1 mass of HH vs mass of AK8 jet H - Fail TT' ,9 ,40 ,220 ,20 ,1000 ,3000) 
+    MhhvMh11LLFail = ROOT.TH2D('MhhvMh11LLFail' ,'1+1 mass of HH vs mass of AK8 jet H - Fail LL' ,9 ,40 ,220 ,20 ,1000 ,3000) 
+    MhhvMh11TTPass.Sumw2()
+    MhhvMh11LLPass.Sumw2()
+    MhhvMh11TTFail.Sumw2()
+    MhhvMh11LLFail.Sumw2()
 
     nev = TH1F("nev",   "nev",      1, 0, 1 )
 
-    cutflow = TH1F("cutflow","cutflow",8,0,8)
-
     if runOthers == True:
         if 'data' not in options.set:
+            # Pass - 2+1 
+            MhhvMhPassPDFup   = TH2F("MhhvMhPassPDFup", "mass of HH vs mass of AK8 jet H PDF up - Pass", 9, 40, 220, 13, 700, 2000 )
+            MhhvMhPassPDFdown = TH2F("MhhvMhPassPDFdown",   "mass of HH vs mass of AK8 jet H PDF down - Pass", 9, 40, 220, 13, 700, 2000 )
+            MhhvMhPassPDFup.Sumw2()
+            MhhvMhPassPDFdown.Sumw2()
+
+            MhhvMhPassPUup   = TH2F("MhhvMhPassPUup", "mass of HH vs mass of AK8 jet H PU up - Pass", 9, 40, 220, 13, 700, 2000 )
+            MhhvMhPassPUdown = TH2F("MhhvMhPassPUdown",   "mass of HH vs mass of AK8 jet H PU down - Pass", 9, 40, 220, 13, 700, 2000 )
+            MhhvMhPassPUup.Sumw2()
+            MhhvMhPassPUdown.Sumw2()
+
+            MhhvMhPassBtagup   = TH2F("MhhvMhPassBtagup", "mass of HH vs mass of AK8 jet H Btag up - Pass", 9, 40, 220, 13, 700, 2000 )
+            MhhvMhPassBtagdown = TH2F("MhhvMhPassBtagdown",   "mass of HH vs mass of AK8 jet H Btag down - Pass", 9, 40, 220, 13, 700, 2000 )
+            MhhvMhPassBtagup.Sumw2()
+            MhhvMhPassBtagdown.Sumw2()
+
+            MhhvMhPassTrigup   = TH2F("MhhvMhPassTrigup", "mass of HH vs mass of AK8 jet H trig up - Pass", 9, 40, 220, 13, 700, 2000 )
+            MhhvMhPassTrigdown = TH2F("MhhvMhPassTrigdown",   "mass of HH vs mass of AK8 jet H trig down - Pass", 9, 40, 220, 13, 700, 2000 )
+            MhhvMhPassTrigup.Sumw2()
+            MhhvMhPassTrigdown.Sumw2()
+
+            # Fail - 2+1 
+            MhhvMhFailPDFup   = TH2F("MhhvMhFailPDFup", "mass of HH vs mass of AK8 jet H PDF up - Fail", 9, 40, 220, 13, 700, 2000 )
+            MhhvMhFailPDFdown = TH2F("MhhvMhFailPDFdown",   "mass of HH vs mass of AK8 jet H PDF up - Fail", 9, 40, 220, 13, 700, 2000 )
+            MhhvMhFailPDFup.Sumw2()
+            MhhvMhFailPDFdown.Sumw2()
+
+            MhhvMhFailPUup   = TH2F("MhhvMhFailPUup", "mass of HH vs mass of AK8 jet H PU up - Fail", 9, 40, 220, 13, 700, 2000 )
+            MhhvMhFailPUdown = TH2F("MhhvMhFailPUdown",   "mass of HH vs mass of AK8 jet H PU up - Fail", 9, 40, 220, 13, 700, 2000 )
+            MhhvMhFailPUup.Sumw2()
+            MhhvMhFailPUdown.Sumw2()
+
+            MhhvMhFailBtagup   = TH2F("MhhvMhFailBtagup", "mass of HH vs mass of AK8 jet H Btag up - Fail", 9, 40, 220, 13, 700, 2000 )
+            MhhvMhFailBtagdown = TH2F("MhhvMhFailBtagdown",   "mass of HH vs mass of AK8 jet H Btag up - Fail", 9, 40, 220, 13, 700, 2000 )
+            MhhvMhFailBtagup.Sumw2()
+            MhhvMhFailBtagdown.Sumw2()
+
+            MhhvMhFailTrigup   = TH2F("MhhvMhFailTrigup", "mass of HH vs mass of AK8 jet H trig up - Fail", 9, 40, 220, 13, 700, 2000 )
+            MhhvMhFailTrigdown = TH2F("MhhvMhFailTrigdown",   "mass of HH vs mass of AK8 jet H trig up - Fail", 9, 40, 220, 13, 700, 2000 )
+            MhhvMhFailTrigup.Sumw2()
+            MhhvMhFailTrigdown.Sumw2()
+
+            # Pass - 1+1 TT
+            MhhvMh11TTPassPDFup   = TH2F("MhhvMhPassPDFup", "mass of HH vs mass of AK8 jet H PDF up - Pass", 9, 40, 220, 20, 1000, 3000 )
+            MhhvMh11TTPassPDFdown = TH2F("MhhvMhPassPDFdown",   "mass of HH vs mass of AK8 jet H PDF down - Pass", 9, 40, 220, 20, 1000, 3000 )
+            MhhvMh11TTPassPDFup.Sumw2()
+            MhhvMh11TTPassPDFdown.Sumw2()
+
+            MhhvMh11TTPassPUup   = TH2F("MhhvMhPassPUup", "mass of HH vs mass of AK8 jet H PU up - Pass", 9, 40, 220, 20, 1000, 3000 )
+            MhhvMh11TTPassPUdown = TH2F("MhhvMhPassPUdown",   "mass of HH vs mass of AK8 jet H PU down - Pass", 9, 40, 220, 20, 1000, 3000 )
+            MhhvMh11TTPassPUup.Sumw2()
+            MhhvMh11TTPassPUdown.Sumw2()
+
+            MhhvMh11TTPassBtagup   = TH2F("MhhvMhPassBtagup", "mass of HH vs mass of AK8 jet H Btag up - Pass", 9, 40, 220, 20, 1000, 3000 )
+            MhhvMh11TTPassBtagdown = TH2F("MhhvMhPassBtagdown",   "mass of HH vs mass of AK8 jet H Btag down - Pass", 9, 40, 220, 20, 1000, 3000 )
+            MhhvMh11TTPassBtagup.Sumw2()
+            MhhvMh11TTPassBtagdown.Sumw2()
+
+            MhhvMh11TTPassTrigup   = TH2F("MhhvMhPassTrigup", "mass of HH vs mass of AK8 jet H trig up - Pass", 9, 40, 220, 20, 1000, 3000 )
+            MhhvMh11TTPassTrigdown = TH2F("MhhvMhPassTrigdown",   "mass of HH vs mass of AK8 jet H trig down - Pass", 9, 40, 220, 20, 1000, 3000 )
+            MhhvMh11TTPassTrigup.Sumw2()
+            MhhvMh11TTPassTrigdown.Sumw2()
+
+            # Fail - 1+1 TT
+            MhhvMh11TTFailPDFup   = TH2F("MhhvMhFailPDFup", "mass of HH vs mass of AK8 jet H PDF up - Fail", 9, 40, 220, 20, 1000, 3000 )
+            MhhvMh11TTFailPDFdown = TH2F("MhhvMhFailPDFdown",   "mass of HH vs mass of AK8 jet H PDF up - Fail", 9, 40, 220, 20, 1000, 3000 )
+            MhhvMh11TTFailPDFup.Sumw2()
+            MhhvMh11TTFailPDFdown.Sumw2()
+
+            MhhvMh11TTFailPUup   = TH2F("MhhvMhFailPUup", "mass of HH vs mass of AK8 jet H PU up - Fail", 9, 40, 220, 20, 1000, 3000 )
+            MhhvMh11TTFailPUdown = TH2F("MhhvMhFailPUdown",   "mass of HH vs mass of AK8 jet H PU up - Fail", 9, 40, 220, 20, 1000, 3000 )
+            MhhvMh11TTFailPUup.Sumw2()
+            MhhvMh11TTFailPUdown.Sumw2()
+
+            MhhvMh11TTFailBtagup   = TH2F("MhhvMhFailBtagup", "mass of HH vs mass of AK8 jet H Btag up - Fail", 9, 40, 220, 20, 1000, 3000 )
+            MhhvMh11TTFailBtagdown = TH2F("MhhvMhFailBtagdown",   "mass of HH vs mass of AK8 jet H Btag up - Fail", 9, 40, 220, 20, 1000, 3000 )
+            MhhvMh11TTFailBtagup.Sumw2()
+            MhhvMh11TTFailBtagdown.Sumw2()
+
+            MhhvMh11TTFailTrigup   = TH2F("MhhvMhFailTrigup", "mass of HH vs mass of AK8 jet H trig up - Fail", 9, 40, 220, 20, 1000, 3000 )
+            MhhvMh11TTFailTrigdown = TH2F("MhhvMhFailTrigdown",   "mass of HH vs mass of AK8 jet H trig up - Fail", 9, 40, 220, 20, 1000, 3000 )
+            MhhvMh11TTFailTrigup.Sumw2()
+            MhhvMh11TTFailTrigdown.Sumw2()
+
+            # Pass - 1+1 LL 
             MhhvMhPassPDFup   = TH2F("MhhvMhPassPDFup", "mass of HH vs mass of AK8 jet H PDF up - Pass", 9, 40, 220, 20, 1000, 3000 )
             MhhvMhPassPDFdown = TH2F("MhhvMhPassPDFdown",   "mass of HH vs mass of AK8 jet H PDF down - Pass", 9, 40, 220, 20, 1000, 3000 )
             MhhvMhPassPDFup.Sumw2()
@@ -233,7 +347,7 @@ if __name__ == "__main__":
             MhhvMhPassTrigup.Sumw2()
             MhhvMhPassTrigdown.Sumw2()
 
-            # Fail
+            # Fail - 1+1 LL 
             MhhvMhFailPDFup   = TH2F("MhhvMhFailPDFup", "mass of HH vs mass of AK8 jet H PDF up - Fail", 9, 40, 220, 20, 1000, 3000 )
             MhhvMhFailPDFdown = TH2F("MhhvMhFailPDFdown",   "mass of HH vs mass of AK8 jet H PDF up - Fail", 9, 40, 220, 20, 1000, 3000 )
             MhhvMhFailPDFup.Sumw2()
@@ -534,14 +648,7 @@ if __name__ == "__main__":
     cutflow.SetBinContent(7,deltaEta_count/count)
     cutflow.SetBinContent(8,doubleB_count/count)
 
-    cutflow.GetXaxis().SetBinLabel(1, "no cuts")
-    cutflow.GetXaxis().SetBinLabel(2, "eta")
-    cutflow.GetXaxis().SetBinLabel(3, "p_{T}(H)")
-    cutflow.GetXaxis().SetBinLabel(4, "p_{T}(b)")
-    cutflow.GetXaxis().SetBinLabel(5, "m_{bb}")
-    cutflow.GetXaxis().SetBinLabel(6, "DeepCSV")
-    cutflow.GetXaxis().SetBinLabel(7, "|\Delta \eta|")
-    cutflow.GetXaxis().SetBinLabel(8, "DeepDoubleB")
+    
 
                             
     end = time.time()
@@ -553,4 +660,5 @@ if __name__ == "__main__":
 
 
 
+    
     
