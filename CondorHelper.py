@@ -36,7 +36,7 @@ commands.append("sed 's$TEMPSCRIPT$"+options.runscript+"$g' condor/templates/jdl
 commands.append("sed -i 's$TEMPARGS$"+options.args+"$g' "+out_jdl)
 commands.append("condor_submit "+out_jdl+" -debugfile condor_submit_debug.log")
 commands.append("mv "+out_jdl+" condor/jdls/")
-# commands.append("condor_q lcorcodi")
+# commands.append("condor_q mbrugman")
 
 for s in commands:
     print s

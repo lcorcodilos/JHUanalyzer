@@ -9,15 +9,15 @@ rm 10XwithNanoClean.tgz
 
 mkdir tardir; cp tarball.tgz tardir/; cd tardir
 tar -xzf tarball.tgz
-cp -r hhTrees/* ../CMSSW_10_2_0/src/JHUanalyzer/hhTrees/
-cd ../CMSSW_10_2_0/src/JHUanalyzer/hhTrees
+cp -r TriBosonTrees/* ../CMSSW_10_2_0/src/JHUanalyzer/TriBosonTrees/
+cd ../CMSSW_10_2_0/src/JHUanalyzer/TriBosonTrees
 ls ../../PhysicsTools/NanoAODTools
 eval `scramv1 runtime -sh`
 
-echo hhTreeMaker.py $*
-python hhTreeMaker.py $*
+echo TriBosonTreeMaker.py $*
+python TriBosonTreeMaker.py $*
 # dirname="$1-$4_$2-$3/*.root"
 # echo $dirname
 # outname="bstarTrees_$1-$4_$2-$3.root"
 # python haddnano.py $outname $dirname
-# xrdcp -f $outname root://cmseos.fnal.gov//store/user/lcorcodi/bstar_nano/
+# xrdcp -f $outname root://cmseos.fnal.gov//store/user/mbrugman/TriBoson_nano/

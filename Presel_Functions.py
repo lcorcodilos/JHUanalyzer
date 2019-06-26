@@ -41,6 +41,7 @@ def LoadConstants(year):
         'QCDHT1000_xsec':1206,
         'QCDHT1500_xsec':120.4,
         'QCDHT2000_xsec':25.25,
+        'SignalTest_xsec':1,
         'GravNar-1000_xsec':0.000559,
         'GravNar-1500_xsec':0.000057,
         'GravNar-2000_xsec':9.03e-06,

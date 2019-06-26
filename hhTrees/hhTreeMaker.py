@@ -67,7 +67,7 @@ if 'data' in setname:
     #         quit()
 
     if options.year == '18':
-        if options.set == 'dataA':
+        if options.set == 'dataSingleFile':
             mymodules.append(jetRecalib2018AAK8Puppi())
         elif options.set == 'dataB':
             mymodules.append(jetRecalib2018BAK8Puppi())
@@ -91,7 +91,7 @@ else:
     #     mymodules = [jetmetUncertainties2017AK8Puppi(),puAutoWeight17()]
 
     if options.year == '18':
-        mymodules = [jetmetUncertainties2018AK8Puppi(),puAutoWeight18()]
+        mymodules = [jetmetUncertainties2018AK8Puppi(),puAutoWeight_2018()]
 
     else:
         print options.year+' not supported yet. Quitting...'
@@ -125,13 +125,14 @@ for l in list_of_files[split_start:split_end]:
     n = l.rstrip('\n')
     #if options.year == '17':
     # if not (options.year == '16' and 'signal' in options.set):
-    n = 'root://cms-xrd-global.cern.ch/'+n 
+    if 'Test' not in options.set:
+        n = 'root://cms-xrd-global.cern.ch/'+n 
     new_list.append(n)
 
 output_dir = setname+'-'+options.year+'_'+options.job+'-'+options.njobs
-hadded_file = "hhTrees"+options.year+"_"+setname+'_'+options.job+'-'+options.njobs+'.root'
+hadded_file = "TriBosonTrees"+options.year+"_"+setname+'_'+options.job+'-'+options.njobs+'.root'
 
-cutstring =  "( (FatJet_pt[0]>250)&&(FatJet_eta[0]<2.5) )&&( ((FatJet_pt[1]>250)&&(FatJet_eta[1]<2.5)) || ((Jet_pt[0]>50)&&(Jet_pt[1]>50)&&(Jet_eta[0]<2.5)&&(Jet_eta[1]<2.5)) )"
+cutstring =  "( (FatJet_pt[0]>500)&&(FatJet_eta[0]<2.5) )&&( ((FatJet_pt[1]<500)&&(FatJet_eta[1]<2.5)))"
 
 # Postprocessor
 if (split_end - split_start) > 1:
@@ -160,4 +161,4 @@ if (split_end - split_start) == 1 and len(fnmatch.filter(os.listdir(output_dir),
     print "mv "+output_dir+'/*.root '+hadded_file
     subprocess.call(["mv "+output_dir+'/*.root '+hadded_file], shell=True)    
     
-subprocess.call(["xrdcp -f "+hadded_file+" root://cmseos.fnal.gov//store/user/lcorcodi/bstar_nano/"+hadded_file], shell=True)
+subprocess.call(["xrdcp -f "+hadded_file+" root://cmseos.fnal.gov//store/user/mbrugman/TriBoson_nano/"+hadded_file], shell=True)

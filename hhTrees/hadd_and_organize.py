@@ -6,13 +6,13 @@ year = sys.argv[2]
 
 execute = []
 
-for filename in os.listdir('/eos/uscms/store/user/lcorcodi/bstar_nano'):
-    if fnmatch.fnmatch(filename,'hhTrees'+year+'_'+setname+'_1-*.root'):
+for filename in os.listdir('/eos/uscms/store/user/mbrugman/TriBoson_nano'):
+    if fnmatch.fnmatch(filename,'TriBosonTrees'+year+'_'+setname+'_1-*.root'):
         njobs = int(filename.split(setname+'_1-')[1].rstrip('.root'))
         sjobs = str(njobs)
 
-eosdir = 'root://cmseos.fnal.gov//store/user/lcorcodi/bstar_nano/'
-threeDayLifetime = '/uscmst1b_scratch/lpc1/3DayLifetime/lcorcodi/'
+eosdir = 'root://cmseos.fnal.gov//store/user/mbrugman/TriBoson_nano/'
+threeDayLifetime = '/uscmst1b_scratch/lpc1/3DayLifetime/mbrugman/'
 
 # Segment so never hadd more than 100 files at once
 if njobs > 100:
@@ -29,7 +29,7 @@ if njobs > 100:
         list_of_files = ''
         # Copy all files in the segment locally
         for i in range(lower_wall, upper_wall):
-            list_of_files+= ' '+eosdir+'hhTrees'+year+'_'+setname+'_'+str(i)+'-'+sjobs+'.root'
+            list_of_files+= ' '+eosdir+'TriBosonTrees'+year+'_'+setname+'_'+str(i)+'-'+sjobs+'.root'
 
         # Hadd the jobs into a segment
         execute.append('python haddnano.py '+threeDayLifetime+'temp_wall_'+str(lower_wall)+'-'+str(upper_wall)+'.root '+list_of_files)
@@ -41,17 +41,17 @@ if njobs > 100:
     execute.append('rm '+threeDayLifetime+'temp_wall_*.root')
 
     # Copy to eos and delete locally
-    execute.append('xrdcp -f '+threeDayLifetime+setname+'_hh'+year+'.root root://cmseos.fnal.gov//store/user/lcorcodi/hhto4b_nano/rootfiles/')
+    execute.append('xrdcp -f '+threeDayLifetime+setname+'_hh'+year+'.root root://cmseos.fnal.gov//store/user/mbrugman/hhto4b_nano/rootfiles/')
     execute.append('rm '+threeDayLifetime+setname+'_hh'+year+'.root')
 
 else:
     list_of_files = ''
     for i in range(1,njobs+1):
-        list_of_files+= ' '+eosdir+'hhTrees'+year+'_'+setname+'_'+str(i)+'-'+sjobs+'.root'
+        list_of_files+= ' '+eosdir+'TriBosonTrees'+year+'_'+setname+'_'+str(i)+'-'+sjobs+'.root'
 
     execute.append('python haddnano.py '+setname+'_hh'+year+'.root '+list_of_files)
 
-    execute.append('xrdcp -f '+setname+'_hh'+year+'.root root://cmseos.fnal.gov//store/user/lcorcodi/hhto4b_nano/rootfiles/'+setname+'_hh'+year+'.root')
+    execute.append('xrdcp -f '+setname+'_hh'+year+'.root root://cmseos.fnal.gov//store/user/mbrugman/hhto4b_nano/rootfiles/'+setname+'_hh'+year+'.root')
     execute.append('rm '+setname+'_hh'+year+'.root')
 
 
