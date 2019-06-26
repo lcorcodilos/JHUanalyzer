@@ -67,11 +67,11 @@ if 'data' in setname:
     #         quit()
 
     if options.year == '18':
-        if options.set == 'dataSingleFile':
+        if options.set == 'dataA':
             mymodules.append(jetRecalib2018AAK8Puppi())
         elif options.set == 'dataB':
             mymodules.append(jetRecalib2018BAK8Puppi())
-        elif options.set == 'dataC':
+        elif 'dataC' in options.set:
             mymodules.append(jetRecalib2018CAK8Puppi())
         elif options.set == 'dataD':
             mymodules.append(jetRecalib2018DAK8Puppi())
@@ -101,6 +101,9 @@ else:
 ijob = int(options.job)
 njobs = int(options.njobs)
 
+if ijob > njobs:
+    raise RuntimeError('ERROR: Trying to run job '+options.job+' out of '+options.njobs)
+
 # Open list of all files for this set
 list_of_files = open('NanoAOD'+options.year+'_lists/'+setname+'_loc.txt','r').readlines()
 new_list = []
@@ -125,8 +128,7 @@ for l in list_of_files[split_start:split_end]:
     n = l.rstrip('\n')
     #if options.year == '17':
     # if not (options.year == '16' and 'signal' in options.set):
-    if 'Test' not in options.set:
-        n = 'root://cms-xrd-global.cern.ch/'+n 
+    n = 'root://cms-xrd-global.cern.ch/'+n 
     new_list.append(n)
 
 output_dir = setname+'-'+options.year+'_'+options.job+'-'+options.njobs
@@ -139,7 +141,7 @@ if (split_end - split_start) > 1:
     p=PostProcessor(output_dir+'/',new_list,
                 cutstring,
                 branchsel='keep_and_drop'+options.year+'.txt',
-                outputbranchsel='keep_and_drop'+options.year+'.txt',
+                outputbranchsel='keep_and_drop'+options.year+'_out.txt',
                 modules=mymodules,
                 provenance=True,haddFileName=hadded_file)#,fwkJobReport=True,jsonInput=runsAndLumis())
 # Need to skip haddnano step if there's only one file processed
@@ -147,7 +149,7 @@ else:
     p=PostProcessor(output_dir+'/',new_list,
                 cutstring,
                 branchsel='keep_and_drop'+options.year+'.txt',
-                outputbranchsel='keep_and_drop'+options.year+'.txt',
+                outputbranchsel='keep_and_drop'+options.year+'_out.txt',
                 modules=mymodules,
                 provenance=True)
 

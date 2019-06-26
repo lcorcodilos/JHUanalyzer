@@ -1,7 +1,5 @@
 drop *
 
-keep *GenJet*
-
 keep *FatJet*
 keep *SubJet*
 keep Jet*
