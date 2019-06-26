@@ -2,7 +2,7 @@ import subprocess
 
 commands = []
 
-base_string = '-s TEMPSET -r TEMPREG -n NJOB -j IJOB -y TEMPYEAR -b TEMPDOUBLEB'# -j -r -a -b
+base_string = '-s TEMPSET -r TEMPREG -n NJOB -j IJOB -y TEMPYEAR -d TEMPDOUBLEB'# -j -r -a -b
 
 for year in ['18']:
     for reg in ['default']:

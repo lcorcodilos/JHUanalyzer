@@ -72,7 +72,7 @@ if __name__ == "__main__":
                     default   =   '1',
                     dest      =   'njobs',
                     help      =   'number of jobs')
-    parser.add_option('-b', '--doublebtagger', metavar='F', type='string', action='store',
+    parser.add_option('-d', '--doublebtagger', metavar='F', type='string', action='store',
                     default   =   'btagHbb',
                     dest      =   'doublebtagger',
                     help      =   'Variable name in NanoAOD for double b tagger to be used. btagHbb (default), deepTagMD_HbbvsQCD, deepTagMD_ZHbbvsQCD, btagDDBvL')
@@ -111,11 +111,11 @@ if __name__ == "__main__":
     # Setup double b tagger option #
     ################################
     doubleB_titles = {'btagHbb':'Double b',
-                      'deepTagMD_HbbvsQCD': 'DeepAK8 MD Hbb'
+                      'deepTagMD_HbbvsQCD': 'DeepAK8 MD Hbb',
                       'deepTagMD_ZHbbvsQCD': 'DeepAK8 MD ZHbb',
                       'btagDDBvL': 'Deep Double b'}
     doubleB_abreviations = {'btagHbb':'doubleB',
-                      'deepTagMD_HbbvsQCD': 'dak8MDHbb'
+                      'deepTagMD_HbbvsQCD': 'dak8MDHbb',
                       'deepTagMD_ZHbbvsQCD': 'dak8MDZHbb',
                       'btagDDBvL': 'DeepDB'}
     doubleB_name = options.doublebtagger
@@ -198,7 +198,7 @@ if __name__ == "__main__":
     if jobs!=1:
         f = TFile( "HHpreselection"+options.year+"_"+options.set+"_job"+options.job+"of"+options.njobs+mod+'_'+doubleB_short+'_'+options.region+".root", "recreate" )
     else:
-        f = TFile( "HHpreselection"+options.year+"_"+options.set+mod+'_'+doubleB_short'_'+options.region+".root", "recreate" )
+        f = TFile( "HHpreselection"+options.year+"_"+options.set+mod+'_'+doubleB_short+'_'+options.region+".root", "recreate" )
     f.cd()
 
     # print("New rootfile made")
@@ -588,8 +588,8 @@ if __name__ == "__main__":
         #########################################
         # Check if 1+1 initial selection passes #
         #########################################
+        run_21 = False
         if preselection_11:
-            run_21 = False
             hh11_doubleB.Fill(getattr(ak8JetsColl[0],doubleB_name))
             hh11_doubleB.Fill(getattr(ak8JetsColl[1],doubleB_name))
 
@@ -665,15 +665,15 @@ if __name__ == "__main__":
         ##############################
         if run_21:
             candidateAK4s = Hemispherize(ak8JetsColl,ak4JetsColl)
-            if len(candidateAK4s) < 2 or len(ak8JetsColl) == 0:
+            if candidateAK4s == False or len(ak8JetsColl) == 0:
                 continue
             h_jet = TLorentzVector()
             h_jet.SetPtEtaPhiM(ak8JetsColl[0].pt,ak8JetsColl[0].eta,ak8JetsColl[0].phi,ak8JetsColl[0].msoftdrop)
 
             b_jet0 = TLorentzVector()
             b_jet1 = TLorentzVector()
-            b_jet0.SetPtEtaPhiM(candidateAK4s[0].pt,candidateAK4s[0].eta,candidateAK4s[0].phi,candidateAK4s[0].msoftdrop)
-            b_jet1.SetPtEtaPhiM(candidateAK4s[1].pt,candidateAK4s[1].eta,candidateAK4s[1].phi,candidateAK4s[1].msoftdrop)
+            b_jet0.SetPtEtaPhiM(candidateAK4s[0].pt,candidateAK4s[0].eta,candidateAK4s[0].phi,candidateAK4s[0].mass)
+            b_jet1.SetPtEtaPhiM(candidateAK4s[1].pt,candidateAK4s[1].eta,candidateAK4s[1].phi,candidateAK4s[1].mass)
 
             mhh21 = (h_jet+b_jet0+b_jet1).M()
             mbb = (b_jet0+b_jet1).M()
@@ -685,7 +685,7 @@ if __name__ == "__main__":
             HHsel21['bpt'] = Cuts['bpt'][0]<candidateAK4s[0].pt<Cuts['bpt'][1] and Cuts['bpt'][0]<candidateAK4s[1].pt<Cuts['bpt'][1]
             HHsel21['mbb'] = Cuts['bbmass'][0]<mbb<Cuts['bbmass'][1]
             HHsel21['DeepCSV'] = Cuts['deepbtag'][0]<candidateAK4s[0].btagDeepB<Cuts['deepbtag'][1] and Cuts['deepbtag'][0]<candidateAK4s[1].btagDeepB<Cuts['deepbtag'][1]
-            HHsel21['dEta'] = Cuts['deltaEta'][0]<deltaEta<Cuts['deltaEta'][1]
+            HHsel21['dEta'] = Cuts['dEtaAK4'][0]<deltaEta<Cuts['dEtaAK4'][1]
             HHsel21['doubleB'] = Cuts['doublebtag'][0]<getattr(ak8JetsColl[0],doubleB_name)<Cuts['doublebtag'][1]
             # HHsel21['reduced_hhmass'] = Cuts['mreduced'][0]<mreduced<Cuts['mreduced'][1]
 
@@ -710,13 +710,13 @@ if __name__ == "__main__":
             if preselection_21:
                 # b tagging scale factor
                 if not isData:
-                    weights['btagSF']['nom'] = reader.eval_auto_bounds('central', 0, abs(bjet1.Eta()), bjet1.Perp())
-                    weights['btagSF']['up'] = reader.eval_auto_bounds('up', 0,  abs(bjet1.Eta()), bjet1.Perp())
-                    weights['btagSF']['down'] = reader.eval_auto_bounds('down', 0,  abs(bjet1.Eta()), bjet1.Perp())
+                    weights['btagSF']['nom'] = reader.eval_auto_bounds('central', 0, abs(b_jet0.Eta()), b_jet0.Perp())
+                    weights['btagSF']['up'] = reader.eval_auto_bounds('up', 0,  abs(b_jet0.Eta()), b_jet0.Perp())
+                    weights['btagSF']['down'] = reader.eval_auto_bounds('down', 0,  abs(b_jet0.Eta()), b_jet0.Perp())
 
-                    weights['btagSF']['nom'] *= reader.eval_auto_bounds('central', 0, abs(bjet2.Eta()), bjet2.Perp())
-                    weights['btagSF']['up'] *= reader.eval_auto_bounds('up', 0,  abs(bjet2.Eta()), bjet2.Perp())
-                    weights['btagSF']['down'] *= reader.eval_auto_bounds('down', 0,  abs(bjet2.Eta()), bjet2.Perp())
+                    weights['btagSF']['nom'] *= reader.eval_auto_bounds('central', 0, abs(b_jet1.Eta()), b_jet1.Perp())
+                    weights['btagSF']['up'] *= reader.eval_auto_bounds('up', 0,  abs(b_jet1.Eta()), b_jet1.Perp())
+                    weights['btagSF']['down'] *= reader.eval_auto_bounds('down', 0,  abs(b_jet1.Eta()), b_jet1.Perp())
 
 
                 hh21_doubleB.Fill(getattr(ak8JetsColl[0],doubleB_name))

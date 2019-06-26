@@ -72,6 +72,7 @@ def LoadCuts(region,year):
         'deepbtag':[0.4184,1.0],
         'doublebtag':[0.6,1.0],
         'doublebtagTight':[0.8,1.0],
+        'doublebtag':[0.6,1.0],
         'doublebtagLoose':[0.3,1.0],
         'DeepDBtag':[0.6,1.0],
         'DeepDBtagTight':[0.8,1.0],
@@ -225,9 +226,12 @@ def Hemispherize(fatjetCollection,jetCollection):
         elif len(passing_pair_indices) == 1:
             candidatePairIdx = passing_pair_indices[0]
         else:
-            candidatePairIdx = False
-
-        return [jetCollection[candidatePairIdx[0]],jetCollection[candidatePairIdx[1]]]
+            candidatePairIdx = [] 
+        
+        if len(candidatePairIdx) == 2:
+            return [jetCollection[candidatePairIdx[0]],jetCollection[candidatePairIdx[1]]]
+        else:
+            return False
 
 def Weightify(wd,outname):
     final_w = 1.0
