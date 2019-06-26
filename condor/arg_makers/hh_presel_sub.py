@@ -7,7 +7,7 @@ base_string = '-s TEMPSET -r TEMPREG -n NJOB -j IJOB -y TEMPYEAR -b TEMPDOUBLEB'
 for year in ['18']:
     for reg in ['default']:
         for doubleb in ['btagHbb','deepTagMD_HbbvsQCD','deepTagMD_ZHbbvsQCD','btagDDBvL']:
-            year_string = base_string.replace("TEMPYEAR",year).replace('TEMPREG',reg).replace('TEMPDOUBLEB',b)
+            year_string = base_string.replace("TEMPYEAR",year).replace('TEMPREG',reg).replace('TEMPDOUBLEB',doubleb)
             # QCD
             qcd_dict = {'QCDHT700':57,'QCDHT1000':21,'QCDHT1500':16,'QCDHT2000':8}
             for qcd in qcd_dict.keys():
