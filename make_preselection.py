@@ -186,7 +186,7 @@ if __name__ == "__main__":
     ###################
     # Book histograms #
     ###################
-    hh11_cutflow = ROOT.TH1D('hh11_cutflow', 'hh11_cutflow', 10, 0.5, 10.5)
+    hh11_cutflow = ROOT.TH1D('hh11_cutflow', 'hh11_cutflow', 9, 0.5, 9.5)
     hh11_cutflow.GetXaxis().SetBinLabel(1, "no cuts")
     hh11_cutflow.GetXaxis().SetBinLabel(2, "eta")
     hh11_cutflow.GetXaxis().SetBinLabel(3, "p_{T}(H)")
@@ -625,29 +625,101 @@ if __name__ == "__main__":
                 # Split into top tag pass and fail #
                 ####################################
                 
-                if doubleB_cut:
-                    hh21_cutflow.Fill(8)
-                    MhhvMh21Pass.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'nominal')) 
-
+                ####################################
+                # Start with 1+1 TT and LL checks  #
+                ####################################
+                
+                if HHsel11['SRTT']:
+                    #1+1 TT Pass
+                    hh11_cutflow.Fill(9)
+                    MhhvMh11TTPass.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'nominal'))
                     if runOthers and 'data' not in options.set:
-                            MhhvMh21PassPDFup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'PDF_up'))
-                            MhhvMh21PassPDFdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'PDF_down'))
+                        MhhvMh11TTPassPDFup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'PDF_up'))
+                        MhhvMh11TTPassPDFdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'PDF_down'))
 
-                            MhhvMh21PassPUup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Pileup_up'))
-                            MhhvMh21PassPUdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Pileup_down'))
+                        MhhvMh11TTPassPUup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Pileup_up'))
+                        MhhvMh11TTPassPUdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Pileup_down'))
 
-                            MhhvMh21PassTrigup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Trigger_up'))
-                            MhhvMh21PassTrigdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Trigger_down'))
+                        MhhvMh11TTPassTrigup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Trigger_up'))
+                        MhhvMh11TTPassTrigdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Trigger_down'))
 
-                            MhhvMh21PassBtagup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'btagSF_up'))
-                            MhhvMh21PassBtagdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'btagSF_down'))
+                        MhhvMh11TTPassBtagup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'btagSF_up'))
+                        MhhvMh11TTPassBtagdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'btagSF_down'))
 
+                elif HHsel11['SRLL']:
+                    #1+1 LL Pass
+                    hh11_cutflow.Fill(8)
+                    MhhvMh11LLPass.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'nominal'))
+                    if runOthers and 'data' not in options.set:
+                        MhhvMh11LLPassPDFup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'PDF_up'))
+                        MhhvMh11LLPassPDFdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'PDF_down'))
+
+                        MhhvMh11LLPassPUup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Pileup_up'))
+                        MhhvMh11LLPassPUdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Pileup_down'))
+
+                        MhhvMh11LLPassTrigup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Trigger_up'))
+                        MhhvMh11LLPassTrigdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Trigger_down'))
+
+                        MhhvMh11LLPassBtagup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'btagSF_up'))
+                        MhhvMh11LLPassBtagdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'btagSF_down'))
+                
+                elif HHsel11['ATTT']:
+                    #1+1 TT Fail
+                    MhhvMh11TTFail.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'nominal'))
+                    if runOthers and 'data' not in options.set:
+                        MhhvMh11TTFailPDFup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'PDF_up'))
+                        MhhvMh11TTFailPDFdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'PDF_down'))
+
+                        MhhvMh11TTFailPUup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Pileup_up'))
+                        MhhvMh11TTFailPUdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Pileup_down'))
+
+                        MhhvMh11TTFailTrigup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Trigger_up'))
+                        MhhvMh11TTFailTrigdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Trigger_down'))
+
+                        MhhvMh11TTFailBtagup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'btagSF_up'))
+                        MhhvMh11TTFailBtagdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'btagSF_down'))
+
+                elif HHsel11['ATLL']:
+                    #1+1 LL Fail
+                    MhhvMh11LLFail.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'nominal'))
+                    if runOthers and 'data' not in options.set:
+                        MhhvMh11LLFailPDFup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'PDF_up'))
+                        MhhvMh11LLFailPDFdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'PDF_down'))
+
+                        MhhvMh11LLFailPUup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Pileup_up'))
+                        MhhvMh11LLFailPUdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Pileup_down'))
+
+                        MhhvMh11LLFailTrigup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Trigger_up'))
+                        MhhvMh11LLFailTrigdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Trigger_down'))
+
+                        MhhvMh11LLFailBtagup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'btagSF_up'))
+                        MhhvMh11LLFailBtagdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'btagSF_down'))
+
+                ##############################
+                # if 1+1 fail, check for 2+1 #
+                ##############################
+                elif doubleB_cut:
+                    hh21_cutflow.Fill(8)
+                    MhhvMh21Pass.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'nominal'))
+                    if runOthers and 'data' not in options.set:
+                        #2+1 Pass
+                        MhhvMh21PassPDFup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'PDF_up'))
+                        MhhvMh21PassPDFdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'PDF_down'))
+
+                        MhhvMh21PassPUup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Pileup_up'))
+                        MhhvMh21PassPUdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Pileup_down'))
+
+                        MhhvMh21PassTrigup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Trigger_up'))
+                        MhhvMh21PassTrigdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Trigger_down'))
+
+                        MhhvMh21PassBtagup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'btagSF_up'))
+                        MhhvMh21PassBtagdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'btagSF_down'))
 
 
                 else:
-                    MhhvMh21Fail.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'nominal')) 
-
+                    MhhvMh21Fail.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'nominal'))
                     if runOthers and 'data' not in options.set:
+                        #2+1 Fail
                         MhhvMh21FailPDFup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'PDF_up'))
                         MhhvMh21FailPDFdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'PDF_down'))
 
@@ -660,88 +732,6 @@ if __name__ == "__main__":
                         MhhvMh21FailBtagup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'btagSF_up'))
                         MhhvMh21FailBtagdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'btagSF_down'))
 
-                    doubleBTight_cut = Cuts['doublebtagTight'][0]<leadingFatJet.btagHbb<Cuts['doublebtagTight'][1]
-                    doubleBLoose_cut = Cuts['doublebtagLoose'][0]<leadingFatJet.btagHbb<Cuts['doublebtagLoose'][1]
-                    
-                    if doubleBTight_cut:
-                        hh11_cutflow.Fill(9)
-                        MhhvMh11TTPass.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'nominal'))
-
-                        if runOthers and 'data' not in options.set:
-                            #1+1 TT Pass
-                            MhhvMh11TTPassPDFup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'PDF_up'))
-                            MhhvMh11TTPassPDFdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'PDF_down'))
-
-                            MhhvMh11TTPassPUup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Pileup_up'))
-                            MhhvMh11TTPassPUdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Pileup_down'))
-
-                            MhhvMh11TTPassTrigup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Trigger_up'))
-                            MhhvMh11TTPassTrigdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Trigger_down'))
-
-                            MhhvMh11TTPassBtagup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'btagSF_up'))
-                            MhhvMh11TTPassBtagdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'btagSF_down'))
-
-                    elif doubleBLoose_cut:
-                        hh11_cutflow.Fill(8)
-                        
-                        MhhvMh11LLPass.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'nominal'))
-                        MhhvMh11TTFail.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'nominal'))
-
-                        if runOthers and 'data' not in options.set:
-                            #1+1 TT Fail
-                            MhhvMh11TTFailPDFup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'PDF_up'))
-                            MhhvMh11TTFailPDFdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'PDF_down'))
-
-                            MhhvMh11TTFailPUup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Pileup_up'))
-                            MhhvMh11TTFailPUdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Pileup_down'))
-
-                            MhhvMh11TTFailTrigup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Trigger_up'))
-                            MhhvMh11TTFailTrigdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Trigger_down'))
-
-                            MhhvMh11TTFailBtagup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'btagSF_up'))
-                            MhhvMh11TTFailBtagdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'btagSF_down'))
-                            #1+1 LL Pass
-                            MhhvMh11LLPassPDFup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'PDF_up'))
-                            MhhvMh11LLPassPDFdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'PDF_down'))
-
-                            MhhvMh11LLPassPUup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Pileup_up'))
-                            MhhvMh11LLPassPUdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Pileup_down'))
-
-                            MhhvMh11LLPassTrigup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Trigger_up'))
-                            MhhvMh11LLPassTrigdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Trigger_down'))
-
-                            MhhvMh11LLPassBtagup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'btagSF_up'))
-                            MhhvMh11LLPassBtagdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'btagSF_down'))
-
-                    else:
-                        MhhvMh11TTFail.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'nominal'))
-                        MhhvMh11LLFail.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'nominal'))
-
-                        if runOthers and 'data' not in options.set:
-                            #1+1 TT Fail
-                            MhhvMh11TTFailPDFup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'PDF_up'))
-                            MhhvMh11TTFailPDFdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'PDF_down'))
-
-                            MhhvMh11TTFailPUup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Pileup_up'))
-                            MhhvMh11TTFailPUdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Pileup_down'))
-
-                            MhhvMh11TTFailTrigup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Trigger_up'))
-                            MhhvMh11TTFailTrigdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Trigger_down'))
-
-                            MhhvMh11TTFailBtagup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'btagSF_up'))
-                            MhhvMh11TTFailBtagdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'btagSF_down'))
-                            #1+1 LL Fail
-                            MhhvMh11LLFailPDFup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'PDF_up'))
-                            MhhvMh11LLFailPDFdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'PDF_down'))
-
-                            MhhvMh11LLFailPUup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Pileup_up'))
-                            MhhvMh11LLFailPUdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Pileup_down'))
-
-                            MhhvMh11LLFailTrigup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Trigger_up'))
-                            MhhvMh11LLFailTrigdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Trigger_down'))
-
-                            MhhvMh11LLFailBtagup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'btagSF_up'))
-                            MhhvMh11LLFailBtagdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'btagSF_down'))     
                             
     end = time.time()
     print '\n'
