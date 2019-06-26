@@ -72,6 +72,10 @@ if __name__ == "__main__":
                     default   =   '1',
                     dest      =   'njobs',
                     help      =   'number of jobs')
+    parser.add_option('-b', '--doublebtagger', metavar='F', type='string', action='store',
+                    default   =   'btagHbb',
+                    dest      =   'doublebtagger',
+                    help      =   'Variable name in NanoAOD for double b tagger to be used. btagHbb (default), deepTagMD_HbbvsQCD, deepTagMD_ZHbbvsQCD, btagDDBvL')
     
 
     (options, args) = parser.parse_args()
@@ -102,6 +106,21 @@ if __name__ == "__main__":
             0,          # 0 is for b flavour, 1: FLAV_C, 2: FLAV_UDSG 
             "incl"      # measurement type
     ) 
+
+    ################################
+    # Setup double b tagger option #
+    ################################
+    doubleB_titles = {'btagHbb':'Double b',
+                      'deepTagMD_HbbvsQCD': 'DeepAK8 MD Hbb'
+                      'deepTagMD_ZHbbvsQCD': 'DeepAK8 MD ZHbb',
+                      'btagDDBvL': 'Deep Double b'}
+    doubleB_abreviations = {'btagHbb':'doubleB',
+                      'deepTagMD_HbbvsQCD': 'dak8MDHbb'
+                      'deepTagMD_ZHbbvsQCD': 'dak8MDZHbb',
+                      'btagDDBvL': 'DeepDB'}
+    doubleB_name = options.doublebtagger
+    doubleB_title = doubleB_titles[doubleB_name]
+    doubleB_short = doubleB_abreviations[doubleB_name]
 
     ######################################
     # Make strings for final file naming #
@@ -177,9 +196,9 @@ if __name__ == "__main__":
     # Make new file for storage #
     #############################
     if jobs!=1:
-        f = TFile( "HHpreselection"+options.year+"_"+options.set+"_job"+options.job+"of"+options.njobs+mod+'_'+options.region+".root", "recreate" )
+        f = TFile( "HHpreselection"+options.year+"_"+options.set+"_job"+options.job+"of"+options.njobs+mod+'_'+doubleB_short+'_'+options.region+".root", "recreate" )
     else:
-        f = TFile( "HHpreselection"+options.year+"_"+options.set+mod+'_'+options.region+".root", "recreate" )
+        f = TFile( "HHpreselection"+options.year+"_"+options.set+mod+'_'+doubleB_short'_'+options.region+".root", "recreate" )
     f.cd()
 
     # print("New rootfile made")
@@ -189,24 +208,28 @@ if __name__ == "__main__":
     hh11_cutflow = ROOT.TH1D('hh11_cutflow', 'hh11_cutflow', 9, 0.5, 9.5)
     hh11_cutflow.GetXaxis().SetBinLabel(1, "no cuts")
     hh11_cutflow.GetXaxis().SetBinLabel(2, "eta")
-    hh11_cutflow.GetXaxis().SetBinLabel(3, "p_{T}(H)")
-    hh11_cutflow.GetXaxis().SetBinLabel(4, "p_{T}(b)")
-    hh11_cutflow.GetXaxis().SetBinLabel(5, "m_{bb}")
-    hh11_cutflow.GetXaxis().SetBinLabel(6, "DeepCSV")
-    hh11_cutflow.GetXaxis().SetBinLabel(7, "|\Delta \eta|")
-    hh11_cutflow.GetXaxis().SetBinLabel(8,"LL")
-    hh11_cutflow.GetXaxis().SetBinLabel(9,"TT")
+    hh11_cutflow.GetXaxis().SetBinLabel(3, "p_{T}(H) both jets")
+    hh11_cutflow.GetXaxis().SetBinLabel(4, "m_{h}")
+    # hh11_cutflow.GetXaxis().SetBinLabel(5, "m_{h reduced}")
+    hh11_cutflow.GetXaxis().SetBinLabel(5, "|\Delta \eta|")
+    hh11_cutflow.GetXaxis().SetBinLabel(6, "\tau_{21} both jets")
+    hh11_cutflow.GetXaxis().SetBinLabel(7,"LL - "+doubleB_title)
+    hh11_cutflow.GetXaxis().SetBinLabel(8,"TT - "+doubleB_title)
 
     hh21_cutflow = TH1F("hh21_cutflow","hh21_cutflow",8,0.5,8.5)
     hh21_cutflow.GetXaxis().SetBinLabel(1, "no cuts")
     hh21_cutflow.GetXaxis().SetBinLabel(2, "eta")
     hh21_cutflow.GetXaxis().SetBinLabel(3, "p_{T}(H)")
-    hh21_cutflow.GetXaxis().SetBinLabel(4, "p_{T}(b)")
+    hh21_cutflow.GetXaxis().SetBinLabel(4, "p_{T}(b) both b quarks")
     hh21_cutflow.GetXaxis().SetBinLabel(5, "m_{bb}")
     hh21_cutflow.GetXaxis().SetBinLabel(6, "DeepCSV")
     hh21_cutflow.GetXaxis().SetBinLabel(7, "|\Delta \eta|")
-    hh21_cutflow.GetXaxis().SetBinLabel(8, "DeepDoubleB")
+    hh21_cutflow.GetXaxis().SetBinLabel(7, doubleB_title+" tag")
 
+    hh11_doubleB = TH1F('hh11_doubleB','1+1 '+doubleB_title+' tag',20,0,1)
+    hh21_doubleB = TH1F('hh21_doubleB','2+1 '+doubleB_title+' tag',20,0,1)
+    hh11_doubleB.Sumw2()
+    hh21_doubleB.Sumw2()
 
     MhhvMh21Pass     = TH2F("MhhvMh21Pass",     "2+1 mass of HH vs mass of AK8 jet H - Pass", 9, 40, 220, 13, 700, 2000 )
     MhhvMh21Fail     = TH2F("MhhvMh21Fail",     "2+1 mass of HH vs mass of AK8 jet H - Fail", 9, 40, 220, 13, 700, 2000 )
@@ -227,130 +250,130 @@ if __name__ == "__main__":
     if runOthers == True:
         if 'data' not in options.set:
             # Pass - 2+1 
-            MhhvMh21PassPDFup   = TH2F("MhhvMh21PassPDFup", "mass of HH vs mass of AK8 jet H PDF up - Pass", 9, 40, 220, 13, 700, 2000 )
-            MhhvMh21PassPDFdown = TH2F("MhhvMh21PassPDFdown",   "mass of HH vs mass of AK8 jet H PDF down - Pass", 9, 40, 220, 13, 700, 2000 )
+            MhhvMh21PassPDFup   = TH2F("MhhvMh21PassPDFup", "2+1 mass of HH vs mass of AK8 jet H PDF up - Pass", 9, 40, 220, 13, 700, 2000 )
+            MhhvMh21PassPDFdown = TH2F("MhhvMh21PassPDFdown",   "2+1 mass of HH vs mass of AK8 jet H PDF down - Pass", 9, 40, 220, 13, 700, 2000 )
             MhhvMh21PassPDFup.Sumw2()
             MhhvMh21PassPDFdown.Sumw2()
 
-            MhhvMh21PassPUup   = TH2F("MhhvMh21PassPUup", "mass of HH vs mass of AK8 jet H PU up - Pass", 9, 40, 220, 13, 700, 2000 )
-            MhhvMh21PassPUdown = TH2F("MhhvMh21PassPUdown",   "mass of HH vs mass of AK8 jet H PU down - Pass", 9, 40, 220, 13, 700, 2000 )
+            MhhvMh21PassPUup   = TH2F("MhhvMh21PassPUup", "2+1 mass of HH vs mass of AK8 jet H PU up - Pass", 9, 40, 220, 13, 700, 2000 )
+            MhhvMh21PassPUdown = TH2F("MhhvMh21PassPUdown",   "2+1 mass of HH vs mass of AK8 jet H PU down - Pass", 9, 40, 220, 13, 700, 2000 )
             MhhvMh21PassPUup.Sumw2()
             MhhvMh21PassPUdown.Sumw2()
 
-            MhhvMh21PassBtagup   = TH2F("MhhvMh21PassBtagup", "mass of HH vs mass of AK8 jet H Btag up - Pass", 9, 40, 220, 13, 700, 2000 )
-            MhhvMh21PassBtagdown = TH2F("MhhvMh21PassBtagdown",   "mass of HH vs mass of AK8 jet H Btag down - Pass", 9, 40, 220, 13, 700, 2000 )
+            MhhvMh21PassBtagup   = TH2F("MhhvMh21PassBtagup", "2+1 mass of HH vs mass of AK8 jet H Btag up - Pass", 9, 40, 220, 13, 700, 2000 )
+            MhhvMh21PassBtagdown = TH2F("MhhvMh21PassBtagdown",   "2+1 mass of HH vs mass of AK8 jet H Btag down - Pass", 9, 40, 220, 13, 700, 2000 )
             MhhvMh21PassBtagup.Sumw2()
             MhhvMh21PassBtagdown.Sumw2()
 
-            MhhvMh21PassTrigup   = TH2F("MhhvMh21PassTrigup", "mass of HH vs mass of AK8 jet H trig up - Pass", 9, 40, 220, 13, 700, 2000 )
-            MhhvMh21PassTrigdown = TH2F("MhhvMh21PassTrigdown",   "mass of HH vs mass of AK8 jet H trig down - Pass", 9, 40, 220, 13, 700, 2000 )
-            MhhvMh21PassTrigup.Sumw2()
-            MhhvMh21PassTrigdown.Sumw2()
+            # MhhvMh21PassTrigup   = TH2F("MhhvMh21PassTrigup", "2+1 mass of HH vs mass of AK8 jet H trig up - Pass", 9, 40, 220, 13, 700, 2000 )
+            # MhhvMh21PassTrigdown = TH2F("MhhvMh21PassTrigdown",   "2+1 mass of HH vs mass of AK8 jet H trig down - Pass", 9, 40, 220, 13, 700, 2000 )
+            # MhhvMh21PassTrigup.Sumw2()
+            # MhhvMh21PassTrigdown.Sumw2()
 
             # Fail - 2+1 
-            MhhvMh21FailPDFup   = TH2F("MhhvMh21FailPDFup", "mass of HH vs mass of AK8 jet H PDF up - Fail", 9, 40, 220, 13, 700, 2000 )
-            MhhvMh21FailPDFdown = TH2F("MhhvMh21FailPDFdown",   "mass of HH vs mass of AK8 jet H PDF up - Fail", 9, 40, 220, 13, 700, 2000 )
+            MhhvMh21FailPDFup   = TH2F("MhhvMh21FailPDFup", "2+1 mass of HH vs mass of AK8 jet H PDF up - Fail", 9, 40, 220, 13, 700, 2000 )
+            MhhvMh21FailPDFdown = TH2F("MhhvMh21FailPDFdown",   "2+1 mass of HH vs mass of AK8 jet H PDF up - Fail", 9, 40, 220, 13, 700, 2000 )
             MhhvMh21FailPDFup.Sumw2()
             MhhvMh21FailPDFdown.Sumw2()
 
-            MhhvMh21FailPUup   = TH2F("MhhvMh21FailPUup", "mass of HH vs mass of AK8 jet H PU up - Fail", 9, 40, 220, 13, 700, 2000 )
-            MhhvMh21FailPUdown = TH2F("MhhvMh21FailPUdown",   "mass of HH vs mass of AK8 jet H PU up - Fail", 9, 40, 220, 13, 700, 2000 )
+            MhhvMh21FailPUup   = TH2F("MhhvMh21FailPUup", "2+1 mass of HH vs mass of AK8 jet H PU up - Fail", 9, 40, 220, 13, 700, 2000 )
+            MhhvMh21FailPUdown = TH2F("MhhvMh21FailPUdown",   "2+1 mass of HH vs mass of AK8 jet H PU up - Fail", 9, 40, 220, 13, 700, 2000 )
             MhhvMh21FailPUup.Sumw2()
             MhhvMh21FailPUdown.Sumw2()
 
-            MhhvMh21FailBtagup   = TH2F("MhhvMh21FailBtagup", "mass of HH vs mass of AK8 jet H Btag up - Fail", 9, 40, 220, 13, 700, 2000 )
-            MhhvMh21FailBtagdown = TH2F("MhhvMh21FailBtagdown",   "mass of HH vs mass of AK8 jet H Btag up - Fail", 9, 40, 220, 13, 700, 2000 )
+            MhhvMh21FailBtagup   = TH2F("MhhvMh21FailBtagup", "2+1 mass of HH vs mass of AK8 jet H Btag up - Fail", 9, 40, 220, 13, 700, 2000 )
+            MhhvMh21FailBtagdown = TH2F("MhhvMh21FailBtagdown",   "2+1 mass of HH vs mass of AK8 jet H Btag up - Fail", 9, 40, 220, 13, 700, 2000 )
             MhhvMh21FailBtagup.Sumw2()
             MhhvMh21FailBtagdown.Sumw2()
 
-            MhhvMh21FailTrigup   = TH2F("MhhvMh21FailTrigup", "mass of HH vs mass of AK8 jet H trig up - Fail", 9, 40, 220, 13, 700, 2000 )
-            MhhvMh21FailTrigdown = TH2F("MhhvMh21FailTrigdown",   "mass of HH vs mass of AK8 jet H trig up - Fail", 9, 40, 220, 13, 700, 2000 )
-            MhhvMh21FailTrigup.Sumw2()
-            MhhvMh21FailTrigdown.Sumw2()
+            # MhhvMh21FailTrigup   = TH2F("MhhvMh21FailTrigup", "2+1 mass of HH vs mass of AK8 jet H trig up - Fail", 9, 40, 220, 13, 700, 2000 )
+            # MhhvMh21FailTrigdown = TH2F("MhhvMh21FailTrigdown",   "2+1 mass of HH vs mass of AK8 jet H trig up - Fail", 9, 40, 220, 13, 700, 2000 )
+            # MhhvMh21FailTrigup.Sumw2()
+            # MhhvMh21FailTrigdown.Sumw2()
 
             # Pass - 1+1 TT
-            MhhvMh11TTPassPDFup   = TH2F("MhhvMh11TTPassPDFup", "mass of HH vs mass of AK8 jet H PDF up - Pass", 9, 40, 220, 20, 1000, 3000 )
-            MhhvMh11TTPassPDFdown = TH2F("MhhvMh11TTPassPDFdown",   "mass of HH vs mass of AK8 jet H PDF down - Pass", 9, 40, 220, 20, 1000, 3000 )
+            MhhvMh11TTPassPDFup   = TH2F("MhhvMh11TTPassPDFup", "1+1 mass of HH vs mass of AK8 jet H PDF up - Pass TT", 9, 40, 220, 20, 1000, 3000 )
+            MhhvMh11TTPassPDFdown = TH2F("MhhvMh11TTPassPDFdown",   "mass of HH vs mass of AK8 jet H PDF down - Pass TT", 9, 40, 220, 20, 1000, 3000 )
             MhhvMh11TTPassPDFup.Sumw2()
             MhhvMh11TTPassPDFdown.Sumw2()
 
-            MhhvMh11TTPassPUup   = TH2F("MhhvMh11TTPassPUup", "mass of HH vs mass of AK8 jet H PU up - Pass", 9, 40, 220, 20, 1000, 3000 )
-            MhhvMh11TTPassPUdown = TH2F("MhhvMh11TTPassPUdown",   "mass of HH vs mass of AK8 jet H PU down - Pass", 9, 40, 220, 20, 1000, 3000 )
+            MhhvMh11TTPassPUup   = TH2F("MhhvMh11TTPassPUup", "1+1 mass of HH vs mass of AK8 jet H PU up - Pass TT", 9, 40, 220, 20, 1000, 3000 )
+            MhhvMh11TTPassPUdown = TH2F("MhhvMh11TTPassPUdown",   "1+1 mass of HH vs mass of AK8 jet H PU down - Pass TT", 9, 40, 220, 20, 1000, 3000 )
             MhhvMh11TTPassPUup.Sumw2()
             MhhvMh11TTPassPUdown.Sumw2()
 
-            MhhvMh11TTPassBtagup   = TH2F("MhhvMh11TTPassBtagup", "mass of HH vs mass of AK8 jet H Btag up - Pass", 9, 40, 220, 20, 1000, 3000 )
-            MhhvMh11TTPassBtagdown = TH2F("MhhvMh11TTPassBtagdown",   "mass of HH vs mass of AK8 jet H Btag down - Pass", 9, 40, 220, 20, 1000, 3000 )
-            MhhvMh11TTPassBtagup.Sumw2()
-            MhhvMh11TTPassBtagdown.Sumw2()
+            # MhhvMh11TTPassBtagup   = TH2F("MhhvMh11TTPassBtagup", "1+1 mass of HH vs mass of AK8 jet H Btag up - Pass TT", 9, 40, 220, 20, 1000, 3000 )
+            # MhhvMh11TTPassBtagdown = TH2F("MhhvMh11TTPassBtagdown",   "1+1 mass of HH vs mass of AK8 jet H Btag down - Pass TT", 9, 40, 220, 20, 1000, 3000 )
+            # MhhvMh11TTPassBtagup.Sumw2()
+            # MhhvMh11TTPassBtagdown.Sumw2()
 
-            MhhvMh11TTPassTrigup   = TH2F("MhhvMh11TTPassTrigup", "mass of HH vs mass of AK8 jet H trig up - Pass", 9, 40, 220, 20, 1000, 3000 )
-            MhhvMh11TTPassTrigdown = TH2F("MhhvMh11TTPassTrigdown",   "mass of HH vs mass of AK8 jet H trig down - Pass", 9, 40, 220, 20, 1000, 3000 )
-            MhhvMh11TTPassTrigup.Sumw2()
-            MhhvMh11TTPassTrigdown.Sumw2()
+            # MhhvMh11TTPassTrigup   = TH2F("MhhvMh11TTPassTrigup", "1+1 mass of HH vs mass of AK8 jet H trig up - Pass TT", 9, 40, 220, 20, 1000, 3000 )
+            # MhhvMh11TTPassTrigdown = TH2F("MhhvMh11TTPassTrigdown",   "1+1 mass of HH vs mass of AK8 jet H trig down - Pass TT", 9, 40, 220, 20, 1000, 3000 )
+            # MhhvMh11TTPassTrigup.Sumw2()
+            # MhhvMh11TTPassTrigdown.Sumw2()
 
             # Fail - 1+1 TT
-            MhhvMh11TTFailPDFup   = TH2F("MhhvMh11TTFailPDFup", "mass of HH vs mass of AK8 jet H PDF up - Fail", 9, 40, 220, 20, 1000, 3000 )
-            MhhvMh11TTFailPDFdown = TH2F("MhhvMh11TTFailPDFdown",   "mass of HH vs mass of AK8 jet H PDF up - Fail", 9, 40, 220, 20, 1000, 3000 )
+            MhhvMh11TTFailPDFup   = TH2F("MhhvMh11TTFailPDFup", "1+1 mass of HH vs mass of AK8 jet H PDF up - Fail TT", 9, 40, 220, 20, 1000, 3000 )
+            MhhvMh11TTFailPDFdown = TH2F("MhhvMh11TTFailPDFdown",   "1+1 mass of HH vs mass of AK8 jet H PDF up - Fail TT", 9, 40, 220, 20, 1000, 3000 )
             MhhvMh11TTFailPDFup.Sumw2()
             MhhvMh11TTFailPDFdown.Sumw2()
 
-            MhhvMh11TTFailPUup   = TH2F("MhhvMh11TTFailPUup", "mass of HH vs mass of AK8 jet H PU up - Fail", 9, 40, 220, 20, 1000, 3000 )
-            MhhvMh11TTFailPUdown = TH2F("MhhvMh11TTFailPUdown",   "mass of HH vs mass of AK8 jet H PU up - Fail", 9, 40, 220, 20, 1000, 3000 )
+            MhhvMh11TTFailPUup   = TH2F("MhhvMh11TTFailPUup", "1+1 mass of HH vs mass of AK8 jet H PU up - Fail TT", 9, 40, 220, 20, 1000, 3000 )
+            MhhvMh11TTFailPUdown = TH2F("MhhvMh11TTFailPUdown",   "1+1 mass of HH vs mass of AK8 jet H PU up - Fail TT", 9, 40, 220, 20, 1000, 3000 )
             MhhvMh11TTFailPUup.Sumw2()
             MhhvMh11TTFailPUdown.Sumw2()
 
-            MhhvMh11TTFailBtagup   = TH2F("MhhvMh11TTFailBtagup", "mass of HH vs mass of AK8 jet H Btag up - Fail", 9, 40, 220, 20, 1000, 3000 )
-            MhhvMh11TTFailBtagdown = TH2F("MhhvMh11TTFailBtagdown",   "mass of HH vs mass of AK8 jet H Btag up - Fail", 9, 40, 220, 20, 1000, 3000 )
-            MhhvMh11TTFailBtagup.Sumw2()
-            MhhvMh11TTFailBtagdown.Sumw2()
+            # MhhvMh11TTFailBtagup   = TH2F("MhhvMh11TTFailBtagup", "1+1 mass of HH vs mass of AK8 jet H Btag up - Fail TT", 9, 40, 220, 20, 1000, 3000 )
+            # MhhvMh11TTFailBtagdown = TH2F("MhhvMh11TTFailBtagdown",   "1+1 mass of HH vs mass of AK8 jet H Btag up - Fail TT", 9, 40, 220, 20, 1000, 3000 )
+            # MhhvMh11TTFailBtagup.Sumw2()
+            # MhhvMh11TTFailBtagdown.Sumw2()
 
-            MhhvMh11TTFailTrigup   = TH2F("MhhvMh11TTFailTrigup", "mass of HH vs mass of AK8 jet H trig up - Fail", 9, 40, 220, 20, 1000, 3000 )
-            MhhvMh11TTFailTrigdown = TH2F("MhhvMh11TTFailTrigdown",   "mass of HH vs mass of AK8 jet H trig up - Fail", 9, 40, 220, 20, 1000, 3000 )
-            MhhvMh11TTFailTrigup.Sumw2()
-            MhhvMh11TTFailTrigdown.Sumw2()
+            # MhhvMh11TTFailTrigup   = TH2F("MhhvMh11TTFailTrigup", "1+1 mass of HH vs mass of AK8 jet H trig up - Fail TT", 9, 40, 220, 20, 1000, 3000 )
+            # MhhvMh11TTFailTrigdown = TH2F("MhhvMh11TTFailTrigdown",   "1+1 mass of HH vs mass of AK8 jet H trig up - Fail TT", 9, 40, 220, 20, 1000, 3000 )
+            # MhhvMh11TTFailTrigup.Sumw2()
+            # MhhvMh11TTFailTrigdown.Sumw2()
 
             # Pass - 1+1 LL 
-            MhhvMh11LLPassPDFup   = TH2F("MhhvMh11LLPassPDFup", "mass of HH vs mass of AK8 jet H PDF up - Pass", 9, 40, 220, 20, 1000, 3000 )
-            MhhvMh11LLPassPDFdown = TH2F("MhhvMh11LLPassPDFdown",   "mass of HH vs mass of AK8 jet H PDF down - Pass", 9, 40, 220, 20, 1000, 3000 )
+            MhhvMh11LLPassPDFup   = TH2F("MhhvMh11LLPassPDFup", "1+1 mass of HH vs mass of AK8 jet H PDF up - Pass LL", 9, 40, 220, 20, 1000, 3000 )
+            MhhvMh11LLPassPDFdown = TH2F("MhhvMh11LLPassPDFdown",   "1+1 mass of HH vs mass of AK8 jet H PDF down - Pass LL", 9, 40, 220, 20, 1000, 3000 )
             MhhvMh11LLPassPDFup.Sumw2()
             MhhvMh11LLPassPDFdown.Sumw2()
 
-            MhhvMh11LLPassPUup   = TH2F("MhhvMh11LLPassPUup", "mass of HH vs mass of AK8 jet H PU up - Pass", 9, 40, 220, 20, 1000, 3000 )
-            MhhvMh11LLPassPUdown = TH2F("MhhvMh11LLPassPUdown",   "mass of HH vs mass of AK8 jet H PU down - Pass", 9, 40, 220, 20, 1000, 3000 )
+            MhhvMh11LLPassPUup   = TH2F("MhhvMh11LLPassPUup", "1+1 mass of HH vs mass of AK8 jet H PU up - Pass LL", 9, 40, 220, 20, 1000, 3000 )
+            MhhvMh11LLPassPUdown = TH2F("MhhvMh11LLPassPUdown",   "1+1 mass of HH vs mass of AK8 jet H PU down - Pass LL", 9, 40, 220, 20, 1000, 3000 )
             MhhvMh11LLPassPUup.Sumw2()
             MhhvMh11LLPassPUdown.Sumw2()
 
-            MhhvMh11LLPassBtagup   = TH2F("MhhvMh11LLPassBtagup", "mass of HH vs mass of AK8 jet H Btag up - Pass", 9, 40, 220, 20, 1000, 3000 )
-            MhhvMh11LLPassBtagdown = TH2F("MhhvMh11LLPassBtagdown",   "mass of HH vs mass of AK8 jet H Btag down - Pass", 9, 40, 220, 20, 1000, 3000 )
-            MhhvMh11LLPassBtagup.Sumw2()
-            MhhvMh11LLPassBtagdown.Sumw2()
+            # MhhvMh11LLPassBtagup   = TH2F("MhhvMh11LLPassBtagup", "1+1 mass of HH vs mass of AK8 jet H Btag up - Pass LL", 9, 40, 220, 20, 1000, 3000 )
+            # MhhvMh11LLPassBtagdown = TH2F("MhhvMh11LLPassBtagdown",   "1+1 mass of HH vs mass of AK8 jet H Btag down - Pass LL", 9, 40, 220, 20, 1000, 3000 )
+            # MhhvMh11LLPassBtagup.Sumw2()
+            # MhhvMh11LLPassBtagdown.Sumw2()
 
-            MhhvMh11LLPassTrigup   = TH2F("MhhvMh11LLPassTrigup", "mass of HH vs mass of AK8 jet H trig up - Pass", 9, 40, 220, 20, 1000, 3000 )
-            MhhvMh11LLPassTrigdown = TH2F("MhhvMh11LLPassTrigdown",   "mass of HH vs mass of AK8 jet H trig down - Pass", 9, 40, 220, 20, 1000, 3000 )
-            MhhvMh11LLPassTrigup.Sumw2()
-            MhhvMh11LLPassTrigdown.Sumw2()
+            # MhhvMh11LLPassTrigup   = TH2F("MhhvMh11LLPassTrigup", "1+1 mass of HH vs mass of AK8 jet H trig up - Pass LL", 9, 40, 220, 20, 1000, 3000 )
+            # MhhvMh11LLPassTrigdown = TH2F("MhhvMh11LLPassTrigdown",   "1+1 mass of HH vs mass of AK8 jet H trig down - Pass LL", 9, 40, 220, 20, 1000, 3000 )
+            # MhhvMh11LLPassTrigup.Sumw2()
+            # MhhvMh11LLPassTrigdown.Sumw2()
 
             # Fail - 1+1 LL 
-            MhhvMh11LLFailPDFup   = TH2F("MhhvMh11LLFailPDFup", "mass of HH vs mass of AK8 jet H PDF up - Fail", 9, 40, 220, 20, 1000, 3000 )
-            MhhvMh11LLFailPDFdown = TH2F("MhhvMh11LLFailPDFdown",   "mass of HH vs mass of AK8 jet H PDF up - Fail", 9, 40, 220, 20, 1000, 3000 )
+            MhhvMh11LLFailPDFup   = TH2F("MhhvMh11LLFailPDFup", "1+1 mass of HH vs mass of AK8 jet H PDF up - Fail LL", 9, 40, 220, 20, 1000, 3000 )
+            MhhvMh11LLFailPDFdown = TH2F("MhhvMh11LLFailPDFdown",   "1+1 mass of HH vs mass of AK8 jet H PDF up - Fail LL", 9, 40, 220, 20, 1000, 3000 )
             MhhvMh11LLFailPDFup.Sumw2()
             MhhvMh11LLFailPDFdown.Sumw2()
 
-            MhhvMh11LLFailPUup   = TH2F("MhhvMh11LLFailPUup", "mass of HH vs mass of AK8 jet H PU up - Fail", 9, 40, 220, 20, 1000, 3000 )
-            MhhvMh11LLFailPUdown = TH2F("MhhvMh11LLFailPUdown",   "mass of HH vs mass of AK8 jet H PU up - Fail", 9, 40, 220, 20, 1000, 3000 )
+            MhhvMh11LLFailPUup   = TH2F("MhhvMh11LLFailPUup", "1+1 mass of HH vs mass of AK8 jet H PU up - Fail LL", 9, 40, 220, 20, 1000, 3000 )
+            MhhvMh11LLFailPUdown = TH2F("MhhvMh11LLFailPUdown",   "1+1 mass of HH vs mass of AK8 jet H PU up - Fail LL", 9, 40, 220, 20, 1000, 3000 )
             MhhvMh11LLFailPUup.Sumw2()
             MhhvMh11LLFailPUdown.Sumw2()
 
-            MhhvMh11LLFailBtagup   = TH2F("MhhvMh11LLFailBtagup", "mass of HH vs mass of AK8 jet H Btag up - Fail", 9, 40, 220, 20, 1000, 3000 )
-            MhhvMh11LLFailBtagdown = TH2F("MhhvMh11LLFailBtagdown",   "mass of HH vs mass of AK8 jet H Btag up - Fail", 9, 40, 220, 20, 1000, 3000 )
-            MhhvMh11LLFailBtagup.Sumw2()
-            MhhvMh11LLFailBtagdown.Sumw2()
+            # MhhvMh11LLFailBtagup   = TH2F("MhhvMh11LLFailBtagup", "1+1 mass of HH vs mass of AK8 jet H Btag up - Fail LL", 9, 40, 220, 20, 1000, 3000 )
+            # MhhvMh11LLFailBtagdown = TH2F("MhhvMh11LLFailBtagdown",   "1+1 mass of HH vs mass of AK8 jet H Btag up - Fail LL", 9, 40, 220, 20, 1000, 3000 )
+            # MhhvMh11LLFailBtagup.Sumw2()
+            # MhhvMh11LLFailBtagdown.Sumw2()
 
-            MhhvMh11LLFailTrigup   = TH2F("MhhvMh11LLFailTrigup", "mass of HH vs mass of AK8 jet H trig up - Fail", 9, 40, 220, 20, 1000, 3000 )
-            MhhvMh11LLFailTrigdown = TH2F("MhhvMh11LLFailTrigdown",   "mass of HH vs mass of AK8 jet H trig up - Fail", 9, 40, 220, 20, 1000, 3000 )
-            MhhvMh11LLFailTrigup.Sumw2()
-            MhhvMh11LLFailTrigdown.Sumw2()
+            # MhhvMh11LLFailTrigup   = TH2F("MhhvMh11LLFailTrigup", "1+1 mass of HH vs mass of AK8 jet H trig up - Fail LL", 9, 40, 220, 20, 1000, 3000 )
+            # MhhvMh11LLFailTrigdown = TH2F("MhhvMh11LLFailTrigdown",   "1+1 mass of HH vs mass of AK8 jet H trig up - Fail LL", 9, 40, 220, 20, 1000, 3000 )
+            # MhhvMh11LLFailTrigup.Sumw2()
+            # MhhvMh11LLFailTrigdown.Sumw2()
 
 
     print("Histograms booked")
@@ -407,9 +430,7 @@ if __name__ == "__main__":
     start = time.time()
     last_event_time = start
     event_time_sum = 0
-    for entry in range(lowBinEdge,highBinEdge):
-        hh21_cutflow.Fill(1)
-        hh11_cutflow.Fill(1)
+    for entry in range(lowBinEdge,highBinEdge):        
         count   =   count + 1
         #if count > 1:
         #    current_event_time = time.time()
@@ -470,15 +491,13 @@ if __name__ == "__main__":
         HHsel21 = {}
 
         # Now jetID which (in binary #s) is stored with bit1 as loose, bit2 as tight, and filters (after grabbing jet collections)
-        if (ak8JetsColl[0].jetId & 1 == 0) or (ak8JetsColl[0].jetId & 2 == 0):
+        if len(ak8JetsColl) >= 1 and ((ak8JetsColl[0].jetId & 1 == 1) or (ak8JetsColl[0].jetId & 2 == 2)):   
             HHsel21['jetIds'] = True
-            if ((ak8JetsColl[1].jetId & 1 == 0) or (ak8JetsColl[1].jetId & 2 == 0)):    
+            if len(ak8JetsColl) >= 2 and ((ak8JetsColl[1].jetId & 1 == 1) or (ak8JetsColl[1].jetId & 2 == 2)):    
                 HHsel11['jetIds'] = True
             else:
                 HHsel11['jetIds'] = False
         else:
-            # HHsel11['jetIds'] = False
-            # HHsel21['jetIds'] = False
             continue
 
         # check if we have enough jets
@@ -494,120 +513,203 @@ if __name__ == "__main__":
             continue
 
         # Start 1+1 stuff
-        HHsel11['eta'] = (Cuts['eta'][0]<abs(ak8JetsColl[0].eta)<Cuts['eta'][1]) and (Cuts['eta'][0]<abs(ak8JetsColl[1].eta)<Cuts['eta'][1])
-        HHsel11['dEta'] = Cuts['dEtaAK8'][0] < abs(ak8JetsColl[0].eta - ak8JetsColl[1].eta) < Cuts['dEtaAK8'][1]
-        HHsel11['pt'] = Cuts['hpt'][0] < ak8JetsColl[0].pt < Cuts['hpt'][1] and Cuts['hpt'][0] < ak8JetsColl[1].pt < Cuts['hpt'][1]
-        HHsel11['hmass'] = Cuts['hmass'][0] < ak8JetsColl[1].msoftdrop < Cuts['hmass'][1]
+        HHsel11['eta'] =    (Cuts['eta'][0]<abs(ak8JetsColl[0].eta)<Cuts['eta'][1]) and (Cuts['eta'][0]<abs(ak8JetsColl[1].eta)<Cuts['eta'][1])
+        HHsel11['dEta'] =   Cuts['dEtaAK8'][0] < abs(ak8JetsColl[0].eta - ak8JetsColl[1].eta) < Cuts['dEtaAK8'][1]
+        HHsel11['pt'] =     Cuts['hpt'][0] < ak8JetsColl[0].pt < Cuts['hpt'][1] and Cuts['hpt'][0] < ak8JetsColl[1].pt < Cuts['hpt'][1]
+        HHsel11['hmass'] =  Cuts['hmass'][0] < ak8JetsColl[1].msoftdrop < Cuts['hmass'][1]
         if ak8JetsColl[0].tau1 > 0 and ak8JetsColl[1].tau1 > 0:
             HHsel11['tau21'] = (Cuts['tau21'][0] < ak8JetsColl[0].tau2/ak8JetsColl[0].tau1 < Cuts['tau21'][1]) and (Cuts['tau21'][0] < ak8JetsColl[1].tau2/ak8JetsColl[1].tau1 < Cuts['tau21'][1])            
         else:
             continue
-        p4_jet0, p4_jet1 = ROOT.TLorentzVector(), ROOT.TLorentzVector()
-        p4_jet0.SetPtEtaPhiM(ak8JetsColl[0].pt, ak8JetsColl[0].eta, ak8JetsColl[0].phi, ak8JetsColl[0].msoftdrop)
-        p4_jet1.SetPtEtaPhiM(ak8JetsColl[1].pt, ak8JetsColl[1].eta, ak8JetsColl[1].phi, ak8JetsColl[1].msoftdrop)
-        mjj = (p4_jet0 + p4_jet1).M()
-        mjjred = mjj - p4_jet0.M() - p4_jet1.M() + 250
-        isAK8Mjj = mjjred > 750. 
-        HHsel11['reduced_hhmass'] = Cuts['mreduced'][0] < mjjred < Cuts['mreduced'][1]
+        h_jet0, h_jet1 = ROOT.TLorentzVector(), ROOT.TLorentzVector()
+        h_jet0.SetPtEtaPhiM(ak8JetsColl[0].pt, ak8JetsColl[0].eta, ak8JetsColl[0].phi, ak8JetsColl[0].msoftdrop)
+        h_jet1.SetPtEtaPhiM(ak8JetsColl[1].pt, ak8JetsColl[1].eta, ak8JetsColl[1].phi, ak8JetsColl[1].msoftdrop)
+        mhh11 = (h_jet0 + h_jet1).M()
+        mhhred11 = mhh11 - h_jet0.M() - h_jet1.M() + 250
+        HHsel11['reduced_hhmass'] = Cuts['mreduced'][0] < mhhred11 < Cuts['mreduced'][1]
 
-        HHsel11['SRTT'] = (Cuts['doublebtagTight'][0] < ak8JetsColl[0].btagHbb < Cuts['doublebtagTight'][1]) and (Cuts['doublebtagTight'][0] < ak8JetsColl[1].btagHbb < Cuts['doublebtagTight'][1])
-        HHsel11['SRLL'] = (Cuts['doublebtagLoose'][0] < ak8JetsColl[0].btagHbb < Cuts['doublebtagLoose'][1]) and (Cuts['doublebtagLoose'][0] < ak8JetsColl[1].btagHbb < Cuts['doublebtagLoose'][1]) and not HHsel11['SRTT']
-        HHsel11['ATTT'] = (0.0 < ak8JetsColl[0].btagHbb < Cuts['doublebtagLoose'][0]) and (Cuts['doublebtagTight'][0] < ak8JetsColl[1].btagHbb < Cuts['doublebtagTight'][1])
-        HHsel11['ATLL'] = (0.0 < ak8JetsColl[0].btagHbb < Cuts['doublebtagLoose'][0]) and (Cuts['doublebtagLoose'][0] < ak8JetsColl[1].btagHbb < Cuts['doublebtagTight'][0])
+        HHsel11['DoubleB_lead_tight'] = (Cuts['doublebtagTight'][0] < getattr(ak8JetsColl[0],doubleB_name) < Cuts['doublebtagTight'][1])
+        HHsel11['DoubleB_lead_loose'] = (Cuts['doublebtagLoose'][0] < getattr(ak8JetsColl[0],doubleB_name) < Cuts['doublebtagLoose'][1])
+        HHsel11['DoubleB_sublead_tight'] = (Cuts['doublebtagTight'][0] < getattr(ak8JetsColl[1],doubleB_name) < Cuts['doublebtagTight'][1])
+        HHsel11['DoubleB_sublead_loose'] = (Cuts['doublebtagLoose'][0] < getattr(ak8JetsColl[1],doubleB_name) < Cuts['doublebtagLoose'][1])
 
-        # Separate into hemispheres the leading and subleading jets
-        candidateAK4s = Hemispherize(ak8JetsColl,ak4JetsColl)
+        HHsel11['SRTT'] = HHsel11['DoubleB_lead_tight'] and HHsel11['DoubleB_sublead_tight']
+        HHsel11['SRLL'] = HHsel11['DoubleB_lead_loose'] and HHsel11['DoubleB_sublead_loose'] and not HHsel11['SRTT']
+        HHsel11['ATTT'] = (not HHsel11['DoubleB_lead_loose']) and HHsel11['DoubleB_sublead_tight']
+        HHsel11['ATLL'] = (not HHsel11['DoubleB_lead_loose']) and HHsel11['DoubleB_sublead_loose'] and not HHsel11['DoubleB_sublead_tight']
 
-        # If Hemispherize failed
-        if not candidateAK4s:
-            continue
+        preselection_11 = HHsel11['nFatJet'] and HHsel11['eta'] and HHsel11['pt'] and HHsel11['hmass'] and HHsel11['dEta'] and HHsel11['tau21']
+        if not isData:
+            if HHsel11['nFatJet']:
+                hh11_cutflow.Fill(1)
+                if HHsel11['eta']:
+                    hh11_cutflow.Fill(2)
+                    if HHsel11['pt']:
+                        hh11_cutflow.Fill(3)
+                        if HHsel11['hmass']:
+                            hh11_cutflow.Fill(4)
+                            # if HHsel11['reduced_hhmass']:
+                                # hh11_cutflow.Fill(5)
+                            if HHsel11['dEta']:
+                                hh11_cutflow.Fill(5)
+                                if HHsel11['tau21']:
+                                    hh11_cutflow.Fill(6)
+                                    if HHsel11['SRLL']:
+                                        hh11_cutflow.Fill(7)
+                                        if HHsel11['SRTT']:
+                                            hh11_cutflow.Fill(8)
 
-        # Start 2+1 stuff
-        HHsel21['eta'] = (Cuts['eta'][0]<abs(ak8JetsColl[0].eta)<Cuts['eta'][1])
+        ###############################
+        # Weighting and Uncertainties #
+        ###############################
 
-        leadingFatJet = ak8JetsColl[0]
-        leadingJet = ak4JetsColl[candidateAK4s[0]]
-        subleadingJet = ak4JetsColl[candidateAK4s[1]]
+        # Initialize event weight
+        weights = { 'PDF':{},
+                    'Pileup':{},
+                    'Trigger':{},
+                    'btagSF':{}
+                    }
 
-        eta_cut = (Cuts['eta'][0]<abs(leadingJet.eta)<Cuts['eta'][1]) and (Cuts['eta'][0]<abs(subleadingJet.eta)<Cuts['eta'][1])
-        #print("start eta cut")
-        if eta_cut:
-            hh21_cutflow.Fill(2)
-            hh11_cutflow.Fill(2)
-            # Make the lorentz vectors
-            hjet = TLorentzVector()
-            hjet.SetPtEtaPhiM(leadingFatJet.pt,leadingFatJet.eta,leadingFatJet.phi,leadingFatJet.msoftdrop)
+        
+        if not isData:
+            # PDF weight
+            weights['PDF']['up'] = PDF_Lookup(inTree.readBranch('LHEPdfWeight'),'up')
+            weights['PDF']['down'] = PDF_Lookup(inTree.readBranch('LHEPdfWeight'),'down')
 
-            bjet1 = TLorentzVector()
-            bjet2 = TLorentzVector()
-            bjet1.SetPtEtaPhiM(leadingJet.pt,leadingJet.eta,leadingJet.phi,leadingJet.mass)
-            bjet2.SetPtEtaPhiM(subleadingJet.pt,subleadingJet.eta,subleadingJet.phi,subleadingJet.mass)
+            # Pileup reweighting applied
+            weights['Pileup']['nom'] = PU_Lookup(inTree.readBranch('Pileup_nPU'),PilePlots['nom'])
+            weights['Pileup']['up'] = PU_Lookup(inTree.readBranch('Pileup_nPU'),PilePlots['up'])
+            weights['Pileup']['down'] = PU_Lookup(inTree.readBranch('Pileup_nPU'),PilePlots['down'])
 
-            ht = hjet.Perp() + bjet1.Perp() + bjet2.Perp()
-            Mhh = (hjet+bjet1+bjet2).M()
-            Mbb = (bjet1+bjet2).M()
-            deltaEta = abs(hjet.Eta() - (bjet1+bjet2).Eta())
-            mreduced = Mhh - (hjet.M() - 125.) - (Mbb - 125)
+            # weights['Trigger']['nom'] = 1#Trigger_Lookup( ht , TrigPlot1 )[0]
+            # weights['Trigger']['up'] = 1#Trigger_Lookup( ht , TrigPlot1 )[1]
+            # weights['Trigger']['down'] = 1#Trigger_Lookup( ht , TrigPlot1 )[2]
+
+        #########################################
+        # Check if 1+1 initial selection passes #
+        #########################################
+        if preselection_11:
+            run_21 = False
+            hh11_doubleB.Fill(getattr(ak8JetsColl[0],doubleB_name))
+            hh11_doubleB.Fill(getattr(ak8JetsColl[1],doubleB_name))
+
+            if HHsel11['SRTT']:
+                #1+1 TT Pass
+                MhhvMh11TTPass.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'nominal'))
+                if runOthers and 'data' not in options.set:
+                    MhhvMh11TTPassPDFup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'PDF_up'))
+                    MhhvMh11TTPassPDFdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'PDF_down'))
+
+                    MhhvMh11TTPassPUup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Pileup_up'))
+                    MhhvMh11TTPassPUdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Pileup_down'))
+
+                    # MhhvMh11TTPassTrigup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Trigger_up'))
+                    # MhhvMh11TTPassTrigdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Trigger_down'))
+
+                    # MhhvMh11TTPassBtagup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'btagSF_up'))
+                    # MhhvMh11TTPassBtagdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'btagSF_down'))
+
+            elif HHsel11['SRLL']:
+                #1+1 LL Pass
+                MhhvMh11LLPass.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'nominal'))
+                if runOthers and 'data' not in options.set:
+                    MhhvMh11LLPassPDFup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'PDF_up'))
+                    MhhvMh11LLPassPDFdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'PDF_down'))
+
+                    MhhvMh11LLPassPUup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Pileup_up'))
+                    MhhvMh11LLPassPUdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Pileup_down'))
+
+                    # MhhvMh11LLPassTrigup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Trigger_up'))
+                    # MhhvMh11LLPassTrigdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Trigger_down'))
+
+                    # MhhvMh11LLPassBtagup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'btagSF_up'))
+                    # MhhvMh11LLPassBtagdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'btagSF_down'))
             
-            # Make and get all cuts
-            hpt_cut = Cuts['hpt'][0]<hjet.Perp()<Cuts['hpt'][1]
-            bpt_cut = Cuts['bpt'][0]<bjet1.Perp()<Cuts['bpt'][1] and Cuts['bpt'][0]<bjet2.Perp()<Cuts['bpt'][1]
-            
-            bbmass_cut = Cuts['bbmass'][0]<Mbb<Cuts['bbmass'][1]
-            deepbtag_cut = Cuts['deepbtag'][0]<leadingJet.btagDeepB<Cuts['deepbtag'][1] and Cuts['deepbtag'][0]<subleadingJet.btagDeepB<Cuts['deepbtag'][1]
-            deltaEta_cut = Cuts['deltaEta'][0]<deltaEta<Cuts['deltaEta'][1]
-            mreduced_cut = Cuts['mreduced'][0]<mreduced<Cuts['mreduced'][1]
+            elif HHsel11['ATTT']:
+                #1+1 TT Fail
+                MhhvMh11TTFail.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'nominal'))
+                if runOthers and 'data' not in options.set:
+                    MhhvMh11TTFailPDFup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'PDF_up'))
+                    MhhvMh11TTFailPDFdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'PDF_down'))
 
-            preselection = hpt_cut and bpt_cut and bbmass_cut and deepbtag_cut and deltaEta_cut # and mreduced_cut 
+                    MhhvMh11TTFailPUup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Pileup_up'))
+                    MhhvMh11TTFailPUdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Pileup_down'))
 
-            if hpt_cut:
-                hh21_cutflow.Fill(3)
-                hh11_cutflow.Fill(3)
-                if bpt_cut:
-                    hh21_cutflow.Fill(4)
-                    hh11_cutflow.Fill(4)
-                    if bbmass_cut:
-                        hh21_cutflow.Fill(5)
-                        hh11_cutflow.Fill(5)
-                        if deepbtag_cut:
-                            hh21_cutflow.Fill(6)
-                            hh11_cutflow.Fill(6)
-                            if deltaEta_cut:
-                                hh21_cutflow.Fill(7)
-                                hh11_cutflow.Fill(7)
+                    # MhhvMh11TTFailTrigup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Trigger_up'))
+                    # MhhvMh11TTFailTrigdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Trigger_down'))
 
-            if preselection: 
-                doubleB_cut = Cuts['doublebtag'][0]<leadingFatJet.btagHbb<Cuts['doublebtag'][1]
-                hmass_cut = Cuts['hmass'][0]<hjet.M()<Cuts['hmass'][1]
+                    # MhhvMh11TTFailBtagup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'btagSF_up'))
+                    # MhhvMh11TTFailBtagdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'btagSF_down'))
 
+            elif HHsel11['ATLL']:
+                #1+1 LL Fail
+                MhhvMh11LLFail.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'nominal'))
+                if runOthers and 'data' not in options.set:
+                    MhhvMh11LLFailPDFup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'PDF_up'))
+                    MhhvMh11LLFailPDFdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'PDF_down'))
 
-                # Get GenParticles for use below
-                # if options.set != 'data':
-                #     GenParticles = Collection(event,'GenPart')
+                    MhhvMh11LLFailPUup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Pileup_up'))
+                    MhhvMh11LLFailPUdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Pileup_down'))
 
-                ###############################
-                # Weighting and Uncertainties #
-                ###############################
+                    # MhhvMh11LLFailTrigup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Trigger_up'))
+                    # MhhvMh11LLFailTrigdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Trigger_down'))
 
-                # Initialize event weight
-                weights = { 'PDF':{},
-                            'Pileup':{},
-                            'Trigger':{},
-                            'btagSF':{}
-                            }
+                    # MhhvMh11LLFailBtagup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'btagSF_up'))
+                    # MhhvMh11LLFailBtagdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'btagSF_down'))
 
-                
-                if 'data' not in options.set:
-                    # PDF weight
-                    weights['PDF']['up'] = PDF_Lookup(inTree.readBranch('LHEPdfWeight'),'up')
-                    weights['PDF']['down'] = PDF_Lookup(inTree.readBranch('LHEPdfWeight'),'down')
+            else:
+                run_21 = True
 
-                    # Pileup reweighting applied
-                    weights['Pileup']['nom'] = PU_Lookup(inTree.readBranch('Pileup_nPU'),PilePlots['nom'])
-                    weights['Pileup']['up'] = PU_Lookup(inTree.readBranch('Pileup_nPU'),PilePlots['up'])
-                    weights['Pileup']['down'] = PU_Lookup(inTree.readBranch('Pileup_nPU'),PilePlots['down'])
+        ##############################
+        # Else do the 2+1 checks now #
+        ##############################
+        if run_21:
+            candidateAK4s = Hemispherize(ak8JetsColl,ak4JetsColl)
+            if len(candidateAK4s) < 2 or len(ak8JetsColl) == 0:
+                continue
+            h_jet = TLorentzVector()
+            h_jet.SetPtEtaPhiM(ak8JetsColl[0].pt,ak8JetsColl[0].eta,ak8JetsColl[0].phi,ak8JetsColl[0].msoftdrop)
 
-                    # b tagging scale factor
+            b_jet0 = TLorentzVector()
+            b_jet1 = TLorentzVector()
+            b_jet0.SetPtEtaPhiM(candidateAK4s[0].pt,candidateAK4s[0].eta,candidateAK4s[0].phi,candidateAK4s[0].msoftdrop)
+            b_jet1.SetPtEtaPhiM(candidateAK4s[1].pt,candidateAK4s[1].eta,candidateAK4s[1].phi,candidateAK4s[1].msoftdrop)
+
+            mhh21 = (h_jet+b_jet0+b_jet1).M()
+            mbb = (b_jet0+b_jet1).M()
+            deltaEta = abs(h_jet.Eta() - (b_jet0+b_jet1).Eta())
+            mreduced = mhh21 - (h_jet.M() - 125.) - (mbb - 125)
+
+            HHsel21['eta'] = (Cuts['eta'][0]<abs(ak8JetsColl[0].eta)<Cuts['eta'][1]) and (Cuts['eta'][0]<abs(candidateAK4s[0].eta)<Cuts['eta'][1]) and (Cuts['eta'][0]<abs(candidateAK4s[1].eta)<Cuts['eta'][1])
+            HHsel21['hpt'] = Cuts['hpt'][0]<ak8JetsColl[0].pt<Cuts['hpt'][1]
+            HHsel21['bpt'] = Cuts['bpt'][0]<candidateAK4s[0].pt<Cuts['bpt'][1] and Cuts['bpt'][0]<candidateAK4s[1].pt<Cuts['bpt'][1]
+            HHsel21['mbb'] = Cuts['bbmass'][0]<mbb<Cuts['bbmass'][1]
+            HHsel21['DeepCSV'] = Cuts['deepbtag'][0]<candidateAK4s[0].btagDeepB<Cuts['deepbtag'][1] and Cuts['deepbtag'][0]<candidateAK4s[1].btagDeepB<Cuts['deepbtag'][1]
+            HHsel21['dEta'] = Cuts['deltaEta'][0]<deltaEta<Cuts['deltaEta'][1]
+            HHsel21['doubleB'] = Cuts['doublebtag'][0]<getattr(ak8JetsColl[0],doubleB_name)<Cuts['doublebtag'][1]
+            # HHsel21['reduced_hhmass'] = Cuts['mreduced'][0]<mreduced<Cuts['mreduced'][1]
+
+            preselection_21 = HHsel21['eta'] and HHsel21['hpt'] and HHsel21['bpt'] and HHsel21['mbb'] and HHsel21['DeepCSV'] and HHsel21['dEta']
+            if not isData:
+                hh21_cutflow.Fill(1)
+                if HHsel21['eta']:
+                    hh21_cutflow.Fill(2)
+                    if HHsel21['hpt']:
+                        hh21_cutflow.Fill(3)
+                        if HHsel21['bpt']:
+                            hh21_cutflow.Fill(4)
+                            if HHsel21['mbb']:
+                                hh21_cutflow.Fill(5)
+                                if HHsel21['DeepCSV']:
+                                    hh21_cutflow.Fill(6)
+                                    if HHsel21['dEta']:
+                                        hh21_cutflow.Fill(7)
+                                        if HHsel21['doubleB']:
+                                            hh21_cutflow.Fill(8)
+                                    
+            if preselection_21:
+                # b tagging scale factor
+                if not isData:
                     weights['btagSF']['nom'] = reader.eval_auto_bounds('central', 0, abs(bjet1.Eta()), bjet1.Perp())
                     weights['btagSF']['up'] = reader.eval_auto_bounds('up', 0,  abs(bjet1.Eta()), bjet1.Perp())
                     weights['btagSF']['down'] = reader.eval_auto_bounds('down', 0,  abs(bjet1.Eta()), bjet1.Perp())
@@ -616,121 +718,43 @@ if __name__ == "__main__":
                     weights['btagSF']['up'] *= reader.eval_auto_bounds('up', 0,  abs(bjet2.Eta()), bjet2.Perp())
                     weights['btagSF']['down'] *= reader.eval_auto_bounds('down', 0,  abs(bjet2.Eta()), bjet2.Perp())
 
-                    weights['Trigger']['nom'] = 1#Trigger_Lookup( ht , TrigPlot1 )[0]
-                    weights['Trigger']['up'] = 1#Trigger_Lookup( ht , TrigPlot1 )[1]
-                    weights['Trigger']['down'] = 1#Trigger_Lookup( ht , TrigPlot1 )[2]
- 
 
-                ####################################
-                # Split into top tag pass and fail #
-                ####################################
-                
-                ####################################
-                # Start with 1+1 TT and LL checks  #
-                ####################################
-                
-                if HHsel11['SRTT']:
-                    #1+1 TT Pass
-                    hh11_cutflow.Fill(9)
-                    MhhvMh11TTPass.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'nominal'))
-                    if runOthers and 'data' not in options.set:
-                        MhhvMh11TTPassPDFup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'PDF_up'))
-                        MhhvMh11TTPassPDFdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'PDF_down'))
-
-                        MhhvMh11TTPassPUup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Pileup_up'))
-                        MhhvMh11TTPassPUdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Pileup_down'))
-
-                        MhhvMh11TTPassTrigup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Trigger_up'))
-                        MhhvMh11TTPassTrigdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Trigger_down'))
-
-                        MhhvMh11TTPassBtagup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'btagSF_up'))
-                        MhhvMh11TTPassBtagdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'btagSF_down'))
-
-                elif HHsel11['SRLL']:
-                    #1+1 LL Pass
-                    hh11_cutflow.Fill(8)
-                    MhhvMh11LLPass.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'nominal'))
-                    if runOthers and 'data' not in options.set:
-                        MhhvMh11LLPassPDFup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'PDF_up'))
-                        MhhvMh11LLPassPDFdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'PDF_down'))
-
-                        MhhvMh11LLPassPUup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Pileup_up'))
-                        MhhvMh11LLPassPUdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Pileup_down'))
-
-                        MhhvMh11LLPassTrigup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Trigger_up'))
-                        MhhvMh11LLPassTrigdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Trigger_down'))
-
-                        MhhvMh11LLPassBtagup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'btagSF_up'))
-                        MhhvMh11LLPassBtagdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'btagSF_down'))
-                
-                elif HHsel11['ATTT']:
-                    #1+1 TT Fail
-                    MhhvMh11TTFail.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'nominal'))
-                    if runOthers and 'data' not in options.set:
-                        MhhvMh11TTFailPDFup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'PDF_up'))
-                        MhhvMh11TTFailPDFdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'PDF_down'))
-
-                        MhhvMh11TTFailPUup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Pileup_up'))
-                        MhhvMh11TTFailPUdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Pileup_down'))
-
-                        MhhvMh11TTFailTrigup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Trigger_up'))
-                        MhhvMh11TTFailTrigdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Trigger_down'))
-
-                        MhhvMh11TTFailBtagup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'btagSF_up'))
-                        MhhvMh11TTFailBtagdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'btagSF_down'))
-
-                elif HHsel11['ATLL']:
-                    #1+1 LL Fail
-                    MhhvMh11LLFail.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'nominal'))
-                    if runOthers and 'data' not in options.set:
-                        MhhvMh11LLFailPDFup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'PDF_up'))
-                        MhhvMh11LLFailPDFdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'PDF_down'))
-
-                        MhhvMh11LLFailPUup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Pileup_up'))
-                        MhhvMh11LLFailPUdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Pileup_down'))
-
-                        MhhvMh11LLFailTrigup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Trigger_up'))
-                        MhhvMh11LLFailTrigdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Trigger_down'))
-
-                        MhhvMh11LLFailBtagup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'btagSF_up'))
-                        MhhvMh11LLFailBtagdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'btagSF_down'))
-
-                ##############################
-                # if 1+1 fail, check for 2+1 #
-                ##############################
-                elif doubleB_cut:
-                    hh21_cutflow.Fill(8)
-                    MhhvMh21Pass.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'nominal'))
+                hh21_doubleB.Fill(getattr(ak8JetsColl[0],doubleB_name))
+                ##########################
+                # Fill 2+1 pass and fail #
+                ##########################
+                if HHsel21['doubleB']:
+                    MhhvMh21Pass.Fill(h_jet.M(),mhh21,norm_weight*Weightify(weights,'nominal'))
                     if runOthers and 'data' not in options.set:
                         #2+1 Pass
-                        MhhvMh21PassPDFup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'PDF_up'))
-                        MhhvMh21PassPDFdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'PDF_down'))
+                        MhhvMh21PassPDFup.Fill(h_jet.M(),mhh21,norm_weight*Weightify(weights,'PDF_up'))
+                        MhhvMh21PassPDFdown.Fill(h_jet.M(),mhh21,norm_weight*Weightify(weights,'PDF_down'))
 
-                        MhhvMh21PassPUup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Pileup_up'))
-                        MhhvMh21PassPUdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Pileup_down'))
+                        MhhvMh21PassPUup.Fill(h_jet.M(),mhh21,norm_weight*Weightify(weights,'Pileup_up'))
+                        MhhvMh21PassPUdown.Fill(h_jet.M(),mhh21,norm_weight*Weightify(weights,'Pileup_down'))
 
-                        MhhvMh21PassTrigup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Trigger_up'))
-                        MhhvMh21PassTrigdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Trigger_down'))
+                        # MhhvMh21PassTrigup.Fill(h_jet.M(),mhh21,norm_weight*Weightify(weights,'Trigger_up'))
+                        # MhhvMh21PassTrigdown.Fill(h_jet.M(),mhh21,norm_weight*Weightify(weights,'Trigger_down'))
 
-                        MhhvMh21PassBtagup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'btagSF_up'))
-                        MhhvMh21PassBtagdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'btagSF_down'))
+                        MhhvMh21PassBtagup.Fill(h_jet.M(),mhh21,norm_weight*Weightify(weights,'btagSF_up'))
+                        MhhvMh21PassBtagdown.Fill(h_jet.M(),mhh21,norm_weight*Weightify(weights,'btagSF_down'))
 
 
                 else:
-                    MhhvMh21Fail.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'nominal'))
+                    MhhvMh21Fail.Fill(h_jet.M(),mhh21,norm_weight*Weightify(weights,'nominal'))
                     if runOthers and 'data' not in options.set:
                         #2+1 Fail
-                        MhhvMh21FailPDFup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'PDF_up'))
-                        MhhvMh21FailPDFdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'PDF_down'))
+                        MhhvMh21FailPDFup.Fill(h_jet.M(),mhh21,norm_weight*Weightify(weights,'PDF_up'))
+                        MhhvMh21FailPDFdown.Fill(h_jet.M(),mhh21,norm_weight*Weightify(weights,'PDF_down'))
 
-                        MhhvMh21FailPUup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Pileup_up'))
-                        MhhvMh21FailPUdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Pileup_down'))
+                        MhhvMh21FailPUup.Fill(h_jet.M(),mhh21,norm_weight*Weightify(weights,'Pileup_up'))
+                        MhhvMh21FailPUdown.Fill(h_jet.M(),mhh21,norm_weight*Weightify(weights,'Pileup_down'))
 
-                        MhhvMh21FailTrigup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Trigger_up'))
-                        MhhvMh21FailTrigdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'Trigger_down'))
+                        # MhhvMh21FailTrigup.Fill(h_jet.M(),mhh21,norm_weight*Weightify(weights,'Trigger_up'))
+                        # MhhvMh21FailTrigdown.Fill(h_jet.M(),mhh21,norm_weight*Weightify(weights,'Trigger_down'))
 
-                        MhhvMh21FailBtagup.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'btagSF_up'))
-                        MhhvMh21FailBtagdown.Fill(hjet.M(),Mhh,norm_weight*Weightify(weights,'btagSF_down'))
+                        MhhvMh21FailBtagup.Fill(h_jet.M(),mhh21,norm_weight*Weightify(weights,'btagSF_up'))
+                        MhhvMh21FailBtagdown.Fill(h_jet.M(),mhh21,norm_weight*Weightify(weights,'btagSF_down'))
 
                             
     end = time.time()

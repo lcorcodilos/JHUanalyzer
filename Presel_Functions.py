@@ -217,7 +217,7 @@ def Hemispherize(fatjetCollection,jetCollection):
         else:
             candidatePairIdx = False
 
-        return candidatePairIdx
+        return [jetCollection[candidatePairIdx[0]],jetCollection[candidatePairIdx[1]]]
 
 def Weightify(wd,outname):
     final_w = 1.0

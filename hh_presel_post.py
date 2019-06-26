@@ -29,15 +29,17 @@ for f in candidate_files:
         proc = f.split('_')[1]
         #dak8_string = f.split('_')[3]
 
-        if len(f.split('_')) > 4:   # has mod
+        if len(f.split('_')) > 5:   # has mod
             mod_string = '_'+f.split('_')[3]+'_'+f.split('_')[4]
-            reg_string = f.split('_')[5].split('.')[0]
+            tag_string = '_'+f.split('_')[5]
+            reg_string = f.split('_')[6].split('.')[0]
         else:   # doesn't have mod
             mod_string = ''
-            reg_string = f.split('_')[3].split('.')[0]
+            tag_string = '_'+f.split('_')[3]
+            reg_string = f.split('_')[4].split('.')[0]
         
         
-        key_name = reg_string+'_'+proc+'_'+mod_string
+        key_name = proc+'_'+tag_string+'_'+reg_string+'_'+mod_string
         proc_dict[key_name] = {
                                 'haddname':f.replace('_'+f.split('_')[2],''),
                                 'files_to_add':f.replace('_job1of','_job*of')
