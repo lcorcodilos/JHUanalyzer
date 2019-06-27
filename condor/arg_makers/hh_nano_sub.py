@@ -12,13 +12,13 @@ for year in ['18']:
     #     qcd_dict = {'QCDHT700':18,'QCDHT1000':7,'QCDHT1500':6,'QCDHT2000':3,'QCDHT1000ext':15,'QCDHT1500ext':11,'QCDHT2000ext':7}
     # elif year == '17':
     #     qcd_dict = {'QCDHT700':39,'QCDHT1000':15,'QCDHT1500':10,'QCDHT2000':7}
-    # if year == '18':
-    #     qcd_dict = {'QCDHT700':273,'QCDHT1000':88,'QCDHT1500':67,'QCDHT2000':40}
-    # for qcd in qcd_dict.keys():
-    #     qcd_string = year_string.replace('TEMPSET',qcd).replace('NJOB',str(qcd_dict[qcd]))
-    #     for i in range(1,qcd_dict[qcd]+1):
-    #         qcd_job_string = qcd_string.replace('IJOB',str(i))
-    #         commands.append(qcd_job_string)
+    if year == '18':
+        qcd_dict = {'QCDHT700':273,'QCDHT1000':88,'QCDHT1500':67,'QCDHT2000':40}
+    for qcd in qcd_dict.keys():
+        qcd_string = year_string.replace('TEMPSET',qcd).replace('NJOB',str(qcd_dict[qcd]))
+        for i in range(1,qcd_dict[qcd]+1):
+            qcd_job_string = qcd_string.replace('IJOB',str(i))
+            commands.append(qcd_job_string)
 
     # TTbar
     # if year == '16':
