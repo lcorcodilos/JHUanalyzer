@@ -45,7 +45,7 @@ def optimizeCut(histToOptimize,signalToOptimize, year, doubleb_name):
         #     hists[f] = thish.ProjectionX(f+'_deltaY',cutbin,-1)
 
         # else:
-            hists[f] = files[f].Get(histToOptimize)
+            hists[f] = files[f].Get(histToOptimize+'_doubleB')
 
     # Optimize the user defined variable
     hists['TotalBkg'] = hists['QCD'].Clone('TotalBkg')
@@ -146,9 +146,9 @@ def optimizeCut(histToOptimize,signalToOptimize, year, doubleb_name):
     # 
 
     arrowLabel = TPaveLabel(
-        hists['SoverSqrtB'].GetBinCenter(hists['SoverSqrtB'].GetMaximumBin()),
+        hists['SoverSqrtB'].GetBinCenter(hists['SoverSqrtB'].GetMaximumBin()-2),
         hists['SoverSqrtB'].GetMaximum()*-0.8,
-        hists['SoverSqrtB'].GetBinCenter(hists['SoverSqrtB'].GetMaximumBin()+10),
+        hists['SoverSqrtB'].GetBinCenter(max(hists['SoverSqrtB'].GetMaximumBin()+2,hists['SoverSqrtB'].GetNbinsX())),
         hists['SoverSqrtB'].GetMaximum()*-0.3,
         "Max "+str(hists['SoverSqrtB'].GetBinCenter(hists['SoverSqrtB'].GetMaximumBin()))
         )
@@ -165,9 +165,18 @@ def optimizeCut(histToOptimize,signalToOptimize, year, doubleb_name):
     return hists['SoverSqrtB'].GetBinCenter(hists['SoverSqrtB'].GetMaximumBin())
 
 if __name__ == "__main__":
+    taggers = ['doubleB','dak8MDHbb','dak8MDZHbb']
+    signals = ['GravNar-1000','GravNar-1500','GravNar-2000','GravNar-2500','GravNar-3000']
     for y in ['18']:
-        for doubleb in ['doubleB','dak8MDHbb','dak8MDZHbb']:
-	    print(doubleb)
-            for s in ['GravNar-1000','GravNar-1500','GravNar-2000','GravNar-2500','GravNar-3000']:
-		print '1+1 %s %s %s %s' % (y,s,doubleb,optimizeCut('hh11_doubleB',s,y,doubleb))
-                print '2+1 %s %s %s %s' % (y,s,doubleb,optimizeCut('hh21_doubleB',s,y,doubleb))
+        for doubleb in taggers:
+            for h in ['hh11','hh21']:
+                summary_can = TCanvas(h+'_'+doubleb+'_can',h+'_'+doubleb+'_can',800,700)
+                summary_hist = TH1F(h+'_'+doubleb,h+'_'+doubleb,len(signals),0,len(signals)+1)
+                for i,s in enumerate(signals):
+                    opt_point = optimizeCut(h,s,y,doubleb)
+                    summary_hist.GetXaxis().SetBinLabel(i+1,s)
+                    summary_hist.SetBinContent(i+1,opt_point)
+                summary_can.cd()
+                summary_hist.Draw('pe text45')
+                summary_can.Print('optimization_studies/'+h+'_'+doubleb+'_summary.pdf','pdf')
+
