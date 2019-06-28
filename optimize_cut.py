@@ -61,8 +61,8 @@ def optimizeCut(histToOptimize,signalToOptimize, year, doubleb_name):
 
 
     # Now do cumulative
-    hists['TotalBkg_cumulative'] = hists['TotalBkg'].GetCumulative()
-    hists[signalToOptimize+'_cumulative'] = hists[signalToOptimize].GetCumulative()
+    hists['TotalBkg_cumulative'] = hists['TotalBkg'].GetCumulative(forward =False)
+    hists[signalToOptimize+'_cumulative'] = hists[signalToOptimize].GetCumulative(forward =False)
     hists['SoverSqrtB'] = hists[signalToOptimize+'_cumulative'].Clone('SoverSqrtB')
 
     for i in range(1,hists['SoverSqrtB'].GetNbinsX()+1):
