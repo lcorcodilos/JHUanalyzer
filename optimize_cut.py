@@ -26,7 +26,7 @@ def setPad(pad,top=False,bottom=False):
 def optimizeCut(histToOptimize,signalToOptimize, year, doubleb_name):
     sigyear = year
     if year == '18':
-        sigyear = '17'
+        sigyear = '18'
 
     files = {
         signalToOptimize: TFile.Open('rootfiles/HHpreselection'+sigyear+'_'+signalToOptimize+'_'+doubleb_name+'_default.root'),
@@ -160,13 +160,14 @@ def optimizeCut(histToOptimize,signalToOptimize, year, doubleb_name):
     arrowToMax.Draw()
     arrowLabel.Draw()
 
-    cCumulative.Print('optimization_studies/'+histToOptimize+'_'+signalToOptimize+'_'+year+'.pdf','pdf')
+    cCumulative.Print('optimization_studies/'+histToOptimize+'_'+signalToOptimize+'_'+doubleb_name+'_'+year+'.pdf','pdf')
 
     return hists['SoverSqrtB'].GetBinCenter(hists['SoverSqrtB'].GetMaximumBin())
 
 if __name__ == "__main__":
     for y in ['18']:
-        for doubleb in ['doubleB','dak8MDHbb','dak8MDZHbb','DeepDB']:
-            for s in ['GravNar_1000','GravNar_1500','GravNar_2000','GravNar_2500','GravNar_3000']:
-                print '1+1 %s %s %s' % (y,s,doubleB,optimizeCut('hh11_doubleB',s,y,doubleb))
-                print '2+1 %s %s %s' % (y,s,doubleB,optimizeCut('hh21_doubleB',s,y,doubleb))
+        for doubleb in ['doubleB','dak8MDHbb','dak8MDZHbb']:
+	    print(doubleb)
+            for s in ['GravNar-1000','GravNar-1500','GravNar-2000','GravNar-2500','GravNar-3000']:
+		print '1+1 %s %s %s %s' % (y,s,doubleb,optimizeCut('hh11_doubleB',s,y,doubleb))
+                print '2+1 %s %s %s %s' % (y,s,doubleb,optimizeCut('hh21_doubleB',s,y,doubleb))
