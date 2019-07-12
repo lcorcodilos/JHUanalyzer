@@ -13,7 +13,7 @@ for year in ['18']:
     # elif year == '17':
     #     qcd_dict = {'QCDHT700':39,'QCDHT1000':15,'QCDHT1500':10,'QCDHT2000':7}
     if year == '18':
-        qcd_dict = {}#'QCDHT700':48}#,'QCDHT1000':15,'QCDHT1500':11,'QCDHT2000':11}
+        qcd_dict = {'QCDHT700':48,'QCDHT1000':15,'QCDHT1500':11,'QCDHT2000':11}
     for qcd in qcd_dict.keys():
         qcd_string = year_string.replace('TEMPSET',qcd).replace('NJOB',str(qcd_dict[qcd]))
         for i in range(1,qcd_dict[qcd]+1):
