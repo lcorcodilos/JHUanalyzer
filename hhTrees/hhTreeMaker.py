@@ -165,4 +165,4 @@ if (split_end - split_start) == 1 and len(fnmatch.filter(os.listdir(output_dir),
     print "mv "+output_dir+'/*.root '+hadded_file
     subprocess.call(["mv "+output_dir+'/*.root '+hadded_file], shell=True)    
     
-subprocess.call(["xrdcp -f "+hadded_file+" root://cmseos.fnal.gov//store/user/lcorcodi/bstar_nano/"+hadded_file], shell=True)
+subprocess.call(["xrdcp -f "+hadded_file+" root://cmseos.fnal.gov//store/user/dbrehm/data18andTTbarSignalMC/"+hadded_file], shell=True)

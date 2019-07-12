@@ -17,7 +17,7 @@ for year in ['18']:
                     commands.append(qcd_job_string)
 
             # TTbar
-            ttbar_dict = {'ttbar': 16,'ttbar-semilep': 8}
+            ttbar_dict = {'ttbar': 16}#,'ttbar-semilep': 8}
             for ttbartype in ttbar_dict.keys():
                 ttbar_jobs = ttbar_dict[ttbartype]
                 ttbar_string = year_string.replace('TEMPSET',ttbartype).replace("NJOB",str(ttbar_jobs))
@@ -34,11 +34,11 @@ for year in ['18']:
             # Signal
             if year == '18':
                 siglist = [
-                    #'RadNar_1000',
-                    #'RadNar_1500',
-                    #'RadNar_2000',
-                    #'RadNar_2500',
-                    #'RadNar_3000',
+                    'RadNar-1000',
+                    'RadNar-1500',
+                    'RadNar-2000',
+                    'RadNar-2500',
+                    'RadNar-3000',
                     #'RadWid05_1000',
                     #'RadWid05_1500',
                     #'RadWid05_2000',
@@ -73,7 +73,7 @@ for year in ['18']:
                             commands.append(signal_string)
 
             # Data
-            data_dict = {'dataA':45,'dataB':20,'dataC':20,'dataD':100}
+            data_dict = {'dataA':45,'dataB':20,'dataC1':20,'dataC2':3,'dataD':100}
             for data in data_dict.keys():
                 data_string = year_string.replace('TEMPSET',data).replace('NJOB',str(data_dict[data]))
                 for i in range(1,data_dict[data]+1):

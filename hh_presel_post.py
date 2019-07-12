@@ -17,8 +17,8 @@ done_files = []
 # Just move files that don't need to be hadded
 for f in candidate_files:
     if 'job' not in f:
-        print 'Executing: mv '+f+' rootfiles/'
-        subprocess.call(['mv '+f+' rootfiles/'],shell=True)
+        print 'Executing: mv '+f+'rootfilesXSEC1pb/'
+        subprocess.call(['mv '+f+' rootfilesXSEC1pb/'],shell=True)
         done_files.append(f)
         
 # Get a dictionary with all processes that need to be hadded
@@ -48,9 +48,9 @@ for f in candidate_files:
 pp.pprint(proc_dict)
 
 for f in proc_dict.keys():
-    print 'Executing: rm rootfiles/'+proc_dict[f]['haddname']
-    subprocess.call(['rm rootfiles/'+proc_dict[f]['haddname']],shell=True)
-    print 'Executing: hadd rootfiles/'+proc_dict[f]['haddname']+' '+proc_dict[f]['files_to_add']
-    subprocess.call(['hadd rootfiles/'+proc_dict[f]['haddname']+' '+proc_dict[f]['files_to_add']], shell=True)
+    print 'Executing: rm rootfilesXSEC1pb/'+proc_dict[f]['haddname']
+    subprocess.call(['rm rootfilesXSEC1pb/'+proc_dict[f]['haddname']],shell=True)
+    print 'Executing: hadd rootfilesXSEC1pb/'+proc_dict[f]['haddname']+' '+proc_dict[f]['files_to_add']
+    subprocess.call(['hadd rootfilesXSEC1pb/'+proc_dict[f]['haddname']+' '+proc_dict[f]['files_to_add']], shell=True)
     print 'Executing: rm '+proc_dict[f]['files_to_add']
     subprocess.call(['rm '+proc_dict[f]['files_to_add']],shell=True)

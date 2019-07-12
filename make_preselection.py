@@ -507,166 +507,166 @@ if __name__ == "__main__":
         elif len(ak8JetsColl) == 1:
             HHsel11['nFatJet'] = False
             HHsel21['nFatJet'] = True
-        if len(ak8JetsColl) < 1:
+        elif len(ak8JetsColl) < 1:
             # HHsel11['nFatJet'] = False
             # HHsel21['nFatJet'] = False
             continue
 
-        run_21 = True
-
         # Start 1+1 stuff
-        if HHsel11['nFatJet']:
-            HHsel11['eta'] =    (Cuts['eta'][0]<abs(ak8JetsColl[0].eta)<Cuts['eta'][1]) and (Cuts['eta'][0]<abs(ak8JetsColl[1].eta)<Cuts['eta'][1])
-            HHsel11['dEta'] =   Cuts['dEtaAK8'][0] < abs(ak8JetsColl[0].eta - ak8JetsColl[1].eta) < Cuts['dEtaAK8'][1]
-            HHsel11['pt'] =     Cuts['hpt'][0] < ak8JetsColl[0].pt < Cuts['hpt'][1] and Cuts['hpt'][0] < ak8JetsColl[1].pt < Cuts['hpt'][1]
-            HHsel11['hmass'] =  Cuts['hmass'][0] < ak8JetsColl[1].msoftdrop < Cuts['hmass'][1]
-            if ak8JetsColl[0].tau1 > 0 and ak8JetsColl[1].tau1 > 0:
-                HHsel11['tau21'] = (Cuts['tau21'][0] < ak8JetsColl[0].tau2/ak8JetsColl[0].tau1 < Cuts['tau21'][1]) and (Cuts['tau21'][0] < ak8JetsColl[1].tau2/ak8JetsColl[1].tau1 < Cuts['tau21'][1])            
-            else:
-                continue
-            h_jet0, h_jet1 = ROOT.TLorentzVector(), ROOT.TLorentzVector()
-            h_jet0.SetPtEtaPhiM(ak8JetsColl[0].pt, ak8JetsColl[0].eta, ak8JetsColl[0].phi, ak8JetsColl[0].msoftdrop)
-            h_jet1.SetPtEtaPhiM(ak8JetsColl[1].pt, ak8JetsColl[1].eta, ak8JetsColl[1].phi, ak8JetsColl[1].msoftdrop)
-            mhh11 = (h_jet0 + h_jet1).M()
-            mhhred11 = mhh11 - h_jet0.M() - h_jet1.M() + 250
-            HHsel11['reduced_hhmass'] = Cuts['mreduced'][0] < mhhred11 < Cuts['mreduced'][1]
+        HHsel11['eta'] =    (Cuts['eta'][0]<abs(ak8JetsColl[0].eta)<Cuts['eta'][1]) and (Cuts['eta'][0]<abs(ak8JetsColl[1].eta)<Cuts['eta'][1])
+        HHsel11['dEta'] =   Cuts['dEtaAK8'][0] < abs(ak8JetsColl[0].eta - ak8JetsColl[1].eta) < Cuts['dEtaAK8'][1]
+        HHsel11['pt'] =     Cuts['hpt'][0] < ak8JetsColl[0].pt < Cuts['hpt'][1] and Cuts['hpt'][0] < ak8JetsColl[1].pt < Cuts['hpt'][1]
+        HHsel11['hmass'] =  Cuts['hmass'][0] < ak8JetsColl[1].msoftdrop < Cuts['hmass'][1]
+        if ak8JetsColl[0].tau1 > 0 and ak8JetsColl[1].tau1 > 0:
+            HHsel11['tau21'] = (Cuts['tau21'][0] < ak8JetsColl[0].tau2/ak8JetsColl[0].tau1 < Cuts['tau21'][1]) and (Cuts['tau21'][0] < ak8JetsColl[1].tau2/ak8JetsColl[1].tau1 < Cuts['tau21'][1])            
+        else:
+            continue
+        h_jet0, h_jet1 = ROOT.TLorentzVector(), ROOT.TLorentzVector()
+        h_jet0.SetPtEtaPhiM(ak8JetsColl[0].pt, ak8JetsColl[0].eta, ak8JetsColl[0].phi, ak8JetsColl[0].msoftdrop)
+        h_jet1.SetPtEtaPhiM(ak8JetsColl[1].pt, ak8JetsColl[1].eta, ak8JetsColl[1].phi, ak8JetsColl[1].msoftdrop)
+        mhh11 = (h_jet0 + h_jet1).M()
+        mhhred11 = mhh11 - h_jet0.M() - h_jet1.M() + 250
+        HHsel11['reduced_hhmass'] = Cuts['mreduced'][0] < mhhred11 < Cuts['mreduced'][1]
 
-            HHsel11['DoubleB_lead_tight'] = (Cuts['doublebtagTight'][0] < getattr(ak8JetsColl[0],doubleB_name) < Cuts['doublebtagTight'][1])
-            HHsel11['DoubleB_lead_loose'] = (Cuts['doublebtagLoose'][0] < getattr(ak8JetsColl[0],doubleB_name) < Cuts['doublebtagLoose'][1])
-            HHsel11['DoubleB_sublead_tight'] = (Cuts['doublebtagTight'][0] < getattr(ak8JetsColl[1],doubleB_name) < Cuts['doublebtagTight'][1])
-            HHsel11['DoubleB_sublead_loose'] = (Cuts['doublebtagLoose'][0] < getattr(ak8JetsColl[1],doubleB_name) < Cuts['doublebtagLoose'][1])
+        HHsel11['DoubleB_lead_tight'] = (Cuts['doublebtagTight'][0] < getattr(ak8JetsColl[0],doubleB_name) < Cuts['doublebtagTight'][1])
+        HHsel11['DoubleB_lead_loose'] = (Cuts['doublebtagLoose'][0] < getattr(ak8JetsColl[0],doubleB_name) < Cuts['doublebtagLoose'][1])
+        HHsel11['DoubleB_sublead_tight'] = (Cuts['doublebtagTight'][0] < getattr(ak8JetsColl[1],doubleB_name) < Cuts['doublebtagTight'][1])
+        HHsel11['DoubleB_sublead_loose'] = (Cuts['doublebtagLoose'][0] < getattr(ak8JetsColl[1],doubleB_name) < Cuts['doublebtagLoose'][1])
 
-            HHsel11['SRTT'] = HHsel11['DoubleB_lead_tight'] and HHsel11['DoubleB_sublead_tight']
-            HHsel11['SRLL'] = HHsel11['DoubleB_lead_loose'] and HHsel11['DoubleB_sublead_loose'] and not HHsel11['SRTT']
-            HHsel11['ATTT'] = (not HHsel11['DoubleB_lead_loose']) and HHsel11['DoubleB_sublead_tight']
-            HHsel11['ATLL'] = (not HHsel11['DoubleB_lead_loose']) and HHsel11['DoubleB_sublead_loose'] and not HHsel11['DoubleB_sublead_tight']
+        HHsel11['SRTT'] = HHsel11['DoubleB_lead_tight'] and HHsel11['DoubleB_sublead_tight']
+        HHsel11['SRLL'] = HHsel11['DoubleB_lead_loose'] and HHsel11['DoubleB_sublead_loose'] and not HHsel11['SRTT']
+        HHsel11['ATTT'] = (not HHsel11['DoubleB_lead_loose']) and HHsel11['DoubleB_sublead_tight']
+        HHsel11['ATLL'] = (not HHsel11['DoubleB_lead_loose']) and HHsel11['DoubleB_sublead_loose'] and not HHsel11['DoubleB_sublead_tight']
 
-            preselection_11 = HHsel11['nFatJet'] and HHsel11['eta'] and HHsel11['pt'] and HHsel11['hmass'] and HHsel11['dEta'] and HHsel11['tau21']
-            if not isData:
-                if HHsel11['nFatJet']:
-                    hh11_cutflow.Fill(1)
-                    if HHsel11['eta']:
-                        hh11_cutflow.Fill(2)
-                        if HHsel11['pt']:
-                            hh11_cutflow.Fill(3)
-                            if HHsel11['hmass']:
-                                hh11_cutflow.Fill(4)
-                                # if HHsel11['reduced_hhmass']:
-                                    # hh11_cutflow.Fill(5)
-                                if HHsel11['dEta']:
-                                    hh11_cutflow.Fill(5)
-                                    if HHsel11['tau21']:
-                                        hh11_cutflow.Fill(6)
-                                        if HHsel11['SRLL']:
-                                            hh11_cutflow.Fill(7)
-                                            if HHsel11['SRTT']:
-                                                hh11_cutflow.Fill(8)
+        preselection_11 = HHsel11['nFatJet'] and HHsel11['eta'] and HHsel11['pt'] and HHsel11['hmass'] and HHsel11['dEta'] and HHsel11['tau21']
+        if not isData:
+            if HHsel11['nFatJet']:
+                hh11_cutflow.Fill(1)
+                if HHsel11['eta']:
+                    hh11_cutflow.Fill(2)
+                    if HHsel11['pt']:
+                        hh11_cutflow.Fill(3)
+                        if HHsel11['hmass']:
+                            hh11_cutflow.Fill(4)
+                            # if HHsel11['reduced_hhmass']:
+                                # hh11_cutflow.Fill(5)
+                            if HHsel11['dEta']:
+                                hh11_cutflow.Fill(5)
+                                if HHsel11['tau21']:
+                                    hh11_cutflow.Fill(6)
+                                    if HHsel11['SRLL']:
+                                        hh11_cutflow.Fill(7)
+                                        if HHsel11['SRTT']:
+                                            hh11_cutflow.Fill(8)
 
-            ###############################
-            # Weighting and Uncertainties #
-            ###############################
+        ###############################
+        # Weighting and Uncertainties #
+        ###############################
 
-            # Initialize event weight
-            weights = { 'PDF':{},
-                        'Pileup':{},
-                        'Trigger':{},
-                        'btagSF':{}
-                        }
+        # Initialize event weight
+        weights = { 'PDF':{},
+                    'Pileup':{},
+                    'Trigger':{},
+                    'btagSF':{}
+                    }
 
+        
+        if not isData:
+            # PDF weight
+            weights['PDF']['up'] = PDF_Lookup(inTree.readBranch('LHEPdfWeight'),'up')
+            weights['PDF']['down'] = PDF_Lookup(inTree.readBranch('LHEPdfWeight'),'down')
+
+            # Pileup reweighting applied
+            weights['Pileup']['nom'] = PU_Lookup(inTree.readBranch('Pileup_nPU'),PilePlots['nom'])
+            weights['Pileup']['up'] = PU_Lookup(inTree.readBranch('Pileup_nPU'),PilePlots['up'])
+            weights['Pileup']['down'] = PU_Lookup(inTree.readBranch('Pileup_nPU'),PilePlots['down'])
+
+            # weights['Trigger']['nom'] = 1#Trigger_Lookup( ht , TrigPlot1 )[0]
+            # weights['Trigger']['up'] = 1#Trigger_Lookup( ht , TrigPlot1 )[1]
+            # weights['Trigger']['down'] = 1#Trigger_Lookup( ht , TrigPlot1 )[2]
+
+        #########################################
+        # Check if 1+1 initial selection passes #
+        #########################################
+        if preselection_11:
+            hh11_doubleB.Fill(getattr(ak8JetsColl[0],doubleB_name))
+            hh11_doubleB.Fill(getattr(ak8JetsColl[1],doubleB_name))
+
+            if HHsel11['SRTT']:
+                run_21 = False
+                #1+1 TT Pass
+                MhhvMh11TTPass.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'nominal'))
+                if runOthers and 'data' not in options.set:
+                    MhhvMh11TTPassPDFup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'PDF_up'))
+                    MhhvMh11TTPassPDFdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'PDF_down'))
+
+                    MhhvMh11TTPassPUup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Pileup_up'))
+                    MhhvMh11TTPassPUdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Pileup_down'))
+
+                    # MhhvMh11TTPassTrigup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Trigger_up'))
+                    # MhhvMh11TTPassTrigdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Trigger_down'))
+
+                    # MhhvMh11TTPassBtagup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'btagSF_up'))
+                    # MhhvMh11TTPassBtagdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'btagSF_down'))
+
+            elif HHsel11['SRLL']:
+                run_21 = False
+                #1+1 LL Pass
+                MhhvMh11LLPass.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'nominal'))
+                if runOthers and 'data' not in options.set:
+                    MhhvMh11LLPassPDFup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'PDF_up'))
+                    MhhvMh11LLPassPDFdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'PDF_down'))
+
+                    MhhvMh11LLPassPUup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Pileup_up'))
+                    MhhvMh11LLPassPUdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Pileup_down'))
+
+                    # MhhvMh11LLPassTrigup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Trigger_up'))
+                    # MhhvMh11LLPassTrigdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Trigger_down'))
+
+                    # MhhvMh11LLPassBtagup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'btagSF_up'))
+                    # MhhvMh11LLPassBtagdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'btagSF_down'))
             
-            if not isData:
-                # PDF weight
-                weights['PDF']['up'] = PDF_Lookup(inTree.readBranch('LHEPdfWeight'),'up')
-                weights['PDF']['down'] = PDF_Lookup(inTree.readBranch('LHEPdfWeight'),'down')
+            elif HHsel11['ATTT']:
+                run_21 = False
+                #1+1 TT Fail
+                MhhvMh11TTFail.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'nominal'))
+                if runOthers and 'data' not in options.set:
+                    MhhvMh11TTFailPDFup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'PDF_up'))
+                    MhhvMh11TTFailPDFdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'PDF_down'))
 
-                # Pileup reweighting applied
-                weights['Pileup']['nom'] = PU_Lookup(inTree.readBranch('Pileup_nPU'),PilePlots['nom'])
-                weights['Pileup']['up'] = PU_Lookup(inTree.readBranch('Pileup_nPU'),PilePlots['up'])
-                weights['Pileup']['down'] = PU_Lookup(inTree.readBranch('Pileup_nPU'),PilePlots['down'])
+                    MhhvMh11TTFailPUup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Pileup_up'))
+                    MhhvMh11TTFailPUdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Pileup_down'))
 
-                # weights['Trigger']['nom'] = 1#Trigger_Lookup( ht , TrigPlot1 )[0]
-                # weights['Trigger']['up'] = 1#Trigger_Lookup( ht , TrigPlot1 )[1]
-                # weights['Trigger']['down'] = 1#Trigger_Lookup( ht , TrigPlot1 )[2]
+                    # MhhvMh11TTFailTrigup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Trigger_up'))
+                    # MhhvMh11TTFailTrigdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Trigger_down'))
 
-            #########################################
-            # Check if 1+1 initial selection passes #
-            #########################################
-            run_21 = False
-            if preselection_11:
-                hh11_doubleB.Fill(getattr(ak8JetsColl[0],doubleB_name))
-                hh11_doubleB.Fill(getattr(ak8JetsColl[1],doubleB_name))
+                    # MhhvMh11TTFailBtagup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'btagSF_up'))
+                    # MhhvMh11TTFailBtagdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'btagSF_down'))
 
-                if HHsel11['SRTT']:
-                    #1+1 TT Pass
-                    MhhvMh11TTPass.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'nominal'))
-                    if runOthers and 'data' not in options.set:
-                        MhhvMh11TTPassPDFup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'PDF_up'))
-                        MhhvMh11TTPassPDFdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'PDF_down'))
+            elif HHsel11['ATLL']:
+                run_21 = False
+                #1+1 LL Fail
+                MhhvMh11LLFail.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'nominal'))
+                if runOthers and 'data' not in options.set:
+                    MhhvMh11LLFailPDFup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'PDF_up'))
+                    MhhvMh11LLFailPDFdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'PDF_down'))
 
-                        MhhvMh11TTPassPUup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Pileup_up'))
-                        MhhvMh11TTPassPUdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Pileup_down'))
+                    MhhvMh11LLFailPUup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Pileup_up'))
+                    MhhvMh11LLFailPUdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Pileup_down'))
 
-                        # MhhvMh11TTPassTrigup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Trigger_up'))
-                        # MhhvMh11TTPassTrigdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Trigger_down'))
+                    # MhhvMh11LLFailTrigup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Trigger_up'))
+                    # MhhvMh11LLFailTrigdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Trigger_down'))
 
-                        # MhhvMh11TTPassBtagup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'btagSF_up'))
-                        # MhhvMh11TTPassBtagdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'btagSF_down'))
+                    # MhhvMh11LLFailBtagup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'btagSF_up'))
+                    # MhhvMh11LLFailBtagdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'btagSF_down'))
 
-                elif HHsel11['SRLL']:
-                    #1+1 LL Pass
-                    MhhvMh11LLPass.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'nominal'))
-                    if runOthers and 'data' not in options.set:
-                        MhhvMh11LLPassPDFup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'PDF_up'))
-                        MhhvMh11LLPassPDFdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'PDF_down'))
-
-                        MhhvMh11LLPassPUup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Pileup_up'))
-                        MhhvMh11LLPassPUdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Pileup_down'))
-
-                        # MhhvMh11LLPassTrigup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Trigger_up'))
-                        # MhhvMh11LLPassTrigdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Trigger_down'))
-
-                        # MhhvMh11LLPassBtagup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'btagSF_up'))
-                        # MhhvMh11LLPassBtagdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'btagSF_down'))
-                
-                elif HHsel11['ATTT']:
-                    #1+1 TT Fail
-                    MhhvMh11TTFail.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'nominal'))
-                    if runOthers and 'data' not in options.set:
-                        MhhvMh11TTFailPDFup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'PDF_up'))
-                        MhhvMh11TTFailPDFdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'PDF_down'))
-
-                        MhhvMh11TTFailPUup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Pileup_up'))
-                        MhhvMh11TTFailPUdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Pileup_down'))
-
-                        # MhhvMh11TTFailTrigup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Trigger_up'))
-                        # MhhvMh11TTFailTrigdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Trigger_down'))
-
-                        # MhhvMh11TTFailBtagup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'btagSF_up'))
-                        # MhhvMh11TTFailBtagdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'btagSF_down'))
-
-                elif HHsel11['ATLL']:
-                    #1+1 LL Fail
-                    MhhvMh11LLFail.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'nominal'))
-                    if runOthers and 'data' not in options.set:
-                        MhhvMh11LLFailPDFup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'PDF_up'))
-                        MhhvMh11LLFailPDFdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'PDF_down'))
-
-                        MhhvMh11LLFailPUup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Pileup_up'))
-                        MhhvMh11LLFailPUdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Pileup_down'))
-
-                        # MhhvMh11LLFailTrigup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Trigger_up'))
-                        # MhhvMh11LLFailTrigdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'Trigger_down'))
-
-                        # MhhvMh11LLFailBtagup.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'btagSF_up'))
-                        # MhhvMh11LLFailBtagdown.Fill(h_jet0.M(),mhh11,norm_weight*Weightify(weights,'btagSF_down'))
-
-                else:
-                    run_21 = True
+            else:
+                run_21 = True
 
         ##############################
         # Else do the 2+1 checks now #
         ##############################
-        elif HHsel21['nFatJet'] and run_21:
+        if not preselection_11 or run_21:
             candidateAK4s = Hemispherize(ak8JetsColl,ak4JetsColl)
             if candidateAK4s == False or len(ak8JetsColl) == 0:
                 continue

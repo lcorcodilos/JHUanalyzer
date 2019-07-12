@@ -41,11 +41,16 @@ def LoadConstants(year):
         'QCDHT1000_xsec':1206,
         'QCDHT1500_xsec':120.4,
         'QCDHT2000_xsec':25.25,
-        'GravNar-1000_xsec':0.000559,
-        'GravNar-1500_xsec':0.000057,
-        'GravNar-2000_xsec':9.03e-06,
-        'GravNar-2500_xsec':1.86e-06,
-        'GravNar-3000_xsec':4.41e-07
+        'RadNar-1000_xsec':1,
+        'RadNar-1500_xsec':1,
+        'RadNar-2000_xsec':1,
+        'RadNar-2500_xsec':1,
+        'RadNar-3000_xsec':1,
+        'GravNar-1000_xsec':1,
+        'GravNar-1500_xsec':1,
+        'GravNar-2000_xsec':1,
+        'GravNar-2500_xsec':1,
+        'GravNar-3000_xsec':1
     }
     if year == '16':
         constants['ttbar_xsec'] = 831.76
@@ -70,19 +75,18 @@ def LoadCuts(region,year):
         'hmass':[105.0,135.0],
         'bbmass':[90.,140.],
         'deepbtag':[0.4184,1.0],
-        'doublebtag':[0.6,1.0],
+        'doublebtag':[0.75,1.0],
         'doublebtagTight':[0.8,1.0],
-        'doublebtag':[0.6,1.0],
         'doublebtagLoose':[0.3,1.0],
-        'DeepDBtag':[0.6,1.0],
-        'DeepDBtagTight':[0.8,1.0],
+        'DeepDBtag':[0.3,1.0],
+        'DeepDBtagTight':[0.6,1.0],
         'DeepDBtagLoose':[0.3,1.0],
-        'dak8MDZHbbtag':[0.6,1.0],
-        'dak8MDZHbbtagTight':[0.8,1.0],
-        'dak8MDZHbbtagLoose':[0.3,1.0],
-        'dak8MDHbbtag':[0.6,1.0],
-        'dak8MDHbbtagTight':[0.8,1.0],
-        'dak8MDHbbtagLoose':[0.3,1.0],
+        'dak8MDZHbbtag':[0.95,1.0],
+        'dak8MDZHbbtagTight':[0.95,1.0],
+        'dak8MDZHbbtagLoose':[0.8,1.0],
+        'dak8MDHbbtag':[0.95,1.0],
+        'dak8MDHbbtagTight':[0.95,1.0],
+        'dak8MDHbbtagLoose':[0.8,1.0],
         'eta':[0.0,2.4],
         'tau21':[0.0,0.45],
         'dEtaAK8':[0.0,1.3],
@@ -96,7 +100,7 @@ def LoadCuts(region,year):
 #This needs to be updated whenever new Ntuples are produced (unless the file locations are the same).
 def Load_jetNano(string,year):
     print 'running on ' + string 
-    return 'root://cmseos.fnal.gov//store/user/lcorcodi/hhto4b_nano/rootfiles/'+string+'_hh'+year+'.root'
+    return 'root://cmseos.fnal.gov//store/user/dbrehm/data18andTTbarSignalMC/rootfiles/'+string+'_hh'+year+'.root'
 
 
 def PDF_Lookup(pdfs , pdfOP ):

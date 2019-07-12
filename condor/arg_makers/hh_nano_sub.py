@@ -12,20 +12,19 @@ for year in ['18']:
     #     qcd_dict = {'QCDHT700':18,'QCDHT1000':7,'QCDHT1500':6,'QCDHT2000':3,'QCDHT1000ext':15,'QCDHT1500ext':11,'QCDHT2000ext':7}
     # elif year == '17':
     #     qcd_dict = {'QCDHT700':39,'QCDHT1000':15,'QCDHT1500':10,'QCDHT2000':7}
-    # if year == '18':
-    #     qcd_dict = {'QCDHT700':273,'QCDHT1000':88,'QCDHT1500':67,'QCDHT2000':40}
-    # for qcd in qcd_dict.keys():
-    #     qcd_string = year_string.replace('TEMPSET',qcd).replace('NJOB',str(qcd_dict[qcd]))
-    #     for i in range(1,qcd_dict[qcd]+1):
-    #         qcd_job_string = qcd_string.replace('IJOB',str(i))
-    #         commands.append(qcd_job_string)
-
+    if year == '18':
+        qcd_dict = {}#'QCDHT700':48}#,'QCDHT1000':15,'QCDHT1500':11,'QCDHT2000':11}
+    for qcd in qcd_dict.keys():
+        qcd_string = year_string.replace('TEMPSET',qcd).replace('NJOB',str(qcd_dict[qcd]))
+        for i in range(1,qcd_dict[qcd]+1):
+            qcd_job_string = qcd_string.replace('IJOB',str(i))
+            commands.append(qcd_job_string)
     # TTbar
     # if year == '16':
     #     ttbar_jobs = 75
     # elif year == '17':
     #     ttbar_jobs = 30
-    for ttbartype in ['ttbar']:#,'ttbar-semilep']:
+    for ttbartype in []:#'ttbar']:#,'ttbar-semilep']:
         if year == '18':
             if ttbartype == 'ttbar':
                 ttbar_jobs = 500
@@ -39,11 +38,11 @@ for year in ['18']:
     # Signal
     if year == '18':
         siglist = [
-            'RadNar_1000',
-            'RadNar_1500',
-            'RadNar_2000',
-            'RadNar_2500',
-            'RadNar_3000',
+            'RadNar-1000',
+            'RadNar-1500',
+            'RadNar-2000',
+            'RadNar-2500',
+            'RadNar-3000',
             # 'RadWid05_1000',
             # 'RadWid05_1500',
             # 'RadWid05_2000',
@@ -53,11 +52,11 @@ for year in ['18']:
             # 'RadWid10_2000',
             # 'RadWid10_2400',
             # 'RadWid10_3000',
-            'GravNar_1000',
-            'GravNar_1500',
-            'GravNar_2000',
-            'GravNar_2500',
-            'GravNar_3000'#,
+            #'GravNar-1000',
+            #'GravNar-1500',
+            #'GravNar-2000',
+            #'GravNar-2500',
+            #'GravNar-3000'#,
             # 'GravWid05_1000',
             # 'GravWid05_1500',
             # 'GravWid05_2000',
@@ -84,7 +83,7 @@ for year in ['18']:
     # elif year == '17':
     #     data_dict = {'dataB':41,'dataC':57,'dataD':26,'dataE':52,'dataF':67}
     if year == '18':
-        data_dict = {'dataA':142,'dataB':68,'dataC1':71,'dataC2':3, 'dataD':153}
+        data_dict = {}#'dataA':142,'dataB':68,'dataC1':71,'dataC2':3, 'dataD':153}
     for data in data_dict.keys():
         data_job_string = year_string.replace('TEMPSET',data).replace('NJOB',str(data_dict[data]))
         for i in range(1,data_dict[data]+1):

@@ -6,13 +6,13 @@ year = sys.argv[2]
 
 execute = []
 
-for filename in os.listdir('/eos/uscms/store/user/lcorcodi/bstar_nano'):
+for filename in os.listdir('/eos/uscms/store/user/dbrehm/data18andTTbarSignalMC'):
     if fnmatch.fnmatch(filename,'hhTrees'+year+'_'+setname+'_1-*.root'):
         njobs = int(filename.split(setname+'_1-')[1].rstrip('.root'))
         sjobs = str(njobs)
 
-eosdir = 'root://cmseos.fnal.gov//store/user/lcorcodi/bstar_nano/'
-threeDayLifetime = '/uscmst1b_scratch/lpc1/3DayLifetime/lcorcodi/'
+eosdir = 'root://cmseos.fnal.gov//store/user/dbrehm/data18andTTbarSignalMC/'
+threeDayLifetime = '/uscmst1b_scratch/lpc1/3DayLifetime/dbrehm/'
 
 # Segment so never hadd more than 100 files at once
 if njobs > 100:
@@ -41,7 +41,7 @@ if njobs > 100:
     execute.append('rm '+threeDayLifetime+'temp_wall_*.root')
 
     # Copy to eos and delete locally
-    execute.append('xrdcp -f '+threeDayLifetime+setname+'_hh'+year+'.root root://cmseos.fnal.gov//store/user/lcorcodi/hhto4b_nano/rootfiles/')
+    execute.append('xrdcp -f '+threeDayLifetime+setname+'_hh'+year+'.root root://cmseos.fnal.gov//store/user/dbrehm/data18andTTbarSignalMC/rootfiles/'+setname+'_hh'+year+'.root')
     execute.append('rm '+threeDayLifetime+setname+'_hh'+year+'.root')
 
 else:
@@ -51,7 +51,7 @@ else:
 
     execute.append('python haddnano.py '+setname+'_hh'+year+'.root '+list_of_files)
 
-    execute.append('xrdcp -f '+setname+'_hh'+year+'.root root://cmseos.fnal.gov//store/user/lcorcodi/hhto4b_nano/rootfiles/'+setname+'_hh'+year+'.root')
+    execute.append('xrdcp -f '+setname+'_hh'+year+'.root root://cmseos.fnal.gov//store/user/dbrehm/data18andTTbarSignalMC/rootfiles/'+setname+'_hh'+year+'.root')
     execute.append('rm '+setname+'_hh'+year+'.root')
 
 
