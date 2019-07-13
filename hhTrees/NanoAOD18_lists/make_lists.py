@@ -31,8 +31,7 @@ input_subs = {
 }
 executables = []
 
-# loj = open('../../treeMaker.listOfJobs','w')
-
+executables.append('rm *_loc.txt')
 for i in input_subs.keys():
     if '/store/user' in input_subs[i]:
         executables.append('ls /eos/uscms'+input_subs[i]+' > '+i+'_loc.txt')
