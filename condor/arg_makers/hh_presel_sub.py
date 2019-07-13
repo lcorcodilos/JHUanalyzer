@@ -1,88 +1,65 @@
-import subprocess
+import subprocess, sys, glob, os
+from optparse import OptionParser
 
-commands = []
+parser = OptionParser()
+parser.add_option('-r', '--regions', metavar='FILE', type='string', action='store',
+                default   =   'default',
+                dest      =   'regions',
+                help      =   'Regions to consider (comma separated list). Default is signal region ("default")')
+parser.add_option('-y', '--years', metavar='FILE', type='string', action='store',
+                default   =   '16,17,18',
+                dest      =   'years',
+                help      =   'Years to consider (comma separated list). Default is 16,17,18.')
+parser.add_option('-t', '--taggers', metavar='FILE', type='string', action='store',
+                default   =   'btagHbb,deepTagMD_HbbvsQCD,deepTagMD_ZHbbvsQCD,btagDDBvL',
+                dest      =   'years',
+                help      =   'Taggers to consider (comma separated list) as named in the NanoAOD. Default is btagHbb,deepTagMD_HbbvsQCD,deepTagMD_ZHbbvsQCD,btagDDBvL.')
+parser.add_option('-i', '--ignoreset', metavar='FILE', type='string', action='store',
+                default   =   '',
+                dest      =   'ignoreset',
+                help      =   'Setnames from *_loc.txt files to IGNORE (comma separated list). Default is empty.')
+parser.add_option('-n', '--name', metavar='FILE', type='string', action='store',
+                default   =   '',
+                dest      =   'name',
+                help      =   'A custom name for this argument list (hh_presel_<name>_args.txt)')
 
-base_string = '-s TEMPSET -r TEMPREG -n NJOB -j IJOB -y TEMPYEAR -d TEMPDOUBLEB'# -j -r -a -b
+(options, args) = parser.parse_args()
 
-for year in ['18']:
-    for reg in ['default']:
-        for doubleb in ['btagHbb','deepTagMD_HbbvsQCD','deepTagMD_ZHbbvsQCD','btagDDBvL']:
-            year_string = base_string.replace("TEMPYEAR",year).replace('TEMPREG',reg).replace('TEMPDOUBLEB',doubleb)
-            # QCD
-            qcd_dict = {'QCDHT700':57,'QCDHT1000':21,'QCDHT1500':16,'QCDHT2000':8}
-            for qcd in qcd_dict.keys():
-                qcd_string = year_string.replace('TEMPSET',qcd).replace('NJOB',str(qcd_dict[qcd]))
-                for i in range(1,qcd_dict[qcd]+1):
-                    qcd_job_string = qcd_string.replace('IJOB',str(i))
-                    commands.append(qcd_job_string)
+# Options to customize run
+regions = options.regions.split(',')
+years = options.years.split(',')
+taggers = options.taggers.split(',')
+ignore = options.ignoreset.split(',')
+name_string = '_'+options.name if options.name != '' else ''
 
-            # TTbar
-            ttbar_dict = {'ttbar': 16}#,'ttbar-semilep': 8}
-            for ttbartype in ttbar_dict.keys():
-                ttbar_jobs = ttbar_dict[ttbartype]
-                ttbar_string = year_string.replace('TEMPSET',ttbartype).replace("NJOB",str(ttbar_jobs))
-                for i in range(1,ttbar_jobs+1):
-                    commands.append(ttbar_string.replace('IJOB',str(i)))
-                for k in [' up',' down']:
-                    for j in [' -J', ' -R', ' -a', ' -b']:
-                        for i in range(1,ttbar_jobs+1):
-                            ttbar_job_string = ttbar_string.replace('IJOB',str(i))
-                            ttbar_job_string+=j+k
-                            commands.append(ttbar_job_string)
+# Initialize output file
+outfile = open('../args/hh_presel'+name_string'_args.txt','w')
 
+base_string = '-s TEMPSET -r TEMPREG -n NJOB -j IJOB -y TEMPYEAR -d TEMPTAGGER'
 
-            # Signal
-            if year == '18':
-                siglist = [
-                    'RadNar-1000',
-                    'RadNar-1500',
-                    'RadNar-2000',
-                    'RadNar-2500',
-                    'RadNar-3000',
-                    #'RadWid05_1000',
-                    #'RadWid05_1500',
-                    #'RadWid05_2000',
-                    #'RadWid05_2400',
-                    #'RadWid05_3000',
-                    #'RadWid10_1500',
-                    #'RadWid10_2000',
-                    #'RadWid10_2400',
-                    #'RadWid10_3000',
-                    'GravNar-1000',
-                    'GravNar-1500',
-                    'GravNar-2000',
-                    'GravNar-2500',
-                    'GravNar-3000',
-                    #'GravWid05_1000',
-                    #'GravWid05_1500',
-                    #'GravWid05_2000',
-                    #'GravWid05_2400',
-                    #'GravWid05_3000',
-                    #'GravWid10_1000',
-                    #'GravWid10_1500',
-                    #'GravWid10_2000',
-                    #'GravWid10_2400',
-                    #'GravWid10_3000'
-                ]
-                for sig_name in siglist:
-                    commands.append(year_string.replace('TEMPSET',sig_name).replace('NJOB','1').replace('IJOB','1'))
-                    for k in [' up',' down']:
-                        for j in [' -J', ' -R', ' -a', ' -b']:
-                            signal_string = year_string.replace('TEMPSET',sig_name).replace('NJOB','1').replace('IJOB','1')
-                            signal_string+=j+k
-                            commands.append(signal_string)
+for year in years:
+    for reg in regions:
+        for tagger in taggers:
+            job_base_string = base_string.replace("TEMPYEAR",year).replace('TEMPREG',reg).replace('TEMPTAGGER',tagger)
 
-            # Data
-            data_dict = {'dataA':45,'dataB':20,'dataC1':20,'dataC2':3,'dataD':100}
-            for data in data_dict.keys():
-                data_string = year_string.replace('TEMPSET',data).replace('NJOB',str(data_dict[data]))
-                for i in range(1,data_dict[data]+1):
-                    data_job_string = data_string.replace('IJOB',str(i))
-                    commands.append(data_job_string)
+            for file in glob.glob('../../hhTrees/NanoAOD'+year+'_lists/*_loc.txt'):
+                setname = file.split('/')[-1].split('_loc')[0]
+                if setname not in ignore:
+                    # Get njobs by counting how many GB in each file (1 job if file size < 1 GB)
+                    bitsize = os.path.getsize('/eos/uscms/store/user/dbrehm/data18andTTbarSignalMC/rootfiles/'+setname+'_hh'+year+'.root')
+                    if bitsize/float(10**9) > 1:  set_njobs = 1
+                    else: set_njobs = int(round(bitsize/float(10**9)))
 
-outfile = open('../args/hh_presel_args.txt','w')
+                    job_base_string = year_string.replace('TEMPSET',setname).replace('NJOB',str(set_njobs))
+                    for i in range(1,set_njobs+1):
+                        job_string = job_base_string.replace('IJOB',str(i))
+                        outfile.write(job_string+'\n')
 
-for s in commands:
-    outfile.write(s+'\n')
+                        # Will eventually use this but not setup in make_preselection.py yet
+                        # if 'data' not in setname and 'QCD' not in setname:
+                        #     for j in [' -J', ' -R', ' -a', ' -b']:
+                        #         for v in [' up',' down']:
+                        #             jec_job_string = job_string + j + v
+
 
 outfile.close()
