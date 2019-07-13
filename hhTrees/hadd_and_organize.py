@@ -5,6 +5,7 @@ setname = sys.argv[1]
 year = sys.argv[2]
 
 execute = []
+eosrmer = open('removers/eosRmer_'+setname+year+'.csh','w')
 
 for filename in os.listdir('/eos/uscms/store/user/dbrehm/data18andTTbarSignalMC'):
     if fnmatch.fnmatch(filename,'hhTrees'+year+'_'+setname+'_1-*.root'):
@@ -30,6 +31,7 @@ if njobs > 100:
         # Copy all files in the segment locally
         for i in range(lower_wall, upper_wall):
             list_of_files+= ' '+eosdir+'hhTrees'+year+'_'+setname+'_'+str(i)+'-'+sjobs+'.root'
+            eosrmer.write('eosrm '+eosdir.replace('root://cmseos.fnal.gov/','')+'hhTrees'+year+'_'+setname+'_'+str(i)+'-'+sjobs+'.root\n')
 
         # Hadd the jobs into a segment
         execute.append('python haddnano.py '+threeDayLifetime+'temp_wall_'+str(lower_wall)+'-'+str(upper_wall)+'.root '+list_of_files)
@@ -48,12 +50,12 @@ else:
     list_of_files = ''
     for i in range(1,njobs+1):
         list_of_files+= ' '+eosdir+'hhTrees'+year+'_'+setname+'_'+str(i)+'-'+sjobs+'.root'
+        eosrmer.write('eosrm ' +eosdir.replace('root://cmseos.fnal.gov/','')+'hhTrees'+year+'_'+setname+'_'+str(i)+'-'+sjobs+'.root\n')
 
     execute.append('python haddnano.py '+setname+'_hh'+year+'.root '+list_of_files)
 
     execute.append('xrdcp -f '+setname+'_hh'+year+'.root root://cmseos.fnal.gov//store/user/dbrehm/data18andTTbarSignalMC/rootfiles/'+setname+'_hh'+year+'.root')
     execute.append('rm '+setname+'_hh'+year+'.root')
-
 
 for s in execute:
     print "Executing: %s" %s 
