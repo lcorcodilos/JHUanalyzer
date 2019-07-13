@@ -1,40 +1,70 @@
--s QCDHT1000 -r default -n 21 -j 1 -y 18 -d btagHbb
--s QCDHT1000 -r default -n 21 -j 2 -y 18 -d btagHbb
--s QCDHT1000 -r default -n 21 -j 3 -y 18 -d btagHbb
--s QCDHT1000 -r default -n 21 -j 4 -y 18 -d btagHbb
--s QCDHT1000 -r default -n 21 -j 5 -y 18 -d btagHbb
--s QCDHT1000 -r default -n 21 -j 6 -y 18 -d btagHbb
--s QCDHT1000 -r default -n 21 -j 7 -y 18 -d btagHbb
--s QCDHT1000 -r default -n 21 -j 8 -y 18 -d btagHbb
--s QCDHT1000 -r default -n 21 -j 9 -y 18 -d btagHbb
--s QCDHT1000 -r default -n 21 -j 10 -y 18 -d btagHbb
--s QCDHT1000 -r default -n 21 -j 11 -y 18 -d btagHbb
--s QCDHT1000 -r default -n 21 -j 12 -y 18 -d btagHbb
--s QCDHT1000 -r default -n 21 -j 13 -y 18 -d btagHbb
--s QCDHT1000 -r default -n 21 -j 14 -y 18 -d btagHbb
--s QCDHT1000 -r default -n 21 -j 15 -y 18 -d btagHbb
--s QCDHT1000 -r default -n 21 -j 16 -y 18 -d btagHbb
--s QCDHT1000 -r default -n 21 -j 17 -y 18 -d btagHbb
--s QCDHT1000 -r default -n 21 -j 18 -y 18 -d btagHbb
--s QCDHT1000 -r default -n 21 -j 19 -y 18 -d btagHbb
--s QCDHT1000 -r default -n 21 -j 20 -y 18 -d btagHbb
--s QCDHT1000 -r default -n 21 -j 21 -y 18 -d btagHbb
--s QCDHT1500 -r default -n 16 -j 1 -y 18 -d btagHbb
--s QCDHT1500 -r default -n 16 -j 2 -y 18 -d btagHbb
--s QCDHT1500 -r default -n 16 -j 3 -y 18 -d btagHbb
--s QCDHT1500 -r default -n 16 -j 4 -y 18 -d btagHbb
--s QCDHT1500 -r default -n 16 -j 5 -y 18 -d btagHbb
--s QCDHT1500 -r default -n 16 -j 6 -y 18 -d btagHbb
--s QCDHT1500 -r default -n 16 -j 7 -y 18 -d btagHbb
--s QCDHT1500 -r default -n 16 -j 8 -y 18 -d btagHbb
--s QCDHT1500 -r default -n 16 -j 9 -y 18 -d btagHbb
--s QCDHT1500 -r default -n 16 -j 10 -y 18 -d btagHbb
--s QCDHT1500 -r default -n 16 -j 11 -y 18 -d btagHbb
--s QCDHT1500 -r default -n 16 -j 12 -y 18 -d btagHbb
--s QCDHT1500 -r default -n 16 -j 13 -y 18 -d btagHbb
--s QCDHT1500 -r default -n 16 -j 14 -y 18 -d btagHbb
--s QCDHT1500 -r default -n 16 -j 15 -y 18 -d btagHbb
--s QCDHT1500 -r default -n 16 -j 16 -y 18 -d btagHbb
+-s RadNar-1000 -r default -n 1 -j 1 -y 18 -d btagHbb
+-s RadNar-2000 -r default -n 1 -j 1 -y 18 -d btagHbb
+-s RadNar-1500 -r default -n 1 -j 1 -y 18 -d btagHbb
+-s GravNar-1000 -r default -n 1 -j 1 -y 18 -d btagHbb
+-s GravNar-3000 -r default -n 1 -j 1 -y 18 -d btagHbb
+-s RadNar-3000 -r default -n 1 -j 1 -y 18 -d btagHbb
+-s GravNar-1500 -r default -n 1 -j 1 -y 18 -d btagHbb
+-s RadNar-2500 -r default -n 1 -j 1 -y 18 -d btagHbb
+-s GravNar-2000 -r default -n 1 -j 1 -y 18 -d btagHbb
+-s GravNar-2500 -r default -n 1 -j 1 -y 18 -d btagHbb
+-s dataD -r default -n 40 -j 1 -y 18 -d btagHbb
+-s dataD -r default -n 40 -j 2 -y 18 -d btagHbb
+-s dataD -r default -n 40 -j 3 -y 18 -d btagHbb
+-s dataD -r default -n 40 -j 4 -y 18 -d btagHbb
+-s dataD -r default -n 40 -j 5 -y 18 -d btagHbb
+-s dataD -r default -n 40 -j 6 -y 18 -d btagHbb
+-s dataD -r default -n 40 -j 7 -y 18 -d btagHbb
+-s dataD -r default -n 40 -j 8 -y 18 -d btagHbb
+-s dataD -r default -n 40 -j 9 -y 18 -d btagHbb
+-s dataD -r default -n 40 -j 10 -y 18 -d btagHbb
+-s dataD -r default -n 40 -j 11 -y 18 -d btagHbb
+-s dataD -r default -n 40 -j 12 -y 18 -d btagHbb
+-s dataD -r default -n 40 -j 13 -y 18 -d btagHbb
+-s dataD -r default -n 40 -j 14 -y 18 -d btagHbb
+-s dataD -r default -n 40 -j 15 -y 18 -d btagHbb
+-s dataD -r default -n 40 -j 16 -y 18 -d btagHbb
+-s dataD -r default -n 40 -j 17 -y 18 -d btagHbb
+-s dataD -r default -n 40 -j 18 -y 18 -d btagHbb
+-s dataD -r default -n 40 -j 19 -y 18 -d btagHbb
+-s dataD -r default -n 40 -j 20 -y 18 -d btagHbb
+-s dataD -r default -n 40 -j 21 -y 18 -d btagHbb
+-s dataD -r default -n 40 -j 22 -y 18 -d btagHbb
+-s dataD -r default -n 40 -j 23 -y 18 -d btagHbb
+-s dataD -r default -n 40 -j 24 -y 18 -d btagHbb
+-s dataD -r default -n 40 -j 25 -y 18 -d btagHbb
+-s dataD -r default -n 40 -j 26 -y 18 -d btagHbb
+-s dataD -r default -n 40 -j 27 -y 18 -d btagHbb
+-s dataD -r default -n 40 -j 28 -y 18 -d btagHbb
+-s dataD -r default -n 40 -j 29 -y 18 -d btagHbb
+-s dataD -r default -n 40 -j 30 -y 18 -d btagHbb
+-s dataD -r default -n 40 -j 31 -y 18 -d btagHbb
+-s dataD -r default -n 40 -j 32 -y 18 -d btagHbb
+-s dataD -r default -n 40 -j 33 -y 18 -d btagHbb
+-s dataD -r default -n 40 -j 34 -y 18 -d btagHbb
+-s dataD -r default -n 40 -j 35 -y 18 -d btagHbb
+-s dataD -r default -n 40 -j 36 -y 18 -d btagHbb
+-s dataD -r default -n 40 -j 37 -y 18 -d btagHbb
+-s dataD -r default -n 40 -j 38 -y 18 -d btagHbb
+-s dataD -r default -n 40 -j 39 -y 18 -d btagHbb
+-s dataD -r default -n 40 -j 40 -y 18 -d btagHbb
+-s QCDHT1000 -r default -n 17 -j 1 -y 18 -d btagHbb
+-s QCDHT1000 -r default -n 17 -j 2 -y 18 -d btagHbb
+-s QCDHT1000 -r default -n 17 -j 3 -y 18 -d btagHbb
+-s QCDHT1000 -r default -n 17 -j 4 -y 18 -d btagHbb
+-s QCDHT1000 -r default -n 17 -j 5 -y 18 -d btagHbb
+-s QCDHT1000 -r default -n 17 -j 6 -y 18 -d btagHbb
+-s QCDHT1000 -r default -n 17 -j 7 -y 18 -d btagHbb
+-s QCDHT1000 -r default -n 17 -j 8 -y 18 -d btagHbb
+-s QCDHT1000 -r default -n 17 -j 9 -y 18 -d btagHbb
+-s QCDHT1000 -r default -n 17 -j 10 -y 18 -d btagHbb
+-s QCDHT1000 -r default -n 17 -j 11 -y 18 -d btagHbb
+-s QCDHT1000 -r default -n 17 -j 12 -y 18 -d btagHbb
+-s QCDHT1000 -r default -n 17 -j 13 -y 18 -d btagHbb
+-s QCDHT1000 -r default -n 17 -j 14 -y 18 -d btagHbb
+-s QCDHT1000 -r default -n 17 -j 15 -y 18 -d btagHbb
+-s QCDHT1000 -r default -n 17 -j 16 -y 18 -d btagHbb
+-s QCDHT1000 -r default -n 17 -j 17 -y 18 -d btagHbb
 -s QCDHT2000 -r default -n 8 -j 1 -y 18 -d btagHbb
 -s QCDHT2000 -r default -n 8 -j 2 -y 18 -d btagHbb
 -s QCDHT2000 -r default -n 8 -j 3 -y 18 -d btagHbb
@@ -43,522 +73,149 @@
 -s QCDHT2000 -r default -n 8 -j 6 -y 18 -d btagHbb
 -s QCDHT2000 -r default -n 8 -j 7 -y 18 -d btagHbb
 -s QCDHT2000 -r default -n 8 -j 8 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 1 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 2 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 3 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 4 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 5 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 6 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 7 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 8 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 9 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 10 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 11 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 12 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 13 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 14 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 15 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 16 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 17 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 18 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 19 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 20 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 21 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 22 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 23 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 24 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 25 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 26 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 27 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 28 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 29 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 30 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 31 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 32 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 33 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 34 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 35 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 36 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 37 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 38 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 39 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 40 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 41 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 42 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 43 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 44 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 45 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 46 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 47 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 48 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 49 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 50 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 51 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 52 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 53 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 54 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 55 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 56 -y 18 -d btagHbb
--s QCDHT700 -r default -n 57 -j 57 -y 18 -d btagHbb
--s ttbar -r default -n 16 -j 1 -y 18 -d btagHbb
--s ttbar -r default -n 16 -j 2 -y 18 -d btagHbb
--s ttbar -r default -n 16 -j 3 -y 18 -d btagHbb
--s ttbar -r default -n 16 -j 4 -y 18 -d btagHbb
--s ttbar -r default -n 16 -j 5 -y 18 -d btagHbb
--s ttbar -r default -n 16 -j 6 -y 18 -d btagHbb
--s ttbar -r default -n 16 -j 7 -y 18 -d btagHbb
--s ttbar -r default -n 16 -j 8 -y 18 -d btagHbb
--s ttbar -r default -n 16 -j 9 -y 18 -d btagHbb
--s ttbar -r default -n 16 -j 10 -y 18 -d btagHbb
--s ttbar -r default -n 16 -j 11 -y 18 -d btagHbb
--s ttbar -r default -n 16 -j 12 -y 18 -d btagHbb
--s ttbar -r default -n 16 -j 13 -y 18 -d btagHbb
--s ttbar -r default -n 16 -j 14 -y 18 -d btagHbb
--s ttbar -r default -n 16 -j 15 -y 18 -d btagHbb
--s ttbar -r default -n 16 -j 16 -y 18 -d btagHbb
--s ttbar -r default -n 16 -j 1 -y 18 -d btagHbb -J up
--s ttbar -r default -n 16 -j 2 -y 18 -d btagHbb -J up
--s ttbar -r default -n 16 -j 3 -y 18 -d btagHbb -J up
--s ttbar -r default -n 16 -j 4 -y 18 -d btagHbb -J up
--s ttbar -r default -n 16 -j 5 -y 18 -d btagHbb -J up
--s ttbar -r default -n 16 -j 6 -y 18 -d btagHbb -J up
--s ttbar -r default -n 16 -j 7 -y 18 -d btagHbb -J up
--s ttbar -r default -n 16 -j 8 -y 18 -d btagHbb -J up
--s ttbar -r default -n 16 -j 9 -y 18 -d btagHbb -J up
--s ttbar -r default -n 16 -j 10 -y 18 -d btagHbb -J up
--s ttbar -r default -n 16 -j 11 -y 18 -d btagHbb -J up
--s ttbar -r default -n 16 -j 12 -y 18 -d btagHbb -J up
--s ttbar -r default -n 16 -j 13 -y 18 -d btagHbb -J up
--s ttbar -r default -n 16 -j 14 -y 18 -d btagHbb -J up
--s ttbar -r default -n 16 -j 15 -y 18 -d btagHbb -J up
--s ttbar -r default -n 16 -j 16 -y 18 -d btagHbb -J up
--s ttbar -r default -n 16 -j 1 -y 18 -d btagHbb -R up
--s ttbar -r default -n 16 -j 2 -y 18 -d btagHbb -R up
--s ttbar -r default -n 16 -j 3 -y 18 -d btagHbb -R up
--s ttbar -r default -n 16 -j 4 -y 18 -d btagHbb -R up
--s ttbar -r default -n 16 -j 5 -y 18 -d btagHbb -R up
--s ttbar -r default -n 16 -j 6 -y 18 -d btagHbb -R up
--s ttbar -r default -n 16 -j 7 -y 18 -d btagHbb -R up
--s ttbar -r default -n 16 -j 8 -y 18 -d btagHbb -R up
--s ttbar -r default -n 16 -j 9 -y 18 -d btagHbb -R up
--s ttbar -r default -n 16 -j 10 -y 18 -d btagHbb -R up
--s ttbar -r default -n 16 -j 11 -y 18 -d btagHbb -R up
--s ttbar -r default -n 16 -j 12 -y 18 -d btagHbb -R up
--s ttbar -r default -n 16 -j 13 -y 18 -d btagHbb -R up
--s ttbar -r default -n 16 -j 14 -y 18 -d btagHbb -R up
--s ttbar -r default -n 16 -j 15 -y 18 -d btagHbb -R up
--s ttbar -r default -n 16 -j 16 -y 18 -d btagHbb -R up
--s ttbar -r default -n 16 -j 1 -y 18 -d btagHbb -a up
--s ttbar -r default -n 16 -j 2 -y 18 -d btagHbb -a up
--s ttbar -r default -n 16 -j 3 -y 18 -d btagHbb -a up
--s ttbar -r default -n 16 -j 4 -y 18 -d btagHbb -a up
--s ttbar -r default -n 16 -j 5 -y 18 -d btagHbb -a up
--s ttbar -r default -n 16 -j 6 -y 18 -d btagHbb -a up
--s ttbar -r default -n 16 -j 7 -y 18 -d btagHbb -a up
--s ttbar -r default -n 16 -j 8 -y 18 -d btagHbb -a up
--s ttbar -r default -n 16 -j 9 -y 18 -d btagHbb -a up
--s ttbar -r default -n 16 -j 10 -y 18 -d btagHbb -a up
--s ttbar -r default -n 16 -j 11 -y 18 -d btagHbb -a up
--s ttbar -r default -n 16 -j 12 -y 18 -d btagHbb -a up
--s ttbar -r default -n 16 -j 13 -y 18 -d btagHbb -a up
--s ttbar -r default -n 16 -j 14 -y 18 -d btagHbb -a up
--s ttbar -r default -n 16 -j 15 -y 18 -d btagHbb -a up
--s ttbar -r default -n 16 -j 16 -y 18 -d btagHbb -a up
--s ttbar -r default -n 16 -j 1 -y 18 -d btagHbb -b up
--s ttbar -r default -n 16 -j 2 -y 18 -d btagHbb -b up
--s ttbar -r default -n 16 -j 3 -y 18 -d btagHbb -b up
--s ttbar -r default -n 16 -j 4 -y 18 -d btagHbb -b up
--s ttbar -r default -n 16 -j 5 -y 18 -d btagHbb -b up
--s ttbar -r default -n 16 -j 6 -y 18 -d btagHbb -b up
--s ttbar -r default -n 16 -j 7 -y 18 -d btagHbb -b up
--s ttbar -r default -n 16 -j 8 -y 18 -d btagHbb -b up
--s ttbar -r default -n 16 -j 9 -y 18 -d btagHbb -b up
--s ttbar -r default -n 16 -j 10 -y 18 -d btagHbb -b up
--s ttbar -r default -n 16 -j 11 -y 18 -d btagHbb -b up
--s ttbar -r default -n 16 -j 12 -y 18 -d btagHbb -b up
--s ttbar -r default -n 16 -j 13 -y 18 -d btagHbb -b up
--s ttbar -r default -n 16 -j 14 -y 18 -d btagHbb -b up
--s ttbar -r default -n 16 -j 15 -y 18 -d btagHbb -b up
--s ttbar -r default -n 16 -j 16 -y 18 -d btagHbb -b up
--s ttbar -r default -n 16 -j 1 -y 18 -d btagHbb -J down
--s ttbar -r default -n 16 -j 2 -y 18 -d btagHbb -J down
--s ttbar -r default -n 16 -j 3 -y 18 -d btagHbb -J down
--s ttbar -r default -n 16 -j 4 -y 18 -d btagHbb -J down
--s ttbar -r default -n 16 -j 5 -y 18 -d btagHbb -J down
--s ttbar -r default -n 16 -j 6 -y 18 -d btagHbb -J down
--s ttbar -r default -n 16 -j 7 -y 18 -d btagHbb -J down
--s ttbar -r default -n 16 -j 8 -y 18 -d btagHbb -J down
--s ttbar -r default -n 16 -j 9 -y 18 -d btagHbb -J down
--s ttbar -r default -n 16 -j 10 -y 18 -d btagHbb -J down
--s ttbar -r default -n 16 -j 11 -y 18 -d btagHbb -J down
--s ttbar -r default -n 16 -j 12 -y 18 -d btagHbb -J down
--s ttbar -r default -n 16 -j 13 -y 18 -d btagHbb -J down
--s ttbar -r default -n 16 -j 14 -y 18 -d btagHbb -J down
--s ttbar -r default -n 16 -j 15 -y 18 -d btagHbb -J down
--s ttbar -r default -n 16 -j 16 -y 18 -d btagHbb -J down
--s ttbar -r default -n 16 -j 1 -y 18 -d btagHbb -R down
--s ttbar -r default -n 16 -j 2 -y 18 -d btagHbb -R down
--s ttbar -r default -n 16 -j 3 -y 18 -d btagHbb -R down
--s ttbar -r default -n 16 -j 4 -y 18 -d btagHbb -R down
--s ttbar -r default -n 16 -j 5 -y 18 -d btagHbb -R down
--s ttbar -r default -n 16 -j 6 -y 18 -d btagHbb -R down
--s ttbar -r default -n 16 -j 7 -y 18 -d btagHbb -R down
--s ttbar -r default -n 16 -j 8 -y 18 -d btagHbb -R down
--s ttbar -r default -n 16 -j 9 -y 18 -d btagHbb -R down
--s ttbar -r default -n 16 -j 10 -y 18 -d btagHbb -R down
--s ttbar -r default -n 16 -j 11 -y 18 -d btagHbb -R down
--s ttbar -r default -n 16 -j 12 -y 18 -d btagHbb -R down
--s ttbar -r default -n 16 -j 13 -y 18 -d btagHbb -R down
--s ttbar -r default -n 16 -j 14 -y 18 -d btagHbb -R down
--s ttbar -r default -n 16 -j 15 -y 18 -d btagHbb -R down
--s ttbar -r default -n 16 -j 16 -y 18 -d btagHbb -R down
--s ttbar -r default -n 16 -j 1 -y 18 -d btagHbb -a down
--s ttbar -r default -n 16 -j 2 -y 18 -d btagHbb -a down
--s ttbar -r default -n 16 -j 3 -y 18 -d btagHbb -a down
--s ttbar -r default -n 16 -j 4 -y 18 -d btagHbb -a down
--s ttbar -r default -n 16 -j 5 -y 18 -d btagHbb -a down
--s ttbar -r default -n 16 -j 6 -y 18 -d btagHbb -a down
--s ttbar -r default -n 16 -j 7 -y 18 -d btagHbb -a down
--s ttbar -r default -n 16 -j 8 -y 18 -d btagHbb -a down
--s ttbar -r default -n 16 -j 9 -y 18 -d btagHbb -a down
--s ttbar -r default -n 16 -j 10 -y 18 -d btagHbb -a down
--s ttbar -r default -n 16 -j 11 -y 18 -d btagHbb -a down
--s ttbar -r default -n 16 -j 12 -y 18 -d btagHbb -a down
--s ttbar -r default -n 16 -j 13 -y 18 -d btagHbb -a down
--s ttbar -r default -n 16 -j 14 -y 18 -d btagHbb -a down
--s ttbar -r default -n 16 -j 15 -y 18 -d btagHbb -a down
--s ttbar -r default -n 16 -j 16 -y 18 -d btagHbb -a down
--s ttbar -r default -n 16 -j 1 -y 18 -d btagHbb -b down
--s ttbar -r default -n 16 -j 2 -y 18 -d btagHbb -b down
--s ttbar -r default -n 16 -j 3 -y 18 -d btagHbb -b down
--s ttbar -r default -n 16 -j 4 -y 18 -d btagHbb -b down
--s ttbar -r default -n 16 -j 5 -y 18 -d btagHbb -b down
--s ttbar -r default -n 16 -j 6 -y 18 -d btagHbb -b down
--s ttbar -r default -n 16 -j 7 -y 18 -d btagHbb -b down
--s ttbar -r default -n 16 -j 8 -y 18 -d btagHbb -b down
--s ttbar -r default -n 16 -j 9 -y 18 -d btagHbb -b down
--s ttbar -r default -n 16 -j 10 -y 18 -d btagHbb -b down
--s ttbar -r default -n 16 -j 11 -y 18 -d btagHbb -b down
--s ttbar -r default -n 16 -j 12 -y 18 -d btagHbb -b down
--s ttbar -r default -n 16 -j 13 -y 18 -d btagHbb -b down
--s ttbar -r default -n 16 -j 14 -y 18 -d btagHbb -b down
--s ttbar -r default -n 16 -j 15 -y 18 -d btagHbb -b down
--s ttbar -r default -n 16 -j 16 -y 18 -d btagHbb -b down
--s RadNar-1000 -r default -n 1 -j 1 -y 18 -d btagHbb
--s RadNar-1000 -r default -n 1 -j 1 -y 18 -d btagHbb -J up
--s RadNar-1000 -r default -n 1 -j 1 -y 18 -d btagHbb -R up
--s RadNar-1000 -r default -n 1 -j 1 -y 18 -d btagHbb -a up
--s RadNar-1000 -r default -n 1 -j 1 -y 18 -d btagHbb -b up
--s RadNar-1000 -r default -n 1 -j 1 -y 18 -d btagHbb -J down
--s RadNar-1000 -r default -n 1 -j 1 -y 18 -d btagHbb -R down
--s RadNar-1000 -r default -n 1 -j 1 -y 18 -d btagHbb -a down
--s RadNar-1000 -r default -n 1 -j 1 -y 18 -d btagHbb -b down
--s RadNar-1500 -r default -n 1 -j 1 -y 18 -d btagHbb
--s RadNar-1500 -r default -n 1 -j 1 -y 18 -d btagHbb -J up
--s RadNar-1500 -r default -n 1 -j 1 -y 18 -d btagHbb -R up
--s RadNar-1500 -r default -n 1 -j 1 -y 18 -d btagHbb -a up
--s RadNar-1500 -r default -n 1 -j 1 -y 18 -d btagHbb -b up
--s RadNar-1500 -r default -n 1 -j 1 -y 18 -d btagHbb -J down
--s RadNar-1500 -r default -n 1 -j 1 -y 18 -d btagHbb -R down
--s RadNar-1500 -r default -n 1 -j 1 -y 18 -d btagHbb -a down
--s RadNar-1500 -r default -n 1 -j 1 -y 18 -d btagHbb -b down
--s RadNar-2000 -r default -n 1 -j 1 -y 18 -d btagHbb
--s RadNar-2000 -r default -n 1 -j 1 -y 18 -d btagHbb -J up
--s RadNar-2000 -r default -n 1 -j 1 -y 18 -d btagHbb -R up
--s RadNar-2000 -r default -n 1 -j 1 -y 18 -d btagHbb -a up
--s RadNar-2000 -r default -n 1 -j 1 -y 18 -d btagHbb -b up
--s RadNar-2000 -r default -n 1 -j 1 -y 18 -d btagHbb -J down
--s RadNar-2000 -r default -n 1 -j 1 -y 18 -d btagHbb -R down
--s RadNar-2000 -r default -n 1 -j 1 -y 18 -d btagHbb -a down
--s RadNar-2000 -r default -n 1 -j 1 -y 18 -d btagHbb -b down
--s RadNar-2500 -r default -n 1 -j 1 -y 18 -d btagHbb
--s RadNar-2500 -r default -n 1 -j 1 -y 18 -d btagHbb -J up
--s RadNar-2500 -r default -n 1 -j 1 -y 18 -d btagHbb -R up
--s RadNar-2500 -r default -n 1 -j 1 -y 18 -d btagHbb -a up
--s RadNar-2500 -r default -n 1 -j 1 -y 18 -d btagHbb -b up
--s RadNar-2500 -r default -n 1 -j 1 -y 18 -d btagHbb -J down
--s RadNar-2500 -r default -n 1 -j 1 -y 18 -d btagHbb -R down
--s RadNar-2500 -r default -n 1 -j 1 -y 18 -d btagHbb -a down
--s RadNar-2500 -r default -n 1 -j 1 -y 18 -d btagHbb -b down
--s RadNar-3000 -r default -n 1 -j 1 -y 18 -d btagHbb
--s RadNar-3000 -r default -n 1 -j 1 -y 18 -d btagHbb -J up
--s RadNar-3000 -r default -n 1 -j 1 -y 18 -d btagHbb -R up
--s RadNar-3000 -r default -n 1 -j 1 -y 18 -d btagHbb -a up
--s RadNar-3000 -r default -n 1 -j 1 -y 18 -d btagHbb -b up
--s RadNar-3000 -r default -n 1 -j 1 -y 18 -d btagHbb -J down
--s RadNar-3000 -r default -n 1 -j 1 -y 18 -d btagHbb -R down
--s RadNar-3000 -r default -n 1 -j 1 -y 18 -d btagHbb -a down
--s RadNar-3000 -r default -n 1 -j 1 -y 18 -d btagHbb -b down
--s GravNar-1000 -r default -n 1 -j 1 -y 18 -d btagHbb
--s GravNar-1000 -r default -n 1 -j 1 -y 18 -d btagHbb -J up
--s GravNar-1000 -r default -n 1 -j 1 -y 18 -d btagHbb -R up
--s GravNar-1000 -r default -n 1 -j 1 -y 18 -d btagHbb -a up
--s GravNar-1000 -r default -n 1 -j 1 -y 18 -d btagHbb -b up
--s GravNar-1000 -r default -n 1 -j 1 -y 18 -d btagHbb -J down
--s GravNar-1000 -r default -n 1 -j 1 -y 18 -d btagHbb -R down
--s GravNar-1000 -r default -n 1 -j 1 -y 18 -d btagHbb -a down
--s GravNar-1000 -r default -n 1 -j 1 -y 18 -d btagHbb -b down
--s GravNar-1500 -r default -n 1 -j 1 -y 18 -d btagHbb
--s GravNar-1500 -r default -n 1 -j 1 -y 18 -d btagHbb -J up
--s GravNar-1500 -r default -n 1 -j 1 -y 18 -d btagHbb -R up
--s GravNar-1500 -r default -n 1 -j 1 -y 18 -d btagHbb -a up
--s GravNar-1500 -r default -n 1 -j 1 -y 18 -d btagHbb -b up
--s GravNar-1500 -r default -n 1 -j 1 -y 18 -d btagHbb -J down
--s GravNar-1500 -r default -n 1 -j 1 -y 18 -d btagHbb -R down
--s GravNar-1500 -r default -n 1 -j 1 -y 18 -d btagHbb -a down
--s GravNar-1500 -r default -n 1 -j 1 -y 18 -d btagHbb -b down
--s GravNar-2000 -r default -n 1 -j 1 -y 18 -d btagHbb
--s GravNar-2000 -r default -n 1 -j 1 -y 18 -d btagHbb -J up
--s GravNar-2000 -r default -n 1 -j 1 -y 18 -d btagHbb -R up
--s GravNar-2000 -r default -n 1 -j 1 -y 18 -d btagHbb -a up
--s GravNar-2000 -r default -n 1 -j 1 -y 18 -d btagHbb -b up
--s GravNar-2000 -r default -n 1 -j 1 -y 18 -d btagHbb -J down
--s GravNar-2000 -r default -n 1 -j 1 -y 18 -d btagHbb -R down
--s GravNar-2000 -r default -n 1 -j 1 -y 18 -d btagHbb -a down
--s GravNar-2000 -r default -n 1 -j 1 -y 18 -d btagHbb -b down
--s GravNar-2500 -r default -n 1 -j 1 -y 18 -d btagHbb
--s GravNar-2500 -r default -n 1 -j 1 -y 18 -d btagHbb -J up
--s GravNar-2500 -r default -n 1 -j 1 -y 18 -d btagHbb -R up
--s GravNar-2500 -r default -n 1 -j 1 -y 18 -d btagHbb -a up
--s GravNar-2500 -r default -n 1 -j 1 -y 18 -d btagHbb -b up
--s GravNar-2500 -r default -n 1 -j 1 -y 18 -d btagHbb -J down
--s GravNar-2500 -r default -n 1 -j 1 -y 18 -d btagHbb -R down
--s GravNar-2500 -r default -n 1 -j 1 -y 18 -d btagHbb -a down
--s GravNar-2500 -r default -n 1 -j 1 -y 18 -d btagHbb -b down
--s GravNar-3000 -r default -n 1 -j 1 -y 18 -d btagHbb
--s GravNar-3000 -r default -n 1 -j 1 -y 18 -d btagHbb -J up
--s GravNar-3000 -r default -n 1 -j 1 -y 18 -d btagHbb -R up
--s GravNar-3000 -r default -n 1 -j 1 -y 18 -d btagHbb -a up
--s GravNar-3000 -r default -n 1 -j 1 -y 18 -d btagHbb -b up
--s GravNar-3000 -r default -n 1 -j 1 -y 18 -d btagHbb -J down
--s GravNar-3000 -r default -n 1 -j 1 -y 18 -d btagHbb -R down
--s GravNar-3000 -r default -n 1 -j 1 -y 18 -d btagHbb -a down
--s GravNar-3000 -r default -n 1 -j 1 -y 18 -d btagHbb -b down
--s dataD -r default -n 100 -j 1 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 2 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 3 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 4 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 5 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 6 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 7 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 8 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 9 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 10 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 11 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 12 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 13 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 14 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 15 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 16 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 17 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 18 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 19 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 20 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 21 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 22 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 23 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 24 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 25 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 26 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 27 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 28 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 29 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 30 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 31 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 32 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 33 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 34 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 35 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 36 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 37 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 38 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 39 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 40 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 41 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 42 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 43 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 44 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 45 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 46 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 47 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 48 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 49 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 50 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 51 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 52 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 53 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 54 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 55 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 56 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 57 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 58 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 59 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 60 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 61 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 62 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 63 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 64 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 65 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 66 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 67 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 68 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 69 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 70 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 71 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 72 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 73 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 74 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 75 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 76 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 77 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 78 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 79 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 80 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 81 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 82 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 83 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 84 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 85 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 86 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 87 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 88 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 89 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 90 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 91 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 92 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 93 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 94 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 95 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 96 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 97 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 98 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 99 -y 18 -d btagHbb
--s dataD -r default -n 100 -j 100 -y 18 -d btagHbb
--s dataA -r default -n 45 -j 1 -y 18 -d btagHbb
--s dataA -r default -n 45 -j 2 -y 18 -d btagHbb
--s dataA -r default -n 45 -j 3 -y 18 -d btagHbb
--s dataA -r default -n 45 -j 4 -y 18 -d btagHbb
--s dataA -r default -n 45 -j 5 -y 18 -d btagHbb
--s dataA -r default -n 45 -j 6 -y 18 -d btagHbb
--s dataA -r default -n 45 -j 7 -y 18 -d btagHbb
--s dataA -r default -n 45 -j 8 -y 18 -d btagHbb
--s dataA -r default -n 45 -j 9 -y 18 -d btagHbb
--s dataA -r default -n 45 -j 10 -y 18 -d btagHbb
--s dataA -r default -n 45 -j 11 -y 18 -d btagHbb
--s dataA -r default -n 45 -j 12 -y 18 -d btagHbb
--s dataA -r default -n 45 -j 13 -y 18 -d btagHbb
--s dataA -r default -n 45 -j 14 -y 18 -d btagHbb
--s dataA -r default -n 45 -j 15 -y 18 -d btagHbb
--s dataA -r default -n 45 -j 16 -y 18 -d btagHbb
--s dataA -r default -n 45 -j 17 -y 18 -d btagHbb
--s dataA -r default -n 45 -j 18 -y 18 -d btagHbb
--s dataA -r default -n 45 -j 19 -y 18 -d btagHbb
--s dataA -r default -n 45 -j 20 -y 18 -d btagHbb
--s dataA -r default -n 45 -j 21 -y 18 -d btagHbb
--s dataA -r default -n 45 -j 22 -y 18 -d btagHbb
--s dataA -r default -n 45 -j 23 -y 18 -d btagHbb
--s dataA -r default -n 45 -j 24 -y 18 -d btagHbb
--s dataA -r default -n 45 -j 25 -y 18 -d btagHbb
--s dataA -r default -n 45 -j 26 -y 18 -d btagHbb
--s dataA -r default -n 45 -j 27 -y 18 -d btagHbb
--s dataA -r default -n 45 -j 28 -y 18 -d btagHbb
--s dataA -r default -n 45 -j 29 -y 18 -d btagHbb
--s dataA -r default -n 45 -j 30 -y 18 -d btagHbb
--s dataA -r default -n 45 -j 31 -y 18 -d btagHbb
--s dataA -r default -n 45 -j 32 -y 18 -d btagHbb
--s dataA -r default -n 45 -j 33 -y 18 -d btagHbb
--s dataA -r default -n 45 -j 34 -y 18 -d btagHbb
--s dataA -r default -n 45 -j 35 -y 18 -d btagHbb
--s dataA -r default -n 45 -j 36 -y 18 -d btagHbb
--s dataA -r default -n 45 -j 37 -y 18 -d btagHbb
--s dataA -r default -n 45 -j 38 -y 18 -d btagHbb
--s dataA -r default -n 45 -j 39 -y 18 -d btagHbb
--s dataA -r default -n 45 -j 40 -y 18 -d btagHbb
--s dataA -r default -n 45 -j 41 -y 18 -d btagHbb
--s dataA -r default -n 45 -j 42 -y 18 -d btagHbb
--s dataA -r default -n 45 -j 43 -y 18 -d btagHbb
--s dataA -r default -n 45 -j 44 -y 18 -d btagHbb
--s dataA -r default -n 45 -j 45 -y 18 -d btagHbb
--s dataC2 -r default -n 3 -j 1 -y 18 -d btagHbb
--s dataC2 -r default -n 3 -j 2 -y 18 -d btagHbb
--s dataC2 -r default -n 3 -j 3 -y 18 -d btagHbb
--s dataC1 -r default -n 20 -j 1 -y 18 -d btagHbb
--s dataC1 -r default -n 20 -j 2 -y 18 -d btagHbb
--s dataC1 -r default -n 20 -j 3 -y 18 -d btagHbb
--s dataC1 -r default -n 20 -j 4 -y 18 -d btagHbb
--s dataC1 -r default -n 20 -j 5 -y 18 -d btagHbb
--s dataC1 -r default -n 20 -j 6 -y 18 -d btagHbb
--s dataC1 -r default -n 20 -j 7 -y 18 -d btagHbb
--s dataC1 -r default -n 20 -j 8 -y 18 -d btagHbb
--s dataC1 -r default -n 20 -j 9 -y 18 -d btagHbb
--s dataC1 -r default -n 20 -j 10 -y 18 -d btagHbb
--s dataC1 -r default -n 20 -j 11 -y 18 -d btagHbb
--s dataC1 -r default -n 20 -j 12 -y 18 -d btagHbb
--s dataC1 -r default -n 20 -j 13 -y 18 -d btagHbb
--s dataC1 -r default -n 20 -j 14 -y 18 -d btagHbb
--s dataC1 -r default -n 20 -j 15 -y 18 -d btagHbb
--s dataC1 -r default -n 20 -j 16 -y 18 -d btagHbb
--s dataC1 -r default -n 20 -j 17 -y 18 -d btagHbb
--s dataC1 -r default -n 20 -j 18 -y 18 -d btagHbb
--s dataC1 -r default -n 20 -j 19 -y 18 -d btagHbb
--s dataC1 -r default -n 20 -j 20 -y 18 -d btagHbb
--s dataB -r default -n 20 -j 1 -y 18 -d btagHbb
--s dataB -r default -n 20 -j 2 -y 18 -d btagHbb
--s dataB -r default -n 20 -j 3 -y 18 -d btagHbb
--s dataB -r default -n 20 -j 4 -y 18 -d btagHbb
--s dataB -r default -n 20 -j 5 -y 18 -d btagHbb
--s dataB -r default -n 20 -j 6 -y 18 -d btagHbb
--s dataB -r default -n 20 -j 7 -y 18 -d btagHbb
--s dataB -r default -n 20 -j 8 -y 18 -d btagHbb
--s dataB -r default -n 20 -j 9 -y 18 -d btagHbb
--s dataB -r default -n 20 -j 10 -y 18 -d btagHbb
--s dataB -r default -n 20 -j 11 -y 18 -d btagHbb
--s dataB -r default -n 20 -j 12 -y 18 -d btagHbb
--s dataB -r default -n 20 -j 13 -y 18 -d btagHbb
--s dataB -r default -n 20 -j 14 -y 18 -d btagHbb
--s dataB -r default -n 20 -j 15 -y 18 -d btagHbb
--s dataB -r default -n 20 -j 16 -y 18 -d btagHbb
--s dataB -r default -n 20 -j 17 -y 18 -d btagHbb
--s dataB -r default -n 20 -j 18 -y 18 -d btagHbb
--s dataB -r default -n 20 -j 19 -y 18 -d btagHbb
--s dataB -r default -n 20 -j 20 -y 18 -d btagHbb
--s QCDHT1000 -r default -n 21 -j 1 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT1000 -r default -n 21 -j 2 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT1000 -r default -n 21 -j 3 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT1000 -r default -n 21 -j 4 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT1000 -r default -n 21 -j 5 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT1000 -r default -n 21 -j 6 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT1000 -r default -n 21 -j 7 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT1000 -r default -n 21 -j 8 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT1000 -r default -n 21 -j 9 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT1000 -r default -n 21 -j 10 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT1000 -r default -n 21 -j 11 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT1000 -r default -n 21 -j 12 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT1000 -r default -n 21 -j 13 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT1000 -r default -n 21 -j 14 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT1000 -r default -n 21 -j 15 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT1000 -r default -n 21 -j 16 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT1000 -r default -n 21 -j 17 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT1000 -r default -n 21 -j 18 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT1000 -r default -n 21 -j 19 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT1000 -r default -n 21 -j 20 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT1000 -r default -n 21 -j 21 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT1500 -r default -n 16 -j 1 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT1500 -r default -n 16 -j 2 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT1500 -r default -n 16 -j 3 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT1500 -r default -n 16 -j 4 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT1500 -r default -n 16 -j 5 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT1500 -r default -n 16 -j 6 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT1500 -r default -n 16 -j 7 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT1500 -r default -n 16 -j 8 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT1500 -r default -n 16 -j 9 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT1500 -r default -n 16 -j 10 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT1500 -r default -n 16 -j 11 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT1500 -r default -n 16 -j 12 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT1500 -r default -n 16 -j 13 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT1500 -r default -n 16 -j 14 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT1500 -r default -n 16 -j 15 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT1500 -r default -n 16 -j 16 -y 18 -d deepTagMD_HbbvsQCD
+-s dataA -r default -n 19 -j 1 -y 18 -d btagHbb
+-s dataA -r default -n 19 -j 2 -y 18 -d btagHbb
+-s dataA -r default -n 19 -j 3 -y 18 -d btagHbb
+-s dataA -r default -n 19 -j 4 -y 18 -d btagHbb
+-s dataA -r default -n 19 -j 5 -y 18 -d btagHbb
+-s dataA -r default -n 19 -j 6 -y 18 -d btagHbb
+-s dataA -r default -n 19 -j 7 -y 18 -d btagHbb
+-s dataA -r default -n 19 -j 8 -y 18 -d btagHbb
+-s dataA -r default -n 19 -j 9 -y 18 -d btagHbb
+-s dataA -r default -n 19 -j 10 -y 18 -d btagHbb
+-s dataA -r default -n 19 -j 11 -y 18 -d btagHbb
+-s dataA -r default -n 19 -j 12 -y 18 -d btagHbb
+-s dataA -r default -n 19 -j 13 -y 18 -d btagHbb
+-s dataA -r default -n 19 -j 14 -y 18 -d btagHbb
+-s dataA -r default -n 19 -j 15 -y 18 -d btagHbb
+-s dataA -r default -n 19 -j 16 -y 18 -d btagHbb
+-s dataA -r default -n 19 -j 17 -y 18 -d btagHbb
+-s dataA -r default -n 19 -j 18 -y 18 -d btagHbb
+-s dataA -r default -n 19 -j 19 -y 18 -d btagHbb
+-s QCDHT700 -r default -n 6 -j 1 -y 18 -d btagHbb
+-s QCDHT700 -r default -n 6 -j 2 -y 18 -d btagHbb
+-s QCDHT700 -r default -n 6 -j 3 -y 18 -d btagHbb
+-s QCDHT700 -r default -n 6 -j 4 -y 18 -d btagHbb
+-s QCDHT700 -r default -n 6 -j 5 -y 18 -d btagHbb
+-s QCDHT700 -r default -n 6 -j 6 -y 18 -d btagHbb
+-s dataC2 -r default -n 1 -j 1 -y 18 -d btagHbb
+-s dataC1 -r default -n 9 -j 1 -y 18 -d btagHbb
+-s dataC1 -r default -n 9 -j 2 -y 18 -d btagHbb
+-s dataC1 -r default -n 9 -j 3 -y 18 -d btagHbb
+-s dataC1 -r default -n 9 -j 4 -y 18 -d btagHbb
+-s dataC1 -r default -n 9 -j 5 -y 18 -d btagHbb
+-s dataC1 -r default -n 9 -j 6 -y 18 -d btagHbb
+-s dataC1 -r default -n 9 -j 7 -y 18 -d btagHbb
+-s dataC1 -r default -n 9 -j 8 -y 18 -d btagHbb
+-s dataC1 -r default -n 9 -j 9 -y 18 -d btagHbb
+-s QCDHT1500 -r default -n 15 -j 1 -y 18 -d btagHbb
+-s QCDHT1500 -r default -n 15 -j 2 -y 18 -d btagHbb
+-s QCDHT1500 -r default -n 15 -j 3 -y 18 -d btagHbb
+-s QCDHT1500 -r default -n 15 -j 4 -y 18 -d btagHbb
+-s QCDHT1500 -r default -n 15 -j 5 -y 18 -d btagHbb
+-s QCDHT1500 -r default -n 15 -j 6 -y 18 -d btagHbb
+-s QCDHT1500 -r default -n 15 -j 7 -y 18 -d btagHbb
+-s QCDHT1500 -r default -n 15 -j 8 -y 18 -d btagHbb
+-s QCDHT1500 -r default -n 15 -j 9 -y 18 -d btagHbb
+-s QCDHT1500 -r default -n 15 -j 10 -y 18 -d btagHbb
+-s QCDHT1500 -r default -n 15 -j 11 -y 18 -d btagHbb
+-s QCDHT1500 -r default -n 15 -j 12 -y 18 -d btagHbb
+-s QCDHT1500 -r default -n 15 -j 13 -y 18 -d btagHbb
+-s QCDHT1500 -r default -n 15 -j 14 -y 18 -d btagHbb
+-s QCDHT1500 -r default -n 15 -j 15 -y 18 -d btagHbb
+-s ttbar -r default -n 17 -j 1 -y 18 -d btagHbb
+-s ttbar -r default -n 17 -j 2 -y 18 -d btagHbb
+-s ttbar -r default -n 17 -j 3 -y 18 -d btagHbb
+-s ttbar -r default -n 17 -j 4 -y 18 -d btagHbb
+-s ttbar -r default -n 17 -j 5 -y 18 -d btagHbb
+-s ttbar -r default -n 17 -j 6 -y 18 -d btagHbb
+-s ttbar -r default -n 17 -j 7 -y 18 -d btagHbb
+-s ttbar -r default -n 17 -j 8 -y 18 -d btagHbb
+-s ttbar -r default -n 17 -j 9 -y 18 -d btagHbb
+-s ttbar -r default -n 17 -j 10 -y 18 -d btagHbb
+-s ttbar -r default -n 17 -j 11 -y 18 -d btagHbb
+-s ttbar -r default -n 17 -j 12 -y 18 -d btagHbb
+-s ttbar -r default -n 17 -j 13 -y 18 -d btagHbb
+-s ttbar -r default -n 17 -j 14 -y 18 -d btagHbb
+-s ttbar -r default -n 17 -j 15 -y 18 -d btagHbb
+-s ttbar -r default -n 17 -j 16 -y 18 -d btagHbb
+-s ttbar -r default -n 17 -j 17 -y 18 -d btagHbb
+-s dataB -r default -n 9 -j 1 -y 18 -d btagHbb
+-s dataB -r default -n 9 -j 2 -y 18 -d btagHbb
+-s dataB -r default -n 9 -j 3 -y 18 -d btagHbb
+-s dataB -r default -n 9 -j 4 -y 18 -d btagHbb
+-s dataB -r default -n 9 -j 5 -y 18 -d btagHbb
+-s dataB -r default -n 9 -j 6 -y 18 -d btagHbb
+-s dataB -r default -n 9 -j 7 -y 18 -d btagHbb
+-s dataB -r default -n 9 -j 8 -y 18 -d btagHbb
+-s dataB -r default -n 9 -j 9 -y 18 -d btagHbb
+-s RadNar-1000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD
+-s RadNar-2000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD
+-s RadNar-1500 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD
+-s GravNar-1000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD
+-s GravNar-3000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD
+-s RadNar-3000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD
+-s GravNar-1500 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD
+-s RadNar-2500 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD
+-s GravNar-2000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD
+-s GravNar-2500 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD
+-s dataD -r default -n 40 -j 1 -y 18 -d deepTagMD_HbbvsQCD
+-s dataD -r default -n 40 -j 2 -y 18 -d deepTagMD_HbbvsQCD
+-s dataD -r default -n 40 -j 3 -y 18 -d deepTagMD_HbbvsQCD
+-s dataD -r default -n 40 -j 4 -y 18 -d deepTagMD_HbbvsQCD
+-s dataD -r default -n 40 -j 5 -y 18 -d deepTagMD_HbbvsQCD
+-s dataD -r default -n 40 -j 6 -y 18 -d deepTagMD_HbbvsQCD
+-s dataD -r default -n 40 -j 7 -y 18 -d deepTagMD_HbbvsQCD
+-s dataD -r default -n 40 -j 8 -y 18 -d deepTagMD_HbbvsQCD
+-s dataD -r default -n 40 -j 9 -y 18 -d deepTagMD_HbbvsQCD
+-s dataD -r default -n 40 -j 10 -y 18 -d deepTagMD_HbbvsQCD
+-s dataD -r default -n 40 -j 11 -y 18 -d deepTagMD_HbbvsQCD
+-s dataD -r default -n 40 -j 12 -y 18 -d deepTagMD_HbbvsQCD
+-s dataD -r default -n 40 -j 13 -y 18 -d deepTagMD_HbbvsQCD
+-s dataD -r default -n 40 -j 14 -y 18 -d deepTagMD_HbbvsQCD
+-s dataD -r default -n 40 -j 15 -y 18 -d deepTagMD_HbbvsQCD
+-s dataD -r default -n 40 -j 16 -y 18 -d deepTagMD_HbbvsQCD
+-s dataD -r default -n 40 -j 17 -y 18 -d deepTagMD_HbbvsQCD
+-s dataD -r default -n 40 -j 18 -y 18 -d deepTagMD_HbbvsQCD
+-s dataD -r default -n 40 -j 19 -y 18 -d deepTagMD_HbbvsQCD
+-s dataD -r default -n 40 -j 20 -y 18 -d deepTagMD_HbbvsQCD
+-s dataD -r default -n 40 -j 21 -y 18 -d deepTagMD_HbbvsQCD
+-s dataD -r default -n 40 -j 22 -y 18 -d deepTagMD_HbbvsQCD
+-s dataD -r default -n 40 -j 23 -y 18 -d deepTagMD_HbbvsQCD
+-s dataD -r default -n 40 -j 24 -y 18 -d deepTagMD_HbbvsQCD
+-s dataD -r default -n 40 -j 25 -y 18 -d deepTagMD_HbbvsQCD
+-s dataD -r default -n 40 -j 26 -y 18 -d deepTagMD_HbbvsQCD
+-s dataD -r default -n 40 -j 27 -y 18 -d deepTagMD_HbbvsQCD
+-s dataD -r default -n 40 -j 28 -y 18 -d deepTagMD_HbbvsQCD
+-s dataD -r default -n 40 -j 29 -y 18 -d deepTagMD_HbbvsQCD
+-s dataD -r default -n 40 -j 30 -y 18 -d deepTagMD_HbbvsQCD
+-s dataD -r default -n 40 -j 31 -y 18 -d deepTagMD_HbbvsQCD
+-s dataD -r default -n 40 -j 32 -y 18 -d deepTagMD_HbbvsQCD
+-s dataD -r default -n 40 -j 33 -y 18 -d deepTagMD_HbbvsQCD
+-s dataD -r default -n 40 -j 34 -y 18 -d deepTagMD_HbbvsQCD
+-s dataD -r default -n 40 -j 35 -y 18 -d deepTagMD_HbbvsQCD
+-s dataD -r default -n 40 -j 36 -y 18 -d deepTagMD_HbbvsQCD
+-s dataD -r default -n 40 -j 37 -y 18 -d deepTagMD_HbbvsQCD
+-s dataD -r default -n 40 -j 38 -y 18 -d deepTagMD_HbbvsQCD
+-s dataD -r default -n 40 -j 39 -y 18 -d deepTagMD_HbbvsQCD
+-s dataD -r default -n 40 -j 40 -y 18 -d deepTagMD_HbbvsQCD
+-s QCDHT1000 -r default -n 17 -j 1 -y 18 -d deepTagMD_HbbvsQCD
+-s QCDHT1000 -r default -n 17 -j 2 -y 18 -d deepTagMD_HbbvsQCD
+-s QCDHT1000 -r default -n 17 -j 3 -y 18 -d deepTagMD_HbbvsQCD
+-s QCDHT1000 -r default -n 17 -j 4 -y 18 -d deepTagMD_HbbvsQCD
+-s QCDHT1000 -r default -n 17 -j 5 -y 18 -d deepTagMD_HbbvsQCD
+-s QCDHT1000 -r default -n 17 -j 6 -y 18 -d deepTagMD_HbbvsQCD
+-s QCDHT1000 -r default -n 17 -j 7 -y 18 -d deepTagMD_HbbvsQCD
+-s QCDHT1000 -r default -n 17 -j 8 -y 18 -d deepTagMD_HbbvsQCD
+-s QCDHT1000 -r default -n 17 -j 9 -y 18 -d deepTagMD_HbbvsQCD
+-s QCDHT1000 -r default -n 17 -j 10 -y 18 -d deepTagMD_HbbvsQCD
+-s QCDHT1000 -r default -n 17 -j 11 -y 18 -d deepTagMD_HbbvsQCD
+-s QCDHT1000 -r default -n 17 -j 12 -y 18 -d deepTagMD_HbbvsQCD
+-s QCDHT1000 -r default -n 17 -j 13 -y 18 -d deepTagMD_HbbvsQCD
+-s QCDHT1000 -r default -n 17 -j 14 -y 18 -d deepTagMD_HbbvsQCD
+-s QCDHT1000 -r default -n 17 -j 15 -y 18 -d deepTagMD_HbbvsQCD
+-s QCDHT1000 -r default -n 17 -j 16 -y 18 -d deepTagMD_HbbvsQCD
+-s QCDHT1000 -r default -n 17 -j 17 -y 18 -d deepTagMD_HbbvsQCD
 -s QCDHT2000 -r default -n 8 -j 1 -y 18 -d deepTagMD_HbbvsQCD
 -s QCDHT2000 -r default -n 8 -j 2 -y 18 -d deepTagMD_HbbvsQCD
 -s QCDHT2000 -r default -n 8 -j 3 -y 18 -d deepTagMD_HbbvsQCD
@@ -567,522 +224,149 @@
 -s QCDHT2000 -r default -n 8 -j 6 -y 18 -d deepTagMD_HbbvsQCD
 -s QCDHT2000 -r default -n 8 -j 7 -y 18 -d deepTagMD_HbbvsQCD
 -s QCDHT2000 -r default -n 8 -j 8 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 1 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 2 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 3 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 4 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 5 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 6 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 7 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 8 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 9 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 10 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 11 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 12 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 13 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 14 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 15 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 16 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 17 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 18 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 19 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 20 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 21 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 22 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 23 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 24 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 25 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 26 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 27 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 28 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 29 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 30 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 31 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 32 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 33 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 34 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 35 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 36 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 37 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 38 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 39 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 40 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 41 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 42 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 43 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 44 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 45 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 46 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 47 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 48 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 49 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 50 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 51 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 52 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 53 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 54 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 55 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 56 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT700 -r default -n 57 -j 57 -y 18 -d deepTagMD_HbbvsQCD
--s ttbar -r default -n 16 -j 1 -y 18 -d deepTagMD_HbbvsQCD
--s ttbar -r default -n 16 -j 2 -y 18 -d deepTagMD_HbbvsQCD
--s ttbar -r default -n 16 -j 3 -y 18 -d deepTagMD_HbbvsQCD
--s ttbar -r default -n 16 -j 4 -y 18 -d deepTagMD_HbbvsQCD
--s ttbar -r default -n 16 -j 5 -y 18 -d deepTagMD_HbbvsQCD
--s ttbar -r default -n 16 -j 6 -y 18 -d deepTagMD_HbbvsQCD
--s ttbar -r default -n 16 -j 7 -y 18 -d deepTagMD_HbbvsQCD
--s ttbar -r default -n 16 -j 8 -y 18 -d deepTagMD_HbbvsQCD
--s ttbar -r default -n 16 -j 9 -y 18 -d deepTagMD_HbbvsQCD
--s ttbar -r default -n 16 -j 10 -y 18 -d deepTagMD_HbbvsQCD
--s ttbar -r default -n 16 -j 11 -y 18 -d deepTagMD_HbbvsQCD
--s ttbar -r default -n 16 -j 12 -y 18 -d deepTagMD_HbbvsQCD
--s ttbar -r default -n 16 -j 13 -y 18 -d deepTagMD_HbbvsQCD
--s ttbar -r default -n 16 -j 14 -y 18 -d deepTagMD_HbbvsQCD
--s ttbar -r default -n 16 -j 15 -y 18 -d deepTagMD_HbbvsQCD
--s ttbar -r default -n 16 -j 16 -y 18 -d deepTagMD_HbbvsQCD
--s ttbar -r default -n 16 -j 1 -y 18 -d deepTagMD_HbbvsQCD -J up
--s ttbar -r default -n 16 -j 2 -y 18 -d deepTagMD_HbbvsQCD -J up
--s ttbar -r default -n 16 -j 3 -y 18 -d deepTagMD_HbbvsQCD -J up
--s ttbar -r default -n 16 -j 4 -y 18 -d deepTagMD_HbbvsQCD -J up
--s ttbar -r default -n 16 -j 5 -y 18 -d deepTagMD_HbbvsQCD -J up
--s ttbar -r default -n 16 -j 6 -y 18 -d deepTagMD_HbbvsQCD -J up
--s ttbar -r default -n 16 -j 7 -y 18 -d deepTagMD_HbbvsQCD -J up
--s ttbar -r default -n 16 -j 8 -y 18 -d deepTagMD_HbbvsQCD -J up
--s ttbar -r default -n 16 -j 9 -y 18 -d deepTagMD_HbbvsQCD -J up
--s ttbar -r default -n 16 -j 10 -y 18 -d deepTagMD_HbbvsQCD -J up
--s ttbar -r default -n 16 -j 11 -y 18 -d deepTagMD_HbbvsQCD -J up
--s ttbar -r default -n 16 -j 12 -y 18 -d deepTagMD_HbbvsQCD -J up
--s ttbar -r default -n 16 -j 13 -y 18 -d deepTagMD_HbbvsQCD -J up
--s ttbar -r default -n 16 -j 14 -y 18 -d deepTagMD_HbbvsQCD -J up
--s ttbar -r default -n 16 -j 15 -y 18 -d deepTagMD_HbbvsQCD -J up
--s ttbar -r default -n 16 -j 16 -y 18 -d deepTagMD_HbbvsQCD -J up
--s ttbar -r default -n 16 -j 1 -y 18 -d deepTagMD_HbbvsQCD -R up
--s ttbar -r default -n 16 -j 2 -y 18 -d deepTagMD_HbbvsQCD -R up
--s ttbar -r default -n 16 -j 3 -y 18 -d deepTagMD_HbbvsQCD -R up
--s ttbar -r default -n 16 -j 4 -y 18 -d deepTagMD_HbbvsQCD -R up
--s ttbar -r default -n 16 -j 5 -y 18 -d deepTagMD_HbbvsQCD -R up
--s ttbar -r default -n 16 -j 6 -y 18 -d deepTagMD_HbbvsQCD -R up
--s ttbar -r default -n 16 -j 7 -y 18 -d deepTagMD_HbbvsQCD -R up
--s ttbar -r default -n 16 -j 8 -y 18 -d deepTagMD_HbbvsQCD -R up
--s ttbar -r default -n 16 -j 9 -y 18 -d deepTagMD_HbbvsQCD -R up
--s ttbar -r default -n 16 -j 10 -y 18 -d deepTagMD_HbbvsQCD -R up
--s ttbar -r default -n 16 -j 11 -y 18 -d deepTagMD_HbbvsQCD -R up
--s ttbar -r default -n 16 -j 12 -y 18 -d deepTagMD_HbbvsQCD -R up
--s ttbar -r default -n 16 -j 13 -y 18 -d deepTagMD_HbbvsQCD -R up
--s ttbar -r default -n 16 -j 14 -y 18 -d deepTagMD_HbbvsQCD -R up
--s ttbar -r default -n 16 -j 15 -y 18 -d deepTagMD_HbbvsQCD -R up
--s ttbar -r default -n 16 -j 16 -y 18 -d deepTagMD_HbbvsQCD -R up
--s ttbar -r default -n 16 -j 1 -y 18 -d deepTagMD_HbbvsQCD -a up
--s ttbar -r default -n 16 -j 2 -y 18 -d deepTagMD_HbbvsQCD -a up
--s ttbar -r default -n 16 -j 3 -y 18 -d deepTagMD_HbbvsQCD -a up
--s ttbar -r default -n 16 -j 4 -y 18 -d deepTagMD_HbbvsQCD -a up
--s ttbar -r default -n 16 -j 5 -y 18 -d deepTagMD_HbbvsQCD -a up
--s ttbar -r default -n 16 -j 6 -y 18 -d deepTagMD_HbbvsQCD -a up
--s ttbar -r default -n 16 -j 7 -y 18 -d deepTagMD_HbbvsQCD -a up
--s ttbar -r default -n 16 -j 8 -y 18 -d deepTagMD_HbbvsQCD -a up
--s ttbar -r default -n 16 -j 9 -y 18 -d deepTagMD_HbbvsQCD -a up
--s ttbar -r default -n 16 -j 10 -y 18 -d deepTagMD_HbbvsQCD -a up
--s ttbar -r default -n 16 -j 11 -y 18 -d deepTagMD_HbbvsQCD -a up
--s ttbar -r default -n 16 -j 12 -y 18 -d deepTagMD_HbbvsQCD -a up
--s ttbar -r default -n 16 -j 13 -y 18 -d deepTagMD_HbbvsQCD -a up
--s ttbar -r default -n 16 -j 14 -y 18 -d deepTagMD_HbbvsQCD -a up
--s ttbar -r default -n 16 -j 15 -y 18 -d deepTagMD_HbbvsQCD -a up
--s ttbar -r default -n 16 -j 16 -y 18 -d deepTagMD_HbbvsQCD -a up
--s ttbar -r default -n 16 -j 1 -y 18 -d deepTagMD_HbbvsQCD -b up
--s ttbar -r default -n 16 -j 2 -y 18 -d deepTagMD_HbbvsQCD -b up
--s ttbar -r default -n 16 -j 3 -y 18 -d deepTagMD_HbbvsQCD -b up
--s ttbar -r default -n 16 -j 4 -y 18 -d deepTagMD_HbbvsQCD -b up
--s ttbar -r default -n 16 -j 5 -y 18 -d deepTagMD_HbbvsQCD -b up
--s ttbar -r default -n 16 -j 6 -y 18 -d deepTagMD_HbbvsQCD -b up
--s ttbar -r default -n 16 -j 7 -y 18 -d deepTagMD_HbbvsQCD -b up
--s ttbar -r default -n 16 -j 8 -y 18 -d deepTagMD_HbbvsQCD -b up
--s ttbar -r default -n 16 -j 9 -y 18 -d deepTagMD_HbbvsQCD -b up
--s ttbar -r default -n 16 -j 10 -y 18 -d deepTagMD_HbbvsQCD -b up
--s ttbar -r default -n 16 -j 11 -y 18 -d deepTagMD_HbbvsQCD -b up
--s ttbar -r default -n 16 -j 12 -y 18 -d deepTagMD_HbbvsQCD -b up
--s ttbar -r default -n 16 -j 13 -y 18 -d deepTagMD_HbbvsQCD -b up
--s ttbar -r default -n 16 -j 14 -y 18 -d deepTagMD_HbbvsQCD -b up
--s ttbar -r default -n 16 -j 15 -y 18 -d deepTagMD_HbbvsQCD -b up
--s ttbar -r default -n 16 -j 16 -y 18 -d deepTagMD_HbbvsQCD -b up
--s ttbar -r default -n 16 -j 1 -y 18 -d deepTagMD_HbbvsQCD -J down
--s ttbar -r default -n 16 -j 2 -y 18 -d deepTagMD_HbbvsQCD -J down
--s ttbar -r default -n 16 -j 3 -y 18 -d deepTagMD_HbbvsQCD -J down
--s ttbar -r default -n 16 -j 4 -y 18 -d deepTagMD_HbbvsQCD -J down
--s ttbar -r default -n 16 -j 5 -y 18 -d deepTagMD_HbbvsQCD -J down
--s ttbar -r default -n 16 -j 6 -y 18 -d deepTagMD_HbbvsQCD -J down
--s ttbar -r default -n 16 -j 7 -y 18 -d deepTagMD_HbbvsQCD -J down
--s ttbar -r default -n 16 -j 8 -y 18 -d deepTagMD_HbbvsQCD -J down
--s ttbar -r default -n 16 -j 9 -y 18 -d deepTagMD_HbbvsQCD -J down
--s ttbar -r default -n 16 -j 10 -y 18 -d deepTagMD_HbbvsQCD -J down
--s ttbar -r default -n 16 -j 11 -y 18 -d deepTagMD_HbbvsQCD -J down
--s ttbar -r default -n 16 -j 12 -y 18 -d deepTagMD_HbbvsQCD -J down
--s ttbar -r default -n 16 -j 13 -y 18 -d deepTagMD_HbbvsQCD -J down
--s ttbar -r default -n 16 -j 14 -y 18 -d deepTagMD_HbbvsQCD -J down
--s ttbar -r default -n 16 -j 15 -y 18 -d deepTagMD_HbbvsQCD -J down
--s ttbar -r default -n 16 -j 16 -y 18 -d deepTagMD_HbbvsQCD -J down
--s ttbar -r default -n 16 -j 1 -y 18 -d deepTagMD_HbbvsQCD -R down
--s ttbar -r default -n 16 -j 2 -y 18 -d deepTagMD_HbbvsQCD -R down
--s ttbar -r default -n 16 -j 3 -y 18 -d deepTagMD_HbbvsQCD -R down
--s ttbar -r default -n 16 -j 4 -y 18 -d deepTagMD_HbbvsQCD -R down
--s ttbar -r default -n 16 -j 5 -y 18 -d deepTagMD_HbbvsQCD -R down
--s ttbar -r default -n 16 -j 6 -y 18 -d deepTagMD_HbbvsQCD -R down
--s ttbar -r default -n 16 -j 7 -y 18 -d deepTagMD_HbbvsQCD -R down
--s ttbar -r default -n 16 -j 8 -y 18 -d deepTagMD_HbbvsQCD -R down
--s ttbar -r default -n 16 -j 9 -y 18 -d deepTagMD_HbbvsQCD -R down
--s ttbar -r default -n 16 -j 10 -y 18 -d deepTagMD_HbbvsQCD -R down
--s ttbar -r default -n 16 -j 11 -y 18 -d deepTagMD_HbbvsQCD -R down
--s ttbar -r default -n 16 -j 12 -y 18 -d deepTagMD_HbbvsQCD -R down
--s ttbar -r default -n 16 -j 13 -y 18 -d deepTagMD_HbbvsQCD -R down
--s ttbar -r default -n 16 -j 14 -y 18 -d deepTagMD_HbbvsQCD -R down
--s ttbar -r default -n 16 -j 15 -y 18 -d deepTagMD_HbbvsQCD -R down
--s ttbar -r default -n 16 -j 16 -y 18 -d deepTagMD_HbbvsQCD -R down
--s ttbar -r default -n 16 -j 1 -y 18 -d deepTagMD_HbbvsQCD -a down
--s ttbar -r default -n 16 -j 2 -y 18 -d deepTagMD_HbbvsQCD -a down
--s ttbar -r default -n 16 -j 3 -y 18 -d deepTagMD_HbbvsQCD -a down
--s ttbar -r default -n 16 -j 4 -y 18 -d deepTagMD_HbbvsQCD -a down
--s ttbar -r default -n 16 -j 5 -y 18 -d deepTagMD_HbbvsQCD -a down
--s ttbar -r default -n 16 -j 6 -y 18 -d deepTagMD_HbbvsQCD -a down
--s ttbar -r default -n 16 -j 7 -y 18 -d deepTagMD_HbbvsQCD -a down
--s ttbar -r default -n 16 -j 8 -y 18 -d deepTagMD_HbbvsQCD -a down
--s ttbar -r default -n 16 -j 9 -y 18 -d deepTagMD_HbbvsQCD -a down
--s ttbar -r default -n 16 -j 10 -y 18 -d deepTagMD_HbbvsQCD -a down
--s ttbar -r default -n 16 -j 11 -y 18 -d deepTagMD_HbbvsQCD -a down
--s ttbar -r default -n 16 -j 12 -y 18 -d deepTagMD_HbbvsQCD -a down
--s ttbar -r default -n 16 -j 13 -y 18 -d deepTagMD_HbbvsQCD -a down
--s ttbar -r default -n 16 -j 14 -y 18 -d deepTagMD_HbbvsQCD -a down
--s ttbar -r default -n 16 -j 15 -y 18 -d deepTagMD_HbbvsQCD -a down
--s ttbar -r default -n 16 -j 16 -y 18 -d deepTagMD_HbbvsQCD -a down
--s ttbar -r default -n 16 -j 1 -y 18 -d deepTagMD_HbbvsQCD -b down
--s ttbar -r default -n 16 -j 2 -y 18 -d deepTagMD_HbbvsQCD -b down
--s ttbar -r default -n 16 -j 3 -y 18 -d deepTagMD_HbbvsQCD -b down
--s ttbar -r default -n 16 -j 4 -y 18 -d deepTagMD_HbbvsQCD -b down
--s ttbar -r default -n 16 -j 5 -y 18 -d deepTagMD_HbbvsQCD -b down
--s ttbar -r default -n 16 -j 6 -y 18 -d deepTagMD_HbbvsQCD -b down
--s ttbar -r default -n 16 -j 7 -y 18 -d deepTagMD_HbbvsQCD -b down
--s ttbar -r default -n 16 -j 8 -y 18 -d deepTagMD_HbbvsQCD -b down
--s ttbar -r default -n 16 -j 9 -y 18 -d deepTagMD_HbbvsQCD -b down
--s ttbar -r default -n 16 -j 10 -y 18 -d deepTagMD_HbbvsQCD -b down
--s ttbar -r default -n 16 -j 11 -y 18 -d deepTagMD_HbbvsQCD -b down
--s ttbar -r default -n 16 -j 12 -y 18 -d deepTagMD_HbbvsQCD -b down
--s ttbar -r default -n 16 -j 13 -y 18 -d deepTagMD_HbbvsQCD -b down
--s ttbar -r default -n 16 -j 14 -y 18 -d deepTagMD_HbbvsQCD -b down
--s ttbar -r default -n 16 -j 15 -y 18 -d deepTagMD_HbbvsQCD -b down
--s ttbar -r default -n 16 -j 16 -y 18 -d deepTagMD_HbbvsQCD -b down
--s RadNar-1000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD
--s RadNar-1000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -J up
--s RadNar-1000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -R up
--s RadNar-1000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -a up
--s RadNar-1000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -b up
--s RadNar-1000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -J down
--s RadNar-1000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -R down
--s RadNar-1000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -a down
--s RadNar-1000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -b down
--s RadNar-1500 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD
--s RadNar-1500 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -J up
--s RadNar-1500 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -R up
--s RadNar-1500 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -a up
--s RadNar-1500 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -b up
--s RadNar-1500 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -J down
--s RadNar-1500 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -R down
--s RadNar-1500 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -a down
--s RadNar-1500 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -b down
--s RadNar-2000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD
--s RadNar-2000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -J up
--s RadNar-2000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -R up
--s RadNar-2000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -a up
--s RadNar-2000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -b up
--s RadNar-2000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -J down
--s RadNar-2000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -R down
--s RadNar-2000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -a down
--s RadNar-2000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -b down
--s RadNar-2500 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD
--s RadNar-2500 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -J up
--s RadNar-2500 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -R up
--s RadNar-2500 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -a up
--s RadNar-2500 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -b up
--s RadNar-2500 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -J down
--s RadNar-2500 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -R down
--s RadNar-2500 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -a down
--s RadNar-2500 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -b down
--s RadNar-3000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD
--s RadNar-3000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -J up
--s RadNar-3000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -R up
--s RadNar-3000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -a up
--s RadNar-3000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -b up
--s RadNar-3000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -J down
--s RadNar-3000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -R down
--s RadNar-3000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -a down
--s RadNar-3000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -b down
--s GravNar-1000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD
--s GravNar-1000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -J up
--s GravNar-1000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -R up
--s GravNar-1000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -a up
--s GravNar-1000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -b up
--s GravNar-1000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -J down
--s GravNar-1000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -R down
--s GravNar-1000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -a down
--s GravNar-1000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -b down
--s GravNar-1500 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD
--s GravNar-1500 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -J up
--s GravNar-1500 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -R up
--s GravNar-1500 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -a up
--s GravNar-1500 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -b up
--s GravNar-1500 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -J down
--s GravNar-1500 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -R down
--s GravNar-1500 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -a down
--s GravNar-1500 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -b down
--s GravNar-2000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD
--s GravNar-2000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -J up
--s GravNar-2000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -R up
--s GravNar-2000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -a up
--s GravNar-2000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -b up
--s GravNar-2000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -J down
--s GravNar-2000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -R down
--s GravNar-2000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -a down
--s GravNar-2000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -b down
--s GravNar-2500 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD
--s GravNar-2500 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -J up
--s GravNar-2500 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -R up
--s GravNar-2500 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -a up
--s GravNar-2500 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -b up
--s GravNar-2500 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -J down
--s GravNar-2500 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -R down
--s GravNar-2500 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -a down
--s GravNar-2500 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -b down
--s GravNar-3000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD
--s GravNar-3000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -J up
--s GravNar-3000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -R up
--s GravNar-3000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -a up
--s GravNar-3000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -b up
--s GravNar-3000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -J down
--s GravNar-3000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -R down
--s GravNar-3000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -a down
--s GravNar-3000 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD -b down
--s dataD -r default -n 100 -j 1 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 2 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 3 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 4 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 5 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 6 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 7 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 8 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 9 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 10 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 11 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 12 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 13 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 14 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 15 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 16 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 17 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 18 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 19 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 20 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 21 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 22 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 23 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 24 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 25 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 26 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 27 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 28 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 29 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 30 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 31 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 32 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 33 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 34 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 35 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 36 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 37 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 38 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 39 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 40 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 41 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 42 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 43 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 44 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 45 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 46 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 47 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 48 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 49 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 50 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 51 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 52 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 53 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 54 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 55 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 56 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 57 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 58 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 59 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 60 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 61 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 62 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 63 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 64 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 65 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 66 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 67 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 68 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 69 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 70 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 71 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 72 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 73 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 74 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 75 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 76 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 77 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 78 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 79 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 80 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 81 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 82 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 83 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 84 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 85 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 86 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 87 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 88 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 89 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 90 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 91 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 92 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 93 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 94 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 95 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 96 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 97 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 98 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 99 -y 18 -d deepTagMD_HbbvsQCD
--s dataD -r default -n 100 -j 100 -y 18 -d deepTagMD_HbbvsQCD
--s dataA -r default -n 45 -j 1 -y 18 -d deepTagMD_HbbvsQCD
--s dataA -r default -n 45 -j 2 -y 18 -d deepTagMD_HbbvsQCD
--s dataA -r default -n 45 -j 3 -y 18 -d deepTagMD_HbbvsQCD
--s dataA -r default -n 45 -j 4 -y 18 -d deepTagMD_HbbvsQCD
--s dataA -r default -n 45 -j 5 -y 18 -d deepTagMD_HbbvsQCD
--s dataA -r default -n 45 -j 6 -y 18 -d deepTagMD_HbbvsQCD
--s dataA -r default -n 45 -j 7 -y 18 -d deepTagMD_HbbvsQCD
--s dataA -r default -n 45 -j 8 -y 18 -d deepTagMD_HbbvsQCD
--s dataA -r default -n 45 -j 9 -y 18 -d deepTagMD_HbbvsQCD
--s dataA -r default -n 45 -j 10 -y 18 -d deepTagMD_HbbvsQCD
--s dataA -r default -n 45 -j 11 -y 18 -d deepTagMD_HbbvsQCD
--s dataA -r default -n 45 -j 12 -y 18 -d deepTagMD_HbbvsQCD
--s dataA -r default -n 45 -j 13 -y 18 -d deepTagMD_HbbvsQCD
--s dataA -r default -n 45 -j 14 -y 18 -d deepTagMD_HbbvsQCD
--s dataA -r default -n 45 -j 15 -y 18 -d deepTagMD_HbbvsQCD
--s dataA -r default -n 45 -j 16 -y 18 -d deepTagMD_HbbvsQCD
--s dataA -r default -n 45 -j 17 -y 18 -d deepTagMD_HbbvsQCD
--s dataA -r default -n 45 -j 18 -y 18 -d deepTagMD_HbbvsQCD
--s dataA -r default -n 45 -j 19 -y 18 -d deepTagMD_HbbvsQCD
--s dataA -r default -n 45 -j 20 -y 18 -d deepTagMD_HbbvsQCD
--s dataA -r default -n 45 -j 21 -y 18 -d deepTagMD_HbbvsQCD
--s dataA -r default -n 45 -j 22 -y 18 -d deepTagMD_HbbvsQCD
--s dataA -r default -n 45 -j 23 -y 18 -d deepTagMD_HbbvsQCD
--s dataA -r default -n 45 -j 24 -y 18 -d deepTagMD_HbbvsQCD
--s dataA -r default -n 45 -j 25 -y 18 -d deepTagMD_HbbvsQCD
--s dataA -r default -n 45 -j 26 -y 18 -d deepTagMD_HbbvsQCD
--s dataA -r default -n 45 -j 27 -y 18 -d deepTagMD_HbbvsQCD
--s dataA -r default -n 45 -j 28 -y 18 -d deepTagMD_HbbvsQCD
--s dataA -r default -n 45 -j 29 -y 18 -d deepTagMD_HbbvsQCD
--s dataA -r default -n 45 -j 30 -y 18 -d deepTagMD_HbbvsQCD
--s dataA -r default -n 45 -j 31 -y 18 -d deepTagMD_HbbvsQCD
--s dataA -r default -n 45 -j 32 -y 18 -d deepTagMD_HbbvsQCD
--s dataA -r default -n 45 -j 33 -y 18 -d deepTagMD_HbbvsQCD
--s dataA -r default -n 45 -j 34 -y 18 -d deepTagMD_HbbvsQCD
--s dataA -r default -n 45 -j 35 -y 18 -d deepTagMD_HbbvsQCD
--s dataA -r default -n 45 -j 36 -y 18 -d deepTagMD_HbbvsQCD
--s dataA -r default -n 45 -j 37 -y 18 -d deepTagMD_HbbvsQCD
--s dataA -r default -n 45 -j 38 -y 18 -d deepTagMD_HbbvsQCD
--s dataA -r default -n 45 -j 39 -y 18 -d deepTagMD_HbbvsQCD
--s dataA -r default -n 45 -j 40 -y 18 -d deepTagMD_HbbvsQCD
--s dataA -r default -n 45 -j 41 -y 18 -d deepTagMD_HbbvsQCD
--s dataA -r default -n 45 -j 42 -y 18 -d deepTagMD_HbbvsQCD
--s dataA -r default -n 45 -j 43 -y 18 -d deepTagMD_HbbvsQCD
--s dataA -r default -n 45 -j 44 -y 18 -d deepTagMD_HbbvsQCD
--s dataA -r default -n 45 -j 45 -y 18 -d deepTagMD_HbbvsQCD
--s dataC2 -r default -n 3 -j 1 -y 18 -d deepTagMD_HbbvsQCD
--s dataC2 -r default -n 3 -j 2 -y 18 -d deepTagMD_HbbvsQCD
--s dataC2 -r default -n 3 -j 3 -y 18 -d deepTagMD_HbbvsQCD
--s dataC1 -r default -n 20 -j 1 -y 18 -d deepTagMD_HbbvsQCD
--s dataC1 -r default -n 20 -j 2 -y 18 -d deepTagMD_HbbvsQCD
--s dataC1 -r default -n 20 -j 3 -y 18 -d deepTagMD_HbbvsQCD
--s dataC1 -r default -n 20 -j 4 -y 18 -d deepTagMD_HbbvsQCD
--s dataC1 -r default -n 20 -j 5 -y 18 -d deepTagMD_HbbvsQCD
--s dataC1 -r default -n 20 -j 6 -y 18 -d deepTagMD_HbbvsQCD
--s dataC1 -r default -n 20 -j 7 -y 18 -d deepTagMD_HbbvsQCD
--s dataC1 -r default -n 20 -j 8 -y 18 -d deepTagMD_HbbvsQCD
--s dataC1 -r default -n 20 -j 9 -y 18 -d deepTagMD_HbbvsQCD
--s dataC1 -r default -n 20 -j 10 -y 18 -d deepTagMD_HbbvsQCD
--s dataC1 -r default -n 20 -j 11 -y 18 -d deepTagMD_HbbvsQCD
--s dataC1 -r default -n 20 -j 12 -y 18 -d deepTagMD_HbbvsQCD
--s dataC1 -r default -n 20 -j 13 -y 18 -d deepTagMD_HbbvsQCD
--s dataC1 -r default -n 20 -j 14 -y 18 -d deepTagMD_HbbvsQCD
--s dataC1 -r default -n 20 -j 15 -y 18 -d deepTagMD_HbbvsQCD
--s dataC1 -r default -n 20 -j 16 -y 18 -d deepTagMD_HbbvsQCD
--s dataC1 -r default -n 20 -j 17 -y 18 -d deepTagMD_HbbvsQCD
--s dataC1 -r default -n 20 -j 18 -y 18 -d deepTagMD_HbbvsQCD
--s dataC1 -r default -n 20 -j 19 -y 18 -d deepTagMD_HbbvsQCD
--s dataC1 -r default -n 20 -j 20 -y 18 -d deepTagMD_HbbvsQCD
--s dataB -r default -n 20 -j 1 -y 18 -d deepTagMD_HbbvsQCD
--s dataB -r default -n 20 -j 2 -y 18 -d deepTagMD_HbbvsQCD
--s dataB -r default -n 20 -j 3 -y 18 -d deepTagMD_HbbvsQCD
--s dataB -r default -n 20 -j 4 -y 18 -d deepTagMD_HbbvsQCD
--s dataB -r default -n 20 -j 5 -y 18 -d deepTagMD_HbbvsQCD
--s dataB -r default -n 20 -j 6 -y 18 -d deepTagMD_HbbvsQCD
--s dataB -r default -n 20 -j 7 -y 18 -d deepTagMD_HbbvsQCD
--s dataB -r default -n 20 -j 8 -y 18 -d deepTagMD_HbbvsQCD
--s dataB -r default -n 20 -j 9 -y 18 -d deepTagMD_HbbvsQCD
--s dataB -r default -n 20 -j 10 -y 18 -d deepTagMD_HbbvsQCD
--s dataB -r default -n 20 -j 11 -y 18 -d deepTagMD_HbbvsQCD
--s dataB -r default -n 20 -j 12 -y 18 -d deepTagMD_HbbvsQCD
--s dataB -r default -n 20 -j 13 -y 18 -d deepTagMD_HbbvsQCD
--s dataB -r default -n 20 -j 14 -y 18 -d deepTagMD_HbbvsQCD
--s dataB -r default -n 20 -j 15 -y 18 -d deepTagMD_HbbvsQCD
--s dataB -r default -n 20 -j 16 -y 18 -d deepTagMD_HbbvsQCD
--s dataB -r default -n 20 -j 17 -y 18 -d deepTagMD_HbbvsQCD
--s dataB -r default -n 20 -j 18 -y 18 -d deepTagMD_HbbvsQCD
--s dataB -r default -n 20 -j 19 -y 18 -d deepTagMD_HbbvsQCD
--s dataB -r default -n 20 -j 20 -y 18 -d deepTagMD_HbbvsQCD
--s QCDHT1000 -r default -n 21 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT1000 -r default -n 21 -j 2 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT1000 -r default -n 21 -j 3 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT1000 -r default -n 21 -j 4 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT1000 -r default -n 21 -j 5 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT1000 -r default -n 21 -j 6 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT1000 -r default -n 21 -j 7 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT1000 -r default -n 21 -j 8 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT1000 -r default -n 21 -j 9 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT1000 -r default -n 21 -j 10 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT1000 -r default -n 21 -j 11 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT1000 -r default -n 21 -j 12 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT1000 -r default -n 21 -j 13 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT1000 -r default -n 21 -j 14 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT1000 -r default -n 21 -j 15 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT1000 -r default -n 21 -j 16 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT1000 -r default -n 21 -j 17 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT1000 -r default -n 21 -j 18 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT1000 -r default -n 21 -j 19 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT1000 -r default -n 21 -j 20 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT1000 -r default -n 21 -j 21 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT1500 -r default -n 16 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT1500 -r default -n 16 -j 2 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT1500 -r default -n 16 -j 3 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT1500 -r default -n 16 -j 4 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT1500 -r default -n 16 -j 5 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT1500 -r default -n 16 -j 6 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT1500 -r default -n 16 -j 7 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT1500 -r default -n 16 -j 8 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT1500 -r default -n 16 -j 9 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT1500 -r default -n 16 -j 10 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT1500 -r default -n 16 -j 11 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT1500 -r default -n 16 -j 12 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT1500 -r default -n 16 -j 13 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT1500 -r default -n 16 -j 14 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT1500 -r default -n 16 -j 15 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT1500 -r default -n 16 -j 16 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataA -r default -n 19 -j 1 -y 18 -d deepTagMD_HbbvsQCD
+-s dataA -r default -n 19 -j 2 -y 18 -d deepTagMD_HbbvsQCD
+-s dataA -r default -n 19 -j 3 -y 18 -d deepTagMD_HbbvsQCD
+-s dataA -r default -n 19 -j 4 -y 18 -d deepTagMD_HbbvsQCD
+-s dataA -r default -n 19 -j 5 -y 18 -d deepTagMD_HbbvsQCD
+-s dataA -r default -n 19 -j 6 -y 18 -d deepTagMD_HbbvsQCD
+-s dataA -r default -n 19 -j 7 -y 18 -d deepTagMD_HbbvsQCD
+-s dataA -r default -n 19 -j 8 -y 18 -d deepTagMD_HbbvsQCD
+-s dataA -r default -n 19 -j 9 -y 18 -d deepTagMD_HbbvsQCD
+-s dataA -r default -n 19 -j 10 -y 18 -d deepTagMD_HbbvsQCD
+-s dataA -r default -n 19 -j 11 -y 18 -d deepTagMD_HbbvsQCD
+-s dataA -r default -n 19 -j 12 -y 18 -d deepTagMD_HbbvsQCD
+-s dataA -r default -n 19 -j 13 -y 18 -d deepTagMD_HbbvsQCD
+-s dataA -r default -n 19 -j 14 -y 18 -d deepTagMD_HbbvsQCD
+-s dataA -r default -n 19 -j 15 -y 18 -d deepTagMD_HbbvsQCD
+-s dataA -r default -n 19 -j 16 -y 18 -d deepTagMD_HbbvsQCD
+-s dataA -r default -n 19 -j 17 -y 18 -d deepTagMD_HbbvsQCD
+-s dataA -r default -n 19 -j 18 -y 18 -d deepTagMD_HbbvsQCD
+-s dataA -r default -n 19 -j 19 -y 18 -d deepTagMD_HbbvsQCD
+-s QCDHT700 -r default -n 6 -j 1 -y 18 -d deepTagMD_HbbvsQCD
+-s QCDHT700 -r default -n 6 -j 2 -y 18 -d deepTagMD_HbbvsQCD
+-s QCDHT700 -r default -n 6 -j 3 -y 18 -d deepTagMD_HbbvsQCD
+-s QCDHT700 -r default -n 6 -j 4 -y 18 -d deepTagMD_HbbvsQCD
+-s QCDHT700 -r default -n 6 -j 5 -y 18 -d deepTagMD_HbbvsQCD
+-s QCDHT700 -r default -n 6 -j 6 -y 18 -d deepTagMD_HbbvsQCD
+-s dataC2 -r default -n 1 -j 1 -y 18 -d deepTagMD_HbbvsQCD
+-s dataC1 -r default -n 9 -j 1 -y 18 -d deepTagMD_HbbvsQCD
+-s dataC1 -r default -n 9 -j 2 -y 18 -d deepTagMD_HbbvsQCD
+-s dataC1 -r default -n 9 -j 3 -y 18 -d deepTagMD_HbbvsQCD
+-s dataC1 -r default -n 9 -j 4 -y 18 -d deepTagMD_HbbvsQCD
+-s dataC1 -r default -n 9 -j 5 -y 18 -d deepTagMD_HbbvsQCD
+-s dataC1 -r default -n 9 -j 6 -y 18 -d deepTagMD_HbbvsQCD
+-s dataC1 -r default -n 9 -j 7 -y 18 -d deepTagMD_HbbvsQCD
+-s dataC1 -r default -n 9 -j 8 -y 18 -d deepTagMD_HbbvsQCD
+-s dataC1 -r default -n 9 -j 9 -y 18 -d deepTagMD_HbbvsQCD
+-s QCDHT1500 -r default -n 15 -j 1 -y 18 -d deepTagMD_HbbvsQCD
+-s QCDHT1500 -r default -n 15 -j 2 -y 18 -d deepTagMD_HbbvsQCD
+-s QCDHT1500 -r default -n 15 -j 3 -y 18 -d deepTagMD_HbbvsQCD
+-s QCDHT1500 -r default -n 15 -j 4 -y 18 -d deepTagMD_HbbvsQCD
+-s QCDHT1500 -r default -n 15 -j 5 -y 18 -d deepTagMD_HbbvsQCD
+-s QCDHT1500 -r default -n 15 -j 6 -y 18 -d deepTagMD_HbbvsQCD
+-s QCDHT1500 -r default -n 15 -j 7 -y 18 -d deepTagMD_HbbvsQCD
+-s QCDHT1500 -r default -n 15 -j 8 -y 18 -d deepTagMD_HbbvsQCD
+-s QCDHT1500 -r default -n 15 -j 9 -y 18 -d deepTagMD_HbbvsQCD
+-s QCDHT1500 -r default -n 15 -j 10 -y 18 -d deepTagMD_HbbvsQCD
+-s QCDHT1500 -r default -n 15 -j 11 -y 18 -d deepTagMD_HbbvsQCD
+-s QCDHT1500 -r default -n 15 -j 12 -y 18 -d deepTagMD_HbbvsQCD
+-s QCDHT1500 -r default -n 15 -j 13 -y 18 -d deepTagMD_HbbvsQCD
+-s QCDHT1500 -r default -n 15 -j 14 -y 18 -d deepTagMD_HbbvsQCD
+-s QCDHT1500 -r default -n 15 -j 15 -y 18 -d deepTagMD_HbbvsQCD
+-s ttbar -r default -n 17 -j 1 -y 18 -d deepTagMD_HbbvsQCD
+-s ttbar -r default -n 17 -j 2 -y 18 -d deepTagMD_HbbvsQCD
+-s ttbar -r default -n 17 -j 3 -y 18 -d deepTagMD_HbbvsQCD
+-s ttbar -r default -n 17 -j 4 -y 18 -d deepTagMD_HbbvsQCD
+-s ttbar -r default -n 17 -j 5 -y 18 -d deepTagMD_HbbvsQCD
+-s ttbar -r default -n 17 -j 6 -y 18 -d deepTagMD_HbbvsQCD
+-s ttbar -r default -n 17 -j 7 -y 18 -d deepTagMD_HbbvsQCD
+-s ttbar -r default -n 17 -j 8 -y 18 -d deepTagMD_HbbvsQCD
+-s ttbar -r default -n 17 -j 9 -y 18 -d deepTagMD_HbbvsQCD
+-s ttbar -r default -n 17 -j 10 -y 18 -d deepTagMD_HbbvsQCD
+-s ttbar -r default -n 17 -j 11 -y 18 -d deepTagMD_HbbvsQCD
+-s ttbar -r default -n 17 -j 12 -y 18 -d deepTagMD_HbbvsQCD
+-s ttbar -r default -n 17 -j 13 -y 18 -d deepTagMD_HbbvsQCD
+-s ttbar -r default -n 17 -j 14 -y 18 -d deepTagMD_HbbvsQCD
+-s ttbar -r default -n 17 -j 15 -y 18 -d deepTagMD_HbbvsQCD
+-s ttbar -r default -n 17 -j 16 -y 18 -d deepTagMD_HbbvsQCD
+-s ttbar -r default -n 17 -j 17 -y 18 -d deepTagMD_HbbvsQCD
+-s dataB -r default -n 9 -j 1 -y 18 -d deepTagMD_HbbvsQCD
+-s dataB -r default -n 9 -j 2 -y 18 -d deepTagMD_HbbvsQCD
+-s dataB -r default -n 9 -j 3 -y 18 -d deepTagMD_HbbvsQCD
+-s dataB -r default -n 9 -j 4 -y 18 -d deepTagMD_HbbvsQCD
+-s dataB -r default -n 9 -j 5 -y 18 -d deepTagMD_HbbvsQCD
+-s dataB -r default -n 9 -j 6 -y 18 -d deepTagMD_HbbvsQCD
+-s dataB -r default -n 9 -j 7 -y 18 -d deepTagMD_HbbvsQCD
+-s dataB -r default -n 9 -j 8 -y 18 -d deepTagMD_HbbvsQCD
+-s dataB -r default -n 9 -j 9 -y 18 -d deepTagMD_HbbvsQCD
+-s RadNar-1000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD
+-s RadNar-2000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD
+-s RadNar-1500 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD
+-s GravNar-1000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD
+-s GravNar-3000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD
+-s RadNar-3000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD
+-s GravNar-1500 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD
+-s RadNar-2500 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD
+-s GravNar-2000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD
+-s GravNar-2500 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataD -r default -n 40 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataD -r default -n 40 -j 2 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataD -r default -n 40 -j 3 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataD -r default -n 40 -j 4 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataD -r default -n 40 -j 5 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataD -r default -n 40 -j 6 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataD -r default -n 40 -j 7 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataD -r default -n 40 -j 8 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataD -r default -n 40 -j 9 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataD -r default -n 40 -j 10 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataD -r default -n 40 -j 11 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataD -r default -n 40 -j 12 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataD -r default -n 40 -j 13 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataD -r default -n 40 -j 14 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataD -r default -n 40 -j 15 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataD -r default -n 40 -j 16 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataD -r default -n 40 -j 17 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataD -r default -n 40 -j 18 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataD -r default -n 40 -j 19 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataD -r default -n 40 -j 20 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataD -r default -n 40 -j 21 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataD -r default -n 40 -j 22 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataD -r default -n 40 -j 23 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataD -r default -n 40 -j 24 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataD -r default -n 40 -j 25 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataD -r default -n 40 -j 26 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataD -r default -n 40 -j 27 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataD -r default -n 40 -j 28 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataD -r default -n 40 -j 29 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataD -r default -n 40 -j 30 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataD -r default -n 40 -j 31 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataD -r default -n 40 -j 32 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataD -r default -n 40 -j 33 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataD -r default -n 40 -j 34 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataD -r default -n 40 -j 35 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataD -r default -n 40 -j 36 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataD -r default -n 40 -j 37 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataD -r default -n 40 -j 38 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataD -r default -n 40 -j 39 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataD -r default -n 40 -j 40 -y 18 -d deepTagMD_ZHbbvsQCD
+-s QCDHT1000 -r default -n 17 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD
+-s QCDHT1000 -r default -n 17 -j 2 -y 18 -d deepTagMD_ZHbbvsQCD
+-s QCDHT1000 -r default -n 17 -j 3 -y 18 -d deepTagMD_ZHbbvsQCD
+-s QCDHT1000 -r default -n 17 -j 4 -y 18 -d deepTagMD_ZHbbvsQCD
+-s QCDHT1000 -r default -n 17 -j 5 -y 18 -d deepTagMD_ZHbbvsQCD
+-s QCDHT1000 -r default -n 17 -j 6 -y 18 -d deepTagMD_ZHbbvsQCD
+-s QCDHT1000 -r default -n 17 -j 7 -y 18 -d deepTagMD_ZHbbvsQCD
+-s QCDHT1000 -r default -n 17 -j 8 -y 18 -d deepTagMD_ZHbbvsQCD
+-s QCDHT1000 -r default -n 17 -j 9 -y 18 -d deepTagMD_ZHbbvsQCD
+-s QCDHT1000 -r default -n 17 -j 10 -y 18 -d deepTagMD_ZHbbvsQCD
+-s QCDHT1000 -r default -n 17 -j 11 -y 18 -d deepTagMD_ZHbbvsQCD
+-s QCDHT1000 -r default -n 17 -j 12 -y 18 -d deepTagMD_ZHbbvsQCD
+-s QCDHT1000 -r default -n 17 -j 13 -y 18 -d deepTagMD_ZHbbvsQCD
+-s QCDHT1000 -r default -n 17 -j 14 -y 18 -d deepTagMD_ZHbbvsQCD
+-s QCDHT1000 -r default -n 17 -j 15 -y 18 -d deepTagMD_ZHbbvsQCD
+-s QCDHT1000 -r default -n 17 -j 16 -y 18 -d deepTagMD_ZHbbvsQCD
+-s QCDHT1000 -r default -n 17 -j 17 -y 18 -d deepTagMD_ZHbbvsQCD
 -s QCDHT2000 -r default -n 8 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD
 -s QCDHT2000 -r default -n 8 -j 2 -y 18 -d deepTagMD_ZHbbvsQCD
 -s QCDHT2000 -r default -n 8 -j 3 -y 18 -d deepTagMD_ZHbbvsQCD
@@ -1091,522 +375,149 @@
 -s QCDHT2000 -r default -n 8 -j 6 -y 18 -d deepTagMD_ZHbbvsQCD
 -s QCDHT2000 -r default -n 8 -j 7 -y 18 -d deepTagMD_ZHbbvsQCD
 -s QCDHT2000 -r default -n 8 -j 8 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 2 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 3 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 4 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 5 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 6 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 7 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 8 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 9 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 10 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 11 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 12 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 13 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 14 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 15 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 16 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 17 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 18 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 19 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 20 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 21 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 22 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 23 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 24 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 25 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 26 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 27 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 28 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 29 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 30 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 31 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 32 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 33 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 34 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 35 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 36 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 37 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 38 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 39 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 40 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 41 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 42 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 43 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 44 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 45 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 46 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 47 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 48 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 49 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 50 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 51 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 52 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 53 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 54 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 55 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 56 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT700 -r default -n 57 -j 57 -y 18 -d deepTagMD_ZHbbvsQCD
--s ttbar -r default -n 16 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD
--s ttbar -r default -n 16 -j 2 -y 18 -d deepTagMD_ZHbbvsQCD
--s ttbar -r default -n 16 -j 3 -y 18 -d deepTagMD_ZHbbvsQCD
--s ttbar -r default -n 16 -j 4 -y 18 -d deepTagMD_ZHbbvsQCD
--s ttbar -r default -n 16 -j 5 -y 18 -d deepTagMD_ZHbbvsQCD
--s ttbar -r default -n 16 -j 6 -y 18 -d deepTagMD_ZHbbvsQCD
--s ttbar -r default -n 16 -j 7 -y 18 -d deepTagMD_ZHbbvsQCD
--s ttbar -r default -n 16 -j 8 -y 18 -d deepTagMD_ZHbbvsQCD
--s ttbar -r default -n 16 -j 9 -y 18 -d deepTagMD_ZHbbvsQCD
--s ttbar -r default -n 16 -j 10 -y 18 -d deepTagMD_ZHbbvsQCD
--s ttbar -r default -n 16 -j 11 -y 18 -d deepTagMD_ZHbbvsQCD
--s ttbar -r default -n 16 -j 12 -y 18 -d deepTagMD_ZHbbvsQCD
--s ttbar -r default -n 16 -j 13 -y 18 -d deepTagMD_ZHbbvsQCD
--s ttbar -r default -n 16 -j 14 -y 18 -d deepTagMD_ZHbbvsQCD
--s ttbar -r default -n 16 -j 15 -y 18 -d deepTagMD_ZHbbvsQCD
--s ttbar -r default -n 16 -j 16 -y 18 -d deepTagMD_ZHbbvsQCD
--s ttbar -r default -n 16 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -J up
--s ttbar -r default -n 16 -j 2 -y 18 -d deepTagMD_ZHbbvsQCD -J up
--s ttbar -r default -n 16 -j 3 -y 18 -d deepTagMD_ZHbbvsQCD -J up
--s ttbar -r default -n 16 -j 4 -y 18 -d deepTagMD_ZHbbvsQCD -J up
--s ttbar -r default -n 16 -j 5 -y 18 -d deepTagMD_ZHbbvsQCD -J up
--s ttbar -r default -n 16 -j 6 -y 18 -d deepTagMD_ZHbbvsQCD -J up
--s ttbar -r default -n 16 -j 7 -y 18 -d deepTagMD_ZHbbvsQCD -J up
--s ttbar -r default -n 16 -j 8 -y 18 -d deepTagMD_ZHbbvsQCD -J up
--s ttbar -r default -n 16 -j 9 -y 18 -d deepTagMD_ZHbbvsQCD -J up
--s ttbar -r default -n 16 -j 10 -y 18 -d deepTagMD_ZHbbvsQCD -J up
--s ttbar -r default -n 16 -j 11 -y 18 -d deepTagMD_ZHbbvsQCD -J up
--s ttbar -r default -n 16 -j 12 -y 18 -d deepTagMD_ZHbbvsQCD -J up
--s ttbar -r default -n 16 -j 13 -y 18 -d deepTagMD_ZHbbvsQCD -J up
--s ttbar -r default -n 16 -j 14 -y 18 -d deepTagMD_ZHbbvsQCD -J up
--s ttbar -r default -n 16 -j 15 -y 18 -d deepTagMD_ZHbbvsQCD -J up
--s ttbar -r default -n 16 -j 16 -y 18 -d deepTagMD_ZHbbvsQCD -J up
--s ttbar -r default -n 16 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -R up
--s ttbar -r default -n 16 -j 2 -y 18 -d deepTagMD_ZHbbvsQCD -R up
--s ttbar -r default -n 16 -j 3 -y 18 -d deepTagMD_ZHbbvsQCD -R up
--s ttbar -r default -n 16 -j 4 -y 18 -d deepTagMD_ZHbbvsQCD -R up
--s ttbar -r default -n 16 -j 5 -y 18 -d deepTagMD_ZHbbvsQCD -R up
--s ttbar -r default -n 16 -j 6 -y 18 -d deepTagMD_ZHbbvsQCD -R up
--s ttbar -r default -n 16 -j 7 -y 18 -d deepTagMD_ZHbbvsQCD -R up
--s ttbar -r default -n 16 -j 8 -y 18 -d deepTagMD_ZHbbvsQCD -R up
--s ttbar -r default -n 16 -j 9 -y 18 -d deepTagMD_ZHbbvsQCD -R up
--s ttbar -r default -n 16 -j 10 -y 18 -d deepTagMD_ZHbbvsQCD -R up
--s ttbar -r default -n 16 -j 11 -y 18 -d deepTagMD_ZHbbvsQCD -R up
--s ttbar -r default -n 16 -j 12 -y 18 -d deepTagMD_ZHbbvsQCD -R up
--s ttbar -r default -n 16 -j 13 -y 18 -d deepTagMD_ZHbbvsQCD -R up
--s ttbar -r default -n 16 -j 14 -y 18 -d deepTagMD_ZHbbvsQCD -R up
--s ttbar -r default -n 16 -j 15 -y 18 -d deepTagMD_ZHbbvsQCD -R up
--s ttbar -r default -n 16 -j 16 -y 18 -d deepTagMD_ZHbbvsQCD -R up
--s ttbar -r default -n 16 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -a up
--s ttbar -r default -n 16 -j 2 -y 18 -d deepTagMD_ZHbbvsQCD -a up
--s ttbar -r default -n 16 -j 3 -y 18 -d deepTagMD_ZHbbvsQCD -a up
--s ttbar -r default -n 16 -j 4 -y 18 -d deepTagMD_ZHbbvsQCD -a up
--s ttbar -r default -n 16 -j 5 -y 18 -d deepTagMD_ZHbbvsQCD -a up
--s ttbar -r default -n 16 -j 6 -y 18 -d deepTagMD_ZHbbvsQCD -a up
--s ttbar -r default -n 16 -j 7 -y 18 -d deepTagMD_ZHbbvsQCD -a up
--s ttbar -r default -n 16 -j 8 -y 18 -d deepTagMD_ZHbbvsQCD -a up
--s ttbar -r default -n 16 -j 9 -y 18 -d deepTagMD_ZHbbvsQCD -a up
--s ttbar -r default -n 16 -j 10 -y 18 -d deepTagMD_ZHbbvsQCD -a up
--s ttbar -r default -n 16 -j 11 -y 18 -d deepTagMD_ZHbbvsQCD -a up
--s ttbar -r default -n 16 -j 12 -y 18 -d deepTagMD_ZHbbvsQCD -a up
--s ttbar -r default -n 16 -j 13 -y 18 -d deepTagMD_ZHbbvsQCD -a up
--s ttbar -r default -n 16 -j 14 -y 18 -d deepTagMD_ZHbbvsQCD -a up
--s ttbar -r default -n 16 -j 15 -y 18 -d deepTagMD_ZHbbvsQCD -a up
--s ttbar -r default -n 16 -j 16 -y 18 -d deepTagMD_ZHbbvsQCD -a up
--s ttbar -r default -n 16 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -b up
--s ttbar -r default -n 16 -j 2 -y 18 -d deepTagMD_ZHbbvsQCD -b up
--s ttbar -r default -n 16 -j 3 -y 18 -d deepTagMD_ZHbbvsQCD -b up
--s ttbar -r default -n 16 -j 4 -y 18 -d deepTagMD_ZHbbvsQCD -b up
--s ttbar -r default -n 16 -j 5 -y 18 -d deepTagMD_ZHbbvsQCD -b up
--s ttbar -r default -n 16 -j 6 -y 18 -d deepTagMD_ZHbbvsQCD -b up
--s ttbar -r default -n 16 -j 7 -y 18 -d deepTagMD_ZHbbvsQCD -b up
--s ttbar -r default -n 16 -j 8 -y 18 -d deepTagMD_ZHbbvsQCD -b up
--s ttbar -r default -n 16 -j 9 -y 18 -d deepTagMD_ZHbbvsQCD -b up
--s ttbar -r default -n 16 -j 10 -y 18 -d deepTagMD_ZHbbvsQCD -b up
--s ttbar -r default -n 16 -j 11 -y 18 -d deepTagMD_ZHbbvsQCD -b up
--s ttbar -r default -n 16 -j 12 -y 18 -d deepTagMD_ZHbbvsQCD -b up
--s ttbar -r default -n 16 -j 13 -y 18 -d deepTagMD_ZHbbvsQCD -b up
--s ttbar -r default -n 16 -j 14 -y 18 -d deepTagMD_ZHbbvsQCD -b up
--s ttbar -r default -n 16 -j 15 -y 18 -d deepTagMD_ZHbbvsQCD -b up
--s ttbar -r default -n 16 -j 16 -y 18 -d deepTagMD_ZHbbvsQCD -b up
--s ttbar -r default -n 16 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -J down
--s ttbar -r default -n 16 -j 2 -y 18 -d deepTagMD_ZHbbvsQCD -J down
--s ttbar -r default -n 16 -j 3 -y 18 -d deepTagMD_ZHbbvsQCD -J down
--s ttbar -r default -n 16 -j 4 -y 18 -d deepTagMD_ZHbbvsQCD -J down
--s ttbar -r default -n 16 -j 5 -y 18 -d deepTagMD_ZHbbvsQCD -J down
--s ttbar -r default -n 16 -j 6 -y 18 -d deepTagMD_ZHbbvsQCD -J down
--s ttbar -r default -n 16 -j 7 -y 18 -d deepTagMD_ZHbbvsQCD -J down
--s ttbar -r default -n 16 -j 8 -y 18 -d deepTagMD_ZHbbvsQCD -J down
--s ttbar -r default -n 16 -j 9 -y 18 -d deepTagMD_ZHbbvsQCD -J down
--s ttbar -r default -n 16 -j 10 -y 18 -d deepTagMD_ZHbbvsQCD -J down
--s ttbar -r default -n 16 -j 11 -y 18 -d deepTagMD_ZHbbvsQCD -J down
--s ttbar -r default -n 16 -j 12 -y 18 -d deepTagMD_ZHbbvsQCD -J down
--s ttbar -r default -n 16 -j 13 -y 18 -d deepTagMD_ZHbbvsQCD -J down
--s ttbar -r default -n 16 -j 14 -y 18 -d deepTagMD_ZHbbvsQCD -J down
--s ttbar -r default -n 16 -j 15 -y 18 -d deepTagMD_ZHbbvsQCD -J down
--s ttbar -r default -n 16 -j 16 -y 18 -d deepTagMD_ZHbbvsQCD -J down
--s ttbar -r default -n 16 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -R down
--s ttbar -r default -n 16 -j 2 -y 18 -d deepTagMD_ZHbbvsQCD -R down
--s ttbar -r default -n 16 -j 3 -y 18 -d deepTagMD_ZHbbvsQCD -R down
--s ttbar -r default -n 16 -j 4 -y 18 -d deepTagMD_ZHbbvsQCD -R down
--s ttbar -r default -n 16 -j 5 -y 18 -d deepTagMD_ZHbbvsQCD -R down
--s ttbar -r default -n 16 -j 6 -y 18 -d deepTagMD_ZHbbvsQCD -R down
--s ttbar -r default -n 16 -j 7 -y 18 -d deepTagMD_ZHbbvsQCD -R down
--s ttbar -r default -n 16 -j 8 -y 18 -d deepTagMD_ZHbbvsQCD -R down
--s ttbar -r default -n 16 -j 9 -y 18 -d deepTagMD_ZHbbvsQCD -R down
--s ttbar -r default -n 16 -j 10 -y 18 -d deepTagMD_ZHbbvsQCD -R down
--s ttbar -r default -n 16 -j 11 -y 18 -d deepTagMD_ZHbbvsQCD -R down
--s ttbar -r default -n 16 -j 12 -y 18 -d deepTagMD_ZHbbvsQCD -R down
--s ttbar -r default -n 16 -j 13 -y 18 -d deepTagMD_ZHbbvsQCD -R down
--s ttbar -r default -n 16 -j 14 -y 18 -d deepTagMD_ZHbbvsQCD -R down
--s ttbar -r default -n 16 -j 15 -y 18 -d deepTagMD_ZHbbvsQCD -R down
--s ttbar -r default -n 16 -j 16 -y 18 -d deepTagMD_ZHbbvsQCD -R down
--s ttbar -r default -n 16 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -a down
--s ttbar -r default -n 16 -j 2 -y 18 -d deepTagMD_ZHbbvsQCD -a down
--s ttbar -r default -n 16 -j 3 -y 18 -d deepTagMD_ZHbbvsQCD -a down
--s ttbar -r default -n 16 -j 4 -y 18 -d deepTagMD_ZHbbvsQCD -a down
--s ttbar -r default -n 16 -j 5 -y 18 -d deepTagMD_ZHbbvsQCD -a down
--s ttbar -r default -n 16 -j 6 -y 18 -d deepTagMD_ZHbbvsQCD -a down
--s ttbar -r default -n 16 -j 7 -y 18 -d deepTagMD_ZHbbvsQCD -a down
--s ttbar -r default -n 16 -j 8 -y 18 -d deepTagMD_ZHbbvsQCD -a down
--s ttbar -r default -n 16 -j 9 -y 18 -d deepTagMD_ZHbbvsQCD -a down
--s ttbar -r default -n 16 -j 10 -y 18 -d deepTagMD_ZHbbvsQCD -a down
--s ttbar -r default -n 16 -j 11 -y 18 -d deepTagMD_ZHbbvsQCD -a down
--s ttbar -r default -n 16 -j 12 -y 18 -d deepTagMD_ZHbbvsQCD -a down
--s ttbar -r default -n 16 -j 13 -y 18 -d deepTagMD_ZHbbvsQCD -a down
--s ttbar -r default -n 16 -j 14 -y 18 -d deepTagMD_ZHbbvsQCD -a down
--s ttbar -r default -n 16 -j 15 -y 18 -d deepTagMD_ZHbbvsQCD -a down
--s ttbar -r default -n 16 -j 16 -y 18 -d deepTagMD_ZHbbvsQCD -a down
--s ttbar -r default -n 16 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -b down
--s ttbar -r default -n 16 -j 2 -y 18 -d deepTagMD_ZHbbvsQCD -b down
--s ttbar -r default -n 16 -j 3 -y 18 -d deepTagMD_ZHbbvsQCD -b down
--s ttbar -r default -n 16 -j 4 -y 18 -d deepTagMD_ZHbbvsQCD -b down
--s ttbar -r default -n 16 -j 5 -y 18 -d deepTagMD_ZHbbvsQCD -b down
--s ttbar -r default -n 16 -j 6 -y 18 -d deepTagMD_ZHbbvsQCD -b down
--s ttbar -r default -n 16 -j 7 -y 18 -d deepTagMD_ZHbbvsQCD -b down
--s ttbar -r default -n 16 -j 8 -y 18 -d deepTagMD_ZHbbvsQCD -b down
--s ttbar -r default -n 16 -j 9 -y 18 -d deepTagMD_ZHbbvsQCD -b down
--s ttbar -r default -n 16 -j 10 -y 18 -d deepTagMD_ZHbbvsQCD -b down
--s ttbar -r default -n 16 -j 11 -y 18 -d deepTagMD_ZHbbvsQCD -b down
--s ttbar -r default -n 16 -j 12 -y 18 -d deepTagMD_ZHbbvsQCD -b down
--s ttbar -r default -n 16 -j 13 -y 18 -d deepTagMD_ZHbbvsQCD -b down
--s ttbar -r default -n 16 -j 14 -y 18 -d deepTagMD_ZHbbvsQCD -b down
--s ttbar -r default -n 16 -j 15 -y 18 -d deepTagMD_ZHbbvsQCD -b down
--s ttbar -r default -n 16 -j 16 -y 18 -d deepTagMD_ZHbbvsQCD -b down
--s RadNar-1000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD
--s RadNar-1000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -J up
--s RadNar-1000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -R up
--s RadNar-1000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -a up
--s RadNar-1000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -b up
--s RadNar-1000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -J down
--s RadNar-1000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -R down
--s RadNar-1000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -a down
--s RadNar-1000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -b down
--s RadNar-1500 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD
--s RadNar-1500 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -J up
--s RadNar-1500 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -R up
--s RadNar-1500 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -a up
--s RadNar-1500 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -b up
--s RadNar-1500 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -J down
--s RadNar-1500 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -R down
--s RadNar-1500 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -a down
--s RadNar-1500 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -b down
--s RadNar-2000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD
--s RadNar-2000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -J up
--s RadNar-2000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -R up
--s RadNar-2000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -a up
--s RadNar-2000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -b up
--s RadNar-2000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -J down
--s RadNar-2000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -R down
--s RadNar-2000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -a down
--s RadNar-2000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -b down
--s RadNar-2500 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD
--s RadNar-2500 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -J up
--s RadNar-2500 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -R up
--s RadNar-2500 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -a up
--s RadNar-2500 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -b up
--s RadNar-2500 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -J down
--s RadNar-2500 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -R down
--s RadNar-2500 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -a down
--s RadNar-2500 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -b down
--s RadNar-3000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD
--s RadNar-3000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -J up
--s RadNar-3000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -R up
--s RadNar-3000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -a up
--s RadNar-3000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -b up
--s RadNar-3000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -J down
--s RadNar-3000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -R down
--s RadNar-3000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -a down
--s RadNar-3000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -b down
--s GravNar-1000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD
--s GravNar-1000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -J up
--s GravNar-1000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -R up
--s GravNar-1000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -a up
--s GravNar-1000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -b up
--s GravNar-1000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -J down
--s GravNar-1000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -R down
--s GravNar-1000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -a down
--s GravNar-1000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -b down
--s GravNar-1500 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD
--s GravNar-1500 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -J up
--s GravNar-1500 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -R up
--s GravNar-1500 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -a up
--s GravNar-1500 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -b up
--s GravNar-1500 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -J down
--s GravNar-1500 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -R down
--s GravNar-1500 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -a down
--s GravNar-1500 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -b down
--s GravNar-2000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD
--s GravNar-2000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -J up
--s GravNar-2000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -R up
--s GravNar-2000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -a up
--s GravNar-2000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -b up
--s GravNar-2000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -J down
--s GravNar-2000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -R down
--s GravNar-2000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -a down
--s GravNar-2000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -b down
--s GravNar-2500 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD
--s GravNar-2500 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -J up
--s GravNar-2500 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -R up
--s GravNar-2500 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -a up
--s GravNar-2500 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -b up
--s GravNar-2500 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -J down
--s GravNar-2500 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -R down
--s GravNar-2500 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -a down
--s GravNar-2500 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -b down
--s GravNar-3000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD
--s GravNar-3000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -J up
--s GravNar-3000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -R up
--s GravNar-3000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -a up
--s GravNar-3000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -b up
--s GravNar-3000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -J down
--s GravNar-3000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -R down
--s GravNar-3000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -a down
--s GravNar-3000 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD -b down
--s dataD -r default -n 100 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 2 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 3 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 4 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 5 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 6 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 7 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 8 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 9 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 10 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 11 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 12 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 13 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 14 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 15 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 16 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 17 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 18 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 19 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 20 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 21 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 22 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 23 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 24 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 25 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 26 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 27 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 28 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 29 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 30 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 31 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 32 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 33 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 34 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 35 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 36 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 37 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 38 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 39 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 40 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 41 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 42 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 43 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 44 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 45 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 46 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 47 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 48 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 49 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 50 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 51 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 52 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 53 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 54 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 55 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 56 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 57 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 58 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 59 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 60 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 61 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 62 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 63 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 64 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 65 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 66 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 67 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 68 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 69 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 70 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 71 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 72 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 73 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 74 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 75 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 76 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 77 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 78 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 79 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 80 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 81 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 82 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 83 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 84 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 85 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 86 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 87 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 88 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 89 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 90 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 91 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 92 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 93 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 94 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 95 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 96 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 97 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 98 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 99 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataD -r default -n 100 -j 100 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataA -r default -n 45 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataA -r default -n 45 -j 2 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataA -r default -n 45 -j 3 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataA -r default -n 45 -j 4 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataA -r default -n 45 -j 5 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataA -r default -n 45 -j 6 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataA -r default -n 45 -j 7 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataA -r default -n 45 -j 8 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataA -r default -n 45 -j 9 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataA -r default -n 45 -j 10 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataA -r default -n 45 -j 11 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataA -r default -n 45 -j 12 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataA -r default -n 45 -j 13 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataA -r default -n 45 -j 14 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataA -r default -n 45 -j 15 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataA -r default -n 45 -j 16 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataA -r default -n 45 -j 17 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataA -r default -n 45 -j 18 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataA -r default -n 45 -j 19 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataA -r default -n 45 -j 20 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataA -r default -n 45 -j 21 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataA -r default -n 45 -j 22 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataA -r default -n 45 -j 23 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataA -r default -n 45 -j 24 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataA -r default -n 45 -j 25 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataA -r default -n 45 -j 26 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataA -r default -n 45 -j 27 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataA -r default -n 45 -j 28 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataA -r default -n 45 -j 29 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataA -r default -n 45 -j 30 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataA -r default -n 45 -j 31 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataA -r default -n 45 -j 32 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataA -r default -n 45 -j 33 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataA -r default -n 45 -j 34 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataA -r default -n 45 -j 35 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataA -r default -n 45 -j 36 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataA -r default -n 45 -j 37 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataA -r default -n 45 -j 38 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataA -r default -n 45 -j 39 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataA -r default -n 45 -j 40 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataA -r default -n 45 -j 41 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataA -r default -n 45 -j 42 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataA -r default -n 45 -j 43 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataA -r default -n 45 -j 44 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataA -r default -n 45 -j 45 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataC2 -r default -n 3 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataC2 -r default -n 3 -j 2 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataC2 -r default -n 3 -j 3 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataC1 -r default -n 20 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataC1 -r default -n 20 -j 2 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataC1 -r default -n 20 -j 3 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataC1 -r default -n 20 -j 4 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataC1 -r default -n 20 -j 5 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataC1 -r default -n 20 -j 6 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataC1 -r default -n 20 -j 7 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataC1 -r default -n 20 -j 8 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataC1 -r default -n 20 -j 9 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataC1 -r default -n 20 -j 10 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataC1 -r default -n 20 -j 11 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataC1 -r default -n 20 -j 12 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataC1 -r default -n 20 -j 13 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataC1 -r default -n 20 -j 14 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataC1 -r default -n 20 -j 15 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataC1 -r default -n 20 -j 16 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataC1 -r default -n 20 -j 17 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataC1 -r default -n 20 -j 18 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataC1 -r default -n 20 -j 19 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataC1 -r default -n 20 -j 20 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataB -r default -n 20 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataB -r default -n 20 -j 2 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataB -r default -n 20 -j 3 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataB -r default -n 20 -j 4 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataB -r default -n 20 -j 5 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataB -r default -n 20 -j 6 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataB -r default -n 20 -j 7 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataB -r default -n 20 -j 8 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataB -r default -n 20 -j 9 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataB -r default -n 20 -j 10 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataB -r default -n 20 -j 11 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataB -r default -n 20 -j 12 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataB -r default -n 20 -j 13 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataB -r default -n 20 -j 14 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataB -r default -n 20 -j 15 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataB -r default -n 20 -j 16 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataB -r default -n 20 -j 17 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataB -r default -n 20 -j 18 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataB -r default -n 20 -j 19 -y 18 -d deepTagMD_ZHbbvsQCD
--s dataB -r default -n 20 -j 20 -y 18 -d deepTagMD_ZHbbvsQCD
--s QCDHT1000 -r default -n 21 -j 1 -y 18 -d btagDDBvL
--s QCDHT1000 -r default -n 21 -j 2 -y 18 -d btagDDBvL
--s QCDHT1000 -r default -n 21 -j 3 -y 18 -d btagDDBvL
--s QCDHT1000 -r default -n 21 -j 4 -y 18 -d btagDDBvL
--s QCDHT1000 -r default -n 21 -j 5 -y 18 -d btagDDBvL
--s QCDHT1000 -r default -n 21 -j 6 -y 18 -d btagDDBvL
--s QCDHT1000 -r default -n 21 -j 7 -y 18 -d btagDDBvL
--s QCDHT1000 -r default -n 21 -j 8 -y 18 -d btagDDBvL
--s QCDHT1000 -r default -n 21 -j 9 -y 18 -d btagDDBvL
--s QCDHT1000 -r default -n 21 -j 10 -y 18 -d btagDDBvL
--s QCDHT1000 -r default -n 21 -j 11 -y 18 -d btagDDBvL
--s QCDHT1000 -r default -n 21 -j 12 -y 18 -d btagDDBvL
--s QCDHT1000 -r default -n 21 -j 13 -y 18 -d btagDDBvL
--s QCDHT1000 -r default -n 21 -j 14 -y 18 -d btagDDBvL
--s QCDHT1000 -r default -n 21 -j 15 -y 18 -d btagDDBvL
--s QCDHT1000 -r default -n 21 -j 16 -y 18 -d btagDDBvL
--s QCDHT1000 -r default -n 21 -j 17 -y 18 -d btagDDBvL
--s QCDHT1000 -r default -n 21 -j 18 -y 18 -d btagDDBvL
--s QCDHT1000 -r default -n 21 -j 19 -y 18 -d btagDDBvL
--s QCDHT1000 -r default -n 21 -j 20 -y 18 -d btagDDBvL
--s QCDHT1000 -r default -n 21 -j 21 -y 18 -d btagDDBvL
--s QCDHT1500 -r default -n 16 -j 1 -y 18 -d btagDDBvL
--s QCDHT1500 -r default -n 16 -j 2 -y 18 -d btagDDBvL
--s QCDHT1500 -r default -n 16 -j 3 -y 18 -d btagDDBvL
--s QCDHT1500 -r default -n 16 -j 4 -y 18 -d btagDDBvL
--s QCDHT1500 -r default -n 16 -j 5 -y 18 -d btagDDBvL
--s QCDHT1500 -r default -n 16 -j 6 -y 18 -d btagDDBvL
--s QCDHT1500 -r default -n 16 -j 7 -y 18 -d btagDDBvL
--s QCDHT1500 -r default -n 16 -j 8 -y 18 -d btagDDBvL
--s QCDHT1500 -r default -n 16 -j 9 -y 18 -d btagDDBvL
--s QCDHT1500 -r default -n 16 -j 10 -y 18 -d btagDDBvL
--s QCDHT1500 -r default -n 16 -j 11 -y 18 -d btagDDBvL
--s QCDHT1500 -r default -n 16 -j 12 -y 18 -d btagDDBvL
--s QCDHT1500 -r default -n 16 -j 13 -y 18 -d btagDDBvL
--s QCDHT1500 -r default -n 16 -j 14 -y 18 -d btagDDBvL
--s QCDHT1500 -r default -n 16 -j 15 -y 18 -d btagDDBvL
--s QCDHT1500 -r default -n 16 -j 16 -y 18 -d btagDDBvL
+-s dataA -r default -n 19 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataA -r default -n 19 -j 2 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataA -r default -n 19 -j 3 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataA -r default -n 19 -j 4 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataA -r default -n 19 -j 5 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataA -r default -n 19 -j 6 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataA -r default -n 19 -j 7 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataA -r default -n 19 -j 8 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataA -r default -n 19 -j 9 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataA -r default -n 19 -j 10 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataA -r default -n 19 -j 11 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataA -r default -n 19 -j 12 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataA -r default -n 19 -j 13 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataA -r default -n 19 -j 14 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataA -r default -n 19 -j 15 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataA -r default -n 19 -j 16 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataA -r default -n 19 -j 17 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataA -r default -n 19 -j 18 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataA -r default -n 19 -j 19 -y 18 -d deepTagMD_ZHbbvsQCD
+-s QCDHT700 -r default -n 6 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD
+-s QCDHT700 -r default -n 6 -j 2 -y 18 -d deepTagMD_ZHbbvsQCD
+-s QCDHT700 -r default -n 6 -j 3 -y 18 -d deepTagMD_ZHbbvsQCD
+-s QCDHT700 -r default -n 6 -j 4 -y 18 -d deepTagMD_ZHbbvsQCD
+-s QCDHT700 -r default -n 6 -j 5 -y 18 -d deepTagMD_ZHbbvsQCD
+-s QCDHT700 -r default -n 6 -j 6 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataC2 -r default -n 1 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataC1 -r default -n 9 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataC1 -r default -n 9 -j 2 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataC1 -r default -n 9 -j 3 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataC1 -r default -n 9 -j 4 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataC1 -r default -n 9 -j 5 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataC1 -r default -n 9 -j 6 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataC1 -r default -n 9 -j 7 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataC1 -r default -n 9 -j 8 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataC1 -r default -n 9 -j 9 -y 18 -d deepTagMD_ZHbbvsQCD
+-s QCDHT1500 -r default -n 15 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD
+-s QCDHT1500 -r default -n 15 -j 2 -y 18 -d deepTagMD_ZHbbvsQCD
+-s QCDHT1500 -r default -n 15 -j 3 -y 18 -d deepTagMD_ZHbbvsQCD
+-s QCDHT1500 -r default -n 15 -j 4 -y 18 -d deepTagMD_ZHbbvsQCD
+-s QCDHT1500 -r default -n 15 -j 5 -y 18 -d deepTagMD_ZHbbvsQCD
+-s QCDHT1500 -r default -n 15 -j 6 -y 18 -d deepTagMD_ZHbbvsQCD
+-s QCDHT1500 -r default -n 15 -j 7 -y 18 -d deepTagMD_ZHbbvsQCD
+-s QCDHT1500 -r default -n 15 -j 8 -y 18 -d deepTagMD_ZHbbvsQCD
+-s QCDHT1500 -r default -n 15 -j 9 -y 18 -d deepTagMD_ZHbbvsQCD
+-s QCDHT1500 -r default -n 15 -j 10 -y 18 -d deepTagMD_ZHbbvsQCD
+-s QCDHT1500 -r default -n 15 -j 11 -y 18 -d deepTagMD_ZHbbvsQCD
+-s QCDHT1500 -r default -n 15 -j 12 -y 18 -d deepTagMD_ZHbbvsQCD
+-s QCDHT1500 -r default -n 15 -j 13 -y 18 -d deepTagMD_ZHbbvsQCD
+-s QCDHT1500 -r default -n 15 -j 14 -y 18 -d deepTagMD_ZHbbvsQCD
+-s QCDHT1500 -r default -n 15 -j 15 -y 18 -d deepTagMD_ZHbbvsQCD
+-s ttbar -r default -n 17 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD
+-s ttbar -r default -n 17 -j 2 -y 18 -d deepTagMD_ZHbbvsQCD
+-s ttbar -r default -n 17 -j 3 -y 18 -d deepTagMD_ZHbbvsQCD
+-s ttbar -r default -n 17 -j 4 -y 18 -d deepTagMD_ZHbbvsQCD
+-s ttbar -r default -n 17 -j 5 -y 18 -d deepTagMD_ZHbbvsQCD
+-s ttbar -r default -n 17 -j 6 -y 18 -d deepTagMD_ZHbbvsQCD
+-s ttbar -r default -n 17 -j 7 -y 18 -d deepTagMD_ZHbbvsQCD
+-s ttbar -r default -n 17 -j 8 -y 18 -d deepTagMD_ZHbbvsQCD
+-s ttbar -r default -n 17 -j 9 -y 18 -d deepTagMD_ZHbbvsQCD
+-s ttbar -r default -n 17 -j 10 -y 18 -d deepTagMD_ZHbbvsQCD
+-s ttbar -r default -n 17 -j 11 -y 18 -d deepTagMD_ZHbbvsQCD
+-s ttbar -r default -n 17 -j 12 -y 18 -d deepTagMD_ZHbbvsQCD
+-s ttbar -r default -n 17 -j 13 -y 18 -d deepTagMD_ZHbbvsQCD
+-s ttbar -r default -n 17 -j 14 -y 18 -d deepTagMD_ZHbbvsQCD
+-s ttbar -r default -n 17 -j 15 -y 18 -d deepTagMD_ZHbbvsQCD
+-s ttbar -r default -n 17 -j 16 -y 18 -d deepTagMD_ZHbbvsQCD
+-s ttbar -r default -n 17 -j 17 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataB -r default -n 9 -j 1 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataB -r default -n 9 -j 2 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataB -r default -n 9 -j 3 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataB -r default -n 9 -j 4 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataB -r default -n 9 -j 5 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataB -r default -n 9 -j 6 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataB -r default -n 9 -j 7 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataB -r default -n 9 -j 8 -y 18 -d deepTagMD_ZHbbvsQCD
+-s dataB -r default -n 9 -j 9 -y 18 -d deepTagMD_ZHbbvsQCD
+-s RadNar-1000 -r default -n 1 -j 1 -y 18 -d btagDDBvL
+-s RadNar-2000 -r default -n 1 -j 1 -y 18 -d btagDDBvL
+-s RadNar-1500 -r default -n 1 -j 1 -y 18 -d btagDDBvL
+-s GravNar-1000 -r default -n 1 -j 1 -y 18 -d btagDDBvL
+-s GravNar-3000 -r default -n 1 -j 1 -y 18 -d btagDDBvL
+-s RadNar-3000 -r default -n 1 -j 1 -y 18 -d btagDDBvL
+-s GravNar-1500 -r default -n 1 -j 1 -y 18 -d btagDDBvL
+-s RadNar-2500 -r default -n 1 -j 1 -y 18 -d btagDDBvL
+-s GravNar-2000 -r default -n 1 -j 1 -y 18 -d btagDDBvL
+-s GravNar-2500 -r default -n 1 -j 1 -y 18 -d btagDDBvL
+-s dataD -r default -n 40 -j 1 -y 18 -d btagDDBvL
+-s dataD -r default -n 40 -j 2 -y 18 -d btagDDBvL
+-s dataD -r default -n 40 -j 3 -y 18 -d btagDDBvL
+-s dataD -r default -n 40 -j 4 -y 18 -d btagDDBvL
+-s dataD -r default -n 40 -j 5 -y 18 -d btagDDBvL
+-s dataD -r default -n 40 -j 6 -y 18 -d btagDDBvL
+-s dataD -r default -n 40 -j 7 -y 18 -d btagDDBvL
+-s dataD -r default -n 40 -j 8 -y 18 -d btagDDBvL
+-s dataD -r default -n 40 -j 9 -y 18 -d btagDDBvL
+-s dataD -r default -n 40 -j 10 -y 18 -d btagDDBvL
+-s dataD -r default -n 40 -j 11 -y 18 -d btagDDBvL
+-s dataD -r default -n 40 -j 12 -y 18 -d btagDDBvL
+-s dataD -r default -n 40 -j 13 -y 18 -d btagDDBvL
+-s dataD -r default -n 40 -j 14 -y 18 -d btagDDBvL
+-s dataD -r default -n 40 -j 15 -y 18 -d btagDDBvL
+-s dataD -r default -n 40 -j 16 -y 18 -d btagDDBvL
+-s dataD -r default -n 40 -j 17 -y 18 -d btagDDBvL
+-s dataD -r default -n 40 -j 18 -y 18 -d btagDDBvL
+-s dataD -r default -n 40 -j 19 -y 18 -d btagDDBvL
+-s dataD -r default -n 40 -j 20 -y 18 -d btagDDBvL
+-s dataD -r default -n 40 -j 21 -y 18 -d btagDDBvL
+-s dataD -r default -n 40 -j 22 -y 18 -d btagDDBvL
+-s dataD -r default -n 40 -j 23 -y 18 -d btagDDBvL
+-s dataD -r default -n 40 -j 24 -y 18 -d btagDDBvL
+-s dataD -r default -n 40 -j 25 -y 18 -d btagDDBvL
+-s dataD -r default -n 40 -j 26 -y 18 -d btagDDBvL
+-s dataD -r default -n 40 -j 27 -y 18 -d btagDDBvL
+-s dataD -r default -n 40 -j 28 -y 18 -d btagDDBvL
+-s dataD -r default -n 40 -j 29 -y 18 -d btagDDBvL
+-s dataD -r default -n 40 -j 30 -y 18 -d btagDDBvL
+-s dataD -r default -n 40 -j 31 -y 18 -d btagDDBvL
+-s dataD -r default -n 40 -j 32 -y 18 -d btagDDBvL
+-s dataD -r default -n 40 -j 33 -y 18 -d btagDDBvL
+-s dataD -r default -n 40 -j 34 -y 18 -d btagDDBvL
+-s dataD -r default -n 40 -j 35 -y 18 -d btagDDBvL
+-s dataD -r default -n 40 -j 36 -y 18 -d btagDDBvL
+-s dataD -r default -n 40 -j 37 -y 18 -d btagDDBvL
+-s dataD -r default -n 40 -j 38 -y 18 -d btagDDBvL
+-s dataD -r default -n 40 -j 39 -y 18 -d btagDDBvL
+-s dataD -r default -n 40 -j 40 -y 18 -d btagDDBvL
+-s QCDHT1000 -r default -n 17 -j 1 -y 18 -d btagDDBvL
+-s QCDHT1000 -r default -n 17 -j 2 -y 18 -d btagDDBvL
+-s QCDHT1000 -r default -n 17 -j 3 -y 18 -d btagDDBvL
+-s QCDHT1000 -r default -n 17 -j 4 -y 18 -d btagDDBvL
+-s QCDHT1000 -r default -n 17 -j 5 -y 18 -d btagDDBvL
+-s QCDHT1000 -r default -n 17 -j 6 -y 18 -d btagDDBvL
+-s QCDHT1000 -r default -n 17 -j 7 -y 18 -d btagDDBvL
+-s QCDHT1000 -r default -n 17 -j 8 -y 18 -d btagDDBvL
+-s QCDHT1000 -r default -n 17 -j 9 -y 18 -d btagDDBvL
+-s QCDHT1000 -r default -n 17 -j 10 -y 18 -d btagDDBvL
+-s QCDHT1000 -r default -n 17 -j 11 -y 18 -d btagDDBvL
+-s QCDHT1000 -r default -n 17 -j 12 -y 18 -d btagDDBvL
+-s QCDHT1000 -r default -n 17 -j 13 -y 18 -d btagDDBvL
+-s QCDHT1000 -r default -n 17 -j 14 -y 18 -d btagDDBvL
+-s QCDHT1000 -r default -n 17 -j 15 -y 18 -d btagDDBvL
+-s QCDHT1000 -r default -n 17 -j 16 -y 18 -d btagDDBvL
+-s QCDHT1000 -r default -n 17 -j 17 -y 18 -d btagDDBvL
 -s QCDHT2000 -r default -n 8 -j 1 -y 18 -d btagDDBvL
 -s QCDHT2000 -r default -n 8 -j 2 -y 18 -d btagDDBvL
 -s QCDHT2000 -r default -n 8 -j 3 -y 18 -d btagDDBvL
@@ -1615,482 +526,79 @@
 -s QCDHT2000 -r default -n 8 -j 6 -y 18 -d btagDDBvL
 -s QCDHT2000 -r default -n 8 -j 7 -y 18 -d btagDDBvL
 -s QCDHT2000 -r default -n 8 -j 8 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 1 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 2 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 3 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 4 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 5 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 6 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 7 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 8 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 9 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 10 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 11 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 12 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 13 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 14 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 15 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 16 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 17 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 18 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 19 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 20 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 21 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 22 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 23 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 24 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 25 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 26 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 27 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 28 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 29 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 30 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 31 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 32 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 33 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 34 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 35 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 36 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 37 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 38 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 39 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 40 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 41 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 42 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 43 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 44 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 45 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 46 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 47 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 48 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 49 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 50 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 51 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 52 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 53 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 54 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 55 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 56 -y 18 -d btagDDBvL
--s QCDHT700 -r default -n 57 -j 57 -y 18 -d btagDDBvL
--s ttbar -r default -n 16 -j 1 -y 18 -d btagDDBvL
--s ttbar -r default -n 16 -j 2 -y 18 -d btagDDBvL
--s ttbar -r default -n 16 -j 3 -y 18 -d btagDDBvL
--s ttbar -r default -n 16 -j 4 -y 18 -d btagDDBvL
--s ttbar -r default -n 16 -j 5 -y 18 -d btagDDBvL
--s ttbar -r default -n 16 -j 6 -y 18 -d btagDDBvL
--s ttbar -r default -n 16 -j 7 -y 18 -d btagDDBvL
--s ttbar -r default -n 16 -j 8 -y 18 -d btagDDBvL
--s ttbar -r default -n 16 -j 9 -y 18 -d btagDDBvL
--s ttbar -r default -n 16 -j 10 -y 18 -d btagDDBvL
--s ttbar -r default -n 16 -j 11 -y 18 -d btagDDBvL
--s ttbar -r default -n 16 -j 12 -y 18 -d btagDDBvL
--s ttbar -r default -n 16 -j 13 -y 18 -d btagDDBvL
--s ttbar -r default -n 16 -j 14 -y 18 -d btagDDBvL
--s ttbar -r default -n 16 -j 15 -y 18 -d btagDDBvL
--s ttbar -r default -n 16 -j 16 -y 18 -d btagDDBvL
--s ttbar -r default -n 16 -j 1 -y 18 -d btagDDBvL -J up
--s ttbar -r default -n 16 -j 2 -y 18 -d btagDDBvL -J up
--s ttbar -r default -n 16 -j 3 -y 18 -d btagDDBvL -J up
--s ttbar -r default -n 16 -j 4 -y 18 -d btagDDBvL -J up
--s ttbar -r default -n 16 -j 5 -y 18 -d btagDDBvL -J up
--s ttbar -r default -n 16 -j 6 -y 18 -d btagDDBvL -J up
--s ttbar -r default -n 16 -j 7 -y 18 -d btagDDBvL -J up
--s ttbar -r default -n 16 -j 8 -y 18 -d btagDDBvL -J up
--s ttbar -r default -n 16 -j 9 -y 18 -d btagDDBvL -J up
--s ttbar -r default -n 16 -j 10 -y 18 -d btagDDBvL -J up
--s ttbar -r default -n 16 -j 11 -y 18 -d btagDDBvL -J up
--s ttbar -r default -n 16 -j 12 -y 18 -d btagDDBvL -J up
--s ttbar -r default -n 16 -j 13 -y 18 -d btagDDBvL -J up
--s ttbar -r default -n 16 -j 14 -y 18 -d btagDDBvL -J up
--s ttbar -r default -n 16 -j 15 -y 18 -d btagDDBvL -J up
--s ttbar -r default -n 16 -j 16 -y 18 -d btagDDBvL -J up
--s ttbar -r default -n 16 -j 1 -y 18 -d btagDDBvL -R up
--s ttbar -r default -n 16 -j 2 -y 18 -d btagDDBvL -R up
--s ttbar -r default -n 16 -j 3 -y 18 -d btagDDBvL -R up
--s ttbar -r default -n 16 -j 4 -y 18 -d btagDDBvL -R up
--s ttbar -r default -n 16 -j 5 -y 18 -d btagDDBvL -R up
--s ttbar -r default -n 16 -j 6 -y 18 -d btagDDBvL -R up
--s ttbar -r default -n 16 -j 7 -y 18 -d btagDDBvL -R up
--s ttbar -r default -n 16 -j 8 -y 18 -d btagDDBvL -R up
--s ttbar -r default -n 16 -j 9 -y 18 -d btagDDBvL -R up
--s ttbar -r default -n 16 -j 10 -y 18 -d btagDDBvL -R up
--s ttbar -r default -n 16 -j 11 -y 18 -d btagDDBvL -R up
--s ttbar -r default -n 16 -j 12 -y 18 -d btagDDBvL -R up
--s ttbar -r default -n 16 -j 13 -y 18 -d btagDDBvL -R up
--s ttbar -r default -n 16 -j 14 -y 18 -d btagDDBvL -R up
--s ttbar -r default -n 16 -j 15 -y 18 -d btagDDBvL -R up
--s ttbar -r default -n 16 -j 16 -y 18 -d btagDDBvL -R up
--s ttbar -r default -n 16 -j 1 -y 18 -d btagDDBvL -a up
--s ttbar -r default -n 16 -j 2 -y 18 -d btagDDBvL -a up
--s ttbar -r default -n 16 -j 3 -y 18 -d btagDDBvL -a up
--s ttbar -r default -n 16 -j 4 -y 18 -d btagDDBvL -a up
--s ttbar -r default -n 16 -j 5 -y 18 -d btagDDBvL -a up
--s ttbar -r default -n 16 -j 6 -y 18 -d btagDDBvL -a up
--s ttbar -r default -n 16 -j 7 -y 18 -d btagDDBvL -a up
--s ttbar -r default -n 16 -j 8 -y 18 -d btagDDBvL -a up
--s ttbar -r default -n 16 -j 9 -y 18 -d btagDDBvL -a up
--s ttbar -r default -n 16 -j 10 -y 18 -d btagDDBvL -a up
--s ttbar -r default -n 16 -j 11 -y 18 -d btagDDBvL -a up
--s ttbar -r default -n 16 -j 12 -y 18 -d btagDDBvL -a up
--s ttbar -r default -n 16 -j 13 -y 18 -d btagDDBvL -a up
--s ttbar -r default -n 16 -j 14 -y 18 -d btagDDBvL -a up
--s ttbar -r default -n 16 -j 15 -y 18 -d btagDDBvL -a up
--s ttbar -r default -n 16 -j 16 -y 18 -d btagDDBvL -a up
--s ttbar -r default -n 16 -j 1 -y 18 -d btagDDBvL -b up
--s ttbar -r default -n 16 -j 2 -y 18 -d btagDDBvL -b up
--s ttbar -r default -n 16 -j 3 -y 18 -d btagDDBvL -b up
--s ttbar -r default -n 16 -j 4 -y 18 -d btagDDBvL -b up
--s ttbar -r default -n 16 -j 5 -y 18 -d btagDDBvL -b up
--s ttbar -r default -n 16 -j 6 -y 18 -d btagDDBvL -b up
--s ttbar -r default -n 16 -j 7 -y 18 -d btagDDBvL -b up
--s ttbar -r default -n 16 -j 8 -y 18 -d btagDDBvL -b up
--s ttbar -r default -n 16 -j 9 -y 18 -d btagDDBvL -b up
--s ttbar -r default -n 16 -j 10 -y 18 -d btagDDBvL -b up
--s ttbar -r default -n 16 -j 11 -y 18 -d btagDDBvL -b up
--s ttbar -r default -n 16 -j 12 -y 18 -d btagDDBvL -b up
--s ttbar -r default -n 16 -j 13 -y 18 -d btagDDBvL -b up
--s ttbar -r default -n 16 -j 14 -y 18 -d btagDDBvL -b up
--s ttbar -r default -n 16 -j 15 -y 18 -d btagDDBvL -b up
--s ttbar -r default -n 16 -j 16 -y 18 -d btagDDBvL -b up
--s ttbar -r default -n 16 -j 1 -y 18 -d btagDDBvL -J down
--s ttbar -r default -n 16 -j 2 -y 18 -d btagDDBvL -J down
--s ttbar -r default -n 16 -j 3 -y 18 -d btagDDBvL -J down
--s ttbar -r default -n 16 -j 4 -y 18 -d btagDDBvL -J down
--s ttbar -r default -n 16 -j 5 -y 18 -d btagDDBvL -J down
--s ttbar -r default -n 16 -j 6 -y 18 -d btagDDBvL -J down
--s ttbar -r default -n 16 -j 7 -y 18 -d btagDDBvL -J down
--s ttbar -r default -n 16 -j 8 -y 18 -d btagDDBvL -J down
--s ttbar -r default -n 16 -j 9 -y 18 -d btagDDBvL -J down
--s ttbar -r default -n 16 -j 10 -y 18 -d btagDDBvL -J down
--s ttbar -r default -n 16 -j 11 -y 18 -d btagDDBvL -J down
--s ttbar -r default -n 16 -j 12 -y 18 -d btagDDBvL -J down
--s ttbar -r default -n 16 -j 13 -y 18 -d btagDDBvL -J down
--s ttbar -r default -n 16 -j 14 -y 18 -d btagDDBvL -J down
--s ttbar -r default -n 16 -j 15 -y 18 -d btagDDBvL -J down
--s ttbar -r default -n 16 -j 16 -y 18 -d btagDDBvL -J down
--s ttbar -r default -n 16 -j 1 -y 18 -d btagDDBvL -R down
--s ttbar -r default -n 16 -j 2 -y 18 -d btagDDBvL -R down
--s ttbar -r default -n 16 -j 3 -y 18 -d btagDDBvL -R down
--s ttbar -r default -n 16 -j 4 -y 18 -d btagDDBvL -R down
--s ttbar -r default -n 16 -j 5 -y 18 -d btagDDBvL -R down
--s ttbar -r default -n 16 -j 6 -y 18 -d btagDDBvL -R down
--s ttbar -r default -n 16 -j 7 -y 18 -d btagDDBvL -R down
--s ttbar -r default -n 16 -j 8 -y 18 -d btagDDBvL -R down
--s ttbar -r default -n 16 -j 9 -y 18 -d btagDDBvL -R down
--s ttbar -r default -n 16 -j 10 -y 18 -d btagDDBvL -R down
--s ttbar -r default -n 16 -j 11 -y 18 -d btagDDBvL -R down
--s ttbar -r default -n 16 -j 12 -y 18 -d btagDDBvL -R down
--s ttbar -r default -n 16 -j 13 -y 18 -d btagDDBvL -R down
--s ttbar -r default -n 16 -j 14 -y 18 -d btagDDBvL -R down
--s ttbar -r default -n 16 -j 15 -y 18 -d btagDDBvL -R down
--s ttbar -r default -n 16 -j 16 -y 18 -d btagDDBvL -R down
--s ttbar -r default -n 16 -j 1 -y 18 -d btagDDBvL -a down
--s ttbar -r default -n 16 -j 2 -y 18 -d btagDDBvL -a down
--s ttbar -r default -n 16 -j 3 -y 18 -d btagDDBvL -a down
--s ttbar -r default -n 16 -j 4 -y 18 -d btagDDBvL -a down
--s ttbar -r default -n 16 -j 5 -y 18 -d btagDDBvL -a down
--s ttbar -r default -n 16 -j 6 -y 18 -d btagDDBvL -a down
--s ttbar -r default -n 16 -j 7 -y 18 -d btagDDBvL -a down
--s ttbar -r default -n 16 -j 8 -y 18 -d btagDDBvL -a down
--s ttbar -r default -n 16 -j 9 -y 18 -d btagDDBvL -a down
--s ttbar -r default -n 16 -j 10 -y 18 -d btagDDBvL -a down
--s ttbar -r default -n 16 -j 11 -y 18 -d btagDDBvL -a down
--s ttbar -r default -n 16 -j 12 -y 18 -d btagDDBvL -a down
--s ttbar -r default -n 16 -j 13 -y 18 -d btagDDBvL -a down
--s ttbar -r default -n 16 -j 14 -y 18 -d btagDDBvL -a down
--s ttbar -r default -n 16 -j 15 -y 18 -d btagDDBvL -a down
--s ttbar -r default -n 16 -j 16 -y 18 -d btagDDBvL -a down
--s ttbar -r default -n 16 -j 1 -y 18 -d btagDDBvL -b down
--s ttbar -r default -n 16 -j 2 -y 18 -d btagDDBvL -b down
--s ttbar -r default -n 16 -j 3 -y 18 -d btagDDBvL -b down
--s ttbar -r default -n 16 -j 4 -y 18 -d btagDDBvL -b down
--s ttbar -r default -n 16 -j 5 -y 18 -d btagDDBvL -b down
--s ttbar -r default -n 16 -j 6 -y 18 -d btagDDBvL -b down
--s ttbar -r default -n 16 -j 7 -y 18 -d btagDDBvL -b down
--s ttbar -r default -n 16 -j 8 -y 18 -d btagDDBvL -b down
--s ttbar -r default -n 16 -j 9 -y 18 -d btagDDBvL -b down
--s ttbar -r default -n 16 -j 10 -y 18 -d btagDDBvL -b down
--s ttbar -r default -n 16 -j 11 -y 18 -d btagDDBvL -b down
--s ttbar -r default -n 16 -j 12 -y 18 -d btagDDBvL -b down
--s ttbar -r default -n 16 -j 13 -y 18 -d btagDDBvL -b down
--s ttbar -r default -n 16 -j 14 -y 18 -d btagDDBvL -b down
--s ttbar -r default -n 16 -j 15 -y 18 -d btagDDBvL -b down
--s ttbar -r default -n 16 -j 16 -y 18 -d btagDDBvL -b down
--s RadNar-1000 -r default -n 1 -j 1 -y 18 -d btagDDBvL
--s RadNar-1000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -J up
--s RadNar-1000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -R up
--s RadNar-1000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -a up
--s RadNar-1000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -b up
--s RadNar-1000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -J down
--s RadNar-1000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -R down
--s RadNar-1000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -a down
--s RadNar-1000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -b down
--s RadNar-1500 -r default -n 1 -j 1 -y 18 -d btagDDBvL
--s RadNar-1500 -r default -n 1 -j 1 -y 18 -d btagDDBvL -J up
--s RadNar-1500 -r default -n 1 -j 1 -y 18 -d btagDDBvL -R up
--s RadNar-1500 -r default -n 1 -j 1 -y 18 -d btagDDBvL -a up
--s RadNar-1500 -r default -n 1 -j 1 -y 18 -d btagDDBvL -b up
--s RadNar-1500 -r default -n 1 -j 1 -y 18 -d btagDDBvL -J down
--s RadNar-1500 -r default -n 1 -j 1 -y 18 -d btagDDBvL -R down
--s RadNar-1500 -r default -n 1 -j 1 -y 18 -d btagDDBvL -a down
--s RadNar-1500 -r default -n 1 -j 1 -y 18 -d btagDDBvL -b down
--s RadNar-2000 -r default -n 1 -j 1 -y 18 -d btagDDBvL
--s RadNar-2000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -J up
--s RadNar-2000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -R up
--s RadNar-2000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -a up
--s RadNar-2000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -b up
--s RadNar-2000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -J down
--s RadNar-2000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -R down
--s RadNar-2000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -a down
--s RadNar-2000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -b down
--s RadNar-2500 -r default -n 1 -j 1 -y 18 -d btagDDBvL
--s RadNar-2500 -r default -n 1 -j 1 -y 18 -d btagDDBvL -J up
--s RadNar-2500 -r default -n 1 -j 1 -y 18 -d btagDDBvL -R up
--s RadNar-2500 -r default -n 1 -j 1 -y 18 -d btagDDBvL -a up
--s RadNar-2500 -r default -n 1 -j 1 -y 18 -d btagDDBvL -b up
--s RadNar-2500 -r default -n 1 -j 1 -y 18 -d btagDDBvL -J down
--s RadNar-2500 -r default -n 1 -j 1 -y 18 -d btagDDBvL -R down
--s RadNar-2500 -r default -n 1 -j 1 -y 18 -d btagDDBvL -a down
--s RadNar-2500 -r default -n 1 -j 1 -y 18 -d btagDDBvL -b down
--s RadNar-3000 -r default -n 1 -j 1 -y 18 -d btagDDBvL
--s RadNar-3000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -J up
--s RadNar-3000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -R up
--s RadNar-3000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -a up
--s RadNar-3000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -b up
--s RadNar-3000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -J down
--s RadNar-3000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -R down
--s RadNar-3000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -a down
--s RadNar-3000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -b down
--s GravNar-1000 -r default -n 1 -j 1 -y 18 -d btagDDBvL
--s GravNar-1000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -J up
--s GravNar-1000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -R up
--s GravNar-1000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -a up
--s GravNar-1000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -b up
--s GravNar-1000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -J down
--s GravNar-1000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -R down
--s GravNar-1000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -a down
--s GravNar-1000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -b down
--s GravNar-1500 -r default -n 1 -j 1 -y 18 -d btagDDBvL
--s GravNar-1500 -r default -n 1 -j 1 -y 18 -d btagDDBvL -J up
--s GravNar-1500 -r default -n 1 -j 1 -y 18 -d btagDDBvL -R up
--s GravNar-1500 -r default -n 1 -j 1 -y 18 -d btagDDBvL -a up
--s GravNar-1500 -r default -n 1 -j 1 -y 18 -d btagDDBvL -b up
--s GravNar-1500 -r default -n 1 -j 1 -y 18 -d btagDDBvL -J down
--s GravNar-1500 -r default -n 1 -j 1 -y 18 -d btagDDBvL -R down
--s GravNar-1500 -r default -n 1 -j 1 -y 18 -d btagDDBvL -a down
--s GravNar-1500 -r default -n 1 -j 1 -y 18 -d btagDDBvL -b down
--s GravNar-2000 -r default -n 1 -j 1 -y 18 -d btagDDBvL
--s GravNar-2000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -J up
--s GravNar-2000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -R up
--s GravNar-2000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -a up
--s GravNar-2000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -b up
--s GravNar-2000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -J down
--s GravNar-2000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -R down
--s GravNar-2000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -a down
--s GravNar-2000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -b down
--s GravNar-2500 -r default -n 1 -j 1 -y 18 -d btagDDBvL
--s GravNar-2500 -r default -n 1 -j 1 -y 18 -d btagDDBvL -J up
--s GravNar-2500 -r default -n 1 -j 1 -y 18 -d btagDDBvL -R up
--s GravNar-2500 -r default -n 1 -j 1 -y 18 -d btagDDBvL -a up
--s GravNar-2500 -r default -n 1 -j 1 -y 18 -d btagDDBvL -b up
--s GravNar-2500 -r default -n 1 -j 1 -y 18 -d btagDDBvL -J down
--s GravNar-2500 -r default -n 1 -j 1 -y 18 -d btagDDBvL -R down
--s GravNar-2500 -r default -n 1 -j 1 -y 18 -d btagDDBvL -a down
--s GravNar-2500 -r default -n 1 -j 1 -y 18 -d btagDDBvL -b down
--s GravNar-3000 -r default -n 1 -j 1 -y 18 -d btagDDBvL
--s GravNar-3000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -J up
--s GravNar-3000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -R up
--s GravNar-3000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -a up
--s GravNar-3000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -b up
--s GravNar-3000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -J down
--s GravNar-3000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -R down
--s GravNar-3000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -a down
--s GravNar-3000 -r default -n 1 -j 1 -y 18 -d btagDDBvL -b down
--s dataD -r default -n 100 -j 1 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 2 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 3 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 4 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 5 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 6 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 7 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 8 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 9 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 10 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 11 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 12 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 13 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 14 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 15 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 16 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 17 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 18 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 19 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 20 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 21 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 22 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 23 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 24 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 25 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 26 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 27 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 28 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 29 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 30 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 31 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 32 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 33 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 34 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 35 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 36 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 37 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 38 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 39 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 40 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 41 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 42 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 43 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 44 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 45 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 46 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 47 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 48 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 49 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 50 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 51 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 52 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 53 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 54 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 55 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 56 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 57 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 58 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 59 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 60 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 61 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 62 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 63 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 64 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 65 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 66 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 67 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 68 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 69 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 70 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 71 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 72 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 73 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 74 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 75 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 76 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 77 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 78 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 79 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 80 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 81 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 82 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 83 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 84 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 85 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 86 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 87 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 88 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 89 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 90 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 91 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 92 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 93 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 94 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 95 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 96 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 97 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 98 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 99 -y 18 -d btagDDBvL
--s dataD -r default -n 100 -j 100 -y 18 -d btagDDBvL
--s dataA -r default -n 45 -j 1 -y 18 -d btagDDBvL
--s dataA -r default -n 45 -j 2 -y 18 -d btagDDBvL
--s dataA -r default -n 45 -j 3 -y 18 -d btagDDBvL
--s dataA -r default -n 45 -j 4 -y 18 -d btagDDBvL
--s dataA -r default -n 45 -j 5 -y 18 -d btagDDBvL
--s dataA -r default -n 45 -j 6 -y 18 -d btagDDBvL
--s dataA -r default -n 45 -j 7 -y 18 -d btagDDBvL
--s dataA -r default -n 45 -j 8 -y 18 -d btagDDBvL
--s dataA -r default -n 45 -j 9 -y 18 -d btagDDBvL
--s dataA -r default -n 45 -j 10 -y 18 -d btagDDBvL
--s dataA -r default -n 45 -j 11 -y 18 -d btagDDBvL
--s dataA -r default -n 45 -j 12 -y 18 -d btagDDBvL
--s dataA -r default -n 45 -j 13 -y 18 -d btagDDBvL
--s dataA -r default -n 45 -j 14 -y 18 -d btagDDBvL
--s dataA -r default -n 45 -j 15 -y 18 -d btagDDBvL
--s dataA -r default -n 45 -j 16 -y 18 -d btagDDBvL
--s dataA -r default -n 45 -j 17 -y 18 -d btagDDBvL
--s dataA -r default -n 45 -j 18 -y 18 -d btagDDBvL
--s dataA -r default -n 45 -j 19 -y 18 -d btagDDBvL
--s dataA -r default -n 45 -j 20 -y 18 -d btagDDBvL
--s dataA -r default -n 45 -j 21 -y 18 -d btagDDBvL
--s dataA -r default -n 45 -j 22 -y 18 -d btagDDBvL
--s dataA -r default -n 45 -j 23 -y 18 -d btagDDBvL
--s dataA -r default -n 45 -j 24 -y 18 -d btagDDBvL
--s dataA -r default -n 45 -j 25 -y 18 -d btagDDBvL
--s dataA -r default -n 45 -j 26 -y 18 -d btagDDBvL
--s dataA -r default -n 45 -j 27 -y 18 -d btagDDBvL
--s dataA -r default -n 45 -j 28 -y 18 -d btagDDBvL
--s dataA -r default -n 45 -j 29 -y 18 -d btagDDBvL
--s dataA -r default -n 45 -j 30 -y 18 -d btagDDBvL
--s dataA -r default -n 45 -j 31 -y 18 -d btagDDBvL
--s dataA -r default -n 45 -j 32 -y 18 -d btagDDBvL
--s dataA -r default -n 45 -j 33 -y 18 -d btagDDBvL
--s dataA -r default -n 45 -j 34 -y 18 -d btagDDBvL
--s dataA -r default -n 45 -j 35 -y 18 -d btagDDBvL
--s dataA -r default -n 45 -j 36 -y 18 -d btagDDBvL
--s dataA -r default -n 45 -j 37 -y 18 -d btagDDBvL
--s dataA -r default -n 45 -j 38 -y 18 -d btagDDBvL
--s dataA -r default -n 45 -j 39 -y 18 -d btagDDBvL
--s dataA -r default -n 45 -j 40 -y 18 -d btagDDBvL
--s dataA -r default -n 45 -j 41 -y 18 -d btagDDBvL
--s dataA -r default -n 45 -j 42 -y 18 -d btagDDBvL
--s dataA -r default -n 45 -j 43 -y 18 -d btagDDBvL
--s dataA -r default -n 45 -j 44 -y 18 -d btagDDBvL
--s dataA -r default -n 45 -j 45 -y 18 -d btagDDBvL
--s dataC2 -r default -n 3 -j 1 -y 18 -d btagDDBvL
--s dataC2 -r default -n 3 -j 2 -y 18 -d btagDDBvL
--s dataC2 -r default -n 3 -j 3 -y 18 -d btagDDBvL
--s dataC1 -r default -n 20 -j 1 -y 18 -d btagDDBvL
--s dataC1 -r default -n 20 -j 2 -y 18 -d btagDDBvL
--s dataC1 -r default -n 20 -j 3 -y 18 -d btagDDBvL
--s dataC1 -r default -n 20 -j 4 -y 18 -d btagDDBvL
--s dataC1 -r default -n 20 -j 5 -y 18 -d btagDDBvL
--s dataC1 -r default -n 20 -j 6 -y 18 -d btagDDBvL
--s dataC1 -r default -n 20 -j 7 -y 18 -d btagDDBvL
--s dataC1 -r default -n 20 -j 8 -y 18 -d btagDDBvL
--s dataC1 -r default -n 20 -j 9 -y 18 -d btagDDBvL
--s dataC1 -r default -n 20 -j 10 -y 18 -d btagDDBvL
--s dataC1 -r default -n 20 -j 11 -y 18 -d btagDDBvL
--s dataC1 -r default -n 20 -j 12 -y 18 -d btagDDBvL
--s dataC1 -r default -n 20 -j 13 -y 18 -d btagDDBvL
--s dataC1 -r default -n 20 -j 14 -y 18 -d btagDDBvL
--s dataC1 -r default -n 20 -j 15 -y 18 -d btagDDBvL
--s dataC1 -r default -n 20 -j 16 -y 18 -d btagDDBvL
--s dataC1 -r default -n 20 -j 17 -y 18 -d btagDDBvL
--s dataC1 -r default -n 20 -j 18 -y 18 -d btagDDBvL
--s dataC1 -r default -n 20 -j 19 -y 18 -d btagDDBvL
--s dataC1 -r default -n 20 -j 20 -y 18 -d btagDDBvL
--s dataB -r default -n 20 -j 1 -y 18 -d btagDDBvL
--s dataB -r default -n 20 -j 2 -y 18 -d btagDDBvL
--s dataB -r default -n 20 -j 3 -y 18 -d btagDDBvL
--s dataB -r default -n 20 -j 4 -y 18 -d btagDDBvL
--s dataB -r default -n 20 -j 5 -y 18 -d btagDDBvL
--s dataB -r default -n 20 -j 6 -y 18 -d btagDDBvL
--s dataB -r default -n 20 -j 7 -y 18 -d btagDDBvL
--s dataB -r default -n 20 -j 8 -y 18 -d btagDDBvL
--s dataB -r default -n 20 -j 9 -y 18 -d btagDDBvL
--s dataB -r default -n 20 -j 10 -y 18 -d btagDDBvL
--s dataB -r default -n 20 -j 11 -y 18 -d btagDDBvL
--s dataB -r default -n 20 -j 12 -y 18 -d btagDDBvL
--s dataB -r default -n 20 -j 13 -y 18 -d btagDDBvL
--s dataB -r default -n 20 -j 14 -y 18 -d btagDDBvL
--s dataB -r default -n 20 -j 15 -y 18 -d btagDDBvL
--s dataB -r default -n 20 -j 16 -y 18 -d btagDDBvL
--s dataB -r default -n 20 -j 17 -y 18 -d btagDDBvL
--s dataB -r default -n 20 -j 18 -y 18 -d btagDDBvL
--s dataB -r default -n 20 -j 19 -y 18 -d btagDDBvL
--s dataB -r default -n 20 -j 20 -y 18 -d btagDDBvL
+-s dataA -r default -n 19 -j 1 -y 18 -d btagDDBvL
+-s dataA -r default -n 19 -j 2 -y 18 -d btagDDBvL
+-s dataA -r default -n 19 -j 3 -y 18 -d btagDDBvL
+-s dataA -r default -n 19 -j 4 -y 18 -d btagDDBvL
+-s dataA -r default -n 19 -j 5 -y 18 -d btagDDBvL
+-s dataA -r default -n 19 -j 6 -y 18 -d btagDDBvL
+-s dataA -r default -n 19 -j 7 -y 18 -d btagDDBvL
+-s dataA -r default -n 19 -j 8 -y 18 -d btagDDBvL
+-s dataA -r default -n 19 -j 9 -y 18 -d btagDDBvL
+-s dataA -r default -n 19 -j 10 -y 18 -d btagDDBvL
+-s dataA -r default -n 19 -j 11 -y 18 -d btagDDBvL
+-s dataA -r default -n 19 -j 12 -y 18 -d btagDDBvL
+-s dataA -r default -n 19 -j 13 -y 18 -d btagDDBvL
+-s dataA -r default -n 19 -j 14 -y 18 -d btagDDBvL
+-s dataA -r default -n 19 -j 15 -y 18 -d btagDDBvL
+-s dataA -r default -n 19 -j 16 -y 18 -d btagDDBvL
+-s dataA -r default -n 19 -j 17 -y 18 -d btagDDBvL
+-s dataA -r default -n 19 -j 18 -y 18 -d btagDDBvL
+-s dataA -r default -n 19 -j 19 -y 18 -d btagDDBvL
+-s QCDHT700 -r default -n 6 -j 1 -y 18 -d btagDDBvL
+-s QCDHT700 -r default -n 6 -j 2 -y 18 -d btagDDBvL
+-s QCDHT700 -r default -n 6 -j 3 -y 18 -d btagDDBvL
+-s QCDHT700 -r default -n 6 -j 4 -y 18 -d btagDDBvL
+-s QCDHT700 -r default -n 6 -j 5 -y 18 -d btagDDBvL
+-s QCDHT700 -r default -n 6 -j 6 -y 18 -d btagDDBvL
+-s dataC2 -r default -n 1 -j 1 -y 18 -d btagDDBvL
+-s dataC1 -r default -n 9 -j 1 -y 18 -d btagDDBvL
+-s dataC1 -r default -n 9 -j 2 -y 18 -d btagDDBvL
+-s dataC1 -r default -n 9 -j 3 -y 18 -d btagDDBvL
+-s dataC1 -r default -n 9 -j 4 -y 18 -d btagDDBvL
+-s dataC1 -r default -n 9 -j 5 -y 18 -d btagDDBvL
+-s dataC1 -r default -n 9 -j 6 -y 18 -d btagDDBvL
+-s dataC1 -r default -n 9 -j 7 -y 18 -d btagDDBvL
+-s dataC1 -r default -n 9 -j 8 -y 18 -d btagDDBvL
+-s dataC1 -r default -n 9 -j 9 -y 18 -d btagDDBvL
+-s QCDHT1500 -r default -n 15 -j 1 -y 18 -d btagDDBvL
+-s QCDHT1500 -r default -n 15 -j 2 -y 18 -d btagDDBvL
+-s QCDHT1500 -r default -n 15 -j 3 -y 18 -d btagDDBvL
+-s QCDHT1500 -r default -n 15 -j 4 -y 18 -d btagDDBvL
+-s QCDHT1500 -r default -n 15 -j 5 -y 18 -d btagDDBvL
+-s QCDHT1500 -r default -n 15 -j 6 -y 18 -d btagDDBvL
+-s QCDHT1500 -r default -n 15 -j 7 -y 18 -d btagDDBvL
+-s QCDHT1500 -r default -n 15 -j 8 -y 18 -d btagDDBvL
+-s QCDHT1500 -r default -n 15 -j 9 -y 18 -d btagDDBvL
+-s QCDHT1500 -r default -n 15 -j 10 -y 18 -d btagDDBvL
+-s QCDHT1500 -r default -n 15 -j 11 -y 18 -d btagDDBvL
+-s QCDHT1500 -r default -n 15 -j 12 -y 18 -d btagDDBvL
+-s QCDHT1500 -r default -n 15 -j 13 -y 18 -d btagDDBvL
+-s QCDHT1500 -r default -n 15 -j 14 -y 18 -d btagDDBvL
+-s QCDHT1500 -r default -n 15 -j 15 -y 18 -d btagDDBvL
+-s ttbar -r default -n 17 -j 1 -y 18 -d btagDDBvL
+-s ttbar -r default -n 17 -j 2 -y 18 -d btagDDBvL
+-s ttbar -r default -n 17 -j 3 -y 18 -d btagDDBvL
+-s ttbar -r default -n 17 -j 4 -y 18 -d btagDDBvL
+-s ttbar -r default -n 17 -j 5 -y 18 -d btagDDBvL
+-s ttbar -r default -n 17 -j 6 -y 18 -d btagDDBvL
+-s ttbar -r default -n 17 -j 7 -y 18 -d btagDDBvL
+-s ttbar -r default -n 17 -j 8 -y 18 -d btagDDBvL
+-s ttbar -r default -n 17 -j 9 -y 18 -d btagDDBvL
+-s ttbar -r default -n 17 -j 10 -y 18 -d btagDDBvL
+-s ttbar -r default -n 17 -j 11 -y 18 -d btagDDBvL
+-s ttbar -r default -n 17 -j 12 -y 18 -d btagDDBvL
+-s ttbar -r default -n 17 -j 13 -y 18 -d btagDDBvL
+-s ttbar -r default -n 17 -j 14 -y 18 -d btagDDBvL
+-s ttbar -r default -n 17 -j 15 -y 18 -d btagDDBvL
+-s ttbar -r default -n 17 -j 16 -y 18 -d btagDDBvL
+-s ttbar -r default -n 17 -j 17 -y 18 -d btagDDBvL
+-s dataB -r default -n 9 -j 1 -y 18 -d btagDDBvL
+-s dataB -r default -n 9 -j 2 -y 18 -d btagDDBvL
+-s dataB -r default -n 9 -j 3 -y 18 -d btagDDBvL
+-s dataB -r default -n 9 -j 4 -y 18 -d btagDDBvL
+-s dataB -r default -n 9 -j 5 -y 18 -d btagDDBvL
+-s dataB -r default -n 9 -j 6 -y 18 -d btagDDBvL
+-s dataB -r default -n 9 -j 7 -y 18 -d btagDDBvL
+-s dataB -r default -n 9 -j 8 -y 18 -d btagDDBvL
+-s dataB -r default -n 9 -j 9 -y 18 -d btagDDBvL

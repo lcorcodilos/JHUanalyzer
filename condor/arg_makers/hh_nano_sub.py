@@ -22,7 +22,7 @@ outfile = open('../args/hh_nano'+name_string+'_args.txt','w')
 
 base_string = '-s TEMPSET -j IJOB -n NJOB -y TEMPYEAR'#'python CondorHelper.py -r run_bstar.sh -a "-s TEMPSET -j IJOB -n NJOB -y TEMPYEAR"'
 
-for year in ['16','17','18'] 
+for year in ['16','17','18']: 
     if year not in ignore:
         year_string = base_string.replace("TEMPYEAR",year)
 
