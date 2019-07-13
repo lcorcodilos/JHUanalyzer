@@ -27,8 +27,8 @@ input_subs = {
 }
 executables = []
 
+executables.append('rm *_loc.txt')
 for i in input_subs.keys():
-    executables.append('rm '+i+'_loc.txt')
     executables.append('dasgoclient -query "file dataset='+input_subs[i]+'" > '+i+'_loc.txt')
 for s in executables:
     print s
