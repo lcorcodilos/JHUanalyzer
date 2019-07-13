@@ -33,7 +33,7 @@ ignore = options.ignoreset.split(',')
 name_string = '_'+options.name if options.name != '' else ''
 
 # Initialize output file
-outfile = open('../args/hh_presel'+name_string'_args.txt','w')
+outfile = open('../args/hh_presel'+name_string+'_args.txt','w')
 
 base_string = '-s TEMPSET -r TEMPREG -n NJOB -j IJOB -y TEMPYEAR -d TEMPTAGGER'
 

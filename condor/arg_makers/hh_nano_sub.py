@@ -18,7 +18,7 @@ ignore = options.ignore.split(',')
 name_string = '_'+options.name if options.name != '' else ''
 
 # Initialize output file
-outfile = open('../args/hh_nano'+name_string'_args.txt','w')
+outfile = open('../args/hh_nano'+name_string+'_args.txt','w')
 
 base_string = '-s TEMPSET -j IJOB -n NJOB -y TEMPYEAR'#'python CondorHelper.py -r run_bstar.sh -a "-s TEMPSET -j IJOB -n NJOB -y TEMPYEAR"'
 
