@@ -1,5 +1,5 @@
 # 2018 version which uses central NanoAOD
-import subprocess
+import subprocess, glob
 
 input_subs = {
     "ttbar":"/TTToHadronic_TuneCP5_13TeV-powheg-pythia8/RunIIAutumn18NanoAODv5-Nano1June2019_102X_upgrade2018_realistic_v19-v1/NANOAODSIM",
