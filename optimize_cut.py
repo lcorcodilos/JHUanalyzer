@@ -166,7 +166,7 @@ def optimizeCut(histToOptimize,signalToOptimize, year, doubleb_name):
 
 if __name__ == "__main__":
     taggers = ['doubleB','dak8MDHbb','dak8MDZHbb']
-    signals = ['GravNar-1000','GravNar-1500','GravNar-2000','GravNar-2500','GravNar-3000']
+    signals = ['GravNar-1000','GravNar-1500','GravNar-2000','GravNar-2500','GravNar-3000','RadNar-1000','RadNar-1500','RadNar-2000','RadNar-2500','RadNar-3000']
     for y in ['18']:
         for doubleb in taggers:
             for h in ['hh11','hh21']:
