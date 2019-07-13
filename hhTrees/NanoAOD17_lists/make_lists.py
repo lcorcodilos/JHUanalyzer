@@ -16,9 +16,19 @@ input_subs = {
 }
 executables = []
 
-executables.append('rm *_loc.txt')
+# Remove files first
+print 'rm *_loc.txt'
+subprocess.call(['rm *_loc.txt'],shell=True)
+
 for i in input_subs.keys():
-    executables.append('dasgoclient -query "file dataset='+input_subs[i]+'" > '+i+'_loc.txt')
+    if '/store/user/' in input_subs[i]:
+        files = glob.glob('/eos/uscms'+input_subs[i])
+        out = open(i+'_loc.txt','w')
+        for f in files:
+            out.write(f.replace('/eos/uscms','root://cmsxrootd.fnal.gov/')+'\n')
+        out.close()
+    else:
+        executables.append('dasgoclient -query "file dataset='+input_subs[i]+'" > '+i+'_loc.txt')
 for s in executables:
     print s
     subprocess.call([s],shell=True)
