@@ -13,7 +13,6 @@ input_subs = {
     "dataC1":"/JetHT/Run2018C-Nano1June2019-v1/NANOAOD",
     "dataC2":"/JetHT/Run2018C-Nano1June2019-v2/NANOAOD",
     "dataD":"/JetHT/Run2018D-Nano1June2019_ver2-v1/NANOAOD",
-
     "GravNar-1000":"/store/user/lcorcodi/NanoAOD102X_private/BulkGravTohhTohbbhbb_narrow_M-1000_TuneCP2_PSweights_13TeV-madgraph_pythia8/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v2/*/0000/*.root",
     "GravNar-1500":"/store/user/lcorcodi/NanoAOD102X_private/BulkGravTohhTohbbhbb_narrow_M-1500_TuneCP2_PSweights_13TeV-madgraph_pythia8/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v2/*/0000/*.root",
     "GravNar-2000":"/store/user/lcorcodi/NanoAOD102X_private/BulkGravTohhTohbbhbb_narrow_M-2000_TuneCP2_PSweights_13TeV-madgraph_pythia8/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v2/*/0000/*.root",

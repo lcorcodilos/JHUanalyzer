@@ -71,7 +71,9 @@ if 'data' in setname:
             mymodules.append(jetRecalib2018AAK8Puppi())
         elif options.set == 'dataB':
             mymodules.append(jetRecalib2018BAK8Puppi())
-        elif options.set == 'dataC':
+        elif options.set == 'dataC1':
+            mymodules.append(jetRecalib2018CAK8Puppi())
+        elif options.set == 'dataC2':
             mymodules.append(jetRecalib2018CAK8Puppi())
         elif options.set == 'dataD':
             mymodules.append(jetRecalib2018DAK8Puppi())
