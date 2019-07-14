@@ -66,7 +66,7 @@ if 'data' in setname:
             print options.set + ' in year '+options.year+' not supported. Quitting...'
             quit()
 
-    if options.year == '18':
+    elif options.year == '18':
         if options.set == 'dataA':
             mymodules.append(jetRecalib2018AAK8Puppi())
         elif options.set == 'dataB':
@@ -92,7 +92,7 @@ else:
     elif options.year == '17':
         mymodules = [jetmetUncertaintiesFactorized2017AK8Puppi(),puAutoWeight_2017()]
 
-    if options.year == '18':
+    elif options.year == '18':
         mymodules = [jetmetUncertaintiesFactorized2018AK8Puppi(),puAutoWeight_2018()]
 
     else:
