@@ -84,11 +84,11 @@ if __name__ == "__main__":
     # From https://twiki.cern.ch/twiki/bin/view/CMS/BTagCalibration
     gSystem.Load('libCondFormatsBTauObjects') 
     gSystem.Load('libCondToolsBTau') 
-    # if options.year == '16':
-    #     calib = BTagCalibration('DeepCSV', 'SFs/DeepCSV_2016LegacySF_V1.csv')
-    # elif options.year == '17':
-    #     calib = BTagCalibration('DeepCSV', 'SFs/subjet_DeepCSV_94XSF_V4_B_F.csv')
-    if options.year == '18':
+    if options.year == '16':
+        calib = BTagCalibration('DeepCSV', 'SFs/DeepCSV_2016LegacySF_V1.csv')
+    elif options.year == '17':
+        calib = BTagCalibration('DeepCSV', 'SFs/DeepCSV_94XSF_V4_B_F.csv')
+    elif options.year == '18':
         calib = BTagCalibration('DeepCSV', 'SFs/DeepCSV_102XSF_V1.csv')
             
     v_sys = getattr(ROOT, 'vector<string>')()
@@ -182,15 +182,6 @@ if __name__ == "__main__":
         TrigPlot = TrigFile.Get('TriggerWeight_'+tname+'_Ht')
         TrigPlot1 = TrigPlot.Clone()
         
-    if 'data' not in options.set:
-        PileFile = TFile.Open("pileup/PileUp_Ratio_ttbar"+options.year+".root")
-        PilePlots = {
-            "nom": PileFile.Get("Pileup_Ratio"),
-            "up": PileFile.Get("Pileup_Ratio_up"),
-            "down": PileFile.Get("Pileup_Ratio_down")}
-        
-        # ttagsffile = TFile.Open('SFs/20'+tempyear+'TopTaggingScaleFactors.root')
-    # print("Trigger loaded")
 
     #############################
     # Make new file for storage #
