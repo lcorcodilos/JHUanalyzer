@@ -442,18 +442,17 @@ if __name__ == "__main__":
             isData = True
         else:
             isData = False
-        if isData:
-            isTriggered = event.HLT_PFHT1050 \
-              or event.HLT_AK8PFHT900_TrimMass50 \
-              or event.HLT_AK8PFJet420_TrimMass30 \
-              or event.HLT_AK8PFJet500 
-        else:
-            isTriggered = event.HLT_PFHT780 \
-              or event.HLT_AK8PFHT750_TrimMass50 \
-              or event.HLT_AK8PFJet360_TrimMass30 \
-              or event.HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p17 
 
-        if not isTriggered: 
+        if isData:
+            triggers = ['HLT_PFHT1050','HLT_AK8PFHT900_TrimMass50','HLT_AK8PFJet420_TrimMass30','HLT_AK8PFJet500']       
+        else:
+            triggers = ['HLT_PFHT780','HLT_AK8PFHT750_TrimMass50','HLT_AK8PFJet360_TrimMass30','HLT_AK8PFJet330_TrimMass30_PFAK8BTagDeepCSV_p17']
+    
+        isTriggered = False
+        for t in triggers:
+            if hasattr(event,t): isTriggered = isTriggered or getattr(event,t)
+            else: isTriggered = isTriggered or False # redundant to have `or False` but clearer
+        if not isTriggered:
             continue
 
         # Filters
