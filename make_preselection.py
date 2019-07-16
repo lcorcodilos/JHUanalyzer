@@ -568,9 +568,9 @@ if __name__ == "__main__":
             weights['PDF']['down'] = PDF_Lookup(inTree.readBranch('LHEPdfWeight'),'down')
 
             # Pileup reweighting applied
-            weights['Pileup']['nom'] = PU_Lookup(inTree.readBranch('Pileup_nPU'),PilePlots['nom'])
-            weights['Pileup']['up'] = PU_Lookup(inTree.readBranch('Pileup_nPU'),PilePlots['up'])
-            weights['Pileup']['down'] = PU_Lookup(inTree.readBranch('Pileup_nPU'),PilePlots['down'])
+            weights['Pileup']['nom'] = inTree.readBranch('puWeight')
+            weights['Pileup']['up'] = inTree.readBranch('puWeightUp')
+            weights['Pileup']['down'] = inTree.readBranch('puWeightDown')
 
             # weights['Trigger']['nom'] = 1#Trigger_Lookup( ht , TrigPlot1 )[0]
             # weights['Trigger']['up'] = 1#Trigger_Lookup( ht , TrigPlot1 )[1]
