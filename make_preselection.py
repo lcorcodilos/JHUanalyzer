@@ -395,7 +395,7 @@ if __name__ == "__main__":
         for i in runs_tree:
             nevents_gen+=i.genEventCount
 
-        xsec = Cons[options.set+'_xsec'] 
+        xsec = Cons[options.set.replace('ext','')+'_xsec']
         norm_weight = lumi*xsec/float(nevents_gen)
 
     #####################################
