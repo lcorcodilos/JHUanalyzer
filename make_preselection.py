@@ -516,7 +516,7 @@ if __name__ == "__main__":
         mhh11 = (h_jet0 + h_jet1).M()
         mhhred11 = mhh11 - h_jet0.M() - h_jet1.M() + 250
         HHsel11['reduced_hhmass'] = Cuts['mreduced'][0] < mhhred11 < Cuts['mreduced'][1]
-        HHsel11['toptag'] = Cuts['toptag'][1] < getattr(ak8JetsColl[0],'deepTagMD_TvsQCD') < Cuts['toptag'][1] and Cuts['toptag'][0] < getattr(ak8JetsColl[1],'deepTagMD_TvsQCD') < Cuts['toptag'][1]
+        HHsel11['toptag'] = Cuts['toptag'][0] < getattr(ak8JetsColl[0],'deepTagMD_TvsQCD') < Cuts['toptag'][1] and Cuts['toptag'][0] < getattr(ak8JetsColl[1],'deepTagMD_TvsQCD') < Cuts['toptag'][1]
 
         HHsel11['DoubleB_lead_tight'] = (Cuts['doublebtagTight'][0] < getattr(ak8JetsColl[0],doubleB_name) < Cuts['doublebtagTight'][1])
         HHsel11['DoubleB_lead_loose'] = (Cuts['doublebtagLoose'][0] < getattr(ak8JetsColl[0],doubleB_name) < Cuts['doublebtagLoose'][1])
