@@ -196,7 +196,7 @@ if __name__ == "__main__":
     ###################
     # Book histograms #
     ###################
-    hh11_cutflow = ROOT.TH1D('hh11_cutflow', 'hh11_cutflow', 9, 0.5, 9.5)
+    hh11_cutflow = ROOT.TH1D('hh11_cutflow', 'hh11_cutflow', 10, 0.5, 10.5)
     hh11_cutflow.GetXaxis().SetBinLabel(1, "no cuts")
     hh11_cutflow.GetXaxis().SetBinLabel(2, "eta")
     hh11_cutflow.GetXaxis().SetBinLabel(3, "p_{T}(H) both jets")
@@ -204,8 +204,9 @@ if __name__ == "__main__":
     # hh11_cutflow.GetXaxis().SetBinLabel(5, "m_{h reduced}")
     hh11_cutflow.GetXaxis().SetBinLabel(5, "|\Delta \eta|")
     hh11_cutflow.GetXaxis().SetBinLabel(6, "\tau_{21} both jets")
-    hh11_cutflow.GetXaxis().SetBinLabel(7,"LL - "+doubleB_title)
-    hh11_cutflow.GetXaxis().SetBinLabel(8,"TT - "+doubleB_title)
+    hh11_cutflow.GetXaxis().SetBinLabel(7, "TopTag Cut")
+    hh11_cutflow.GetXaxis().SetBinLabel(8,"LL - "+doubleB_title)
+    hh11_cutflow.GetXaxis().SetBinLabel(9,"TT - "+doubleB_title)
 
     hh21_cutflow = TH1F("hh21_cutflow","hh21_cutflow",8,0.5,8.5)
     hh21_cutflow.GetXaxis().SetBinLabel(1, "no cuts")
@@ -515,6 +516,7 @@ if __name__ == "__main__":
         mhh11 = (h_jet0 + h_jet1).M()
         mhhred11 = mhh11 - h_jet0.M() - h_jet1.M() + 250
         HHsel11['reduced_hhmass'] = Cuts['mreduced'][0] < mhhred11 < Cuts['mreduced'][1]
+        HHsel11['toptag'] = Cuts['toptag'][1] < getattr(ak8JetsColl[0],'deepTagMD_TvsQCD') < Cuts['toptag'][1] and Cuts['toptag'][0] < getattr(ak8JetsColl[1],'deepTagMD_TvsQCD') < Cuts['toptag'][1]
 
         HHsel11['DoubleB_lead_tight'] = (Cuts['doublebtagTight'][0] < getattr(ak8JetsColl[0],doubleB_name) < Cuts['doublebtagTight'][1])
         HHsel11['DoubleB_lead_loose'] = (Cuts['doublebtagLoose'][0] < getattr(ak8JetsColl[0],doubleB_name) < Cuts['doublebtagLoose'][1])
@@ -526,7 +528,7 @@ if __name__ == "__main__":
         HHsel11['ATTT'] = (not HHsel11['DoubleB_lead_loose']) and HHsel11['DoubleB_sublead_tight']
         HHsel11['ATLL'] = (not HHsel11['DoubleB_lead_loose']) and HHsel11['DoubleB_sublead_loose'] and not HHsel11['DoubleB_sublead_tight']
 
-        preselection_11 = HHsel11['nFatJet'] and HHsel11['eta'] and HHsel11['pt'] and HHsel11['hmass'] and HHsel11['dEta'] and HHsel11['tau21']
+        preselection_11 = HHsel11['nFatJet'] and HHsel11['eta'] and HHsel11['pt'] and HHsel11['hmass'] and HHsel11['dEta'] and HHsel11['tau21'] and HHsel11['toptag']
         if not isData:
             if HHsel11['nFatJet']:
                 hh11_cutflow.Fill(1)
@@ -542,10 +544,12 @@ if __name__ == "__main__":
                                 hh11_cutflow.Fill(5)
                                 if HHsel11['tau21']:
                                     hh11_cutflow.Fill(6)
-                                    if HHsel11['SRLL']:
+                                    if HHsel11['toptag']:
                                         hh11_cutflow.Fill(7)
-                                        if HHsel11['SRTT']:
+                                        if HHsel11['SRLL']:
                                             hh11_cutflow.Fill(8)
+                                            if HHsel11['SRTT']:
+                                                hh11_cutflow.Fill(9)
 
         ###############################
         # Weighting and Uncertainties #
