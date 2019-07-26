@@ -208,7 +208,7 @@ if __name__ == "__main__":
     hh11_cutflow.GetXaxis().SetBinLabel(8,"LL - "+doubleB_title)
     hh11_cutflow.GetXaxis().SetBinLabel(9,"TT - "+doubleB_title)
 
-    hh21_cutflow = TH1F("hh21_cutflow","hh21_cutflow",8,0.5,8.5)
+    hh21_cutflow = TH1F("hh21_cutflow","hh21_cutflow",10,0.5,10.5)
     hh21_cutflow.GetXaxis().SetBinLabel(1, "no cuts")
     hh21_cutflow.GetXaxis().SetBinLabel(2, "eta")
     hh21_cutflow.GetXaxis().SetBinLabel(3, "p_{T}(H)")
@@ -216,7 +216,8 @@ if __name__ == "__main__":
     hh21_cutflow.GetXaxis().SetBinLabel(5, "m_{bb}")
     hh21_cutflow.GetXaxis().SetBinLabel(6, "DeepCSV")
     hh21_cutflow.GetXaxis().SetBinLabel(7, "|\Delta \eta|")
-    hh21_cutflow.GetXaxis().SetBinLabel(7, doubleB_title+" tag")
+    hh21_cutflow.GetXaxis().SetBinLabel(8, "TopTag Cut")
+    hh21_cutflow.GetXaxis().SetBinLabel(9, doubleB_title+" tag")
 
     hh11_doubleB = TH1F('hh11_doubleB','1+1 '+doubleB_title+' tag',20,0,1)
     hh21_doubleB = TH1F('hh21_doubleB','2+1 '+doubleB_title+' tag',20,0,1)
@@ -528,7 +529,7 @@ if __name__ == "__main__":
         HHsel11['ATTT'] = (not HHsel11['DoubleB_lead_loose']) and HHsel11['DoubleB_sublead_tight']
         HHsel11['ATLL'] = (not HHsel11['DoubleB_lead_loose']) and HHsel11['DoubleB_sublead_loose'] and not HHsel11['DoubleB_sublead_tight']
 
-        preselection_11 = HHsel11['nFatJet'] and HHsel11['eta'] and HHsel11['pt'] and HHsel11['hmass'] and HHsel11['dEta'] and HHsel11['tau21'] and HHsel11['toptag']
+        preselection_11 = HHsel11['nFatJet'] and HHsel11['eta'] and HHsel11['pt'] and HHsel11['hmass'] and HHsel11['dEta'] and HHsel11['toptag'] and HHsel11['tau21']
         if not isData:
             if HHsel11['nFatJet']:
                 hh11_cutflow.Fill(1)
@@ -681,10 +682,11 @@ if __name__ == "__main__":
             HHsel21['mbb'] = Cuts['bbmass'][0]<mbb<Cuts['bbmass'][1]
             HHsel21['DeepCSV'] = Cuts['deepbtag'][0]<candidateAK4s[0].btagDeepB<Cuts['deepbtag'][1] and Cuts['deepbtag'][0]<candidateAK4s[1].btagDeepB<Cuts['deepbtag'][1]
             HHsel21['dEta'] = Cuts['dEtaAK4'][0]<deltaEta<Cuts['dEtaAK4'][1]
+            HHsel21['toptag'] = Cuts['toptag'][0] < getattr(ak8JetsColl[0],'deepTagMD_TvsQCD') < Cuts['toptag'][1]
             HHsel21['doubleB'] = Cuts['doublebtag'][0]<getattr(ak8JetsColl[0],doubleB_name)<Cuts['doublebtag'][1]
             # HHsel21['reduced_hhmass'] = Cuts['mreduced'][0]<mreduced<Cuts['mreduced'][1]
 
-            preselection_21 = HHsel21['eta'] and HHsel21['hpt'] and HHsel21['bpt'] and HHsel21['mbb'] and HHsel21['DeepCSV'] and HHsel21['dEta']
+            preselection_21 = HHsel21['eta'] and HHsel21['hpt'] and HHsel21['bpt'] and HHsel21['mbb'] and HHsel21['DeepCSV'] and HHsel21['dEta'] and HHsel21['toptag']
             if not isData:
                 hh21_cutflow.Fill(1)
                 if HHsel21['eta']:
@@ -699,8 +701,10 @@ if __name__ == "__main__":
                                     hh21_cutflow.Fill(6)
                                     if HHsel21['dEta']:
                                         hh21_cutflow.Fill(7)
-                                        if HHsel21['doubleB']:
+                                        if HHsel21['toptag']:
                                             hh21_cutflow.Fill(8)
+                                            if HHsel21['doubleB']:
+                                                hh21_cutflow.Fill(9)
                                     
             if preselection_21:
                 # b tagging scale factor
