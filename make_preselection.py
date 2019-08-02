@@ -521,7 +521,8 @@ if __name__ == "__main__":
         else: continue
         if ak8JetsColl[1].tau2 > 0: subleadTau32 = ak8JetsColl[1].tau3/ak8JetsColl[1].tau2
         else: continue
-        HHsel11['toptag'] = Cuts['toptag'][0] < leadTau32 < Cuts['toptag'][1] and Cuts['toptag'][0] < subleadTau32 < Cuts['toptag'][1]
+        #HHsel11['toptag'] = Cuts['toptag'][0] < leadTau32 < Cuts['toptag'][1] and Cuts['toptag'][0] < subleadTau32 < Cuts['toptag'][1]
+        HHsel11['toptag'] = Cuts['toptag'][0] < getattr(ak8JetsColl[0],deepTagMD_TvsQCD) < Cuts['toptag'][1] and Cuts['toptag'][0] < getattr(ak8JetsColl[1],deepTagMD_TvsQCD) < Cuts['toptag'][1]
 
         HHsel11['DoubleB_lead_tight'] = (Cuts['doublebtagTight'][0] < getattr(ak8JetsColl[0],doubleB_name) < Cuts['doublebtagTight'][1])
         HHsel11['DoubleB_lead_loose'] = (Cuts['doublebtagLoose'][0] < getattr(ak8JetsColl[0],doubleB_name) < Cuts['doublebtagLoose'][1])
@@ -533,7 +534,7 @@ if __name__ == "__main__":
         HHsel11['ATTT'] = (not HHsel11['DoubleB_lead_loose']) and HHsel11['DoubleB_sublead_tight']
         HHsel11['ATLL'] = (not HHsel11['DoubleB_lead_loose']) and HHsel11['DoubleB_sublead_loose'] and not HHsel11['DoubleB_sublead_tight']
 
-        preselection_11 = HHsel11['nFatJet'] and HHsel11['eta'] and HHsel11['pt'] and HHsel11['hmass'] and HHsel11['dEta'] and not HHsel11['toptag'] and HHsel11['tau21']
+        preselection_11 = HHsel11['nFatJet'] and HHsel11['eta'] and HHsel11['pt'] and HHsel11['hmass'] and HHsel11['dEta'] #and not HHsel11['toptag'] and HHsel11['tau21']
         if not isData:
             if HHsel11['nFatJet']:
                 hh11_cutflow.Fill(1)
@@ -547,14 +548,14 @@ if __name__ == "__main__":
                                 # hh11_cutflow.Fill(5)
                             if HHsel11['dEta']:
                                 hh11_cutflow.Fill(5)
-                                if HHsel11['tau21']:
-                                    hh11_cutflow.Fill(6)
-                                    if not HHsel11['toptag']:
-                                        hh11_cutflow.Fill(7)
-                                        if HHsel11['SRLL']:
-                                            hh11_cutflow.Fill(8)
-                                            if HHsel11['SRTT']:
-                                                hh11_cutflow.Fill(9)
+                                #if HHsel11['tau21']:
+                                    #hh11_cutflow.Fill(6)
+                                    #if not HHsel11['toptag']:
+                                        #hh11_cutflow.Fill(7)
+                                if HHsel11['SRLL']:
+                                    hh11_cutflow.Fill(8)
+                                    if HHsel11['SRTT']:
+                                        hh11_cutflow.Fill(9)
 
         ###############################
         # Weighting and Uncertainties #
@@ -692,7 +693,7 @@ if __name__ == "__main__":
             HHsel21['doubleB'] = Cuts['doublebtag'][0]<getattr(ak8JetsColl[0],doubleB_name)<Cuts['doublebtag'][1]
             # HHsel21['reduced_hhmass'] = Cuts['mreduced'][0]<mreduced<Cuts['mreduced'][1]
 
-            preselection_21 = HHsel21['eta'] and HHsel21['hpt'] and HHsel21['bpt'] and HHsel21['mbb'] and HHsel21['DeepCSV'] and HHsel21['dEta'] and not HHsel21['toptag']
+            preselection_21 = HHsel21['eta'] and HHsel21['hpt'] and HHsel21['bpt'] and HHsel21['mbb'] and HHsel21['DeepCSV'] and HHsel21['dEta'] #and not HHsel21['toptag']
             if not isData:
                 hh21_cutflow.Fill(1)
                 if HHsel21['eta']:
@@ -707,10 +708,10 @@ if __name__ == "__main__":
                                     hh21_cutflow.Fill(6)
                                     if HHsel21['dEta']:
                                         hh21_cutflow.Fill(7)
-                                        if not HHsel21['toptag']:
-                                            hh21_cutflow.Fill(8)
-                                            if HHsel21['doubleB']:
-                                                hh21_cutflow.Fill(9)
+                                        #if not HHsel21['toptag']:
+                                            #hh21_cutflow.Fill(8)
+                                        if HHsel21['doubleB']:
+                                            hh21_cutflow.Fill(9)
                                     
             if preselection_21:
                 # b tagging scale factor
