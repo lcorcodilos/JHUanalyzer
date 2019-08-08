@@ -33,25 +33,25 @@ ignore = options.ignoreset.split(',')
 name_string = '_'+options.name if options.name != '' else ''
 
 # Initialize output file
-outfile = open('../args/hh_presel'+name_string'_args.txt','w')
+outfile = open('../args/WWW_presel'+name_string'_args.txt','w')
 
 
 for year in years:
     for reg in regions:
-        for tagger in taggers:
-            job_base_string = base_string.replace("TEMPYEAR",year).replace('TEMPREG',reg).replace('TEMPTAGGER',tagger)
+        # for tagger in taggers:
+            job_base_string = base_string.replace("TEMPYEAR",year).replace('TEMPREG',reg)#.replace('TEMPTAGGER',tagger)
 
-            for file in glob.glob('../../hhTrees/NanoAOD'+year+'_lists/*_loc.txt'):
-                setname = file.split('/')[-1].split('_loc')[0]
+            for loc_file in glob.glob('../../hhTrees/NanoAOD'+year+'_lists/*_loc.txt'):
+                setname = loc_file.split('/')[-1].split('_loc')[0]
                 if setname not in ignore:
                     # Get njobs by counting how many GB in each file (1 job if file size < 1 GB)
-                    bitsize = os.path.getsize('/eos/uscms/store/user/dbrehm/data18andTTbarSignalMC/rootfiles/'+setname+'_hh'+year+'.root')
-                    if bitsize/float(10**9) > 1:  set_njobs = 1
+                    bitsize = os.path.getsize('/eos/uscms/store/user/mbrugman/test_nano/rootfiles/'+setname+'_WWW'+year+'.root')
+                    if bitsize/float(10**9) < 1:  set_njobs = 1
                     else: set_njobs = int(round(bitsize/float(10**9)))
 
-                    job_base_string = year_string.replace('TEMPSET',setname).replace('NJOB',str(set_njobs))
+                    njob_string = job_base_string.replace('TEMPSET',setname).replace('NJOB',str(set_njobs))
                     for i in range(1,set_njobs+1):
-                        job_string = job_base_string.replace('IJOB',str(i))
+                        job_string = njob_string.replace('IJOB',str(i))
                         outfile.write(job_string+'\n')
 
                         # Will eventually use this but not setup in make_preselection.py yet

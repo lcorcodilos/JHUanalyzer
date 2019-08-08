@@ -86,7 +86,7 @@ def LoadCuts(region,year):
 #This needs to be updated whenever new Ntuples are produced (unless the file locations are the same).
 def Load_jetNano(string,year):
     print 'running on ' + string 
-    return 'root://cmseos.fnal.gov//store/user/lcorcodi/hhto4b_nano/rootfiles/'+string+'_hh'+year+'.root'
+    return 'root://cmseos.fnal.gov//store/user/mbrugman/test_nano/rootfiles/'+string+'_WWWW'+year+'.root'
 
 
 def PDF_Lookup(pdfs , pdfOP ):
