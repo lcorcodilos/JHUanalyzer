@@ -41,21 +41,19 @@ class analyzer(object):
         
         return final_selection
 
-    # def SetCuts(self,orderedCuts): # orderedCuts must be of type OrderedDict
-    #     self.cuts = orderedCuts
     def SetCut(self,name,cut):
         self.cuts[name] = cut
 
     def GetCuts(self):
         return self.cuts
+
     def SetCFunc(self,funcname,blockcode):
         self.Cfuncs[funcname] = blockcode
         ROOT.gInterpreter.Declare(self.Cfuncs[funcname])
 
     def SetVar(self,varname,vardef,node=None):
-        if node == None: this_entries = self.DataFrame
-        else: this_entries = node
-        return this_entries.Define(varname,vardef)
+        if node == None: self.DataFrame = self.DataFrame.Define(varname,vardef)
+        else: return node.Define(varname,vardef)
 
     def Discriminate(self,preselection,discriminator):
         pass_sel = preselection
