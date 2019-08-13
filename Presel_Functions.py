@@ -47,6 +47,20 @@ def LoadConstants(year):
         'GravNar-2000_xsec':9.03e-06,
         'GravNar-2500_xsec':1.86e-06,
         'GravNar-3000_xsec':4.41e-07
+
+	'WWW-1000_xsec': 1.0,
+	'WWW-1500_xsec': 1.0,
+	'WWW-2000_xsec': 1.0,
+	'WWW-2500_xsec': 1.0,
+	'WWW-3000_xsec': 1.0,
+	'WWW-3500_xsec': 1.0,
+	'WWW-4000_xsec': 1.0,
+	'WWW-4500_xsec': 1.0,
+	'WWW-5000_xsec': 1.0,
+
+	'WWW-M1500-R0-12_xsec': 1.0,
+	'signalBunny-M1500_xsec':1
+	
     }
     if year == '16':
         constants['ttbar_xsec'] = 831.76

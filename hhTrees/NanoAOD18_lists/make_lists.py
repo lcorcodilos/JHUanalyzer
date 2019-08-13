@@ -25,7 +25,30 @@ input_subs = {
     "RadNar-1500":"/store/user/lcorcodi/NanoAOD102X_private/RadionTohhTohbbhbb_narrow_M-1500_TuneCP2_PSweights_13TeV-madgraph_pythia8/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v2/*/0000/*.root",
     "RadNar-2000":"/store/user/lcorcodi/NanoAOD102X_private/RadionTohhTohbbhbb_narrow_M-2000_TuneCP2_PSweights_13TeV-madgraph_pythia8/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v2/*/0000/*.root",
     "RadNar-2500":"/store/user/lcorcodi/NanoAOD102X_private/RadionTohhTohbbhbb_narrow_M-2500_TuneCP2_PSweights_13TeV-madgraph_pythia8/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v2/*/0000/*.root",
-    "RadNar-3000":"/store/user/lcorcodi/NanoAOD102X_private/RadionTohhTohbbhbb_narrow_M-3000_TuneCP2_PSweights_13TeV-madgraph_pythia8/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v2/*/0000/*.root"
+    "RadNar-3000":"/store/user/lcorcodi/NanoAOD102X_private/RadionTohhTohbbhbb_narrow_M-3000_TuneCP2_PSweights_13TeV-madgraph_pythia8/RunIIAutumn18MiniAOD-102X_upgrade2018_realistic_v15-v2/*/0000/*.root",
+
+    "WWW-M1500-R0-4":"/store/user/cmantill/CustomNANOAOD/WkkToWRadionToWWW_M1500-R0-4_TuneCP5_13TeV-madgraph/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v4_CustomNANOAOD/190530_141205/0000/myNanoProdMc_NANO_*.root",
+    "WWW-M2000-R0-1":"/store/user/cmantill/CustomNANOAOD/WkkToWRadionToWWW_M2000-R0-1_TuneCP5_13TeV-madgraph/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2_CustomNANOAOD/190530_141036/0000/myNanoProdMc_NANO_*.root",
+    "WWW-M2000-R0-2":"/store/user/cmantill/CustomNANOAOD/WkkToWRadionToWWW_M2000-R0-2_TuneCP5_13TeV-madgraph/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2_CustomNANOAOD/190530_140904/0000/myNanoProdMc_NANO_*.root",
+    "WWW-M2000-R0-3":"/store/user/cmantill/CustomNANOAOD/WkkToWRadionToWWW_M2000-R0-3_TuneCP5_13TeV-madgraph/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2_CustomNANOAOD/190530_140736/0000/myNanoProdMc_NANO_*.root",
+    "WWW-M2500-R0-08":"/store/user/cmantill/CustomNANOAOD/WkkToWRadionToWWW_M2500-R0-08_TuneCP5_13TeV-madgraph/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2_CustomNANOAOD/190530_140601/0000/myNanoProdMc_NANO_*.root",
+    "WWW-M2500-R0-1":"/store/user/cmantill/CustomNANOAOD/WkkToWRadionToWWW_M2500-R0-1_TuneCP5_13TeV-madgraph/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2_CustomNANOAOD/190530_140431/0000/myNanoProdMc_NANO_*.root",
+    "WWW-M2500-R0-2":"/store/user/cmantill/CustomNANOAOD/WkkToWRadionToWWW_M2500-R0-2_TuneCP5_13TeV-madgraph/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2_CustomNANOAOD/190530_140259/0000/myNanoProdMc_NANO_*.root",
+    "WWW-M2500-R0-3":"/store/user/cmantill/CustomNANOAOD/WkkToWRadionToWWW_M2500-R0-3_TuneCP5_13TeV-madgraph/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2_CustomNANOAOD/190530_140124/0000/myNanoProdMc_NANO_*.root",
+    "WWW-M3000-R0-06":"/store/user/cmantill/CustomNANOAOD/WkkToWRadionToWWW_M3000-R0-06_TuneCP5_13TeV-madgraph/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2_CustomNANOAOD/190530_135948/0000/myNanoProdMc_NANO_*.root",
+    "WWW-M3000-R0-08":"/store/user/cmantill/CustomNANOAOD/WkkToWRadionToWWW_M3000-R0-08_TuneCP5_13TeV-madgraph/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2_CustomNANOAOD/190530_135813/0000/myNanoProdMc_NANO_*.root",
+    "WWW-M3000-R0-1":"/store/user/cmantill/CustomNANOAOD/WkkToWRadionToWWW_M3000-R0-1_TuneCP5_13TeV-madgraph/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2_CustomNANOAOD/190530_135640/0000/myNanoProdMc_NANO_*.root",
+    "WWW-M3000-R0-2":"/store/user/cmantill/CustomNANOAOD/WkkToWRadionToWWW_M3000-R0-2_TuneCP5_13TeV-madgraph/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2_CustomNANOAOD/190530_135452/0000/myNanoProdMc_NANO_*.root",
+    "WWW-M3000-R0-3":"/store/user/cmantill/CustomNANOAOD/WkkToWRadionToWWW_M3000-R0-3_TuneCP5_13TeV-madgraph/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2_CustomNANOAOD/190530_135323/0000/myNanoProdMc_NANO_*.root",
+    "WWW-M3500-R0-06":"/store/user/cmantill/CustomNANOAOD/WkkToWRadionToWWW_M3500-R0-06_TuneCP5_13TeV-madgraph/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2_CustomNANOAOD/190530_135129/0000/myNanoProdMc_NANO_*.root",
+    "WWW-M3500-R0-08":"/store/user/cmantill/CustomNANOAOD/WkkToWRadionToWWW_M3500-R0-08_TuneCP5_13TeV-madgraph/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2_CustomNANOAOD/190530_134955/0000/myNanoProdMc_NANO_*.root",
+    "WWW-M3500-R0-1":"/store/user/cmantill/CustomNANOAOD/WkkToWRadionToWWW_M3500-R0-1_TuneCP5_13TeV-madgraph/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2_CustomNANOAOD/190530_134812/0000/myNanoProdMc_NANO_1.root",
+    "WWW-M3500-R0-2":"/store/user/cmantill/CustomNANOAOD/WkkToWRadionToWWW_M3500-R0-2_TuneCP5_13TeV-madgraph/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2_CustomNANOAOD/190530_134224/0000/myNanoProdMc_NANO_*.root",
+    "WWW-M4000-R0-06":"/store/user/cmantill/CustomNANOAOD/WkkToWRadionToWWW_M4000-R0-06_TuneCP5_13TeV-madgraph/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v3_CustomNANOAOD/190530_133912/0000/myNanoProdMc_NANO_*.root",
+    "WWW-M4000-R0-08":"/store/user/cmantill/CustomNANOAOD/WkkToWRadionToWWW_M4000-R0-08_TuneCP5_13TeV-madgraph/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2_CustomNANOAOD/190530_133732/0000/myNanoProdMc_NANO_*.root",
+    "WWW-M4000-R0-1":"/store/user/cmantill/CustomNANOAOD/WkkToWRadionToWWW_M4000-R0-1_TuneCP5_13TeV-madgraph/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2_CustomNANOAOD/190530_133600/0000/myNanoProdMc_NANO_*.root",
+    "WWW-M4000-R0-2":"/store/user/cmantill/CustomNANOAOD/WkkToWRadionToWWW_M4000-R0-2_TuneCP5_13TeV-madgraph/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2_CustomNANOAOD/190530_133426/0000/myNanoProdMc_NANO_*.root",
+    "WWW-M4500-R0-2":"/store/user/cmantill/CustomNANOAOD/WkkToWRadionToWWW_M4500-R0-2_TuneCP5_13TeV-madgraph/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2_CustomNANOAOD/190530_134630/0000/myNanoProdMc_NANO_*.root "
 
 
 }
