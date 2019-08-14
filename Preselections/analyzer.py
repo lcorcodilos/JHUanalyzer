@@ -1,5 +1,5 @@
 import ROOT
-ROOT.ROOT.EnableImplicitMT()
+# ROOT.ROOT.EnableImplicitMT()
 import pprint, time
 pp = pprint.PrettyPrinter(indent=4)
 from collections import OrderedDict
@@ -11,18 +11,18 @@ class analyzer(object):
         self.fileName = fileName
         self.cuts = OrderedDict()
         self.Cfuncs = {}
+        self.Chain = ROOT.TChain("Events")
         if ".root" in self.fileName: 
-            self.Chain = None
-            self.DataFrame = ROOT.RDataFrame("Events", self.fileName)
+            self.Chain.Add(self.fileName)
         elif ".txt" in self.fileName: 
-            self.Chain = ROOT.TChain("Events")
             txt_file = open(self.fileName,"r")
             for l in txt_file.readlines():
                 self.Chain.Add(l.strip())
-            self.DataFrame = ROOT.RDataFrame(self.Chain)
         else: 
             raise Exception("File name extension not supported. Please provide a single .root file or a .txt file with a line-separated list of .root files to chain together.")
        
+        self.DataFrame = ROOT.RDataFrame(self.Chain)
+
     def Cut(self, selection=None,node=None):
         # If a starting point (node) isn't already input, use the base data frame
         if node == None: this_entries = self.DataFrame
