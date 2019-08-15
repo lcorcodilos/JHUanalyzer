@@ -3,6 +3,7 @@ Executable = TEMPSCRIPT
 Should_Transfer_Files = YES
 WhenToTransferOutput = ON_EXIT
 request_cpus = 4
+request_memory = 4000
 Output = condorLogs/output_$(Cluster)_$(Process).stdout
 Error = condorLogs/output_$(Cluster)_$(Process).stderr
 Log = condorLogs/output_$(Cluster)_$(Process).log
