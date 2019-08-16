@@ -46,21 +46,30 @@ def LoadConstants(year):
         'GravNar-1500_xsec':0.000057,
         'GravNar-2000_xsec':9.03e-06,
         'GravNar-2500_xsec':1.86e-06,
-        'GravNar-3000_xsec':4.41e-07
+        'GravNar-3000_xsec':4.41e-07,
 
-	'WWW-1000_xsec': 1.0,
-	'WWW-1500_xsec': 1.0,
-	'WWW-2000_xsec': 1.0,
-	'WWW-2500_xsec': 1.0,
-	'WWW-3000_xsec': 1.0,
-	'WWW-3500_xsec': 1.0,
-	'WWW-4000_xsec': 1.0,
-	'WWW-4500_xsec': 1.0,
-	'WWW-5000_xsec': 1.0,
-
-	'WWW-M1500-R0-12_xsec': 1.0,
-	'signalBunny-M1500_xsec':1
-	
+	'WWW-1500-R0-12_xsec': 1.0,
+	'WWW-2000-R0-1_xsec': 1.0,
+	'WWW-2000-R0-2_xsec': 1.0,
+	'WWW-2000-R0-3_xsec': 1.0,
+	'WWW-2500-R0-1_xsec': 1.0,
+	'WWW-2500-R0-2_xsec': 1.0,
+	'WWW-2500-R0-3_xsec': 1.0,
+	'WWW-2500-R0-08_xsec': 1.0,
+	'WWW-3000-R0-1_xsec': 1.0,
+	'WWW-3000-R0-2_xsec': 1.0,
+	'WWW-3000-R0-3_xsec': 1.0,
+	'WWW-3000-R0-06_xsec': 1.0,
+	'WWW-3000-R0-08_xsec': 1.0,
+	'WWW-3500-R0-1_xsec': 1.0,
+	'WWW-3500-R0-2_xsec': 1.0,
+	'WWW-3500-R0-06_xsec': 1.0,
+	'WWW-3500-R0-08_xsec': 1.0,
+	'WWW-4000-R0-1_xsec': 1.0,
+	'WWW-4000-R0-2_xsec': 1.0,
+	'WWW-4000-R0-06_xsec': 1.0,
+	'WWW-4000-R0-08_xsec': 1.0,
+	'WWW-4500-R0-2_xsec': 1.0
     }
     if year == '16':
         constants['ttbar_xsec'] = 831.76
@@ -100,7 +109,7 @@ def LoadCuts(region,year):
 #This needs to be updated whenever new Ntuples are produced (unless the file locations are the same).
 def Load_jetNano(string,year):
     print 'running on ' + string 
-    return 'root://cmseos.fnal.gov//store/user/mbrugman/test_nano/rootfiles/'+string+'_WWWW'+year+'.root'
+    return 'root://cmseos.fnal.gov//store/user/mbrugman/TriBoson_nano/rootfiles/'+string+'_WWW'+year+'.root'
 
 
 def PDF_Lookup(pdfs , pdfOP ):

@@ -7,12 +7,12 @@ year = sys.argv[2]
 execute = []
 eosrmer = open('removers/eosRmer_'+setname+year+'.csh','w')
 
-for filename in os.listdir('/eos/uscms/store/user/mbrugman/test_nano'):
+for filename in os.listdir('/eos/uscms/store/user/mbrugman/TriBoson_nano'):
     if fnmatch.fnmatch(filename,'TriBosonTrees'+year+'_'+setname+'_1-*.root'):
         njobs = int(filename.split(setname+'_1-')[1].rstrip('.root'))
         sjobs = str(njobs)
 
-eosdir = 'root://cmseos.fnal.gov//store/user/mbrugman/test_nano/'
+eosdir = 'root://cmseos.fnal.gov//store/user/mbrugman/TriBoson_nano/'
 threeDayLifetime = '/uscmst1b_scratch/lpc1/3DayLifetime/mbrugman/'
 
 # Segment so never hadd more than 100 files at once
@@ -43,7 +43,7 @@ if njobs > 100:
     execute.append('rm '+threeDayLifetime+'temp_wall_*.root')
 
     # Copy to eos and delete locally
-    execute.append('xrdcp -f '+threeDayLifetime+setname+'_WWW'+year+'.root root://cmseos.fnal.gov//store/user/mbrugman/test_nano/rootfiles/')
+    execute.append('xrdcp -f '+threeDayLifetime+setname+'_WWW'+year+'.root root://cmseos.fnal.gov//store/user/mbrugman/TriBoson_nano/rootfiles/')
     execute.append('rm '+threeDayLifetime+setname+'_WWW'+year+'.root')
 
 else:
@@ -54,7 +54,7 @@ else:
 
     execute.append('python haddnano.py '+setname+'_WWW'+year+'.root '+list_of_files)
 
-    execute.append('xrdcp -f '+setname+'_WWW'+year+'.root root://cmseos.fnal.gov//store/user/mbrugman/test_nano/rootfiles/'+setname+'_WWWW'+year+'.root')
+    execute.append('xrdcp -f '+setname+'_WWW'+year+'.root root://cmseos.fnal.gov//store/user/mbrugman/TriBoson_nano/rootfiles/'+setname+'_WWW'+year+'.root')
     execute.append('rm '+setname+'_WWW'+year+'.root')
 
 for s in execute:
