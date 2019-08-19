@@ -7,11 +7,10 @@ eval `scramv1 project CMSSW CMSSW_10_6_2`
 mkdir tardir; cp tarball.tgz tardir/; cd tardir/
 tar -xzf tarball.tgz; rm tarball.tgz
 cp -r * ../CMSSW_10_6_2/src/; cd ../CMSSW_10_6_2/src/
+cp JHUanalyzer/examples/tt16_preselection.py ./
 eval `scramv1 runtime -sh`
 
-#git clone git@github.com:lcorcodilos/JHUanalyzer.git
-#cd JHUanalyzer; git checkout rdfDev; cd ../
-eval `scramv1 runtime -sh`
+echo python tt16_preselection.py $*
+python tt16_preselection.py $*
 
-echo hh16_preselection.py $*
-python hh16_preselection.py $*
+cp tt16_presel_*.root ../../
