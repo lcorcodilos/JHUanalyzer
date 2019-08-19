@@ -67,7 +67,10 @@ class analyzer(object):
     def SetTriggers(self,trigList):
         trigOR = ""
         for i,t in enumerate(trigList):
-            if i < len(trigList)-1: trigOR += "("+t+"==1) || "
-            else: trigOR += "("+t+"==1)"
+            if t in self.DataFrame.GetColumnNames(): 
+                print "Trigger %s does not exist in TTree. Skipping."
+            else:
+                if i < len(trigList)-1: trigOR += "("+t+"==1) || "
+                else: trigOR += "("+t+"==1)"
         
         self.cuts["triggers"] = trigOR
