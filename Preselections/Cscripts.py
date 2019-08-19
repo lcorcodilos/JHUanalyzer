@@ -28,6 +28,18 @@ class CommonCscripts(object):
             }
         }
         '''
+
+        self.HT = '''
+        namespace analyzer {
+            float HT(std::vector<int> v) {
+                float ht = 0.0;
+                for(int pt : v) {
+                    ht = ht + pt
+                }
+                return ht;
+            }
+        }
+        '''
         
 class CustomCscripts(object):
     """docstring for CustomCscripts"""
