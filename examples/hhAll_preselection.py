@@ -43,6 +43,31 @@ if os.path.exists(options.config):
         xsec = 1.
         lumi = 1.
 
+cutsDict = {
+    'hpt':[300.0,float("inf")],
+    'bpt':[30.0,float("inf")],
+    'hmass':[105.0,135.0],
+    'bbmass':[90.,140.],
+    'deepbtag':[0.4184,1.0],
+    'doublebtag':[0.75,1.0],
+    'doublebtagTight':[0.8,1.0],
+    'doublebtagLoose':[0.3,1.0],
+    'DeepDBtag':[0.3,1.0],
+    'DeepDBtagTight':[0.6,1.0],
+    'DeepDBtagLoose':[0.3,1.0],
+    'dak8MDZHbbtag':[0.95,1.0],
+    'dak8MDZHbbtagTight':[0.95,1.0],
+    'dak8MDZHbbtagLoose':[0.8,1.0],
+    'dak8MDHbbtag':[0.95,1.0],
+    'dak8MDHbbtagTight':[0.95,1.0],
+    'dak8MDHbbtagLoose':[0.8,1.0],
+    'eta':[0.0,2.4],
+    'tau21':[0.0,0.45],
+    'dEtaAK8':[0.0,1.3],
+    'dEtaAK4':[0.0,2.0],
+    'mreduced':[750.,float('inf')]
+}
+
 # a.SetCFunc("deltaPhi",commonc.deltaPhi)
 a.SetCFunc("TLvector",commonc.vector)
 a.SetCFunc("invariantMass",commonc.invariantMass)
@@ -73,12 +98,20 @@ a.SetVar("SRLL","FatJet_btagHbb[0] > 0.3 && FatJet_btagHbb[1] > 0.3 && (!SRTT)")
 a.SetVar("ATTT","(FatJet_btagHbb[0] > 0.8 && FatJet_btagHbb[1] < 0.3) || (FatJet_btagHbb[1] > 0.8 && FatJet_btagHbb[0] < 0.3)")
 a.SetVar("ATLL","(FatJet_btagHbb[0] > 0.3 && FatJet_btagHbb[0] < 0.8 && FatJet_btagHbb[1] < 0.3) || (FatJet_btagHbb[1] > 0.3 && FatJet_btagHbb[1] < 0.8 && FatJet_btagHbb[0] < 0.3)")
 
-a.SetVar("11presel")
+this_selection = a.cuts
+presel11string = ''
+# Loop over the selection (ordered keys) and make cut string for Define
+for k in this_selection.keys():
+    presel11string += this_selection[k]+' '
+    if k < len(this_selection)-1:
+        presel11string += '&& '
+
+a.SetVar("11presel",presel11string)
 
 if not a.isData: norm = (xsec*lumi)/a.genEventCount
 else: norm = 1.
 
-11_presel = a.Filter("11presel == 1")
+presel11 = a.Filter("11presel == 1")
 
 #21_candidate = a.Filter("presel=1")
 
@@ -87,10 +120,10 @@ else: norm = 1.
 
 #21_presel = 21_candidate.Filter("21presel == 1")
 
-SRTT = a.Cut({"SRTT":"SRTT"},11_presel)
-ATTT = a.Cut({"ATTT":"ATTT"},11_presel)
-SRLL = a.Cut({"SRLL":"SRLL"},11_presel)
-ATLL = a.Cut({"ATLL":"ATLL"},11_presel)
+SRTT = a.Cut({"SRTT":"SRTT"},presel11)
+ATTT = a.Cut({"ATTT":"ATTT"},presel11)
+SRLL = a.Cut({"SRLL":"SRLL"},presel11)
+ATLL = a.Cut({"ATLL":"ATLL"},presel11)
 
 out_f = ROOT.TFile(options.output,"RECREATE")
 out_f.cd()
