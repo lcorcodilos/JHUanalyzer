@@ -69,8 +69,17 @@ class analyzer(object):
         self.Cfuncs[funcname] = blockcode
         ROOT.gInterpreter.Declare(self.Cfuncs[funcname])
 
-    def SetVar(self,varname,vardef,node=None):
+    def SetVar(self,varname,vardef=None,node=None):
         if node == None: self.DataFrame = self.DataFrame.Define(varname,vardef)
+        elif node == None and vardef == None: 
+            this_selection = self.cuts
+            # Loop over the selection (ordered keys) and make cut string for Define
+            for k in this_selection.keys():
+                s += this_selection[k]+' '
+                if k!= len(this_selection):
+                    s += '&& '
+            print("cut string = "s)
+            self.DataFrame.Define(varname,s)
         else: return node.Define(varname,vardef)
 
     def Discriminate(self,preselection,discriminator):

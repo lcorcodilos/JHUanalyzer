@@ -73,24 +73,24 @@ a.SetVar("SRLL","FatJet_btagHbb[0] > 0.3 && FatJet_btagHbb[1] > 0.3 && (!SRTT)")
 a.SetVar("ATTT","(FatJet_btagHbb[0] > 0.8 && FatJet_btagHbb[1] < 0.3) || (FatJet_btagHbb[1] > 0.8 && FatJet_btagHbb[0] < 0.3)")
 a.SetVar("ATLL","(FatJet_btagHbb[0] > 0.3 && FatJet_btagHbb[0] < 0.8 && FatJet_btagHbb[1] < 0.3) || (FatJet_btagHbb[1] > 0.3 && FatJet_btagHbb[1] < 0.8 && FatJet_btagHbb[0] < 0.3)")
 
-a.SetVar("11presel", )
+a.SetVar("11presel")
 
 if not a.isData: norm = (xsec*lumi)/a.genEventCount
 else: norm = 1.
 
 11_presel = a.Filter("11presel == 1")
 
-21_candidate = a.Filter("presel=1")
+#21_candidate = a.Filter("presel=1")
 
 ##a nunch of setvars and set cuts
-21_candidate.SetVar("21presel", )
+#21_candidate.SetVar("21presel", )
 
-21_presel = 21_candidate.Filter("21presel == 1")
+#21_presel = 21_candidate.Filter("21presel == 1")
 
-SRTT = a.Cut({"SRTT":"SRTT"},presel)
-ATTT = a.Cut({"ATTT":"ATTT"},presel)
-SRLL = a.Cut({"SRLL":"SRLL"},presel)
-ATLL = a.Cut({"ATLL":"ATLL"},presel)
+SRTT = a.Cut({"SRTT":"SRTT"},11_presel)
+ATTT = a.Cut({"ATTT":"ATTT"},11_presel)
+SRLL = a.Cut({"SRLL":"SRLL"},11_presel)
+ATLL = a.Cut({"ATLL":"ATLL"},11_presel)
 
 out_f = ROOT.TFile(options.output,"RECREATE")
 out_f.cd()
