@@ -4,8 +4,8 @@ ROOT.ROOT.EnableImplicitMT(4)
 import time, os
 from optparse import OptionParser
 
-from JHUanalyzer.Preselections.analyzer import analyzer,openJSON
-from JHUanalyzer.Preselections.Cscripts import CommonCscripts, CustomCscripts
+from JHUanalyzer.Analyzer.analyzer import analyzer,openJSON
+from JHUanalyzer.Analyzer.Cscripts import CommonCscripts, CustomCscripts
 commonc = CommonCscripts()
 customc = CustomCscripts()
 
