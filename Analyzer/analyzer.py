@@ -83,16 +83,16 @@ class analyzer(object):
         return passfail
 
     def SetTriggers(self,trigList):
-        trigOR = "("
-        trigColumns = []
-        for c in self.DataFrame.GetColumnNames(): 
-            if 'HLT_' in c: trigColumns.append(c)
+        trigOR = ""
+        colnames = self.DataFrame.GetColumnNames()
         for i,t in enumerate(trigList):
-            if t in trigColumns:
-                if i < len(trigList)-1: trigOR += "("+t+"==1) || "
-                else: trigOR += "("+t+"==1))"
+            if t in colnames: 
+                if i == 0: trigOR = "(("+t+"==1)"
+                else: trigOR += " || ("+t+"==1)"
             else:
-                print "Trigger %s does not exist in TTree. Skipping." %(t)              
+                print "Trigger %s does not exist in TTree. Skipping." %(t)   
+
+        trigOR += ")"      
         
         if trigOR != "": self.cuts["triggers"] = trigOR
 
