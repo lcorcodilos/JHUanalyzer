@@ -4,8 +4,8 @@ ROOT.ROOT.EnableImplicitMT(4)
 import time, os
 from optparse import OptionParser
 
-from JHUanalyzer.Preselections.analyzer import analyzer,openJSON
-from JHUanalyzer.Preselections.Cscripts import CommonCscripts, CustomCscripts
+from JHUanalyzer.Analyzer.analyzer import analyzer,openJSON
+from JHUanalyzer.Analyzer.Cscripts import CommonCscripts, CustomCscripts
 commonc = CommonCscripts()
 customc = CustomCscripts()
 
@@ -96,9 +96,9 @@ h_yHigh_b2 = yHigh_b2.Histo1D(("yHigh_b2","yHigh_b2",30 ,0 ,6000),'mtt')
 
 for h in [h_presel,h_yLow_b0,h_yLow_b1,h_yLow_b2,h_yHigh_b0,h_yHigh_b1,h_yHigh_b2]: h.Scale(norm)
 
-norm_hist = TH1F('norm','norm',1,0,1)
+norm_hist = ROOT.TH1F('norm','norm',1,0,1)
 norm_hist.SetBinContent(1,norm)
-norm.Write()
+norm_hist.Write()
 
 h_presel.Write()
 h_yLow_b0.Write()
