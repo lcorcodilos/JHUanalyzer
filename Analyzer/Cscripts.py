@@ -28,7 +28,13 @@ class CommonCscripts(object):
             }
         }
         '''
-
+        self.invariantMassThree = '''
+        namespace analyzer {
+            double invariantMassThree(TLorentzVector* v1, TLorentzVector* v2, TLorentzVector* v3) {
+                return (*v1+*v2+*v3).M();
+            }
+        }
+        '''
         self.HT = '''
         namespace analyzer {
             float HT(std::vector<int> v) {
