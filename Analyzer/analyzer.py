@@ -87,14 +87,14 @@ class analyzer(object):
         colnames = self.DataFrame.GetColumnNames()
         for i,t in enumerate(trigList):
             if t in colnames: 
-                if i == 0: trigOR = "(("+t+"==1)"
+                if not trigOR: trigOR = "(("+t+"==1)" # empty string == False
                 else: trigOR += " || ("+t+"==1)"
             else:
                 print "Trigger %s does not exist in TTree. Skipping." %(t)   
 
-        trigOR += ")"      
-        
-        if trigOR != "": self.cuts["triggers"] = trigOR
+        if trigOR != "": 
+            trigOR += ")" 
+            self.cuts["triggers"] = trigOR
 
 def openJSON(f):
     return json.load(open(f,'r'), object_hook=ascii_encode_dict) 
