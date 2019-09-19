@@ -3,8 +3,9 @@ ROOT.ROOT.EnableImplicitMT(4)
 
 import time, os
 from optparse import OptionParser
+from collections import OrderedDict
 
-from JHUanalyzer.Analyzer.analyzer import analyzer,openJSON
+from JHUanalyzer.Analyzer.analyzer import analyzer,openJSON,CutflowHist
 from JHUanalyzer.Analyzer.Cscripts import CommonCscripts, CustomCscripts
 commonc = CommonCscripts()
 customc = CustomCscripts()
@@ -47,25 +48,23 @@ if os.path.exists(options.config):
 a.SetCFunc("TLvector",commonc.vector)
 a.SetCFunc("invariantMass",commonc.invariantMass)
 
-
-a.SetTriggers(["HLT_PFHT800","HLT_PFHT900","HLT_AK8PFJet360_TrimMass30","HLT_PFHT650_WideJetMJJ900DEtaJJ1p5","HLT_AK8PFHT650_TrimR0p1PT0p03Mass50","HLT_AK8PFHT700_TrimR0p1PT0p03Mass50","HLT_AK8DiPFJet280_200_TrimMass30_BTagCSV_p20"])
-#a.SetTriggers(["HLT_PFHT1050","HLT_AK8PFJet360_TrimMass30"])
-a.SetCut("nFatJets","nFatJet > 1")
-a.SetCut("pt0","FatJet_pt[0] > 300")
-a.SetCut("pt1","FatJet_pt[1] > 300")
-a.SetCut("eta0","abs(FatJet_eta[0]) < 2.4")
-a.SetCut("eta1","abs(FatJet_eta[1]) < 2.4")
-a.SetCut("jetID","((FatJet_jetId[0] & 2) == 2) && ((FatJet_jetId[1] & 2) == 2)")
-a.SetCut("PV","PV_npvsGood > 0")
-a.SetCut("deltaEta","abs(FatJet_eta[0] - FatJet_eta[1]) < 1.3")
+# a.SetTriggers(["HLT_PFHT800","HLT_PFHT900","HLT_AK8PFJet360_TrimMass30","HLT_PFHT650_WideJetMJJ900DEtaJJ1p5","HLT_AK8PFHT650_TrimR0p1PT0p03Mass50","HLT_AK8PFHT700_TrimR0p1PT0p03Mass50","HLT_AK8DiPFJet280_200_TrimMass30_BTagCSV_p20"])
+a.SetTriggers(["HLT_PFHT1050","HLT_AK8PFJet360_TrimMass30"])
+a.DefineCut("nFatJets","nFatJet > 1")
+a.DefineCut("pt0","FatJet_pt[0] > 300")
+a.DefineCut("pt1","FatJet_pt[1] > 300")
+a.DefineCut("eta0","abs(FatJet_eta[0]) < 2.4")
+a.DefineCut("eta1","abs(FatJet_eta[1]) < 2.4")
+a.DefineCut("jetID","((FatJet_jetId[0] & 2) == 2) && ((FatJet_jetId[1] & 2) == 2)")
+# a.DefineCut("PV","PV_npvsGood > 0")
+a.DefineCut("deltaEta","abs(FatJet_eta[0] - FatJet_eta[1]) < 1.3")
 a.SetVar("lead_vect","analyzer::TLvector(FatJet_pt[0],FatJet_eta[0],FatJet_phi[0],FatJet_msoftdrop[0])")
 a.SetVar("sublead_vect","analyzer::TLvector(FatJet_pt[1],FatJet_eta[1],FatJet_phi[1],FatJet_msoftdrop[1])")
 a.SetVar("mhh","analyzer::invariantMass(lead_vect,sublead_vect)")
 a.SetVar("mreduced","mhh - (FatJet_msoftdrop[0]-125.0) - (FatJet_msoftdrop[1]-125.0)")
-a.SetCut("mreduced","mreduced > 1000.")
-a.SetCut("tau21","(FatJet_tau2[0]/FatJet_tau1[0] < 0.55) && (FatJet_tau2[1]/FatJet_tau1[1] < 0.55)")
-a.SetCut("msoftdrop_1","105 < FatJet_msoftdrop[1] && FatJet_msoftdrop[1] < 135")
-
+a.DefineCut("cut_mreduced","mreduced > 750.")
+a.DefineCut("tau21","(FatJet_tau2[0]/FatJet_tau1[0] < 0.55) && (FatJet_tau2[1]/FatJet_tau1[1] < 0.55)")
+a.DefineCut("msoftdrop_1","105 < FatJet_msoftdrop[1] && FatJet_msoftdrop[1] < 135")
 
 a.SetVar("mh","FatJet_msoftdrop[0]")
 a.SetVar("SRTT","FatJet_btagHbb[0] > 0.8 && FatJet_btagHbb[1] > 0.8")
@@ -86,10 +85,10 @@ ATLL = a.Cut({"ATLL":"ATLL"},presel)
 out_f = ROOT.TFile(options.output,"RECREATE")
 out_f.cd()
 
-hSRTT = SRTT.Histo2D(("SRTT","SRTT",9 ,40 ,220 ,20 ,700 ,2700),'mh','mhh')
-hATTT = ATTT.Histo2D(("ATTT","ATTT",9 ,40 ,220 ,20 ,700 ,2700),"mh","mhh")
-hSRLL = SRLL.Histo2D(("SRLL","SRLL",9 ,40 ,220 ,20 ,700 ,2700),"mh","mhh")
-hATLL = ATLL.Histo2D(("ATLL","ATLL",9 ,40 ,220 ,20 ,700 ,2700),"mh","mhh")
+hSRTT = SRTT.Histo2D(("SRTT","SRTT",9 ,40 ,220 ,28 ,700 ,3500),'mh','mhh')
+hATTT = ATTT.Histo2D(("ATTT","ATTT",9 ,40 ,220 ,28 ,700 ,3500),"mh","mhh")
+hSRLL = SRLL.Histo2D(("SRLL","SRLL",9 ,40 ,220 ,28 ,700 ,3500),"mh","mhh")
+hATLL = ATLL.Histo2D(("ATLL","ATLL",9 ,40 ,220 ,28 ,700 ,3500),"mh","mhh")
 
 for h in [hSRTT,hATTT,hSRLL,hATLL]: h.Scale(norm)
 
@@ -101,6 +100,11 @@ hSRTT.Write()
 hATTT.Write()
 hSRLL.Write()
 hATLL.Write()
+
+srtt_cuts = a.cuts
+srtt_cuts.update({"SRTT":"SRTT"})
+SRTT_cutflow = CutflowHist('cutflow',SRTT,srtt_cuts)
+SRTT_cutflow.Write()
 
 out_f.Close()
 
