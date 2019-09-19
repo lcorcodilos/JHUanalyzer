@@ -29,7 +29,7 @@ class analyzer(object):
         self.DataFrame = ROOT.RDataFrame(self.Chain)
 
         if hasattr(self.RunChain,'genEventCount'): self.isData = False
-	else: self.isData = True
+    	else: self.isData = True
  
         self.genEventCount = 0
         if not self.isData: 
@@ -41,8 +41,8 @@ class analyzer(object):
 
     def Cut(self, selection=None,node=None):
         # If a starting point (node) isn't already input, use the base data frame
-        if node == None: this_entries = self.DataFrame
         # Else, use the input starting point
+        if node == None: this_entries = self.DataFrame
         else: this_entries = node
 
         # If no other selection given, use self.cuts
@@ -50,37 +50,14 @@ class analyzer(object):
         else: this_selection = selection
 
         # Loop over the selection (ordered keys) and apply filter from selection
-        for k in this_selection.keys():
-            s = this_selection[k]
-            print 'Filtering %s: %s' %(k,s)
-            this_entries = this_entries.Filter(s,k)
+        for cutname in this_selection.keys():
+            cutdef = this_selection[cutname]
+            print 'Filtering %s: %s' %(cutname,cutdef)
+            this_entries = this_entries.Filter(cutname+'==1',cutname)
 
         final_selection = this_entries
         
         return final_selection
-
-    def SetCut(self,name,cut):
-        self.cuts[name] = cut
-
-    def GetCuts(self):
-        return self.cuts
-
-    def SetCFunc(self,funcname,blockcode):
-        self.Cfuncs[funcname] = blockcode
-        ROOT.gInterpreter.Declare(self.Cfuncs[funcname])
-
-    def SetVar(self,varname,vardef,node=None):
-        if node == None: self.DataFrame = self.DataFrame.Define(varname,vardef)
-        else: return node.Define(varname,vardef)
-
-    def Discriminate(self,preselection,discriminator):
-        pass_sel = preselection
-        fail_sel = preselection
-        passfail = {
-            "pass":pass_sel.Filter("pass",discriminator),
-            "fail":fail_sel.Filter("fail","!("+discriminator+")")
-        }
-        return passfail
 
     def SetTriggers(self,trigList):
         trigOR = ""
@@ -95,6 +72,43 @@ class analyzer(object):
         if trigOR != "": 
             trigOR += ")" 
             self.cuts["triggers"] = trigOR
+            self.SetVar('triggers',trigOR)
+
+    def DefineCut(self,name,cut):
+        self.cuts[name] = cut
+        self.SetVar(name,cut)
+
+    def GetCuts(self):
+        return self.cuts
+
+    def SetVar(self,varname,vardef,node=None):
+        if node == None: self.DataFrame = self.DataFrame.Define(varname,vardef)
+        else: return node.Define(varname,vardef)
+
+    def Discriminate(self,preselection,discriminator):
+        pass_sel = preselection
+        fail_sel = preselection
+        passfail = {
+            "pass":pass_sel.Filter("pass",discriminator),
+            "fail":fail_sel.Filter("fail","!("+discriminator+")")
+        }
+        return passfail
+
+    def SetCFunc(self,funcname,blockcode):
+        self.Cfuncs[funcname] = blockcode
+        ROOT.gInterpreter.Declare(self.Cfuncs[funcname])
+
+
+def CutflowHist(name,rdf,cutlist):
+    ncuts = len(cutlist)
+    h = ROOT.TH1F(name,name,ncuts,0,ncuts)
+    rdf_report = rdf.Report()
+    for i,c in enumerate(cutlist): 
+        h.GetXaxis().SetBinLabel(i+1,c)
+        sel = rdf_report.At(c)
+        h.SetBinContent(i+1,sel.GetPass())
+
+    return h
 
 def openJSON(f):
     return json.load(open(f,'r'), object_hook=ascii_encode_dict) 
@@ -102,3 +116,20 @@ def openJSON(f):
 def ascii_encode_dict(data):    
     ascii_encode = lambda x: x.encode('ascii') if isinstance(x, unicode) else x 
     return dict(map(ascii_encode, pair) for pair in data.items())
+
+class CutGroup():
+    """docstring for CutGrou"""
+    def __init__(self, name, cutlist):
+        self.name = name
+        self.cutlist = cutlist
+
+        if type(self.cutlist) == list and len(self.cutlist) > 0: self.cut = '('
+        else: raise Exception('A list of cuts must be provided')
+        
+        for i,c in enumerate(self.cutlist):
+            if i < len(self.cutlist)-1: self.cut += c+'==1)&&'
+            else: self.cut += c+'==1))'
+
+    def GetName(): return self.name
+
+    def GetCut(): return self.cut
