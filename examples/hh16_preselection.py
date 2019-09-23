@@ -37,7 +37,7 @@ else: setname = ''
 if os.path.exists(options.config):
     print 'JSON config imported'
     c = openJSON(options.config)
-    if setname != '' and not a.isData: 
+    if setname != '' and not a.isData:
         xsec = c['XSECS'][setname]
         lumi = c['lumi']
     else: 
@@ -48,15 +48,15 @@ if os.path.exists(options.config):
 a.SetCFunc("TLvector",commonc.vector)
 a.SetCFunc("invariantMass",commonc.invariantMass)
 
-# a.SetTriggers(["HLT_PFHT800","HLT_PFHT900","HLT_AK8PFJet360_TrimMass30","HLT_PFHT650_WideJetMJJ900DEtaJJ1p5","HLT_AK8PFHT650_TrimR0p1PT0p03Mass50","HLT_AK8PFHT700_TrimR0p1PT0p03Mass50","HLT_AK8DiPFJet280_200_TrimMass30_BTagCSV_p20"])
-a.SetTriggers(["HLT_PFHT1050","HLT_AK8PFJet360_TrimMass30"])
+if '16' in options.output: a.SetTriggers(["HLT_PFHT800","HLT_PFHT900","HLT_AK8PFJet360_TrimMass30","HLT_PFHT650_WideJetMJJ900DEtaJJ1p5","HLT_AK8PFHT650_TrimR0p1PT0p03Mass50","HLT_AK8PFHT700_TrimR0p1PT0p03Mass50","HLT_AK8DiPFJet280_200_TrimMass30_BTagCSV_p20"])
+else: a.SetTriggers(["HLT_PFHT1050","HLT_AK8PFJet360_TrimMass30"])
 a.DefineCut("nFatJets","nFatJet > 1")
 a.DefineCut("pt0","FatJet_pt[0] > 300")
 a.DefineCut("pt1","FatJet_pt[1] > 300")
 a.DefineCut("eta0","abs(FatJet_eta[0]) < 2.4")
 a.DefineCut("eta1","abs(FatJet_eta[1]) < 2.4")
 a.DefineCut("jetID","((FatJet_jetId[0] & 2) == 2) && ((FatJet_jetId[1] & 2) == 2)")
-# a.DefineCut("PV","PV_npvsGood > 0")
+a.DefineCut("PV","PV_npvsGood > 0")
 a.DefineCut("deltaEta","abs(FatJet_eta[0] - FatJet_eta[1]) < 1.3")
 a.SetVar("lead_vect","analyzer::TLvector(FatJet_pt[0],FatJet_eta[0],FatJet_phi[0],FatJet_msoftdrop[0])")
 a.SetVar("sublead_vect","analyzer::TLvector(FatJet_pt[1],FatJet_eta[1],FatJet_phi[1],FatJet_msoftdrop[1])")
