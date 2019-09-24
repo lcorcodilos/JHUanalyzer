@@ -10,7 +10,7 @@ class analyzer(object):
         super(analyzer, self).__init__()
         self.fileName = fileName
         self.cuts = OrderedDict()
-        self.Cfuncs = {}
+        # self.Cfuncs = {}
 
         self.Chain = ROOT.TChain("Events")
         self.RunChain = ROOT.TChain("Runs")
@@ -94,9 +94,10 @@ class analyzer(object):
         }
         return passfail
 
-    def SetCFunc(self,funcname,blockcode):
-        self.Cfuncs[funcname] = blockcode
-        ROOT.gInterpreter.Declare(self.Cfuncs[funcname])
+    def SetCFunc(self,blockcode):#funcname,
+        # self.Cfuncs[funcname] = blockcode
+        # ROOT.gInterpreter.Declare(self.Cfuncs[funcname])
+        ROOT.gInterpreter.Declare(blockcode)
 
 
 def CutflowHist(name,rdf,cutlist):
