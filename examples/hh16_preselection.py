@@ -45,8 +45,10 @@ if os.path.exists(options.config):
         lumi = 1.
 
 # a.SetCFunc("deltaPhi",commonc.deltaPhi)
-a.SetCFunc("TLvector",commonc.vector)
-a.SetCFunc("invariantMass",commonc.invariantMass)
+a.SetCFunc(commonc.vector)
+a.SetCFunc(commonc.invariantMass)
+customc.Import("pdfweights","JHUanalyzer/Corrections/pdfweights.cc")
+a.SetCFunc(customc.pdfweights)
 
 if '16' in options.output: a.SetTriggers(["HLT_PFHT800","HLT_PFHT900","HLT_AK8PFJet360_TrimMass30","HLT_PFHT650_WideJetMJJ900DEtaJJ1p5","HLT_AK8PFHT650_TrimR0p1PT0p03Mass50","HLT_AK8PFHT700_TrimR0p1PT0p03Mass50","HLT_AK8DiPFJet280_200_TrimMass30_BTagCSV_p20"])
 else: a.SetTriggers(["HLT_PFHT1050","HLT_AK8PFJet360_TrimMass30"])
@@ -62,6 +64,9 @@ a.SetVar("lead_vect","analyzer::TLvector(FatJet_pt[0],FatJet_eta[0],FatJet_phi[0
 a.SetVar("sublead_vect","analyzer::TLvector(FatJet_pt[1],FatJet_eta[1],FatJet_phi[1],FatJet_msoftdrop[1])")
 a.SetVar("mhh","analyzer::invariantMass(lead_vect,sublead_vect)")
 a.SetVar("mreduced","mhh - (FatJet_msoftdrop[0]-125.0) - (FatJet_msoftdrop[1]-125.0)")
+a.SetVar("Pdfweight",'analyzer::PDFweight(LHEPdfWeight)')
+a.SetVar("Pdfweight_up",'Pdfweight[0]')
+a.SetVar("Pdfweight_down",'Pdfweight[1]')
 a.DefineCut("cut_mreduced","mreduced > 750.")
 a.DefineCut("tau21","(FatJet_tau2[0]/FatJet_tau1[0] < 0.55) && (FatJet_tau2[1]/FatJet_tau1[1] < 0.55)")
 a.DefineCut("msoftdrop_1","105 < FatJet_msoftdrop[1] && FatJet_msoftdrop[1] < 135")
@@ -90,6 +95,16 @@ hATTT = ATTT.Histo2D(("ATTT","ATTT",9 ,40 ,220 ,28 ,700 ,3500),"mh","mhh")
 hSRLL = SRLL.Histo2D(("SRLL","SRLL",9 ,40 ,220 ,28 ,700 ,3500),"mh","mhh")
 hATLL = ATLL.Histo2D(("ATLL","ATLL",9 ,40 ,220 ,28 ,700 ,3500),"mh","mhh")
 
+hSRTT_pdfUp = SRTT.Histo2D(("SRTT_pdfUp","SRTT_pdfUp",9 ,40 ,220 ,28 ,700 ,3500),'mh','mhh','Pdfweight_up')
+hATTT_pdfUp = ATTT.Histo2D(("ATTT_pdfUp","ATTT_pdfUp",9 ,40 ,220 ,28 ,700 ,3500),"mh","mhh",'Pdfweight_up')
+hSRLL_pdfUp = SRLL.Histo2D(("SRLL_pdfUp","SRLL_pdfUp",9 ,40 ,220 ,28 ,700 ,3500),"mh","mhh",'Pdfweight_up')
+hATLL_pdfUp = ATLL.Histo2D(("ATLL_pdfUp","ATLL_pdfUp",9 ,40 ,220 ,28 ,700 ,3500),"mh","mhh",'Pdfweight_up')
+
+hSRTT_pdfDown = SRTT.Histo2D(("SRTT_pdfDown","SRTT_pdfDown",9 ,40 ,220 ,28 ,700 ,3500),'mh','mhh','Pdfweight_down')
+hATTT_pdfDown = ATTT.Histo2D(("ATTT_pdfDown","ATTT_pdfDown",9 ,40 ,220 ,28 ,700 ,3500),"mh","mhh",'Pdfweight_down')
+hSRLL_pdfDown = SRLL.Histo2D(("SRLL_pdfDown","SRLL_pdfDown",9 ,40 ,220 ,28 ,700 ,3500),"mh","mhh",'Pdfweight_down')
+hATLL_pdfDown = ATLL.Histo2D(("ATLL_pdfDown","ATLL_pdfDown",9 ,40 ,220 ,28 ,700 ,3500),"mh","mhh",'Pdfweight_down')
+
 for h in [hSRTT,hATTT,hSRLL,hATLL]: h.Scale(norm)
 
 norm_hist = ROOT.TH1F('norm','norm',1,0,1)
@@ -100,6 +115,16 @@ hSRTT.Write()
 hATTT.Write()
 hSRLL.Write()
 hATLL.Write()
+
+hSRTT_pdfUp.Write()
+hATTT_pdfUp.Write()
+hSRLL_pdfUp.Write()
+hATLL_pdfUp.Write()
+
+hSRTT_pdfDown.Write()
+hATTT_pdfDown.Write()
+hSRLL_pdfDown.Write()
+hATLL_pdfDown.Write()
 
 srtt_cuts = a.cuts
 srtt_cuts.update({"SRTT":"SRTT"})
