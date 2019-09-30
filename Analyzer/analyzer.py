@@ -53,7 +53,7 @@ class analyzer(object):
         for cutname in this_selection.keys():
             cutdef = this_selection[cutname]
             print 'Filtering %s: %s' %(cutname,cutdef)
-            this_entries = this_entries.Filter(cutdef)
+            this_entries = this_entries.Filter(cutdef,cutname)
 
         final_selection = this_entries
         
