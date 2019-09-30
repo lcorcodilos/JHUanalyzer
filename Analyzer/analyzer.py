@@ -53,7 +53,7 @@ class analyzer(object):
         for cutname in this_selection.keys():
             cutdef = this_selection[cutname]
             print 'Filtering %s: %s' %(cutname,cutdef)
-            this_entries = this_entries.Filter(cutname+'==1',cutname)
+            this_entries = this_entries.Filter(cutdef,cutname)
 
         final_selection = this_entries
         
@@ -131,6 +131,6 @@ class CutGroup():
             if i < len(self.cutlist)-1: self.cut += c+'==1)&&'
             else: self.cut += c+'==1))'
 
-    def GetName(): return self.name
+    def GetName(self): return self.name
 
-    def GetCut(): return self.cut
+    def GetCut(self): return self.cut
