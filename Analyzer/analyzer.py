@@ -128,7 +128,7 @@ class analyzer(object):
                     return weight;
                 } ''')
 
-        self.SetVar("puw","getWeight(PV_npvsGood)")
+        self.SetVar("puw","getWeight("+nvtx+")")
 
 
 def CutflowHist(name,rdf,cutlist):
