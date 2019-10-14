@@ -15,8 +15,8 @@ namespace analyzer {
     if (year == "16"){
           BTagCalibration calib("DeepCSV", "SFs/DeepCSV_2016LegacySF_V1.csv");
       }else if (year == "17"){
-          BTagCalibration calib("DeepCSV", 'SFs/DeepCSV_94XSF_V4_B_F.csv');
-      }else if (year ==  "16"){
+          BTagCalibration calib("DeepCSV", "SFs/DeepCSV_94XSF_V4_B_F.csv");
+      }else if (year ==  "18"){
           BTagCalibration calib("DeepCSV", "SFs/DeepCSV_102XSF_V1.csv");
       }
 
