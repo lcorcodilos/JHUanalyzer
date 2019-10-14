@@ -11,8 +11,8 @@ using namespace ROOT::VecOps;
 
 namespace analyzer {
   std::vector<float> BtagSF(string year, TLorentzVector* b_jet0,TLorentzVector* b_jet1) {
-  std::vector<float> v;
-  string filename;
+    std::vector<float> v;
+    string filename;
     if (year == "16"){
           filename = "SFs/DeepCSV_2016LegacySF_V1.csv";
       }else if (year == "17"){
