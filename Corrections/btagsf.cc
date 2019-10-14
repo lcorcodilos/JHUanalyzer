@@ -12,13 +12,15 @@ using namespace ROOT::VecOps;
 namespace analyzer {
   std::vector<float> BtagSF(string year, TLorentzVector* b_jet0,TLorentzVector* b_jet1) {
   std::vector<float> v;
+  string filename;
     if (year == "16"){
-          BTagCalibration calib("DeepCSV", "SFs/DeepCSV_2016LegacySF_V1.csv");
+          filename = "SFs/DeepCSV_2016LegacySF_V1.csv";
       }else if (year == "17"){
-          BTagCalibration calib("DeepCSV", "SFs/DeepCSV_94XSF_V4_B_F.csv");
+          filename = "SFs/DeepCSV_94XSF_V4_B_F.csv";
       }else if (year ==  "18"){
-          BTagCalibration calib("DeepCSV", "SFs/DeepCSV_102XSF_V1.csv");
+          filename = "SFs/DeepCSV_102XSF_V1.csv";
       }
+    BTagCalibration calib("DeepCSV", filename);
 
 		BTagCalibrationReader reader(BTagEntry::OP_LOOSE,  // operating point
                              "central",             // central sys type
