@@ -124,6 +124,7 @@ class analyzer(object):
         self.SetCFunc('''using namespace ROOT::VecOps;
                 float getWeight(float nvtx)
                 {
+                    float weight = 1;
                     weight *= puWeights->GetBinContent(puWeights->FindBin(nvtx));
                     return weight;
                 } ''')
