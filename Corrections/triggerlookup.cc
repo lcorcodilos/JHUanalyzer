@@ -1,10 +1,8 @@
 #include <cmath>
 using namespace ROOT::VecOps;
-using rvec_f = const RVec<float> &;
-using rvec_i = const RVec<int> &;
 
 namespace analyzer {
-    std::vector<float> Trigger_Lookup(float var, TH1F* TRP ){
+    std::vector<float> TriggerLookup(float var, TH1F* TRP ){
         float Weight = 1.0;
         float Weightup = 1.0;
         float Weightdown = 1.0;
@@ -24,8 +22,8 @@ namespace analyzer {
 
             Weight = jetTriggerWeight;
             float deltaTriggerEff  = 0.5*(1.0-jetTriggerWeight);
-            Weightup  =   min(1.0,jetTriggerWeight + deltaTriggerEff);
-            Weightdown  =   max(0.0,jetTriggerWeight - deltaTriggerEff);
+            Weightup  =   std::min(1.0,jetTriggerWeight + deltaTriggerEff);
+            Weightdown  =   std::max(0.0,jetTriggerWeight - deltaTriggerEff);
             }
         }    
         out.push_back(Weight);
