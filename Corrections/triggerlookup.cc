@@ -3,9 +3,9 @@ using namespace ROOT::VecOps;
 
 namespace analyzer {
     std::vector<float> TriggerLookup(float var, TH1D* TRP ){
-        float Weight;
-        float Weightup;
-        float Weightdown;
+        float Weight = 1;
+        float Weightup = 1;
+        float Weightdown = 1;
 
         std::vector<float> out;
 
@@ -21,6 +21,7 @@ namespace analyzer {
                 }
 
             Weight = jetTriggerWeight;
+            std::cout << Weight << std::endl;
             float deltaTriggerEff  = 0.5*(1.0-jetTriggerWeight);
             float one = 1.0;
             float zero = 0.0;
