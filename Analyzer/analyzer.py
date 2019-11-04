@@ -99,29 +99,7 @@ class analyzer(object):
         # ROOT.gInterpreter.Declare(self.Cfuncs[funcname])
         ROOT.gInterpreter.Declare(blockcode)
 
-    def makePUWeight(self,year,nvtx):
-        if year == '16':
-            pufile_mc_name="%s/src/PhysicsTools/NanoAODTools/python/postprocessing/data/pileup/pileup_profile_Summer16.root" % os.environ['CMSSW_BASE']
-            pufile_data_name="%s/src/PhysicsTools/NanoAODTools/python/postprocessing/data/pileup/PileupData_GoldenJSON_Full2016.root" % os.environ['CMSSW_BASE']
-        elif year == '17':
-            pufile_data_name="%s/src/PhysicsTools/NanoAODTools/python/postprocessing/data/pileup/PileupHistogram-goldenJSON-13tev-2018-99bins_withVar.root" % os.environ['CMSSW_BASE']
-            pufile_mc_name="%s/src/PhysicsTools/NanoAODTools/python/postprocessing/data/pileup/mcPileup2017.root" % os.environ['CMSSW_BASE']
-        elif year == '18':
-            pufile_data_name="%s/src/PhysicsTools/NanoAODTools/python/postprocessing/data/pileup/PileupHistogram-goldenJSON-13tev-2018-100bins_withVar.root" % os.environ['CMSSW_BASE']
-            pufile_mc_name="%s/src/PhysicsTools/NanoAODTools/python/postprocessing/data/pileup/mcPileup2018.root" % os.environ['CMSSW_BASE']
-
-        puFile_data = ROOT.TFile(pufile_data_name,"READ")
-        puHist_data = puFile_data.Get('pileup')
-        puHist_data.SetDirectory(0)
-        puFile_mc = ROOT.TFile(pufile_mc_name,"READ")
-        puHist_mc = puFile_mc.Get('pu_mc')
-        puHist_mc.SetDirectory(0)
-
-        puWeights = puHist_data.Clone('clone')
-        puWeights.Divide(puHist_mc)
-        puWeights.Sumw2()
-
-        ROOT.gInterpreter.ProcessLine("TH1D* puWeight = clone;")
+    def makePUWeight(self,nvtx):
 
         self.SetCFunc('''using namespace ROOT::VecOps;
                 double getWeight(int nvtx)
