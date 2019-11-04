@@ -112,9 +112,10 @@ class analyzer(object):
 
         puFile_data = ROOT.TFile(pufile_data_name,"READ")
         puHist_data = puFile_data.Get('pileup')
+        puHist_data.SetDirectory(0)
         puFile_mc = ROOT.TFile(pufile_mc_name,"READ")
         puHist_mc = puFile_mc.Get('pu_mc')
-
+        puHist_mc.SetDirectory(0)
 
         puWeights = puHist_data.Clone()
         puWeights.Divide(puHist_mc)
