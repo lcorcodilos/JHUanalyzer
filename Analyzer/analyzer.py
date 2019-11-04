@@ -124,6 +124,7 @@ class analyzer(object):
         self.SetCFunc('''using namespace ROOT::VecOps;
                 double getWeight(int nvtx)
                 {
+                    std::cout << typeid(puWeight).Name() << std::endl;
                     double weight = 1;
                     weight *= puWeight->GetBinContent(puWeight->FindBin(nvtx));
                     return weight;
