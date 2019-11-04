@@ -122,9 +122,9 @@ class analyzer(object):
         ROOT.gInterpreter.ProcessLine("auto puWeight = clone;")
 
         self.SetCFunc('''using namespace ROOT::VecOps;
-                float getWeight(float nvtx)
+                double getWeight(int nvtx)
                 {
-                    float weight = 1;
+                    double weight = 1;
                     weight *= puWeight->GetBinContent(puWeight->FindBin(nvtx));
                     return weight;
                 } ''')
