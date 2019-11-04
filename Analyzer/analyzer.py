@@ -126,7 +126,7 @@ class analyzer(object):
                 {
                     std::cout << typeid(puWeight).name() << std::endl;
                     double weight = 1;
-                    weight *= static_cast<TH1D*>puWeight->GetBinContent(static_cast<TH1D*>puWeight->FindBin(nvtx));
+                    weight *= static_cast<TH1D*>(puWeight->GetBinContent(puWeight->FindBin(nvtx)));
                     return weight;
                 } ''')
 
