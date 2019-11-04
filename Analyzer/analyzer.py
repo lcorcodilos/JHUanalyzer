@@ -119,14 +119,14 @@ class analyzer(object):
         puWeights.Divide(puHist_mc)
         puWeights.Sumw2()
 
-        ROOT.gInterpreter.ProcessLine("auto puWeight = clone;")
+        ROOT.gInterpreter.ProcessLine("auto puWeight = static_cast<TH1D*>(clone);")
 
         self.SetCFunc('''using namespace ROOT::VecOps;
                 double getWeight(int nvtx)
                 {
                     std::cout << typeid(puWeight).name() << std::endl;
                     double weight = 1;
-                    weight *= static_cast<TH1D*>(puWeight->GetBinContent(static_cast<TH1D*>(puWeight->FindBin(nvtx))));
+                    weight *= puWeight->GetBinContent(puWeight->FindBin(nvtx));
                     return weight;
                 } ''')
 
