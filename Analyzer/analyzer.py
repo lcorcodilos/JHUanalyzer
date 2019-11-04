@@ -115,6 +115,7 @@ class analyzer(object):
         puFile_mc = ROOT.TFile(pufile_mc_name,"READ")
         puHist_mc = puFile_mc.Get('pu_mc')
 
+
         puWeights = puHist_data.Clone()
         puWeights.Divide(puHist_mc)
         puWeights.Sumw2()
@@ -122,7 +123,7 @@ class analyzer(object):
         ROOT.gInterpreter.ProcessLine("auto puWeight = static_cast<TH1D*>(pileup);")
 
         self.SetCFunc('''using namespace ROOT::VecOps;
-                double getWeight(int nvtx)
+                double getWeight(int nvtx, TH1D* puWeight)
                 {
                     double weight = 1;
                     weight *= puWeight->GetBinContent(puWeight->FindBin(nvtx));
