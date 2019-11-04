@@ -8,9 +8,10 @@ namespace analyzer {
         float Weightdown = 1;
 
         std::vector<float> out;
-
+        std::cout << var << std::endl;
         if (var < 2000.0){
             int bin0 = TRP->FindBin(var); 
+            std::cout << bin0 << std::endl;
             float jetTriggerWeight = TRP->GetBinContent(bin0);
             // Check that we're not in an empty bin in the fully efficient region
             if (jetTriggerWeight == 0){
