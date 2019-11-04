@@ -117,14 +117,14 @@ class analyzer(object):
         puHist_mc = puFile_mc.Get('pu_mc')
         puHist_mc.SetDirectory(0)
 
-        puWeights = puHist_data.Clone()
+        puWeights = puHist_data.Clone('clone')
         puWeights.Divide(puHist_mc)
         puWeights.Sumw2()
 
-        ROOT.gInterpreter.ProcessLine("auto puWeight = static_cast<TH1D*>(pileup);")
+        ROOT.gInterpreter.ProcessLine("TH1D* puWeight = clone;")
 
         self.SetCFunc('''using namespace ROOT::VecOps;
-                double getWeight(int nvtx, TH1D* puWeight)
+                double getWeight(int nvtx)
                 {
                     std::cout << typeid(puWeight).name() << std::endl;
                     double weight = 1;
@@ -133,7 +133,7 @@ class analyzer(object):
                     return weight;
                 } ''')
 
-        self.SetVar("puw","getWeight("+nvtx+",puWeight)")
+        self.SetVar("puw","getWeight("+nvtx+")")
 
 
 def CutflowHist(name,rdf,cutlist):
