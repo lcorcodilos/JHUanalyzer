@@ -4,7 +4,7 @@ using rvec_f = const RVec<float> &;
 using rvec_i = const RVec<int> &;
 
 namespace analyzer {
-    std::vector<std::pair<float, bool>> PTW_Lookup(rvec_i nGenJet, rvec_i GPpdgId, rvec_i GPstatusFlags, rvec_f GPpt, rvec_f GPeta, rvec_f GPphi, rvec_f GPmass,TLorentzVector* jet0, TLorentzVector* jet1 ):
+    std::vector<std::pair<float, bool>> PTWLookup(rvec_i nGenJet, rvec_i GPpdgId, rvec_i GPstatusFlags, rvec_f GPpt, rvec_f GPeta, rvec_f GPphi, rvec_f GPmass,TLorentzVector* jet0, TLorentzVector* jet1 ):
 
         std::vector<std::pair<float, bool>> out;
 
