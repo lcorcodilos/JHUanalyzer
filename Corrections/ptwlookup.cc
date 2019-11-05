@@ -16,19 +16,19 @@ namespace analyzer {
             if ((GPpdgId == -6) && (GPstatusFlags & (1 << 13))){ 
                 TLorentzVector* antitop_lv = new TLorentzVector();
                 antitop_lv->SetPtEtaPhiM(GPpt,GPeta,GPphi,GPmass);
-                if ((antitop_lv.DeltaR(jet0) <0.8) || (antitop_lv.DeltaR(jet1) <0.8)){
+                if ((antitop_lv->DeltaR(jet0) <0.8) || (antitop_lv->DeltaR(jet1) <0.8)){
                     genTBpt = GPpt;
                 }
-            }elif ((GPpdgId == 6) && (GPstatusFlags & (1 << 13))){ 
+            }else if ((GPpdgId == 6) && (GPstatusFlags & (1 << 13))){ 
                 TLorentzVector* top_lv = new TLorentzVector();
                 top_lv->SetPtEtaPhiM(GPpt,GPeta,GPphi,GPmass);
-                if ((top_lv.DeltaR(jet0) <0.8) || (top_lv.DeltaR(jets1) <0.8)){
+                if ((top_lv->DeltaR(jet0) <0.8) || (top_lv->DeltaR(jet1) <0.8)){
                     genTpt = GPpt;
                 }
             }
         }
 
-        if (genTpt == 0) || (genTBpt == 0){
+        if ((genTpt == 0) || (genTBpt == 0)){
             pair_exists = False;
         }else{ 
             pair_exists = True;
