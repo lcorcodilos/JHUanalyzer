@@ -41,7 +41,7 @@ namespace analyzer {
             wTPt = exp(0.0615-0.0005*genTpt);
         }
 
-        if (genTBpt == None){ 
+        if (genTBpt == 0){ 
             wTbarPt = 1.0;
         }else{
             wTbarPt = exp(0.0615-0.0005*genTBpt);
@@ -49,4 +49,5 @@ namespace analyzer {
 
         out.push_back(std::make_pair(sqrt(wTPt*wTbarPt),pair_exists));
         return out;
+    }
 }
