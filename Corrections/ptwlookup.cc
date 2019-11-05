@@ -1,9 +1,11 @@
 #include <cmath>
 #include <stdbool.h>
 using namespace ROOT::VecOps;
+using rvec_f = const RVec<float> &;
+using rvec_i = const RVec<int> &;
 
 namespace analyzer {
-    std::vector<std::pair<float, bool>> PTWLookup(int nGenJet, int GPpdgId, int GPstatusFlags, double GPpt, double GPeta, double GPphi, double GPmass,TLorentzVector* jet0, TLorentzVector* jet1 ){
+    std::vector<std::pair<float, bool>> PTWLookup(int nGenJet, rvec_i GPpdgId, int GPstatusFlags, double GPpt, double GPeta, double GPphi, double GPmass,TLorentzVector* jet0, TLorentzVector* jet1 ){
 
         std::vector<std::pair<float, bool>> out;
 
