@@ -1,3 +1,5 @@
+//   MUST MAKE TRIGGER WEIGHTS BEFORE USE!!!
+
 #include <cmath>
 using namespace ROOT::VecOps;
 

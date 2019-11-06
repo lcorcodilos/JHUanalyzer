@@ -14,11 +14,11 @@ namespace analyzer {
     std::vector<float> v;
     string filename;
     if (year == "16"){
-          filename = "SFs/DeepCSV_2016LegacySF_V1.csv";
+          filename = "JHUanalyzer/SFs/DeepCSV_2016LegacySF_V1.csv";
       }else if (year == "17"){
-          filename = "SFs/DeepCSV_94XSF_V4_B_F.csv";
+          filename = "JHUanalyzer/SFs/DeepCSV_94XSF_V4_B_F.csv";
       }else if (year ==  "18"){
-          filename = "SFs/DeepCSV_102XSF_V1.csv";
+          filename = "JHUanalyzer/SFs/DeepCSV_102XSF_V1.csv";
       }
     BTagCalibration calib("DeepCSV", filename);
 
