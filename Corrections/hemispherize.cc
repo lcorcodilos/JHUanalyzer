@@ -2,14 +2,17 @@
 
 #include <cmath>
 using namespace ROOT::VecOps;
-using rvec_f = const RVec<float> &;
-using rvec_i = const RVec<int> &;
+using rvec_f = const RVec<float>;
+using rvec_i = const RVec<int>;
 //return two ak4 cnadidates that are properly selected by hemispherize funtion for 2+1
 //Compares ak4 jets against leading ak8 and looks for any in opposite hemisphere
 //First find the highest pt ak8 jet with mass > 40 geV
 namespace analyzer {
-     RVec<int> Hemispherize(rvec_f FJpt, rvec_f FJeta, rvec_f FJphi, rvec_f FJmass, rvec_i FJnjets, rvec_f Jpt, rvec_f Jeta, rvec_f Jphi, rvec_f Jmass, rvec_i Jnjets, rvec_f btagDeepB){
+     RVec<int> Hemispherize(rvec_f FJpt, rvec_f FJeta, rvec_f FJphi, rvec_f FJmass, int FJnjets, rvec_f Jpt, rvec_f Jeta, rvec_f Jphi, rvec_f Jmass, int Jnjets, rvec_f btagDeepB){
         //First find the highest pt ak8 jet with mass > 40 geV
+        RVec<int> fail; //this is used for if the hemispherize fails so we can filter the event
+        fail.push_back(0);
+        fail.push_back(0);
 
         auto candidateFatJetIndex = -1;
         for (int i =0; i<FJnjets; i++){
@@ -20,7 +23,7 @@ namespace analyzer {
             }
         }
         if (candidateFatJetIndex == -1){
-            return RVec<int>({});
+            return fail;
         }
 
         RVec<int> candidateJetIndices;
@@ -33,7 +36,7 @@ namespace analyzer {
 
         //If not enough jets, end it
         if (candidateJetIndices.size() < 2){
-            return RVec<int>({});
+            return fail;
         }
         //Else compare jets and find those within R of 1.5 (make pairs)
 
@@ -106,7 +109,7 @@ namespace analyzer {
                 PairIdx.push_back(candidatePairIdx[0][1]);
                 return PairIdx;
             } else{
-                return RVec<int>({});
+                return fail;
             }
 
         }
