@@ -44,6 +44,7 @@ namespace analyzer {
             //Compare all pairs
             auto pairs_cmb = Combinations(Jpt,2);
             RVec<RVec<int>> passing_pair_indices;
+            RVec<int> temp_pair;
             for (int i =0; i<pairs_cmb[0].size(); i++){   // this is providing pairs of indices of the candidateJetIndices list! (not the indices of the jetCollection!)
                 const auto i1 = pairs_cmb[0][i];
                 const auto i2 = pairs_cmb[1][i];
@@ -54,9 +55,12 @@ namespace analyzer {
                 TLorentzVector* v2 = new TLorentzVector();
                 v2->SetPtEtaPhiM(Jpt[i2],Jeta[i2],Jphi[i2],Jmass[i2]);
 
-                if (v1->DeltaR(v2) < 1.5){
+                if (v1->DeltaR(*v2) < 1.5){
                     // Save out collection index of those that pass
-                    passing_pair_indices.push_back([i1,i2]);
+                    temp_pair.push_back(i1);
+                    temp_pair.push_back(i2);
+                    passing_pair_indices.push_back(temp_pair);
+                    temp_pair.clear();
                 }
             }
 
@@ -74,11 +78,11 @@ namespace analyzer {
                         TLorentzVector* v2 = new TLorentzVector();
                         v2->SetPtEtaPhiM(Jpt[i2],Jeta[i2],Jphi[i2],Jmass[i2]);
 
-                        if (fjetLV->DeltaR(v1) < 0.8){
+                        if (fjetLV->DeltaR(*v1) < 0.8){
                             passing_pair_indices.erase(passing_pair_indices.begin()+i);
                             break;
                         }
-                        if (fjetLV->DeltaR(v2) < 0.8){
+                        if (fjetLV->DeltaR(*v2) < 0.8){
                             passing_pair_indices.erase(passing_pair_indices.begin()+i);
                         }
                 }
