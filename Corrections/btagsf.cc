@@ -10,7 +10,7 @@
 using namespace ROOT::VecOps;
 
 namespace analyzer {
-  std::vector<float> BtagSF(TLorentzVector* b_jet0,TLorentzVector* b_jet1) {
+  std::vector<float> BtagSF(BTagCalibrationReader reader,TLorentzVector* b_jet0,TLorentzVector* b_jet1) {
     std::vector<float> v;
 
     // Note: this is for b jets, for c jets (light jets) use FLAV_C (FLAV_UDSG)
