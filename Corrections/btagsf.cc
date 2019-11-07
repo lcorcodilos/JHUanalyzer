@@ -10,26 +10,8 @@
 using namespace ROOT::VecOps;
 
 namespace analyzer {
-  std::vector<float> BtagSF(string year, TLorentzVector* b_jet0,TLorentzVector* b_jet1) {
+  std::vector<float> BtagSF(TLorentzVector* b_jet0,TLorentzVector* b_jet1) {
     std::vector<float> v;
-    string filename;
-    if (year == "16"){
-          filename = "JHUanalyzer/SFs/DeepCSV_2016LegacySF_V1.csv";
-      }else if (year == "17"){
-          filename = "JHUanalyzer/SFs/DeepCSV_94XSF_V4_B_F.csv";
-      }else if (year ==  "18"){
-          filename = "JHUanalyzer/SFs/DeepCSV_102XSF_V1.csv";
-      }
-    BTagCalibration calib("DeepCSV", filename);
-
-		BTagCalibrationReader reader(BTagEntry::OP_LOOSE,  // operating point
-                             "central",             // central sys type
-                             {"up", "down"});      // other sys types
-
-		reader.load(calib,                // calibration instance
-            BTagEntry::FLAV_B,    // btag flavour
-            "incl");               // measurement type
-
 
     // Note: this is for b jets, for c jets (light jets) use FLAV_C (FLAV_UDSG)
     double jet_scalefactor = reader.eval_auto_bounds("central", BTagEntry::FLAV_B, b_jet0->Eta(),b_jet0->Pt()); 
