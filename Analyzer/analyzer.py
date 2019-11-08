@@ -102,10 +102,21 @@ class analyzer(object):
     def makePUWeight(self,nvtx):
 
         self.SetCFunc('''using namespace ROOT::VecOps;
-                double getWeight(int nvtx)
+                std::vector<double> getWeight(int nvtx)
                 {
-                    double weight = 1;
-                    weight *= puWeight->GetBinContent(puWeight->FindBin(nvtx));
+                    std::vector<double> weight;
+                    double weightNom = 1;
+                    double weightUp = 1;
+                    double weightDown = 1;
+
+                    weightNom *= puWeightNom->GetBinContent(puWeightNom->FindBin(nvtx));
+                    weightUp *= puWeightUp->GetBinContent(puWeightUp->FindBin(nvtx));
+                    weightDown *= puWeightDown->GetBinContent(puWeightDown->FindBin(nvtx));
+
+                    weight.push_back(weightNom);
+                    weight.push_back(weightUp);
+                    weight.push_back(weightDown);
+
                     return weight;
                 } ''')
 
