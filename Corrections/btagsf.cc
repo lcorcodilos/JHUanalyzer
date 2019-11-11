@@ -2,10 +2,6 @@
 #include "CondFormats/BTauObjects/interface/BTagCalibration.h"
 #include "CondTools/BTau/interface/BTagCalibrationReader.h"
 
-// without CMSSW / standalone:
-//#include "BTagCalibrationStandalone.h"
-//#include "BTagCalibrationStandalone.cpp"
-
 #include <cmath>
 using namespace ROOT::VecOps;
 
@@ -30,3 +26,4 @@ namespace analyzer {
     return v;
   }
 }
+

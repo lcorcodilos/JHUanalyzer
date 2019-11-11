@@ -116,7 +116,6 @@ class analyzer(object):
                     weight.push_back(weightNom);
                     weight.push_back(weightUp);
                     weight.push_back(weightDown);
-
                     return weight;
                 } ''')
 
