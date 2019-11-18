@@ -41,10 +41,10 @@ namespace analyzer {
 
         else{
             //Compare all pairs
-            auto pairs_cmb = ROOT::VecOps::Combinations(Jpt,2);
+            auto pairs_cmb = Combinations(Jpt,2);
             RVec<RVec<int>> passing_pair_indices;
             RVec<int> temp_pair;
-            for (int i = 0; i<pairs_cmb[0].size(); i++){   // this is providing pairs of indices of the candidateJetIndices list! (not the indices of the jetCollection!)
+            for (size_t i = 0; i<pairs_cmb[0].size(); i++){   // this is providing pairs of indices of the candidateJetIndices list! (not the indices of the jetCollection!)
                 const auto i1 = pairs_cmb[0][i];
                 const auto i2 = pairs_cmb[1][i];
 
