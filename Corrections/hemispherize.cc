@@ -98,13 +98,13 @@ namespace analyzer {
                     float thisbtagsum = btagDeepB[passing_pair_indices[i1]] + btagDeepB[passing_pair_indices[i2]];
                     if (thisbtagsum > btagsum){
                         btagsum = thisbtagsum;
-                        candidatePairIdx.push_back(passing_pair_indices[i]);
+                        candidatePairIdx.push_back(std::forward<RVec<int>>passing_pair_indices[i]);
                     }
                 }
             } else if (passing_pair_indices.size() == 1){
-                candidatePairIdx.push_back(passing_pair_indices[0]);
+                candidatePairIdx.push_back(std::forward<RVec<int>>passing_pair_indices[0]);
             } else{
-                candidatePairIdx = ({}); 
+                candidatePairIdx.push_back(fail); 
             }
             
             if (candidatePairIdx.size() == 1){
