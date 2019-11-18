@@ -37,17 +37,15 @@ namespace analyzer {
         //If not enough jets, end it
         if (candidateJetIndices.size() < 2){
             return fail;
-        }
-        //Else compare jets and find those within R of 1.5 (make pairs)
-
-        else{
+        }else{//Else compare jets and find those within R of 1.5 (make pairs)
             //Compare all pairs
-            RVec<RVec<size_t> > pairs_cmb = Combinations(Jpt,2);
+            RVec<RVec<size_t>> pairs_cmb = Combinations(Jpt,2);
             RVec<RVec<int>> passing_pair_indices;
             RVec<int> temp_pair;
-            for (size_t i = 0; i<pairs_cmb[0].size(); i++){   // this is providing pairs of indices of the candidateJetIndices list! (not the indices of the jetCollection!)
-                const auto i1 = pairs_cmb[0][i];
-                const auto i2 = pairs_cmb[1][i];
+	    int pairsSize = pairs_cmb[0].size();
+            for (size_t j = 0; j < pairsSize; j++){   // this is providing pairs of indices of the candidateJetIndices list! (not the indices of the jetCollection!)
+                const auto i1 = pairs_cmb[0][j];
+                const auto i2 = pairs_cmb[1][j];
 
                 TLorentzVector* v1 = new TLorentzVector();
                 v1->SetPtEtaPhiM(Jpt[i1],Jeta[i1],Jphi[i1],Jmass[i1]);
@@ -70,9 +68,9 @@ namespace analyzer {
             for (int i =0; i<FJnjets; i++){
                 TLorentzVector* fjetLV = new TLorentzVector();
                 fjetLV->SetPtEtaPhiM(FJpt[i],FJeta[i],FJphi[i],FJmass[i]);
-                for (size_t i =0; i < passing_pair_indices[0].size(); i++){
-                    const auto i1 = passing_pair_indices[0][i];
-                    const auto i2 = passing_pair_indices[1][i];
+                for (size_t j =0; j < passing_pair_indices[0].size(); j++){
+                    const auto i1 = passing_pair_indices[0][j];
+                    const auto i2 = passing_pair_indices[1][j];
                         TLorentzVector* v1 = new TLorentzVector();
                         v1->SetPtEtaPhiM(Jpt[i1],Jeta[i1],Jphi[i1],Jmass[i1]);
                         TLorentzVector* v2 = new TLorentzVector();
@@ -93,9 +91,9 @@ namespace analyzer {
             if (passing_pair_indices.size() > 1){
                 // Now pick based on summed btag values
                 float btagsum = 0;
-                const auto i1 = passing_pair_indices[0][i];
-                const auto i2 = passing_pair_indices[1][i];
                 for (int i =0; i < passing_pair_indices[0].size(); i++) {
+		    const auto i1 = passing_pair_indices[0][i];
+                    const auto i2 = passing_pair_indices[1][i];
                     float thisbtagsum = btagDeepB[passing_pair_indices[i1]] + btagDeepB[passing_pair_indices[i2]];
                     if (thisbtagsum > btagsum){
                         btagsum = thisbtagsum;
