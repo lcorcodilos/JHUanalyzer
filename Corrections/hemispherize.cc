@@ -102,7 +102,7 @@ namespace analyzer {
                     }
                 }
             } else if (passing_pair_indices.size() == 1){
-                candidatePairIdx.push_back(std::forward<RVec<int>>((pass)ing_pair_indices[0]));
+                candidatePairIdx.push_back(std::forward<RVec<int>>(passing_pair_indices[0]));
             } else{
                 candidatePairIdx.push_back(std::forward<RVec<int>>(fail)); 
             }
