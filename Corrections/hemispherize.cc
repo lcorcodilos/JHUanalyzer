@@ -92,9 +92,9 @@ namespace analyzer {
                 // Now pick based on summed btag values
                 float btagsum = 0;
                 for (int i =0; i < passing_pair_indices[0].size(); i++) {
-		    const auto i1 = passing_pair_indices[0][i];
+		            const auto i1 = passing_pair_indices[0][i];
                     const auto i2 = passing_pair_indices[1][i];
-                    float thisbtagsum = btagDeepB[passing_pair_indices[i1]] + btagDeepB[passing_pair_indices[i2]];
+                    float thisbtagsum = btagDeepB[i1] + btagDeepB[i2];
                     if (thisbtagsum > btagsum){
                         btagsum = thisbtagsum;
                         candidatePairIdx.push_back(std::forward<RVec<int>>(passing_pair_indices[i]));
