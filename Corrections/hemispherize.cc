@@ -3,7 +3,7 @@
 #include <cmath>
 #include "ROOT/RVec.hxx"
 using namespace ROOT::VecOps;
-using rvec_f = const RVec<float> &;
+using rvec_f = const RVec<float>;
 //return two ak4 cnadidates that are properly selected by hemispherize funtion for 2+1
 //Compares ak4 jets against leading ak8 and looks for any in opposite hemisphere
 //First find the highest pt ak8 jet with mass > 40 geV
