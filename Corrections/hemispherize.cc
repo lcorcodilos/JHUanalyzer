@@ -69,7 +69,7 @@ namespace analyzer {
             for (int i =0; i<FJnjets; i++){
                 TLorentzVector* fjetLV = new TLorentzVector();
                 fjetLV->SetPtEtaPhiM(FJpt[i],FJeta[i],FJphi[i],FJmass[i]);
-                for (int i =0; i < passing_pair_indices[0].size(); i++){
+                for (size_t i =0; i < passing_pair_indices[0].size(); i++){
                     const auto i1 = passing_pair_indices[0][i];
                     const auto i2 = passing_pair_indices[1][i];
                         TLorentzVector* v1 = new TLorentzVector();
@@ -102,9 +102,9 @@ namespace analyzer {
                     }
                 }
             } else if (passing_pair_indices.size() == 1){
-                candidatePairIdx.push_back(std::forward<RVec<int>>(passing_pair_indices[0]));
+                candidatePairIdx.push_back(std::forward<RVec<int>>((pass)ing_pair_indices[0]));
             } else{
-                candidatePairIdx.push_back(fail); 
+                candidatePairIdx.push_back(std::forward<RVec<int>>(fail)); 
             }
             
             if (candidatePairIdx.size() == 1){
