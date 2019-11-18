@@ -4,7 +4,6 @@
 #include "ROOT/RVec.hxx"
 using namespace ROOT::VecOps;
 using rvec_f = const RVec<float> &;
-using Comb = ROOT::VecOps::Combinations;
 //return two ak4 cnadidates that are properly selected by hemispherize funtion for 2+1
 //Compares ak4 jets against leading ak8 and looks for any in opposite hemisphere
 //First find the highest pt ak8 jet with mass > 40 geV
@@ -43,7 +42,7 @@ namespace analyzer {
 
         else{
             //Compare all pairs
-            RVec<RVec<size_t> > pairs_cmb = Comb(Jpt,2);
+            RVec<RVec<size_t> > pairs_cmb = Combinations(Jpt,2);
             RVec<RVec<int>> passing_pair_indices;
             RVec<int> temp_pair;
             for (size_t i = 0; i<pairs_cmb[0].size(); i++){   // this is providing pairs of indices of the candidateJetIndices list! (not the indices of the jetCollection!)
