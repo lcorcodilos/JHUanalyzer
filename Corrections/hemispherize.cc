@@ -42,8 +42,8 @@ namespace analyzer {
             RVec<RVec<size_t>> pairs_cmb = Combinations(Jpt,2);
             RVec<RVec<int>> passing_pair_indices;
             RVec<int> temp_pair;
-	    int pairsSize = pairs_cmb[0].size();
-            for (size_t j = 0; j < pairsSize; j++){   // this is providing pairs of indices of the candidateJetIndices list! (not the indices of the jetCollection!)
+	        int pairsSize = pairs_cmb[0].size();
+            for (int j = 0; j < pairsSize; j++){   // this is providing pairs of indices of the candidateJetIndices list! (not the indices of the jetCollection!)
                 const auto i1 = pairs_cmb[0][j];
                 const auto i2 = pairs_cmb[1][j];
 
@@ -68,7 +68,7 @@ namespace analyzer {
             for (int i =0; i<FJnjets; i++){
                 TLorentzVector* fjetLV = new TLorentzVector();
                 fjetLV->SetPtEtaPhiM(FJpt[i],FJeta[i],FJphi[i],FJmass[i]);
-                for (size_t j =0; j < passing_pair_indices[0].size(); j++){
+                for (int j =0; j < passing_pair_indices[0].size(); j++){
                     const auto i1 = passing_pair_indices[0][j];
                     const auto i2 = passing_pair_indices[1][j];
                         TLorentzVector* v1 = new TLorentzVector();
