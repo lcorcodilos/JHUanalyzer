@@ -16,7 +16,7 @@ namespace analyzer {
         fail.push_back(0);
 
         auto candidateFatJetIndex = -1;
-        for (int i =0; i<FJnjets; i++){
+        for (int i =0; i<FJnjets[0]; i++){
 
             if (FJmass[i] > 40) {
                 candidateFatJetIndex = i;
@@ -30,14 +30,14 @@ namespace analyzer {
         RVec<int> candidateJetIndices;
         //Check the AK4s against the AK8
 
-        if (Jnjets < 1){
+        if (Jnjets[0] < 1){
             cout << "No jets available" << endl;
             return fail;
         }else{
             cout << "Jets are available" << endl;
         }
 
-        for (int ijet = 0; ijet<Jnjets; ijet++){
+        for (int ijet = 0; ijet<Jnjets[0]; ijet++){
             if (abs(FJphi[candidateFatJetIndex]-Jphi[ijet]) > M_PI_2 ){
                 candidateJetIndices.push_back(std::forward<int>(ijet));
             }
