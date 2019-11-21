@@ -25,13 +25,15 @@ namespace analyzer {
         if (candidateFatJetIndex == -1){
             return fail;
         }
-        cout << "fat jet found" << endl;
+        cout << "fat jet found " << candidateFatJetIndex << endl;
         RVec<int> candidateJetIndices;
         //Check the AK4s against the AK8
 
         if (Jnjets < 1){
             cout << "No jets available" << endl;
             return fail;
+        }else{
+            cout << "Jets are available" << endl;
         }
 
         for (int ijet = 0; ijet<Jnjets; ijet++){
