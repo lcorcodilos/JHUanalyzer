@@ -61,7 +61,7 @@ namespace analyzer {
                 return fail;
             }
             cout << "start for loop" << endl;
-            for (int j = 0; j < pairsSize; j++){   // this is providing pairs of indices of the candidateJetIndices list! (not the indices of the jetCollection!)
+            for (unsigned int j = 0; j < pairsSize; j++){   // this is providing pairs of indices of the candidateJetIndices list! (not the indices of the jetCollection!)
                 const auto i1 = pairs_cmb[0][j];
                 const auto i2 = pairs_cmb[1][j];
                 //cout << "make lorentz vectors " << j << endl;
@@ -94,7 +94,7 @@ namespace analyzer {
                 TLorentzVector* fjetLV = new TLorentzVector();
                 fjetLV->SetPtEtaPhiM(FJpt[i],FJeta[i],FJphi[i],FJmass[i]);
                 cout << i << " fat jet lorentz vector made" << endl;
-                for (int j =0; j < passing_pair_indices[0].size(); j++){
+                for (unsigned int j =0; j < passing_pair_indices[0].size(); j++){
                     const auto i1 = passing_pair_indices[0][j];
                     const auto i2 = passing_pair_indices[1][j];
                     cout << "indices booked" << endl;
