@@ -61,9 +61,13 @@ namespace analyzer {
                     passing_pair_indices.push_back(std::forward<RVec<int>>(temp_pair));
                     temp_pair.clear();
                 }
-            }
 
-            cout << "passing pairs made" << endl;
+            }
+            if (passing_pair_indices[0].size() < 1){
+                return fail;
+            }
+            
+            cout << "passing pairs made " << passing_pair_indices[0].size() << endl;
             // Check if the ak4 jets are in a larger ak8
             // If they are, pop them out of our two lists for consideration
             for (int i =0; i<FJnjets; i++){
