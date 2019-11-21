@@ -93,7 +93,7 @@ namespace analyzer {
             for (unsigned int i =0; i<FJnjets; i++){
                 TLorentzVector* fjetLV = new TLorentzVector();
                 fjetLV->SetPtEtaPhiM(FJpt[i],FJeta[i],FJphi[i],FJmass[i]);
-                cout << "fat jet lorentz vector made" << endl;
+                cout << i << " fat jet lorentz vector made" << endl;
                 for (int j =0; j < passing_pair_indices[0].size(); j++){
                     const auto i1 = passing_pair_indices[0][j];
                     const auto i2 = passing_pair_indices[1][j];
