@@ -15,7 +15,7 @@ namespace analyzer {
         fail.push_back(0);
 
         auto candidateFatJetIndex = -1;
-        for (int i =0; i<FJnjets; i++){
+        for (unsigned int i =0; i<FJnjets; i++){
 
             if (FJmass[i] > 40) {
                 candidateFatJetIndex = i;
@@ -36,10 +36,11 @@ namespace analyzer {
             cout << Jnjets << " jets are available" << endl;
         }
 
-        for (int ijet = 0; ijet<Jnjets; ijet++){
+        for (unsigned int ijet = 0; ijet<Jnjets; ijet++){
             cout << "ijet = " << ijet << " Jnjets = " << Jnjets << endl;
             if (abs(FJphi[candidateFatJetIndex]-Jphi[ijet]) > M_PI_2 ){
                 candidateJetIndices.push_back(std::forward<int>(ijet));
+                cout << "Jet " << ijet << " passed." << endl;
             }
         }
 
@@ -86,7 +87,7 @@ namespace analyzer {
             cout << "passing pairs made " << passing_pair_indices[0].size() << endl;
             // Check if the ak4 jets are in a larger ak8
             // If they are, pop them out of our two lists for consideration
-            for (int i =0; i<FJnjets; i++){
+            for (unsigned int i =0; i<FJnjets; i++){
                 TLorentzVector* fjetLV = new TLorentzVector();
                 fjetLV->SetPtEtaPhiM(FJpt[i],FJeta[i],FJphi[i],FJmass[i]);
                 for (int j =0; j < passing_pair_indices[0].size(); j++){
