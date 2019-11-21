@@ -2,6 +2,7 @@
 
 #include <cmath>
 #include "ROOT/RVec.hxx"
+ #include "Math/Vector4D.h"
 using namespace ROOT::VecOps;
 using rvec_f = const RVec<float>;
 //return two ak4 cnadidates that are properly selected by hemispherize funtion for 2+1
@@ -91,17 +92,14 @@ namespace analyzer {
             // Check if the ak4 jets are in a larger ak8
             // If they are, pop them out of our two lists for consideration
             for (unsigned int i =0; i<FJnjets; i++){
-                TLorentzVector* fjetLV = new TLorentzVector();
-                fjetLV->SetPtEtaPhiM(FJpt[i],FJeta[i],FJphi[i],FJmass[i]);
+                ROOT::Math::PtEtaPhiMVector fjetLV(FJpt[i],FJeta[i],FJphi[i],FJmass[i]);
                 cout << i << " fat jet lorentz vector made" << endl;
                 for (unsigned int j =0; j < passing_pair_indices[0].size(); j++){
                     const auto i1 = passing_pair_indices[0][j];
                     const auto i2 = passing_pair_indices[1][j];
-                    cout << "indices booked" << endl;
-                        TLorentzVector* v1 = new TLorentzVector();
-                        v1->SetPtEtaPhiM(Jpt[i1],Jeta[i1],Jphi[i1],Jmass[i1]);
-                        TLorentzVector* v2 = new TLorentzVector();
-                        v2->SetPtEtaPhiM(Jpt[i2],Jeta[i2],Jphi[i2],Jmass[i2]);
+                    cout << "indices booked" << i1 << " " << i2 << endl;
+                        ROOT::Math::PtEtaPhiMVector v1(Jpt[i1],Jeta[i1],Jphi[i1],Jmass[i1]);
+                        ROOT::Math::PtEtaPhiMVector v2(Jpt[i2],Jeta[i2],Jphi[i2],Jmass[i2]);
                         cout << j << " jet lorentz vectors made" << endl;
 
                         if (fjetLV->DeltaR(*v1) < 0.8){
