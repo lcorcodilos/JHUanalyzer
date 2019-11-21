@@ -99,6 +99,7 @@ namespace analyzer {
                     const auto i2 = passing_pair_indices[1][j];
                     cout << "indices booked " << i1 << " " << i2 << endl;
                     if(i2 < 0 || i1 < 0){
+                        cout << "bad index found" << endl;
                         break; 
                     }
                         TLorentzVector* v1 = new TLorentzVector();
