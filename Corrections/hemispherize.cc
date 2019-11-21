@@ -25,7 +25,7 @@ namespace analyzer {
         if (candidateFatJetIndex == -1){
             return fail;
         }
-
+        cout << "fat jet found" << endl;
         RVec<int> candidateJetIndices;
         //Check the AK4s against the AK8
         for (int ijet = 0; ijet<Jnjets; ijet++){
@@ -36,6 +36,7 @@ namespace analyzer {
 
         //If not enough jets, end it
         if (candidateJetIndices.size() < 2){
+            cout << "not enough jets" << endl;
             return fail;
         }else{//Else compare jets and find those within R of 1.5 (make pairs)
             //Compare all pairs
@@ -62,7 +63,7 @@ namespace analyzer {
                 }
             }
 
-            
+            cout << "passing pairs made" << endl;
             // Check if the ak4 jets are in a larger ak8
             // If they are, pop them out of our two lists for consideration
             for (int i =0; i<FJnjets; i++){
@@ -85,6 +86,7 @@ namespace analyzer {
                         }
                 }
             }
+            cout << "candidate pairs made" << endl;
             RVec<RVec<int>> candidatePairIdx;
             RVec<int> PairIdx;
             //if STILL greater than 1 pair...
@@ -107,10 +109,12 @@ namespace analyzer {
             }
             
             if (candidatePairIdx.size() == 1){
+                cout << "final pair indices found" << endl;
                 PairIdx.push_back(std::forward<int>(candidatePairIdx[0][0]));
                 PairIdx.push_back(std::forward<int>(candidatePairIdx[0][1]));
                 return PairIdx;
             } else{
+                cout << "no indices found" << endl;
                 return fail;
             }
 
