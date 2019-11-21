@@ -55,7 +55,7 @@ namespace analyzer {
             RVec<RVec<int>> passing_pair_indices;
             RVec<int> temp_pair;
 	        int pairsSize = pairs_cmb[0].size();
-            cout << "check combinations size" << endl;
+            cout << "check combinations size " << pairsSize << endl;
             if (pairsSize < 1){
                 cout << "Combinations size less than 1" << endl;
                 return fail;
@@ -64,7 +64,7 @@ namespace analyzer {
             for (int j = 0; j < pairsSize; j++){   // this is providing pairs of indices of the candidateJetIndices list! (not the indices of the jetCollection!)
                 const auto i1 = pairs_cmb[0][j];
                 const auto i2 = pairs_cmb[1][j];
-
+                cout << "make lorentz vectors" << endl;
                 TLorentzVector* v1 = new TLorentzVector();
                 v1->SetPtEtaPhiM(Jpt[i1],Jeta[i1],Jphi[i1],Jmass[i1]);
 
