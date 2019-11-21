@@ -44,6 +44,12 @@ namespace analyzer {
             RVec<RVec<int>> passing_pair_indices;
             RVec<int> temp_pair;
 	        int pairsSize = pairs_cmb[0].size();
+
+            if (pairsSize < 1){
+                cout << "Combinations size less than 1" << endl;
+                return fail;
+            }
+
             for (int j = 0; j < pairsSize; j++){   // this is providing pairs of indices of the candidateJetIndices list! (not the indices of the jetCollection!)
                 const auto i1 = pairs_cmb[0][j];
                 const auto i2 = pairs_cmb[1][j];
@@ -64,9 +70,10 @@ namespace analyzer {
 
             }
             if (passing_pair_indices[0].size() < 1){
+                cout << "passing pair indices less than 1" << endl;
                 return fail;
             }
-            
+
             cout << "passing pairs made " << passing_pair_indices[0].size() << endl;
             // Check if the ak4 jets are in a larger ak8
             // If they are, pop them out of our two lists for consideration
