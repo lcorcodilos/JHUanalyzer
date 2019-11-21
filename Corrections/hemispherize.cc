@@ -37,10 +37,10 @@ namespace analyzer {
         }
 
         for (unsigned int ijet = 0; ijet<Jnjets; ijet++){
-            cout << "ijet = " << ijet+1 << " Jnjets = " << Jnjets << endl;
+            //cout << "ijet = " << ijet+1 << " Jnjets = " << Jnjets << endl;
             if (abs(FJphi[candidateFatJetIndex]-Jphi[ijet]) > M_PI_2 ){
                 candidateJetIndices.emplace_back(ijet);
-                cout << "Jet " << ijet << " passed." << endl;
+                //cout << "Jet " << ijet << " passed." << endl;
             }
         }
         cout << "number of candidate jets = " << candidateJetIndices.size() << endl;
@@ -64,7 +64,7 @@ namespace analyzer {
             for (int j = 0; j < pairsSize; j++){   // this is providing pairs of indices of the candidateJetIndices list! (not the indices of the jetCollection!)
                 const auto i1 = pairs_cmb[0][j];
                 const auto i2 = pairs_cmb[1][j];
-                cout << "make lorentz vectors " << j << endl;
+                //cout << "make lorentz vectors " << j << endl;
                 TLorentzVector* v1 = new TLorentzVector();
                 v1->SetPtEtaPhiM(Jpt[i1],Jeta[i1],Jphi[i1],Jmass[i1]);
 
@@ -73,7 +73,7 @@ namespace analyzer {
 
                 if (v1->DeltaR(*v2) < 1.5){
                     // Save out collection index of those that pass
-                    cout << "pair " << j << " passes DeltaR" << endl;
+                    //cout << "pair " << j << " passes DeltaR" << endl;
                     temp_pair.emplace_back(i1);
                     temp_pair.emplace_back(i2);
                     passing_pair_indices.emplace_back(temp_pair);
@@ -93,6 +93,7 @@ namespace analyzer {
             for (unsigned int i =0; i<FJnjets; i++){
                 TLorentzVector* fjetLV = new TLorentzVector();
                 fjetLV->SetPtEtaPhiM(FJpt[i],FJeta[i],FJphi[i],FJmass[i]);
+                cout << "fat jet lorentz vector made" << j << endl;
                 for (int j =0; j < passing_pair_indices[0].size(); j++){
                     const auto i1 = passing_pair_indices[0][j];
                     const auto i2 = passing_pair_indices[1][j];
@@ -100,12 +101,15 @@ namespace analyzer {
                         v1->SetPtEtaPhiM(Jpt[i1],Jeta[i1],Jphi[i1],Jmass[i1]);
                         TLorentzVector* v2 = new TLorentzVector();
                         v2->SetPtEtaPhiM(Jpt[i2],Jeta[i2],Jphi[i2],Jmass[i2]);
+                        cout << j << " jet lorentz vectors made" << endl;
 
                         if (fjetLV->DeltaR(*v1) < 0.8){
+                            cout << "Pair " << j << " found inside AK8 jet" << endl;
                             passing_pair_indices.erase(passing_pair_indices.begin()+i);
                             break;
                         }
                         if (fjetLV->DeltaR(*v2) < 0.8){
+                            cout << "Pair " << j << " found inside AK8 jet" << endl;
                             passing_pair_indices.erase(passing_pair_indices.begin()+i);
                         }
                 }
