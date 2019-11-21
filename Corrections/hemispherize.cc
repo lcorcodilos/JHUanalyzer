@@ -97,7 +97,10 @@ namespace analyzer {
                 for (unsigned int j =0; j < passing_pair_indices[0].size(); j++){
                     const auto i1 = passing_pair_indices[0][j];
                     const auto i2 = passing_pair_indices[1][j];
-                    cout << "indices booked" << i1 << " " << i2 << endl;
+                    cout << "indices booked " << i1 << " " << i2 << endl;
+                    if(i2 < 0 || i1 < 0){
+                        break; 
+                    }
                         TLorentzVector* v1 = new TLorentzVector();
                         v1->SetPtEtaPhiM(Jpt[i1],Jeta[i1],Jphi[i1],Jmass[i1]);
                         TLorentzVector* v2 = new TLorentzVector();
