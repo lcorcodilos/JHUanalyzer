@@ -39,7 +39,7 @@ namespace analyzer {
         for (unsigned int ijet = 0; ijet<Jnjets; ijet++){
             cout << "ijet = " << ijet << " Jnjets = " << Jnjets << endl;
             if (abs(FJphi[candidateFatJetIndex]-Jphi[ijet]) > M_PI_2 ){
-                candidateJetIndices.push_back(std::forward<int>(ijet));
+                candidateJetIndices.push_back(ijet);
                 cout << "Jet " << ijet << " passed." << endl;
             }
         }
