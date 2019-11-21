@@ -33,10 +33,11 @@ namespace analyzer {
             cout << "No jets available" << endl;
             return fail;
         }else{
-            cout << "Jets are available" << endl;
+            cout << Jnjets << " jets are available" << endl;
         }
 
         for (int ijet = 0; ijet<Jnjets; ijet++){
+            cout << "ijet = " << ijet << " Jnjets = " << Jnjets << endl;
             if (abs(FJphi[candidateFatJetIndex]-Jphi[ijet]) > M_PI_2 ){
                 candidateJetIndices.push_back(std::forward<int>(ijet));
             }
