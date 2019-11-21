@@ -64,7 +64,7 @@ namespace analyzer {
             for (int j = 0; j < pairsSize; j++){   // this is providing pairs of indices of the candidateJetIndices list! (not the indices of the jetCollection!)
                 const auto i1 = pairs_cmb[0][j];
                 const auto i2 = pairs_cmb[1][j];
-                cout << "make lorentz vectors" << endl;
+                cout << "make lorentz vectors " << j << endl;
                 TLorentzVector* v1 = new TLorentzVector();
                 v1->SetPtEtaPhiM(Jpt[i1],Jeta[i1],Jphi[i1],Jmass[i1]);
 
@@ -73,8 +73,9 @@ namespace analyzer {
 
                 if (v1->DeltaR(*v2) < 1.5){
                     // Save out collection index of those that pass
-                    temp_pair.push_back(i1);
-                    temp_pair.push_back(i2);
+                    cout << "pair " << j << " passes DeltaR" << endl;
+                    temp_pair.emplace_back(i1);
+                    temp_pair.emplace_back(i2);
                     passing_pair_indices.push_back(std::forward<RVec<int>>(temp_pair));
                     temp_pair.clear();
                 }
