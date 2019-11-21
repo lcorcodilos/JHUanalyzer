@@ -96,12 +96,12 @@ namespace analyzer {
                 cout << i << " fat jet lorentz vector made" << endl;
                 for (unsigned int j =0; j < passing_pair_indices.size(); j++){
                     cout << "begin making indices with index " << j << endl;
-                    if (passing_pair_indices[0].empty() || passing_pair_indices[1].empty()){
-                        cout << "empty vector values found " << endl;
+                    if (passing_pair_indices[j].empty()){
+                        cout << "empty vector pair values found " << endl;
                         break;
                     }
-                    cout << "checking stuff " << passing_pair_indices[j][0] << " " << passing_pair_indices[j][0] << endl; 
-                    if (passing_pair_indices[j][0] > 100 || passing_pair_indices[j][1] > 100){
+                    cout << "checking pair indices " << passing_pair_indices[j][0] << " " << passing_pair_indices[j][1] << endl; 
+                    if (passing_pair_indices[j][0] > 1000 || passing_pair_indices[j][1] > 1000){
                         cout << "uncaught high memory usage" << endl;
                         break;
                     }
@@ -136,7 +136,7 @@ namespace analyzer {
             if (passing_pair_indices.size() > 1){
                 // Now pick based on summed btag values
                 float btagsum = 0;
-                for (int i =0; i < passing_pair_indices[0].size(); i++) {
+                for (int i =0; i < passing_pair_indices.size(); i++) {
 		            const auto i1 = passing_pair_indices[i][0];
                     const auto i2 = passing_pair_indices[i][1];
                     float thisbtagsum = btagDeepB[i1] + btagDeepB[i2];
