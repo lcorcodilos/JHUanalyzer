@@ -95,6 +95,7 @@ namespace analyzer {
                 fjetLV->SetPtEtaPhiM(FJpt[i],FJeta[i],FJphi[i],FJmass[i]);
                 cout << i << " fat jet lorentz vector made" << endl;
                 for (unsigned int j =0; j < passing_pair_indices[0].size(); j++){
+                    cout << "begin making indices" << endl;
                     const auto i1 = passing_pair_indices[0][j];
                     const auto i2 = passing_pair_indices[1][j];
                     cout << "indices booked " << i1 << " " << i2 << endl;
