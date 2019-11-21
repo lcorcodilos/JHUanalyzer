@@ -53,7 +53,7 @@ namespace analyzer {
             RVec<RVec<size_t>> pairs_cmb = Combinations(Jpt,2);
             cout << "Combinations made" << endl; 
             RVec<RVec<int>> passing_pair_indices;
-            RVec<int> temp_pair;
+            RVec<int> temp_pair (2);
 	        int pairsSize = pairs_cmb[0].size();
             cout << "check combinations size " << pairsSize << endl;
             if (pairsSize < 1){
@@ -85,6 +85,9 @@ namespace analyzer {
             if (passing_pair_indices.empty()){
                 cout << "no passing pairs found" << endl;
                 return fail;
+            }
+            if (passing_pair_indices[0].size() != passing_pair_indices[1].size()){
+                cout << "bad pairs made." << endl;
             }
 
             cout << "passing pairs made " << passing_pair_indices[0].size() << endl;
