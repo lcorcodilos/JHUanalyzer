@@ -37,7 +37,7 @@ namespace analyzer {
         }
 
         for (unsigned int ijet = 0; ijet<Jnjets; ijet++){
-            cout << "ijet = " << ijet << " Jnjets = " << Jnjets << endl;
+            cout << "ijet = " << ijet+1 << " Jnjets = " << Jnjets << endl;
             if (abs(FJphi[candidateFatJetIndex]-Jphi[ijet]) > M_PI_2 ){
                 candidateJetIndices.emplace_back(ijet);
                 cout << "Jet " << ijet << " passed." << endl;
