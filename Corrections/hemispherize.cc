@@ -43,7 +43,7 @@ namespace analyzer {
                 cout << "Jet " << ijet << " passed." << endl;
             }
         }
-
+        cout << "number of candidate jets = " << candidateJetIndices.size() << endl;
         //If not enough jets, end it
         if (candidateJetIndices.size() < 2){
             cout << "not enough jets" << endl;
