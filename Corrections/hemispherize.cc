@@ -137,8 +137,8 @@ namespace analyzer {
                 // Now pick based on summed btag values
                 float btagsum = 0;
                 for (int i =0; i < passing_pair_indices[0].size(); i++) {
-		            const auto i1 = passing_pair_indices[0][i];
-                    const auto i2 = passing_pair_indices[1][i];
+		            const auto i1 = passing_pair_indices[i][0];
+                    const auto i2 = passing_pair_indices[i][1];
                     float thisbtagsum = btagDeepB[i1] + btagDeepB[i2];
                     if (thisbtagsum > btagsum){
                         btagsum = thisbtagsum;
