@@ -28,6 +28,12 @@ namespace analyzer {
         cout << "fat jet found" << endl;
         RVec<int> candidateJetIndices;
         //Check the AK4s against the AK8
+
+        if (Jnjets < 1){
+            cout << "No jets available" << endl;
+            return fail;
+        }
+
         for (int ijet = 0; ijet<Jnjets; ijet++){
             if (abs(FJphi[candidateFatJetIndex]-Jphi[ijet]) > M_PI_2 ){
                 candidateJetIndices.push_back(std::forward<int>(ijet));
