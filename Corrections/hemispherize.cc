@@ -25,16 +25,16 @@ namespace analyzer {
         if (candidateFatJetIndex == -1){
             return fail;
         }
-        cout << "fat jet found " << candidateFatJetIndex << endl;
+        //cout << "fat jet found " << candidateFatJetIndex << endl;
         RVec<int> candidateJetIndices;
         //Check the AK4s against the AK8
 
         if (Jnjets < 1){
-            cout << "No jets available" << endl;
+            //cout << "No jets available" << endl;
             return fail;
-        }else{
-            cout << Jnjets << " jets are available" << endl;
-        }
+        }//else{
+            //cout << Jnjets << " jets are available" << endl;
+        //}
 
         for (unsigned int ijet = 0; ijet<Jnjets; ijet++){
             //cout << "ijet = " << ijet+1 << " Jnjets = " << Jnjets << endl;
@@ -43,24 +43,24 @@ namespace analyzer {
                 //cout << "Jet " << ijet << " passed." << endl;
             }
         }
-        cout << "number of candidate jets = " << candidateJetIndices.size() << endl;
+        //cout << "number of candidate jets = " << candidateJetIndices.size() << endl;
         //If not enough jets, end it
         if (candidateJetIndices.size() < 2){
-            cout << "not enough jets" << endl;
+            //cout << "not enough jets" << endl;
             return fail;
         }else{//Else compare jets and find those within R of 1.5 (make pairs)
             //Compare all pairs
             RVec<RVec<size_t>> pairs_cmb = Combinations(Jpt,2);
-            cout << "Combinations made" << endl; 
+            //cout << "Combinations made" << endl; 
             RVec<RVec<int>> passing_pair_indices;
             RVec<int> temp_pair (2);
 	        int pairsSize = pairs_cmb[0].size();
-            cout << "check combinations size " << pairsSize << endl;
+            //cout << "check combinations size " << pairsSize << endl;
             if (pairsSize < 1){
-                cout << "Combinations size less than 1" << endl;
+                //cout << "Combinations size less than 1" << endl;
                 return fail;
             }
-            cout << "start for loop" << endl;
+            //cout << "start for loop" << endl;
             for (unsigned int j = 0; j < pairsSize; j++){   // this is providing pairs of indices of the candidateJetIndices list! (not the indices of the jetCollection!)
                 const auto i1 = pairs_cmb[0][j];
                 const auto i2 = pairs_cmb[1][j];
@@ -81,55 +81,55 @@ namespace analyzer {
                 }
 
             }
-            cout << "end for loop" << endl;
+            //cout << "end for loop" << endl;
             if (passing_pair_indices.empty()){
-                cout << "no passing pairs found" << endl;
+                //cout << "no passing pairs found" << endl;
                 return fail;
             }
 
-            cout << "passing pairs made " << passing_pair_indices.size() << endl;
+            //cout << "passing pairs made " << passing_pair_indices.size() << endl;
             // Check if the ak4 jets are in a larger ak8
             // If they are, pop them out of our two lists for consideration
             for (unsigned int i =0; i<FJnjets; i++){
                 TLorentzVector* fjetLV = new TLorentzVector();
                 fjetLV->SetPtEtaPhiM(FJpt[i],FJeta[i],FJphi[i],FJmass[i]);
-                cout << i << " fat jet lorentz vector made" << endl;
+                //cout << i << " fat jet lorentz vector made" << endl;
                 for (unsigned int j =0; j < passing_pair_indices.size(); j++){
-                    cout << "begin making indices with index " << j << endl;
+                    //cout << "begin making indices with index " << j << endl;
                     if (passing_pair_indices[j].empty()){
-                        cout << "empty vector pair values found " << endl;
+                        //cout << "empty vector pair values found " << endl;
                         break;
                     }
-                    cout << "checking pair indices " << passing_pair_indices[j][0] << " " << passing_pair_indices[j][1] << endl; 
+                    //cout << "checking pair indices " << passing_pair_indices[j][0] << " " << passing_pair_indices[j][1] << endl; 
                     if (passing_pair_indices[j][0] > 1000 || passing_pair_indices[j][1] > 1000){
-                        cout << "uncaught high memory usage" << endl;
+                        //cout << "uncaught high memory usage" << endl;
                         break;
                     }
                     const auto i1 = passing_pair_indices[j][0];
                     const auto i2 = passing_pair_indices[j][1];
-                    cout << "indices booked " << i1 << " " << i2 << endl;
+                    //cout << "indices booked " << i1 << " " << i2 << endl;
                     if(i2 < 0 || i1 < 0){
-                        cout << "bad index found" << endl;
+                        //cout << "bad index found" << endl;
                         break; 
                     }
                         TLorentzVector* v1 = new TLorentzVector();
                         v1->SetPtEtaPhiM(Jpt[i1],Jeta[i1],Jphi[i1],Jmass[i1]);
                         TLorentzVector* v2 = new TLorentzVector();
                         v2->SetPtEtaPhiM(Jpt[i2],Jeta[i2],Jphi[i2],Jmass[i2]);
-                        cout << j << " jet lorentz vectors made" << endl;
+                        //cout << j << " jet lorentz vectors made" << endl;
 
                         if (fjetLV->DeltaR(*v1) < 0.8){
-                            cout << "Pair " << j << " found inside AK8 jet" << endl;
+                            //cout << "Pair " << j << " found inside AK8 jet" << endl;
                             passing_pair_indices.erase(passing_pair_indices.begin()+i);
                             break;
                         }
                         if (fjetLV->DeltaR(*v2) < 0.8){
-                            cout << "Pair " << j << " found inside AK8 jet" << endl;
+                            //cout << "Pair " << j << " found inside AK8 jet" << endl;
                             passing_pair_indices.erase(passing_pair_indices.begin()+i);
                         }
                 }
             }
-            cout << "candidate pairs made" << endl;
+            //cout << "candidate pairs made" << endl;
             RVec<RVec<int>> candidatePairIdx;
             RVec<int> PairIdx;
             //if STILL greater than 1 pair...
@@ -152,12 +152,12 @@ namespace analyzer {
             }
             
             if (candidatePairIdx.size() == 1){
-                cout << "final pair indices found" << endl;
+                //cout << "final pair indices found" << endl;
                 PairIdx.emplace_back(candidatePairIdx[0][0]);
                 PairIdx.emplace_back(candidatePairIdx[0][1]);
                 return PairIdx;
             } else{
-                cout << "no indices found" << endl;
+                //cout << "no indices found" << endl;
                 return fail;
             }
 
