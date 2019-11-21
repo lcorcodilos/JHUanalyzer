@@ -86,9 +86,6 @@ namespace analyzer {
                 cout << "no passing pairs found" << endl;
                 return fail;
             }
-            if (passing_pair_indices[0].size() != passing_pair_indices[1].size()){
-                cout << "bad pairs made." << endl;
-            }
 
             cout << "passing pairs made " << passing_pair_indices[0].size() << endl;
             // Check if the ak4 jets are in a larger ak8
@@ -100,16 +97,16 @@ namespace analyzer {
                 for (unsigned int j =0; j < passing_pair_indices[0].size(); j++){
                     cout << "begin making indices with index " << j << endl;
                     if (passing_pair_indices[0].empty() || passing_pair_indices[1].empty()){
-                        cout << "empty vector value found " << endl;
+                        cout << "empty vector values found " << endl;
                         break;
                     }
-                    cout << "checking stuff " << passing_pair_indices[0][j] << " " << passing_pair_indices[1][j] << endl; 
-                    if (passing_pair_indices[0][j] > 100 || passing_pair_indices[1][j] > 100){
+                    cout << "checking stuff " << passing_pair_indices[j][0] << " " << passing_pair_indices[j][0] << endl; 
+                    if (passing_pair_indices[j][0] > 100 || passing_pair_indices[j][1] > 100){
                         cout << "uncaught high memory usage" << endl;
                         break;
                     }
-                    const auto i1 = passing_pair_indices[0][j];
-                    const auto i2 = passing_pair_indices[1][j];
+                    const auto i1 = passing_pair_indices[j][0];
+                    const auto i2 = passing_pair_indices[j][1];
                     cout << "indices booked " << i1 << " " << i2 << endl;
                     if(i2 < 0 || i1 < 0){
                         cout << "bad index found" << endl;
