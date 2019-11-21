@@ -87,7 +87,7 @@ namespace analyzer {
                 return fail;
             }
 
-            cout << "passing pairs made " << passing_pair_indices[0].size() << endl;
+            cout << "passing pairs made " << passing_pair_indices[0].size() << " " << passing_pair_indices[1].size() << endl;
             // Check if the ak4 jets are in a larger ak8
             // If they are, pop them out of our two lists for consideration
             for (unsigned int i =0; i<FJnjets; i++){
