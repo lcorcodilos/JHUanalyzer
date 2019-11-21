@@ -96,7 +96,7 @@ namespace analyzer {
                 cout << i << " fat jet lorentz vector made" << endl;
                 for (unsigned int j =0; j < passing_pair_indices[0].size(); j++){
                     cout << "begin making indices with index " << j << endl;
-                    if (passing_pair_indices[0][j] == '\0' || passing_pair_indices[1][j] == '\0'){
+                    if (passing_pair_indices[0].empty() || passing_pair_indices[1].empty()){
                         cout << "empty vector value found " << endl;
                         break;
                     }
