@@ -4,19 +4,18 @@
 #include "ROOT/RVec.hxx"
 using namespace ROOT::VecOps;
 using rvec_f = const RVec<float>;
-using rvec_i = const RVec<int>;
 //return two ak4 cnadidates that are properly selected by hemispherize funtion for 2+1
 //Compares ak4 jets against leading ak8 and looks for any in opposite hemisphere
 //First find the highest pt ak8 jet with mass > 40 geV
 namespace analyzer {
-     RVec<int> Hemispherize(rvec_f FJpt, rvec_f FJeta, rvec_f FJphi, rvec_f FJmass, rvec_i FJnjets, rvec_f Jpt, rvec_f Jeta, rvec_f Jphi, rvec_f Jmass, rvec_i Jnjets, rvec_f btagDeepB){
+     RVec<int> Hemispherize(rvec_f FJpt, rvec_f FJeta, rvec_f FJphi, rvec_f FJmass, unsigned int FJnjets, rvec_f Jpt, rvec_f Jeta, rvec_f Jphi, rvec_f Jmass, unsigned int Jnjets, rvec_f btagDeepB){
         //First find the highest pt ak8 jet with mass > 40 geV
         RVec<int> fail; //this is used for if the hemispherize fails so we can filter the event
         fail.push_back(0);
         fail.push_back(0);
 
         auto candidateFatJetIndex = -1;
-        for (int i =0; i<FJnjets[0]; i++){
+        for (int i =0; i<FJnjets; i++){
 
             if (FJmass[i] > 40) {
                 candidateFatJetIndex = i;
@@ -30,14 +29,14 @@ namespace analyzer {
         RVec<int> candidateJetIndices;
         //Check the AK4s against the AK8
 
-        if (Jnjets[0] < 1){
+        if (Jnjets < 1){
             cout << "No jets available" << endl;
             return fail;
         }else{
             cout << "Jets are available" << endl;
         }
 
-        for (int ijet = 0; ijet<Jnjets[0]; ijet++){
+        for (int ijet = 0; ijet<Jnjets; ijet++){
             if (abs(FJphi[candidateFatJetIndex]-Jphi[ijet]) > M_PI_2 ){
                 candidateJetIndices.push_back(std::forward<int>(ijet));
             }
@@ -86,7 +85,7 @@ namespace analyzer {
             cout << "passing pairs made " << passing_pair_indices[0].size() << endl;
             // Check if the ak4 jets are in a larger ak8
             // If they are, pop them out of our two lists for consideration
-            for (int i =0; i<FJnjets[0]; i++){
+            for (int i =0; i<FJnjets; i++){
                 TLorentzVector* fjetLV = new TLorentzVector();
                 fjetLV->SetPtEtaPhiM(FJpt[i],FJeta[i],FJphi[i],FJmass[i]);
                 for (int j =0; j < passing_pair_indices[0].size(); j++){
