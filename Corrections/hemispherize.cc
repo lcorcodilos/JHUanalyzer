@@ -11,8 +11,8 @@ namespace analyzer {
      RVec<int> Hemispherize(rvec_f FJpt, rvec_f FJeta, rvec_f FJphi, rvec_f FJmass, unsigned int FJnjets, rvec_f Jpt, rvec_f Jeta, rvec_f Jphi, rvec_f Jmass, unsigned int Jnjets, rvec_f btagDeepB){
         //First find the highest pt ak8 jet with mass > 40 geV
         RVec<int> fail; //this is used for if the hemispherize fails so we can filter the event
-        fail.push_back(0);
-        fail.push_back(0);
+        fail.emplace_back(0);
+        fail.emplace_back(0);
 
         auto candidateFatJetIndex = -1;
         for (unsigned int i =0; i<FJnjets; i++){
@@ -76,7 +76,7 @@ namespace analyzer {
                     //cout << "pair " << j << " passes DeltaR" << endl;
                     temp_pair.emplace_back(i1);
                     temp_pair.emplace_back(i2);
-                    passing_pair_indices.push_back(std::forward<RVec<int>>(temp_pair));
+                    passing_pair_indices.emplace_back(temp_pair);
                     temp_pair.clear();
                 }
 
@@ -123,19 +123,19 @@ namespace analyzer {
                     float thisbtagsum = btagDeepB[i1] + btagDeepB[i2];
                     if (thisbtagsum > btagsum){
                         btagsum = thisbtagsum;
-                        candidatePairIdx.push_back(std::forward<RVec<int>>(passing_pair_indices[i]));
+                        candidatePairIdx.emplace_back(passing_pair_indices[i]);
                     }
                 }
             } else if (passing_pair_indices.size() == 1){
-                candidatePairIdx.push_back(std::forward<RVec<int>>(passing_pair_indices[0]));
+                candidatePairIdx.emplace_back(passing_pair_indices[0]);
             } else{
-                candidatePairIdx.push_back(std::forward<RVec<int>>(fail)); 
+                candidatePairIdx.emplace_back(fail); 
             }
             
             if (candidatePairIdx.size() == 1){
                 //cout << "final pair indices found" << endl;
-                PairIdx.push_back(std::forward<int>(candidatePairIdx[0][0]));
-                PairIdx.push_back(std::forward<int>(candidatePairIdx[0][1]));
+                PairIdx.emplace_back(candidatePairIdx[0][0]);
+                PairIdx.emplace_back(candidatePairIdx[0][1]);
                 return PairIdx;
             } else{
                 //cout << "no indices found" << endl;
