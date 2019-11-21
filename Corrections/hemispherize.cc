@@ -99,7 +99,8 @@ namespace analyzer {
                     if (passing_pair_indices[0].empty() || passing_pair_indices[1].empty()){
                         cout << "uncaught empty pairs" << endl;
                         break;
-                    } 
+                    }
+                    cout << "checking stuff " << passing_pair_indices[0][j] << " " << passing_pair_indices[1][j] << endl; 
                     const auto i1 = passing_pair_indices[0][j];
                     const auto i2 = passing_pair_indices[1][j];
                     cout << "indices booked " << i1 << " " << i2 << endl;
