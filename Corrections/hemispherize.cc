@@ -51,6 +51,7 @@ namespace analyzer {
         }else{//Else compare jets and find those within R of 1.5 (make pairs)
             //Compare all pairs
             RVec<RVec<size_t>> pairs_cmb = Combinations(Jpt,2);
+            cout << "Combinations made" << endl; 
             RVec<RVec<int>> passing_pair_indices;
             RVec<int> temp_pair;
 	        int pairsSize = pairs_cmb[0].size();
