@@ -55,12 +55,12 @@ namespace analyzer {
             RVec<RVec<int>> passing_pair_indices;
             RVec<int> temp_pair;
 	        int pairsSize = pairs_cmb[0].size();
-
+            cout << "check combinations size" << endl;
             if (pairsSize < 1){
                 cout << "Combinations size less than 1" << endl;
                 return fail;
             }
-
+            cout << "start for loop" << endl;
             for (int j = 0; j < pairsSize; j++){   // this is providing pairs of indices of the candidateJetIndices list! (not the indices of the jetCollection!)
                 const auto i1 = pairs_cmb[0][j];
                 const auto i2 = pairs_cmb[1][j];
