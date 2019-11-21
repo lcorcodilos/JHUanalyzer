@@ -87,14 +87,14 @@ namespace analyzer {
                 return fail;
             }
 
-            cout << "passing pairs made " << passing_pair_indices[0].size() << " " << passing_pair_indices[1].size() << endl;
+            cout << "passing pairs made " << passing_pair_indices.size() << endl;
             // Check if the ak4 jets are in a larger ak8
             // If they are, pop them out of our two lists for consideration
             for (unsigned int i =0; i<FJnjets; i++){
                 TLorentzVector* fjetLV = new TLorentzVector();
                 fjetLV->SetPtEtaPhiM(FJpt[i],FJeta[i],FJphi[i],FJmass[i]);
                 cout << i << " fat jet lorentz vector made" << endl;
-                for (unsigned int j =0; j < passing_pair_indices[0].size(); j++){
+                for (unsigned int j =0; j < passing_pair_indices.size(); j++){
                     cout << "begin making indices with index " << j << endl;
                     if (passing_pair_indices[0].empty() || passing_pair_indices[1].empty()){
                         cout << "empty vector values found " << endl;
