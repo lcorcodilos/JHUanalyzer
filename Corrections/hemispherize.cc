@@ -81,8 +81,9 @@ namespace analyzer {
                 }
 
             }
-            if (passing_pair_indices[0].size() < 1){
-                cout << "passing pair indices less than 1" << endl;
+            cout << "end for loop" << endl;
+            if (passing_pair_indices.empty()){
+                cout << "no passing pairs found" << endl;
                 return fail;
             }
 
