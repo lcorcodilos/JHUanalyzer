@@ -86,7 +86,7 @@ namespace analyzer {
             cout << "passing pairs made " << passing_pair_indices[0].size() << endl;
             // Check if the ak4 jets are in a larger ak8
             // If they are, pop them out of our two lists for consideration
-            for (int i =0; i<FJnjets; i++){
+            for (int i =0; i<FJnjets[0]; i++){
                 TLorentzVector* fjetLV = new TLorentzVector();
                 fjetLV->SetPtEtaPhiM(FJpt[i],FJeta[i],FJphi[i],FJmass[i]);
                 for (int j =0; j < passing_pair_indices[0].size(); j++){
