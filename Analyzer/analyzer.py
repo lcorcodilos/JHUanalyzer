@@ -39,27 +39,8 @@ class analyzer(object):
         
         del self.RunChain
 
-    def Cut(self, selection=None,node=None):
-        # If a starting point (node) isn't already input, use the base data frame
-        # Else, use the input starting point
-        if node == None: this_entries = self.DataFrame
-        else: this_entries = node
-
-        # If no other selection given, use self.cuts
-        if selection == None: this_selection = self.cuts
-        else: this_selection = selection
-
-        # Loop over the selection (ordered keys) and apply filter from selection
-        for cutname in this_selection.keys():
-            cutdef = this_selection[cutname]
-            print 'Filtering %s: %s' %(cutname,cutdef)
-            this_entries = this_entries.Filter(cutdef,cutname)
-
-        final_selection = this_entries
-        
-        return final_selection
-
-    def SetTriggers(self,trigList):
+    # Returns OR string of triggers that can be given to a cut group
+    def GetValidTriggers(self,trigList):
         trigOR = ""
         colnames = self.DataFrame.GetColumnNames()
         for i,t in enumerate(trigList):
@@ -71,21 +52,19 @@ class analyzer(object):
 
         if trigOR != "": 
             trigOR += ")" 
-            self.cuts["triggers"] = trigOR
-            self.SetVar('triggers',trigOR)
+            
+        return trigOR
 
-    def DefineCut(self,name,cut):
-        self.cuts[name] = cut
-        self.SetVar(name,cut)
+    # def DefineCut(self,name,cut):
+    #     self.cuts[name] = cut
+    #     self.SetVar(name,cut)
 
-    def GetCuts(self):
-        return self.cuts
+    # def GetCuts(self):
+    #     return self.cuts
 
-    def SetVar(self,varname,vardef,node=None):
-        if node == None: self.DataFrame = self.DataFrame.Define(varname,vardef)
-        else: return node.Define(varname,vardef)
+    
 
-    def Discriminate(self,preselection,discriminator):
+    def Discriminate(self,):
         pass_sel = preselection
         fail_sel = preselection
         passfail = {
@@ -151,9 +130,9 @@ def ascii_encode_dict(data):
 
 class CutGroup():
     """docstring for CutGrou"""
-    def __init__(self, name, cutlist):
+    def __init__(self, name):
         self.name = name
-        self.cutlist = cutlist
+        self.cutlist = OrderedDict()
 
         if type(self.cutlist) == list and len(self.cutlist) > 0: self.cut = '('
         else: raise Exception('A list of cuts must be provided')
@@ -162,6 +141,35 @@ class CutGroup():
             if i < len(self.cutlist)-1: self.cut += c+'==1)&&'
             else: self.cut += c+'==1))'
 
-    def GetName(self): return self.name
+    def Add(self,name,cut): self.cutlist[name] = cut
 
-    def GetCut(self): return self.cut
+    def Name(self): return self.name
+
+    def GetCut(self,name): return self.cutlist[name]
+
+    def Get(self): return self.cutlist
+
+def Cut(self, cutGroup,node):
+    this_entries = node
+    # Loop over the cutGroup (ordered keys) and apply filter from cutGroup
+    for cutname in this_cutGroup.keys():
+        cutdef = this_cutGroup[cutname]
+        print 'Filtering %s: %s' %(cutname,cutdef)
+        this_entries = this_entries.Filter(cutdef,cutname)
+
+    final_entries = this_entries
+    
+    return final_entries
+
+def ForkNode(fork1name, fork2name, node, discriminator):
+    pass_sel = preselection
+    fail_sel = preselection
+    fork_dict = {
+        fork1name:pass_sel.Filter(fork1name,discriminator),
+        fork2name:fail_sel.Filter(fork2name,"!("+discriminator+")")
+    }
+    return fork_dict
+
+def SetVar(self,varname,vardef,node=None):
+    if node == None: self.DataFrame = self.DataFrame.Define(varname,vardef)
+    else: return node.Define(varname,vardef)
