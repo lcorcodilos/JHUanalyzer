@@ -8,6 +8,12 @@ using rvec_f = const RVec<float> &;
 //Compares ak4 jets against leading ak8 and looks for any in opposite hemisphere
 //First find the highest pt ak8 jet with mass > 40 geV
 namespace analyzer {
+     double deltaPhi(double phi1,double phi2) {
+        double result = phi1 - phi2;
+        while (result > TMath::Pi()) result -= 2*TMath::Pi();
+        while (result <= -TMath::Pi()) result += 2*TMath::Pi();
+        return result;
+        }
      RVec<int> Hemispherize(rvec_f FJpt, rvec_f FJeta, rvec_f FJphi, rvec_f FJmass, unsigned int FJnjets, rvec_f Jpt, rvec_f Jeta, rvec_f Jphi, rvec_f Jmass, unsigned int Jnjets, rvec_f btagDeepB){
         //First find the highest pt ak8 jet with mass > 40 geV
         RVec<int> fail = {0,0}; //this is used for if the hemispherize fails so we can filter the event
@@ -65,7 +71,7 @@ namespace analyzer {
                 //cout << "make lorentz vectors " << j << endl;
                 ROOT::Math::PtEtaPhiMVector v1(Jpt[i1],Jeta[i1],Jphi[i1],Jmass[i1]);
                 ROOT::Math::PtEtaPhiMVector v2(Jpt[i2],Jeta[i2],Jphi[i2],Jmass[i2]);
-                if (sqrt((v1.Eta()-v2.Eta())*(v1.Eta()-v2.Eta()) + (analyzer::deltaPhi(v1.Phi(),v2.Phi()))*(analyzer::deltaPhi(v1.Phi(),v2.Phi()))) < 1.5){
+                if (sqrt((v1.Eta()-v2.Eta())*(v1.Eta()-v2.Eta()) + (deltaPhi(v1.Phi(),v2.Phi()))*(deltaPhi(v1.Phi(),v2.Phi()))) < 1.5){
                     // Save out collection index of those that pass
                     //cout << "pair " << j << " passes DeltaR" << endl;
                     temp_pair.emplace_back(i1);
@@ -109,12 +115,12 @@ namespace analyzer {
                     ROOT::Math::PtEtaPhiMVector v2(Jpt[i2],Jeta[i2],Jphi[i2],Jmass[i2]);
                     //cout << j << " jet lorentz vectors made" << endl;
 
-                    if (sqrt((fjetLV.Eta()-v1.Eta())*(fjetLV.Eta()-v1.Eta()) + (analyzer::deltaPhi(fjetLV.Phi()-v1.Phi()))*(analyzer::deltaPhi(fjetLV.Phi()-v1.Phi()))) < 0.8){
+                    if (sqrt((fjetLV.Eta()-v1.Eta())*(fjetLV.Eta()-v1.Eta()) + (deltaPhi(fjetLV.Phi()-v1.Phi()))*(deltaPhi(fjetLV.Phi()-v1.Phi()))) < 0.8){
                         //cout << "Pair " << j << " found inside AK8 jet" << endl;
                         passing_pair_indices.erase(passing_pair_indices.begin()+i);
                         break;
                     }
-                    if (sqrt((fjetLV.Eta()-v2.Eta())*(fjetLV.Eta()-v2.Eta()) + (analyzer::deltaPhi(fjetLV.Phi()-v2.Phi()))*(analyzer::deltaPhi(fjetLV.Phi()-v2.Phi()))) < 0.8){
+                    if (sqrt((fjetLV.Eta()-v2.Eta())*(fjetLV.Eta()-v2.Eta()) + (deltaPhi(fjetLV.Phi()-v2.Phi()))*(deltaPhi(fjetLV.Phi()-v2.Phi()))) < 0.8){
                         //cout << "Pair " << j << " found inside AK8 jet" << endl;
                         passing_pair_indices.erase(passing_pair_indices.begin()+i);
                     }
