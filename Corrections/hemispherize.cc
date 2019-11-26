@@ -115,12 +115,12 @@ namespace analyzer {
                     ROOT::Math::PtEtaPhiMVector v2(Jpt[i2],Jeta[i2],Jphi[i2],Jmass[i2]);
                     //cout << j << " jet lorentz vectors made" << endl;
 
-                    if (sqrt((fjetLV.Eta()-v1.Eta())*(fjetLV.Eta()-v1.Eta()) + (deltaPhi(fjetLV.Phi()-v1.Phi()))*(deltaPhi(fjetLV.Phi()-v1.Phi()))) < 0.8){
+                    if (sqrt((fjetLV.Eta()-v1.Eta())*(fjetLV.Eta()-v1.Eta()) + (deltaPhi(fjetLV.Phi(),v1.Phi()))*(deltaPhi(fjetLV.Phi(),v1.Phi()))) < 0.8){
                         //cout << "Pair " << j << " found inside AK8 jet" << endl;
                         passing_pair_indices.erase(passing_pair_indices.begin()+i);
                         break;
                     }
-                    if (sqrt((fjetLV.Eta()-v2.Eta())*(fjetLV.Eta()-v2.Eta()) + (deltaPhi(fjetLV.Phi()-v2.Phi()))*(deltaPhi(fjetLV.Phi()-v2.Phi()))) < 0.8){
+                    if (sqrt((fjetLV.Eta()-v2.Eta())*(fjetLV.Eta()-v2.Eta()) + (deltaPhi(fjetLV.Phi(),v2.Phi()))*(deltaPhi(fjetLV.Phi(),v2.Phi()))) < 0.8){
                         //cout << "Pair " << j << " found inside AK8 jet" << endl;
                         passing_pair_indices.erase(passing_pair_indices.begin()+i);
                     }
