@@ -1,8 +1,8 @@
 #include <cmath>
 #include <stdbool.h>
 using namespace ROOT::VecOps;
-using rvec_i = const RVec<int>;
-using rvec_d = const RVec<double>;
+using rvec_i = const RVec<int> &;
+using rvec_d = const RVec<double> &;
 
 namespace analyzer {
     std::vector<float> PTWLookup(int nGenJet, rvec_i GPpdgId, rvec_i GPstatusFlags, rvec_d GPpt, rvec_d GPeta, rvec_d GPphi, rvec_d GPmass, TLorentzVector* jet0, TLorentzVector* jet1 ){
