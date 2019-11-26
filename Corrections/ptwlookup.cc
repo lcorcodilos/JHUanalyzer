@@ -5,7 +5,13 @@ using rvec_i = const RVec<int> &;
 using rvec_d = const RVec<double> &;
 
 namespace analyzer {
-    std::vector<float> PTWLookup(int nGenJet, rvec_i GPpdgId, rvec_i GPstatusFlags, rvec_d GPpt, rvec_d GPeta, rvec_d GPphi, rvec_d GPmass, TLorentzVector* jet0, TLorentzVector* jet1 ){
+    double deltaPhi(double phi1,double phi2) {
+        double result = phi1 - phi2;
+        while (result > TMath::Pi()) result -= 2*TMath::Pi();
+        while (result <= -TMath::Pi()) result += 2*TMath::Pi();
+        return result;
+    }
+    std::vector<float> PTWLookup(int nGenJet, rvec_i GPpdgId, rvec_i GPstatusFlags, rvec_d GPpt, rvec_d GPeta, rvec_d GPphi, rvec_d GPmass, ROOT::Math::PtEtaPhiMVector jet0, ROOT::Math::PtEtaPhiMVector jet1 ){
 
         std::vector<float> out;
 
@@ -17,15 +23,13 @@ namespace analyzer {
         // For all gen particles
         for (int i =0; i < nGenJet; i++){
             if ((GPpdgId[i] == -6) && (GPstatusFlags[i] & (1 << 13))){ 
-                TLorentzVector* antitop_lv = new TLorentzVector();
-                antitop_lv->SetPtEtaPhiM(GPpt[i],GPeta[i],GPphi[i],GPmass[i]);
-                if ((antitop_lv->DeltaR(*jet0) <0.8) || (antitop_lv->DeltaR(*jet1) <0.8)){
+                ROOT::Math::PtEtaPhiMVector antitop_lv(GPpt[i],GPeta[i],GPphi[i],GPmass[i]);
+                if ((sqrt((antitop_lv.Eta()-jet0.Eta())*(antitop_lv.Eta()-jet0.Eta()) + (deltaPhi(antitop_lv.Phi(),jet0.Phi()))*(deltaPhi(antitop_lv.Phi(),jet0.Phi()))) <0.8) || (sqrt((antitop_lv.Eta()-jet1.Eta())*(antitop_lv.Eta()-jet1.Eta()) + (deltaPhi(antitop_lv.Phi(),jet1.Phi()))*(deltaPhi(antitop_lv.Phi(),jet1.Phi()))) <0.8)){
                     genTBpt = GPpt[i];
                 }
             }else if ((GPpdgId[i] == 6) && (GPstatusFlags[i] & (1 << 13))){ 
-                TLorentzVector* top_lv = new TLorentzVector();
-                top_lv->SetPtEtaPhiM(GPpt[i],GPeta[i],GPphi[i],GPmass[i]);
-                if ((top_lv->DeltaR(*jet0) <0.8) || (top_lv->DeltaR(*jet1) <0.8)){
+                ROOT::Math::PtEtaPhiMVector top_lv(GPpt[i],GPeta[i],GPphi[i],GPmass[i]);
+                if ((sqrt((top_lv.Eta()-jet0.Eta())*(top_lv.Eta()-jet0.Eta()) + (deltaPhi(top_lv.Phi(),jet0.Phi()))*(deltaPhi(top_lv.Phi(),jet0.Phi()))) <0.8) || (sqrt((top_lv.Eta()-jet1.Eta())*(top_lv.Eta()-jet1.Eta()) + (deltaPhi(top_lv.Phi(),jet1.Phi()))*(deltaPhi(top_lv.Phi(),jet1.Phi()))) <0.8)){
                     genTpt = GPpt[i];
                 }
             }
