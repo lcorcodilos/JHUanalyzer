@@ -10,9 +10,7 @@ using rvec_f = const RVec<float> &;
 namespace analyzer {
      RVec<int> Hemispherize(rvec_f FJpt, rvec_f FJeta, rvec_f FJphi, rvec_f FJmass, unsigned int FJnjets, rvec_f Jpt, rvec_f Jeta, rvec_f Jphi, rvec_f Jmass, unsigned int Jnjets, rvec_f btagDeepB){
         //First find the highest pt ak8 jet with mass > 40 geV
-        RVec<int> fail; //this is used for if the hemispherize fails so we can filter the event
-        fail.emplace_back(0);
-        fail.emplace_back(0);
+        RVec<int> fail = {0,0}; //this is used for if the hemispherize fails so we can filter the event
 
         auto candidateFatJetIndex = -1;
         for (unsigned int i =0; i<FJnjets; i++){
@@ -53,7 +51,7 @@ namespace analyzer {
             RVec<RVec<size_t>> pairs_cmb = Combinations(Jpt,2);
             //cout << "Combinations made" << endl; 
             RVec<RVec<int>> passing_pair_indices;
-            RVec<int> temp_pair (2);
+            RVec<int> temp_pair(2);
 	        int pairsSize = pairs_cmb[0].size();
             //cout << "check combinations size " << pairsSize << endl;
             if (pairsSize < 1){
@@ -65,13 +63,9 @@ namespace analyzer {
                 const auto i1 = pairs_cmb[0][j];
                 const auto i2 = pairs_cmb[1][j];
                 //cout << "make lorentz vectors " << j << endl;
-                TLorentzVector* v1 = new TLorentzVector();
-                v1->SetPtEtaPhiM(Jpt[i1],Jeta[i1],Jphi[i1],Jmass[i1]);
-
-                TLorentzVector* v2 = new TLorentzVector();
-                v2->SetPtEtaPhiM(Jpt[i2],Jeta[i2],Jphi[i2],Jmass[i2]);
-
-                if (v1->DeltaR(*v2) < 1.5){
+                ROOT::Math::PtEtaPhiMVector v1(Jpt[i1],Jeta[i1],Jphi[i1],Jmass[i1]);
+                ROOT::Math::PtEtaPhiMVector v2(Jpt[i2],Jeta[i2],Jphi[i2],Jmass[i2]);
+                if (sqrt((v1.Eta()-v2.Eta())*(v1.Eta()-v2.Eta()) + (v1.Phi()-v2.Phi())*(v1.Phi()-v2.Phi())) < 1.5){
                     // Save out collection index of those that pass
                     //cout << "pair " << j << " passes DeltaR" << endl;
                     temp_pair.emplace_back(i1);
@@ -91,8 +85,7 @@ namespace analyzer {
             // Check if the ak4 jets are in a larger ak8
             // If they are, pop them out of our two lists for consideration
             for (unsigned int i =0; i<FJnjets; i++){
-                TLorentzVector* fjetLV = new TLorentzVector();
-                fjetLV->SetPtEtaPhiM(FJpt[i],FJeta[i],FJphi[i],FJmass[i]);
+                ROOT::Math::PtEtaPhiMVector fjetLV(FJpt[i],FJeta[i],FJphi[i],FJmass[i]);
                 //cout << i << " fat jet lorentz vector made" << endl;
                 for (unsigned int j =0; j < passing_pair_indices.size(); j++){
                     //cout << "begin making indices with index " << j << endl;
@@ -112,21 +105,19 @@ namespace analyzer {
                         //cout << "bad index found" << endl;
                         break; 
                     }
-                        TLorentzVector* v1 = new TLorentzVector();
-                        v1->SetPtEtaPhiM(Jpt[i1],Jeta[i1],Jphi[i1],Jmass[i1]);
-                        TLorentzVector* v2 = new TLorentzVector();
-                        v2->SetPtEtaPhiM(Jpt[i2],Jeta[i2],Jphi[i2],Jmass[i2]);
-                        //cout << j << " jet lorentz vectors made" << endl;
+                    ROOT::Math::PtEtaPhiMVector v1(Jpt[i1],Jeta[i1],Jphi[i1],Jmass[i1]);
+                    ROOT::Math::PtEtaPhiMVector v2(Jpt[i2],Jeta[i2],Jphi[i2],Jmass[i2]);
+                    //cout << j << " jet lorentz vectors made" << endl;
 
-                        if (fjetLV->DeltaR(*v1) < 0.8){
-                            //cout << "Pair " << j << " found inside AK8 jet" << endl;
-                            passing_pair_indices.erase(passing_pair_indices.begin()+i);
-                            break;
-                        }
-                        if (fjetLV->DeltaR(*v2) < 0.8){
-                            //cout << "Pair " << j << " found inside AK8 jet" << endl;
-                            passing_pair_indices.erase(passing_pair_indices.begin()+i);
-                        }
+                    if (sqrt((fjetLV.Eta()-v1.Eta())*(fjetLV.Eta()-v1.Eta()) + (fjetLV.Phi()-v1.Phi())*(fjetLV.Phi()-v1.Phi())) < 0.8){
+                        //cout << "Pair " << j << " found inside AK8 jet" << endl;
+                        passing_pair_indices.erase(passing_pair_indices.begin()+i);
+                        break;
+                    }
+                    if (sqrt((fjetLV.Eta()-v2.Eta())*(fjetLV.Eta()-v2.Eta()) + (fjetLV.Phi()-v2.Phi())*(fjetLV.Phi()-v2.Phi())) < 0.8){
+                        //cout << "Pair " << j << " found inside AK8 jet" << endl;
+                        passing_pair_indices.erase(passing_pair_indices.begin()+i);
+                    }
                 }
             }
             //cout << "candidate pairs made" << endl;
