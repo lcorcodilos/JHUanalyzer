@@ -65,7 +65,7 @@ namespace analyzer {
                 //cout << "make lorentz vectors " << j << endl;
                 ROOT::Math::PtEtaPhiMVector v1(Jpt[i1],Jeta[i1],Jphi[i1],Jmass[i1]);
                 ROOT::Math::PtEtaPhiMVector v2(Jpt[i2],Jeta[i2],Jphi[i2],Jmass[i2]);
-                if (sqrt((analyzer::deltaEta(v1.Eta(),v2.Eta()))*(analyzer::deltaEta(v1.Eta(),v2.Eta())) + (v1.Phi()-v2.Phi())*(v1.Phi()-v2.Phi())) < 1.5){
+                if (sqrt((v1.Eta()-v2.Eta())*(v1.Eta()-v2.Eta()) + (deltaPhi(v1.Phi(),v2.Phi()))*(deltaPhi(v1.Phi(),v2.Phi()))) < 1.5){
                     // Save out collection index of those that pass
                     //cout << "pair " << j << " passes DeltaR" << endl;
                     temp_pair.emplace_back(i1);
@@ -109,12 +109,12 @@ namespace analyzer {
                     ROOT::Math::PtEtaPhiMVector v2(Jpt[i2],Jeta[i2],Jphi[i2],Jmass[i2]);
                     //cout << j << " jet lorentz vectors made" << endl;
 
-                    if (sqrt((analyzer::deltaEta(fjetLV.Eta(),v1.Eta()))*(analyzer::deltaEta(fjetLV.Eta(),v1.Eta())) + (fjetLV.Phi()-v1.Phi())*(fjetLV.Phi()-v1.Phi())) < 0.8){
+                    if (sqrt((fjetLV.Eta()-v1.Eta())*(fjetLV.Eta()-v1.Eta()) + (deltaPhi(fjetLV.Phi()-v1.Phi()))*(deltaPhi(fjetLV.Phi()-v1.Phi()))) < 0.8){
                         //cout << "Pair " << j << " found inside AK8 jet" << endl;
                         passing_pair_indices.erase(passing_pair_indices.begin()+i);
                         break;
                     }
-                    if (sqrt((analyzer::deltaEta(fjetLV.Eta(),v2.Eta()))*(analyzer::deltaEta(fjetLV.Eta(),v2.Eta())) + (fjetLV.Phi()-v2.Phi())*(fjetLV.Phi()-v2.Phi())) < 0.8){
+                    if (sqrt((fjetLV.Eta()-v2.Eta())*(fjetLV.Eta()-v2.Eta()) + (deltaPhi(fjetLV.Phi()-v2.Phi()))*(dletaPhi(fjetLV.Phi()-v2.Phi()))) < 0.8){
                         //cout << "Pair " << j << " found inside AK8 jet" << endl;
                         passing_pair_indices.erase(passing_pair_indices.begin()+i);
                     }
