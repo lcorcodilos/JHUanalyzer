@@ -5,12 +5,6 @@ using rvec_i = const RVec<int> &;
 using rvec_d = const RVec<double> &;
 
 namespace analyzer {
-    double deltaPhi(double phi1,double phi2) {
-        double result = phi1 - phi2;
-        while (result > TMath::Pi()) result -= 2*TMath::Pi();
-        while (result <= -TMath::Pi()) result += 2*TMath::Pi();
-        return result;
-    }
     std::vector<float> PTWLookup(int nGenJet, rvec_i GPpdgId, rvec_i GPstatusFlags, rvec_d GPpt, rvec_d GPeta, rvec_d GPphi, rvec_d GPmass, ROOT::Math::PtEtaPhiMVector jet0, ROOT::Math::PtEtaPhiMVector jet1 ){
 
         std::vector<float> out;

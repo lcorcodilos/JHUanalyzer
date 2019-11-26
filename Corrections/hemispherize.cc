@@ -8,12 +8,6 @@ using rvec_f = const RVec<float> &;
 //Compares ak4 jets against leading ak8 and looks for any in opposite hemisphere
 //First find the highest pt ak8 jet with mass > 40 geV
 namespace analyzer {
-     double deltaPhi(double phi1,double phi2) {
-        double result = phi1 - phi2;
-        while (result > TMath::Pi()) result -= 2*TMath::Pi();
-        while (result <= -TMath::Pi()) result += 2*TMath::Pi();
-        return result;
-        }
      RVec<int> Hemispherize(rvec_f FJpt, rvec_f FJeta, rvec_f FJphi, rvec_f FJmass, unsigned int FJnjets, rvec_f Jpt, rvec_f Jeta, rvec_f Jphi, rvec_f Jmass, unsigned int Jnjets, rvec_f btagDeepB){
         //First find the highest pt ak8 jet with mass > 40 geV
         RVec<int> fail = {0,0}; //this is used for if the hemispherize fails so we can filter the event
