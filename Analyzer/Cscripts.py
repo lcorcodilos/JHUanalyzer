@@ -14,24 +14,23 @@ class CommonCscripts(object):
         '''
         self.vector = '''
         namespace analyzer {
-            TLorentzVector* TLvector(float pt,float eta,float phi,float m) {
-                TLorentzVector* v = new TLorentzVector();
-                v->SetPtEtaPhiM(pt,eta,phi,m);
+            ROOT::Math::PtEtaPhiMVector TLvector(float pt,float eta,float phi,float m) {
+                ROOT::Math::PtEtaPhiMVector v(pt,eta,phi,m);
                 return v;
             }
         }
         '''
         self.invariantMass = '''
         namespace analyzer {
-            double invariantMass(TLorentzVector* v1, TLorentzVector* v2) {
-                return (*v1+*v2).M();
+            double invariantMass(ROOT::Math::PtEtaPhiMVector v1, ROOT::Math::PtEtaPhiMVector v2) {
+                return (v1+v2).M();
             }
         }
         '''
         self.invariantMassThree = '''
         namespace analyzer {
-            double invariantMassThree(TLorentzVector* v1, TLorentzVector* v2, TLorentzVector* v3) {
-                return (*v1+*v2+*v3).M();
+            double invariantMassThree(ROOT::Math::PtEtaPhiMVector v1, ROOT::Math::PtEtaPhiMVector v2, ROOT::Math::PtEtaPhiMVector v3) {
+                return (v1+v2+v3).M();
             }
         }
         '''
