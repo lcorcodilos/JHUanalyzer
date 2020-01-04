@@ -1,81 +1,103 @@
 import ROOT
-# ROOT.ROOT.EnableImplicitMT()
-import pprint, time, json
+import pprint, time, json, copy
 pp = pprint.PrettyPrinter(indent=4)
 from collections import OrderedDict
 
 class analyzer(object):
-    """docstring for analyzer"""
-    def __init__(self,fileName):
+    """Main class for JHUanalyzer package. Works on the basis of nodes, edges, and forks
+    where nodes are an RDF instance after an action (or series of actions) is performed, 
+    the edges are actions, and forks split the processing of one node into two via a discriminator."""
+    def __init__(self,fileName,eventsTreeName="Events",runTreeName="Runs"):
         super(analyzer, self).__init__()
-        self.fileName = fileName
-        self.cuts = OrderedDict()
+        self.fileName = fileName # Can be single root file txt file with list of ROOT file locations (including xrootd locations)
+        self.eventsTreeName = eventsTreeName
+        # self.cuts = OrderedDict()
         # self.Cfuncs = {}
 
-        self.Chain = ROOT.TChain("Events")
-        self.RunChain = ROOT.TChain("Runs")
-
+        # Setup TChains for multiple or single file
+        self.EventsChain = ROOT.TChain(self.eventsTreeName) # Has events to turn into starting RDF
+        RunChain = ROOT.TChain(runTreeName) # Has generated event count information - will be deleted after initialization
         if ".root" in self.fileName: 
-            self.Chain.Add(self.fileName)
-            self.RunChain.Add(self.fileName)
+            self.EventsChain.Add(self.fileName)
+            RunChain.Add(self.fileName)
         elif ".txt" in self.fileName: 
             txt_file = open(self.fileName,"r")
             for l in txt_file.readlines():
-                self.Chain.Add(l.strip())
-                self.RunChain.Add(l.strip())
+                self.EventsChain.Add(l.strip())
+                RunChain.Add(l.strip())
         else: 
             raise Exception("File name extension not supported. Please provide a single .root file or a .txt file with a line-separated list of .root files to chain together.")
 
-        self.DataFrame = ROOT.RDataFrame(self.Chain)
+        # Make base RDataFrame
+        self.BaseDataFrame = ROOT.RDataFrame(self.EventsChain)
+        self.BaseNode = Node('base',self.BaseDataFrame)
+        self.DataFrames = {} # All dataframes
 
-        if hasattr(self.RunChain,'genEventCount'): self.isData = False
-    	else: self.isData = True
+        # Check if dealing with data
+        if hasattr(RunChain,'genEventCount'): self.isData = False
+        else: self.isData = True
  
+        # Count number of generated events if not data
         self.genEventCount = 0
         if not self.isData: 
             for i in range(self.RunChain.GetEntries()): 
                 self.RunChain.GetEntry(i)
                 self.genEventCount+= self.RunChain.genEventCount
         
-        del self.RunChain
+        # Cleanup
+        del RunChain
 
-    # Returns OR string of triggers that can be given to a cut group
-    def GetValidTriggers(self,trigList):
-        trigOR = ""
-        colnames = self.DataFrame.GetColumnNames()
-        for i,t in enumerate(trigList):
-            if t in colnames: 
-                if not trigOR: trigOR = "(("+t+"==1)" # empty string == False
-                else: trigOR += " || ("+t+"==1)"
+    ###################
+    # Node operations #
+    ###################
+    def Cut(self,cuts,name='',node=self.BaseNode):
+        newnode = node.Clone()
+
+        if isinstance(cuts,CutGroup):
+            for c in cuts.keys():
+                newnode = newnode.Cut(c,cut)
+        elif isinstance(cuts,str):
+            newnode = newnode.Cut(name,cut)
+        else:
+            raise TypeError("ERROR: Second argument to Cut method must be a string of a single cut or of type CutGroup (which provides an OrderedDict)")
+
+        self.DataFrames[name] = newnode
+        return newnode 
+
+    def Define(self,var,name='',node=self.BaseNode):
+        newnode = node.Clone()
+
+        if isinstance(var,VarGroup):
+            for v in var.keys():
+                newnode = newnode.Define(v,var)
+        elif isinstance(var,str):
+            newnode = newnode.Define(name,var)
+        else:
+            raise TypeError("ERROR: Second argument to Define method must be a string of a single var or of type VarGroup (which provides an OrderedDict)")
+
+        self.DataFrames[name] = newnode
+        return newnode  
+
+    # Applies a bunch of action groups (cut or var) in one-shot in the order they are given
+    def Apply(self,actiongrouplist,node=self.BaseNode):
+        for ag in actiongrouplist:
+            if ag.type == 'cut':
+                self.Cut(ag,name=ag.name,node=node)
+            elif ag.type == 'var':
+                self.Define(ag,name=ag.name,node=node)
             else:
-                print "Trigger %s does not exist in TTree. Skipping." %(t)   
+                raise TypeError("ERROR: Group %s does not have a defined type. Please initialize with either CutGroup or VarGroup." %ag.name)
 
-        if trigOR != "": 
-            trigOR += ")" 
-            
-        return trigOR
+    def Discriminate(self,discriminator,name='',node=self.BaseNode):
+        newnodes = node.Discriminate(name,cut)
+        self.DataFrames[name] = newnodes
+        return newnodes
 
-    # def DefineCut(self,name,cut):
-    #     self.cuts[name] = cut
-    #     self.SetVar(name,cut)
 
-    # def GetCuts(self):
-    #     return self.cuts
-
-    
-
-    def Discriminate(self,):
-        pass_sel = preselection
-        fail_sel = preselection
-        passfail = {
-            "pass":pass_sel.Filter("pass",discriminator),
-            "fail":fail_sel.Filter("fail","!("+discriminator+")")
-        }
-        return passfail
-
-    def SetCFunc(self,blockcode):#funcname,
-        # self.Cfuncs[funcname] = blockcode
-        # ROOT.gInterpreter.Declare(self.Cfuncs[funcname])
+    #############
+    # No return #
+    #############
+    def SetCFunc(self,blockcode):
         ROOT.gInterpreter.Declare(blockcode)
 
     def makePUWeight(self,year,nvtx):
@@ -109,67 +131,110 @@ class analyzer(object):
 
         self.SetVar("puw","getWeight("+nvtx+")")
 
-
-def CutflowHist(name,rdf,cutlist):
-    ncuts = len(cutlist)
-    h = ROOT.TH1F(name,name,ncuts,0,ncuts)
-    rdf_report = rdf.Report()
-    for i,c in enumerate(cutlist): 
-        h.GetXaxis().SetBinLabel(i+1,c)
-        sel = rdf_report.At(c)
-        h.SetBinContent(i+1,sel.GetPass())
-
-    return h
-
-def openJSON(f):
-    return json.load(open(f,'r'), object_hook=ascii_encode_dict) 
-
-def ascii_encode_dict(data):    
-    ascii_encode = lambda x: x.encode('ascii') if isinstance(x, unicode) else x 
-    return dict(map(ascii_encode, pair) for pair in data.items())
-
-class CutGroup():
-    """docstring for CutGrou"""
-    def __init__(self, name):
+##############
+# Node Class #
+##############
+class Node(object):
+    """Class to represent nodes in the DataFrame processing graph. Can make new nodes via Define, Cut, and Discriminate and setup relations between nodes (done automatically via Define, Cut, Discriminate)"""
+    def __init__(self, name, DataFrame, parent=None, children=[],action=''):
+        super(Node, self).__init__()
+        self.DataFrame = DataFrame
         self.name = name
-        self.cutlist = OrderedDict()
-
-        if type(self.cutlist) == list and len(self.cutlist) > 0: self.cut = '('
-        else: raise Exception('A list of cuts must be provided')
+        self.action = action
+        self.parent = parent # None or specified
+        self.children = children # list of length 0, 1, or 2
         
-        for i,c in enumerate(self.cutlist):
-            if i < len(self.cutlist)-1: self.cut += c+'==1)&&'
-            else: self.cut += c+'==1))'
+    def Clone(self):
+        return Node(self.name,self.DataFrame,parent=self.parent,children=self.children,action=self.action)
 
-    def Add(self,name,cut): self.cutlist[name] = cut
+    # Set parent of type Node
+    def SetParent(self,parent): 
+        if isinstance(parent,Node): self.parent = parent
+        else: raise TypeError('ERROR: Parent is not an instance of Node class for node %s'%self.name)
 
-    def Name(self): return self.name
+    # Set one child of type Node
+    def SetChild(self,child,overwrite=False,silence=False):
+        if overwrite: self.children = []
+        # if len(children > 1): raise ValueError("ERROR: More than two children are trying to be added node %s. You may use the overwrite option to erase current children or find your bug."%self.name)
+        # if len(children == 1) and silence == False: raw_input('WARNING: One child is already specified for node %s and you are attempting to add another (max 2). Press enter to confirm and continue.'%self.name)
 
-    def GetCut(self,name): return self.cutlist[name]
+        if isinstance(child,Node): self.children.append(child)
+        else: raise TypeError('ERROR: Child is not an instance of Node class for node %s' %self.name)
 
-    def Get(self): return self.cutlist
+    # Set children of type Node
+    def SetChildren(self,children,overwrite=False):
+        if overwrite: self.children = []
+        # if len(children > 0): raise ValueError("ERROR: More than two children are trying to be added node %s. You may use the overwrite option to erase current children or find your bug."%self.name)
+        
+        if isinstance(children,dict) and 'pass' in children.keys() and 'fail' in children.keys() and len(children.keys()) == 2:
+            self.SetChild(children['pass'])
+            self.SetChild(children['fail'])
+        else:
+            raise TypeError('ERROR: Attempting to add a dictionary of children of incorrect format. Argument must be a dict of format {"pass":class.Node,"fail":class.Node}')
 
-def Cut(self, cutGroup,node):
-    this_entries = node
-    # Loop over the cutGroup (ordered keys) and apply filter from cutGroup
-    for cutname in this_cutGroup.keys():
-        cutdef = this_cutGroup[cutname]
-        print 'Filtering %s: %s' %(cutname,cutdef)
-        this_entries = this_entries.Filter(cutdef,cutname)
+    # Define a new column to calculate
+    def Define(self,name,var):
+        newNode = Node(name,self.DataFrame.Define(name,var),parent=self,action=var)
+        self.SetChild(newNode)
+        return newNode
 
-    final_entries = this_entries
-    
-    return final_entries
+    # Define a new cut to make
+    def Cut(self,name,cut):
+        print 'Filtering %s: %s' %(name,cut)
+        newNode = Node(name,self.DataFrame.Filter(cut,name),parent=self,action=cut)
+        self.SetChild(newNode)
+        return newNode
 
-def ForkNode(fork1name, fork2name, node, discriminator):
-    pass_sel = preselection
-    fail_sel = preselection
-    fork_dict = {
-        fork1name:pass_sel.Filter(fork1name,discriminator),
-        fork2name:fail_sel.Filter(fork2name,"!("+discriminator+")")
-    }
-    return fork_dict
+    # Discriminate based on a discriminator
+    def Discriminate(self,name,discriminator):
+        pass_sel = self.DataFrame
+        fail_sel = self.DataFrame
+        passfail = {
+            "pass":Node(name+"_pass",pass_sel.Filter(name+"_pass",discriminator),parent=self,action=discriminator),
+            "fail":Node(name+"_fail",fail_sel.Filter(name+"_fail","!("+discriminator+")"),parent=self,action="!("+discriminator+")")
+        }
+        self.SetChildren(passfail)
+        return passfail
+            
+    # IMPORTANT: When writing a variable size array through Snapshot, it is required that the column indicating its size is also written out and it appears before the array in the columns list.
+    # columns should be an empty string if you'd like to keep everything
+    def Snapshot(self,columns,outfilename,treename):
+        if columns == '':
+            self.DataFrame.Snapshot(treename,outfilename)
+        else:
+            self.DataFrame.Snapshot(treename,outfilename,set(columns))
 
-def SetVar(self,varname,vardef,node=None):
-    if node == None: self.DataFrame = self.DataFrame.Define(varname,vardef)
-    else: return node.Define(varname,vardef)
+##################
+# CutGroup Class #
+##################
+class Group(object):
+    """docstring for Group"""
+    def __init__(self, name):
+        super(Group, self).__init__()
+        self.name = name
+        self.items = OrderedDict()
+
+    def Add(self,name,item):
+        self.items[name] = cut
+        
+    def Drop(self,name):
+        del self.items[name]
+
+    def __add__(self,other):
+        added = copy.deepcopy(self.items)
+        added.update(other)
+        return added
+
+    # Subclass for cuts
+    class CutGroup(object):
+        """docstring for CutGroup"""
+        def __init__(self, name):
+            super(Group, self).__init__()
+            self.type = 'cut'
+        
+    # Subclass for vars/columns
+    class VarGroup(object):
+        """docstring for VarGroup"""
+        def __init__(self, name):
+            super(Group, self).__init__()
+            self.type = 'var'
