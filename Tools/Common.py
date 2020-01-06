@@ -1,3 +1,6 @@
+import json, ROOT
+from ROOT import RDataFrame
+
 # Returns OR string of triggers that can be given to a cut group
 def GetValidTriggers(self,trigList,DataFrame):
     trigOR = ""

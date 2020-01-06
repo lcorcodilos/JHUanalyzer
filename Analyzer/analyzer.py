@@ -50,28 +50,32 @@ class analyzer(object):
     ###################
     # Node operations #
     ###################
-    def Cut(self,cuts,name='',node=self.BaseNode):
+    def Cut(self,cuts,name='',node=None):
+        if node == None: node = self.BaseNode
         newnode = node.Clone()
 
         if isinstance(cuts,CutGroup):
             for c in cuts.keys():
+                cut = cuts[c]
                 newnode = newnode.Cut(c,cut)
         elif isinstance(cuts,str):
-            newnode = newnode.Cut(name,cut)
+            newnode = newnode.Cut(name,cuts)
         else:
             raise TypeError("ERROR: Second argument to Cut method must be a string of a single cut or of type CutGroup (which provides an OrderedDict)")
 
         self.DataFrames[name] = newnode
         return newnode 
 
-    def Define(self,var,name='',node=self.BaseNode):
+    def Define(self,variables,name='',node=None):
+        if node == None: node = BaseNode
         newnode = node.Clone()
 
-        if isinstance(var,VarGroup):
-            for v in var.keys():
+        if isinstance(variables,VarGroup):
+            for v in variables.keys():
+                var = variables[v]
                 newnode = newnode.Define(v,var)
-        elif isinstance(var,str):
-            newnode = newnode.Define(name,var)
+        elif isinstance(variables,str):
+            newnode = newnode.Define(name,variables)
         else:
             raise TypeError("ERROR: Second argument to Define method must be a string of a single var or of type VarGroup (which provides an OrderedDict)")
 
@@ -79,16 +83,20 @@ class analyzer(object):
         return newnode  
 
     # Applies a bunch of action groups (cut or var) in one-shot in the order they are given
-    def Apply(self,actiongrouplist,node=self.BaseNode):
+    def Apply(self,actiongrouplist,node=None):
+        if node == None: node = self.BaseNode
         for ag in actiongrouplist:
             if ag.type == 'cut':
-                self.Cut(ag,name=ag.name,node=node)
+                node = self.Cut(ag,name=ag.name,node=node)
             elif ag.type == 'var':
-                self.Define(ag,name=ag.name,node=node)
+                node = self.Define(ag,name=ag.name,node=node)
             else:
                 raise TypeError("ERROR: Group %s does not have a defined type. Please initialize with either CutGroup or VarGroup." %ag.name)
 
-    def Discriminate(self,discriminator,name='',node=self.BaseNode):
+        return node
+
+    def Discriminate(self,discriminator,name='',node=None):
+        if node == None: node = self.BaseNode
         newnodes = node.Discriminate(name,cut)
         self.DataFrames[name] = newnodes
         return newnodes
@@ -174,6 +182,7 @@ class Node(object):
 
     # Define a new column to calculate
     def Define(self,name,var):
+        print 'Defining %s: %s' %(name,var)
         newNode = Node(name,self.DataFrame.Define(name,var),parent=self,action=var)
         self.SetChild(newNode)
         return newNode
@@ -198,11 +207,20 @@ class Node(object):
             
     # IMPORTANT: When writing a variable size array through Snapshot, it is required that the column indicating its size is also written out and it appears before the array in the columns list.
     # columns should be an empty string if you'd like to keep everything
-    def Snapshot(self,columns,outfilename,treename):
-        if columns == '':
-            self.DataFrame.Snapshot(treename,outfilename)
+
+    def Snapshot(self,columns,outfilename,treename,lazy=False): # columns can be a list or a regular expression or 'all'
+        lazy_opt = ROOT.RDF.RSnapshotOptions()
+        lazy_opt.fLazy = lazy
+        print "Snapshotting columns: %s"%columns
+        if columns == 'all':
+            self.DataFrame.Snapshot(treename,outfilename,'',lazy_opt)
+        if type(columns) == str:
+            self.DataFrame.Snapshot(treename,outfilename,columns,lazy_opt)
         else:
-            self.DataFrame.Snapshot(treename,outfilename,set(columns))
+            column_vec = ROOT.std.vector('string')()
+            for c in columns:
+               column_vec.push_back(c)
+            self.DataFrame.Snapshot(treename,outfilename,column_vec,lazy_opt)
 
 ##################
 # CutGroup Class #
@@ -215,26 +233,34 @@ class Group(object):
         self.items = OrderedDict()
 
     def Add(self,name,item):
-        self.items[name] = cut
+        self.items[name] = item 
         
     def Drop(self,name):
         del self.items[name]
 
     def __add__(self,other):
         added = copy.deepcopy(self.items)
-        added.update(other)
-        return added
+        added.update(other.items)
+        newGroup = Group(self.name+"+"+other.name)
+        newGroup.items = added
+        return newGroup
+
+    def keys(self):
+        return self.items.keys()
+
+    def __getitem__(self,key):
+        return self.items[key]
 
     # Subclass for cuts
-    class CutGroup(object):
-        """docstring for CutGroup"""
-        def __init__(self, name):
-            super(Group, self).__init__()
-            self.type = 'cut'
+class CutGroup(Group):
+    """docstring for CutGroup"""
+    def __init__(self, name):
+        super(CutGroup,self).__init__(name)
+        self.type = 'cut'
         
-    # Subclass for vars/columns
-    class VarGroup(object):
-        """docstring for VarGroup"""
-        def __init__(self, name):
-            super(Group, self).__init__()
-            self.type = 'var'
+# Subclass for vars/columns
+class VarGroup(Group):
+    """docstring for VarGroup"""
+    def __init__(self, name):
+        super(VarGroup,self).__init__(name)
+        self.type = 'var'

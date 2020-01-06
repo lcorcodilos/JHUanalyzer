@@ -5,7 +5,8 @@ import time, os
 from optparse import OptionParser
 from collections import OrderedDict
 
-from JHUanalyzer.Analyzer.analyzer import analyzer,openJSON,CutflowHist
+from JHUanalyzer.Analyzer.analyzer import analyzer, Group, VarGroup, CutGroup
+from JHUanalyzer.Tools.Common import openJSON,CutflowHist
 from JHUanalyzer.Analyzer.Cscripts import CommonCscripts, CustomCscripts
 commonc = CommonCscripts()
 customc = CustomCscripts()
@@ -30,10 +31,12 @@ parser.add_option('-c', '--config', metavar='FILE', type='string', action='store
 
 start_time = time.time()
 
+# Initialize
 a = analyzer(options.input)
+
+# Example of how to calculate MC normalization for luminosity
 if '_loc.txt' in options.input: setname = options.input.split('/')[-1].split('_loc.txt')[0]
 else: setname = ''
-
 if os.path.exists(options.config):
     print 'JSON config imported'
     c = openJSON(options.config)
@@ -43,94 +46,104 @@ if os.path.exists(options.config):
     else: 
         xsec = 1.
         lumi = 1.
-
-# a.SetCFunc("deltaPhi",commonc.deltaPhi)
-a.SetCFunc(commonc.vector)
-a.SetCFunc(commonc.invariantMass)
-customc.Import("pdfweights","JHUanalyzer/Corrections/pdfweights.cc")
-a.SetCFunc(customc.pdfweights)
-
-if '16' in options.output: a.SetTriggers(["HLT_PFHT800","HLT_PFHT900","HLT_AK8PFJet360_TrimMass30","HLT_PFHT650_WideJetMJJ900DEtaJJ1p5","HLT_AK8PFHT650_TrimR0p1PT0p03Mass50","HLT_AK8PFHT700_TrimR0p1PT0p03Mass50","HLT_AK8DiPFJet280_200_TrimMass30_BTagCSV_p20"])
-else: a.SetTriggers(["HLT_PFHT1050","HLT_AK8PFJet360_TrimMass30"])
-a.DefineCut("nFatJets","nFatJet > 1")
-a.DefineCut("pt0","FatJet_pt[0] > 300")
-a.DefineCut("pt1","FatJet_pt[1] > 300")
-a.DefineCut("eta0","abs(FatJet_eta[0]) < 2.4")
-a.DefineCut("eta1","abs(FatJet_eta[1]) < 2.4")
-a.DefineCut("jetID","((FatJet_jetId[0] & 2) == 2) && ((FatJet_jetId[1] & 2) == 2)")
-a.DefineCut("PV","PV_npvsGood > 0")
-a.DefineCut("deltaEta","abs(FatJet_eta[0] - FatJet_eta[1]) < 1.3")
-a.SetVar("lead_vect","analyzer::TLvector(FatJet_pt[0],FatJet_eta[0],FatJet_phi[0],FatJet_msoftdrop[0])")
-a.SetVar("sublead_vect","analyzer::TLvector(FatJet_pt[1],FatJet_eta[1],FatJet_phi[1],FatJet_msoftdrop[1])")
-a.SetVar("mhh","analyzer::invariantMass(lead_vect,sublead_vect)")
-a.SetVar("mreduced","mhh - (FatJet_msoftdrop[0]-125.0) - (FatJet_msoftdrop[1]-125.0)")
-a.SetVar("Pdfweight",'analyzer::PDFweight(LHEPdfWeight)')
-a.SetVar("Pdfweight_up",'Pdfweight[0]')
-a.SetVar("Pdfweight_down",'Pdfweight[1]')
-a.DefineCut("cut_mreduced","mreduced > 750.")
-a.DefineCut("tau21","(FatJet_tau2[0]/FatJet_tau1[0] < 0.55) && (FatJet_tau2[1]/FatJet_tau1[1] < 0.55)")
-a.DefineCut("msoftdrop_1","105 < FatJet_msoftdrop[1] && FatJet_msoftdrop[1] < 135")
-
-a.SetVar("mh","FatJet_msoftdrop[0]")
-a.SetVar("SRTT","FatJet_btagHbb[0] > 0.8 && FatJet_btagHbb[1] > 0.8")
-a.SetVar("SRLL","FatJet_btagHbb[0] > 0.3 && FatJet_btagHbb[1] > 0.3 && (!SRTT)")
-a.SetVar("ATTT","(FatJet_btagHbb[0] > 0.8 && FatJet_btagHbb[1] < 0.3) || (FatJet_btagHbb[1] > 0.8 && FatJet_btagHbb[0] < 0.3)")
-a.SetVar("ATLL","(FatJet_btagHbb[0] > 0.3 && FatJet_btagHbb[0] < 0.8 && FatJet_btagHbb[1] < 0.3) || (FatJet_btagHbb[1] > 0.3 && FatJet_btagHbb[1] < 0.8 && FatJet_btagHbb[0] < 0.3)")
-
 if not a.isData: norm = (xsec*lumi)/a.genEventCount
 else: norm = 1.
 
-presel = a.Cut()
+# Load in C functions (common and custom)
+a.SetCFunc(commonc.vector) # common library
+a.SetCFunc(commonc.invariantMass) # common library
+customc.Import("pdfweights","JHUanalyzer/Corrections/pdfweights.cc") # "extra"/custom library 
+a.SetCFunc(customc.pdfweights)
 
-SRTT = a.Cut({"SRTT":"SRTT"},presel)
-ATTT = a.Cut({"ATTT":"ATTT"},presel)
-SRLL = a.Cut({"SRLL":"SRLL"},presel)
-ATLL = a.Cut({"ATLL":"ATLL"},presel)
+# Start an initial group of cuts
+preselection1 = CutGroup('preselection1')
+if '16' in options.output: preselection1.Add("triggers","(HLT_PFHT800||HLT_PFHT900||HLT_AK8PFJet360_TrimMass30)")
+else: preselection1.Add("triggers","(HLT_PFHT1050||HLT_AK8PFJet400_TrimMass30)")
+preselection1.Add("nFatJets","nFatJet > 1")
+preselection1.Add("pt0","FatJet_pt[0] > 300")
+preselection1.Add("pt1","FatJet_pt[1] > 300")
+preselection1.Add("eta0","abs(FatJet_eta[0]) < 2.4")
+preselection1.Add("eta1","abs(FatJet_eta[1]) < 2.4")
+preselection1.Add("jetID","((FatJet_jetId[0] & 2) == 2) && ((FatJet_jetId[1] & 2) == 2)")
+preselection1.Add("PV","PV_npvsGood > 0")
+preselection1.Add("deltaEta","abs(FatJet_eta[0] - FatJet_eta[1]) < 1.3")
+preselection1.Add("tau21","(FatJet_tau2[0]/FatJet_tau1[0] < 0.55) && (FatJet_tau2[1]/FatJet_tau1[1] < 0.55)")
+preselection1.Add("msoftdrop_1","105 < FatJet_msoftdrop[1] && FatJet_msoftdrop[1] < 135")
 
+# Calculate some new comlumns that we'd like to cut on
+newcolumns = VarGroup("newcolumns")
+newcolumns.Add("lead_vect","analyzer::TLvector(FatJet_pt[0],FatJet_eta[0],FatJet_phi[0],FatJet_msoftdrop[0])")
+newcolumns.Add("sublead_vect","analyzer::TLvector(FatJet_pt[1],FatJet_eta[1],FatJet_phi[1],FatJet_msoftdrop[1])")
+newcolumns.Add("mhh","analyzer::invariantMass(lead_vect,sublead_vect)")
+newcolumns.Add("mreduced","mhh - (FatJet_msoftdrop[0]-125.0) - (FatJet_msoftdrop[1]-125.0)")
+
+# Cut on new column
+preselection2 = CutGroup('preselection2')
+preselection2.Add("cut_mreduced","mreduced > 750.")
+
+# Perform final column calculations (done last after selection to save on CPU time)
+newcolumns2 = VarGroup("newcolumns2")
+newcolumns2.Add("mh","FatJet_msoftdrop[0]")
+if not a.isData:
+    newcolumns2.Add("Pdfweight",'analyzer::PDFweight(LHEPdfWeight)')
+    newcolumns2.Add("Pdfweight_up",'Pdfweight[0]')
+    newcolumns2.Add("Pdfweight_down",'Pdfweight[1]')
+newcolumns2.Add("SRTT","FatJet_btagHbb[0] > 0.8 && FatJet_btagHbb[1] > 0.8")
+newcolumns2.Add("SRLL","FatJet_btagHbb[0] > 0.3 && FatJet_btagHbb[1] > 0.3 && (!SRTT)")
+newcolumns2.Add("ATTT","(FatJet_btagHbb[0] > 0.8 && FatJet_btagHbb[1] < 0.3) || (FatJet_btagHbb[1] > 0.8 && FatJet_btagHbb[0] < 0.3)")
+newcolumns2.Add("ATLL","(FatJet_btagHbb[0] > 0.3 && FatJet_btagHbb[0] < 0.8 && FatJet_btagHbb[1] < 0.3) || (FatJet_btagHbb[1] > 0.3 && FatJet_btagHbb[1] < 0.8 && FatJet_btagHbb[0] < 0.3)")
+
+# Apply all groups in list order to the base RDF loaded in during analyzer() initialization
+preselected = a.Apply([preselection1,newcolumns,preselection2,newcolumns2])
+
+# Since four analysis regions are covered with relatively complicated cuts to define them, a manual forking is simplest though a Disrcriminate function does exist for when you need to keep pass and fail of a selection
+SRTT = a.Cut("SRTT==1",name="SRTT",node=preselected)
+ATTT = a.Cut("ATTT==1",name="ATTT",node=preselected)
+SRLL = a.Cut("SRLL==1",name="SRLL",node=preselected)
+ATLL = a.Cut("ATLL==1",name="ATLL",node=preselected)
+
+# Snapshot the tree for later
+preselected.Snapshot("SR.*|AT.*|mh|mreduced|mhh|nFatJet|FatJet_pt",'snapshot_example.root',treename='preselected',lazy=True)
+
+# Make some initial histograms and book file to save to
 out_f = ROOT.TFile(options.output,"RECREATE")
 out_f.cd()
 
-hSRTT = SRTT.Histo2D(("SRTT","SRTT",9 ,40 ,220 ,28 ,700 ,3500),'mh','mhh')
-hATTT = ATTT.Histo2D(("ATTT","ATTT",9 ,40 ,220 ,28 ,700 ,3500),"mh","mhh")
-hSRLL = SRLL.Histo2D(("SRLL","SRLL",9 ,40 ,220 ,28 ,700 ,3500),"mh","mhh")
-hATLL = ATLL.Histo2D(("ATLL","ATLL",9 ,40 ,220 ,28 ,700 ,3500),"mh","mhh")
+print "Outfile booked"
 
-hSRTT_pdfUp = SRTT.Histo2D(("SRTT_pdfUp","SRTT_pdfUp",9 ,40 ,220 ,28 ,700 ,3500),'mh','mhh','Pdfweight_up')
-hATTT_pdfUp = ATTT.Histo2D(("ATTT_pdfUp","ATTT_pdfUp",9 ,40 ,220 ,28 ,700 ,3500),"mh","mhh",'Pdfweight_up')
-hSRLL_pdfUp = SRLL.Histo2D(("SRLL_pdfUp","SRLL_pdfUp",9 ,40 ,220 ,28 ,700 ,3500),"mh","mhh",'Pdfweight_up')
-hATLL_pdfUp = ATLL.Histo2D(("ATLL_pdfUp","ATLL_pdfUp",9 ,40 ,220 ,28 ,700 ,3500),"mh","mhh",'Pdfweight_up')
+# Need to call DataFrame attribute since Histo2D is a method of RDataFrame - this means at any point, you have access to the plain RDataFrame object corresponding to each node!
+hists = [SRTT.DataFrame.Histo2D(("SRTT","SRTT",9 ,40 ,220 ,28 ,700 ,3500),'mh','mhh'),
+ATTT.DataFrame.Histo2D(("ATTT","ATTT",9 ,40 ,220 ,28 ,700 ,3500),"mh","mhh"),
+SRLL.DataFrame.Histo2D(("SRLL","SRLL",9 ,40 ,220 ,28 ,700 ,3500),"mh","mhh"),
+ATLL.DataFrame.Histo2D(("ATLL","ATLL",9 ,40 ,220 ,28 ,700 ,3500),"mh","mhh")]
 
-hSRTT_pdfDown = SRTT.Histo2D(("SRTT_pdfDown","SRTT_pdfDown",9 ,40 ,220 ,28 ,700 ,3500),'mh','mhh','Pdfweight_down')
-hATTT_pdfDown = ATTT.Histo2D(("ATTT_pdfDown","ATTT_pdfDown",9 ,40 ,220 ,28 ,700 ,3500),"mh","mhh",'Pdfweight_down')
-hSRLL_pdfDown = SRLL.Histo2D(("SRLL_pdfDown","SRLL_pdfDown",9 ,40 ,220 ,28 ,700 ,3500),"mh","mhh",'Pdfweight_down')
-hATLL_pdfDown = ATLL.Histo2D(("ATLL_pdfDown","ATLL_pdfDown",9 ,40 ,220 ,28 ,700 ,3500),"mh","mhh",'Pdfweight_down')
+if not a.isData:
+    extrahists = [SRTT.DataFrame.Histo2D(("SRTT_pdfUp","SRTT_pdfUp",9 ,40 ,220 ,28 ,700 ,3500),'mh','mhh','Pdfweight_up'),
+    ATTT.DataFrame.Histo2D(("ATTT_pdfUp","ATTT_pdfUp",9 ,40 ,220 ,28 ,700 ,3500),"mh","mhh",'Pdfweight_up'),
+    SRLL.DataFrame.Histo2D(("SRLL_pdfUp","SRLL_pdfUp",9 ,40 ,220 ,28 ,700 ,3500),"mh","mhh",'Pdfweight_up'),
+    ATLL.DataFrame.Histo2D(("ATLL_pdfUp","ATLL_pdfUp",9 ,40 ,220 ,28 ,700 ,3500),"mh","mhh",'Pdfweight_up'),
 
-for h in [hSRTT,hATTT,hSRLL,hATLL]: h.Scale(norm)
+    SRTT.DataFrame.Histo2D(("SRTT_pdfDown","SRTT_pdfDown",9 ,40 ,220 ,28 ,700 ,3500),'mh','mhh','Pdfweight_down'),
+    ATTT.DataFrame.Histo2D(("ATTT_pdfDown","ATTT_pdfDown",9 ,40 ,220 ,28 ,700 ,3500),"mh","mhh",'Pdfweight_down'),
+    SRLL.DataFrame.Histo2D(("SRLL_pdfDown","SRLL_pdfDown",9 ,40 ,220 ,28 ,700 ,3500),"mh","mhh",'Pdfweight_down'),
+    ATLL.DataFrame.Histo2D(("ATLL_pdfDown","ATLL_pdfDown",9 ,40 ,220 ,28 ,700 ,3500),"mh","mhh",'Pdfweight_down')]
+
+    hists.extend(extrahists)
 
 norm_hist = ROOT.TH1F('norm','norm',1,0,1)
 norm_hist.SetBinContent(1,norm)
 norm_hist.Write()
 
-hSRTT.Write()
-hATTT.Write()
-hSRLL.Write()
-hATLL.Write()
+for h in hists: 
+    h.Scale(norm)
+    h.Write()
 
-hSRTT_pdfUp.Write()
-hATTT_pdfUp.Write()
-hSRLL_pdfUp.Write()
-hATLL_pdfUp.Write()
-
-hSRTT_pdfDown.Write()
-hATTT_pdfDown.Write()
-hSRLL_pdfDown.Write()
-hATLL_pdfDown.Write()
-
-srtt_cuts = a.cuts
-srtt_cuts.update({"SRTT":"SRTT"})
-SRTT_cutflow = CutflowHist('cutflow',SRTT,srtt_cuts)
+# Draw a simple cutflow plot
+SRTT_cuts = preselection1+preselection2
+SRTT_cuts.Add("SRTT","SRTT==1")
+SRTT_cutflow = CutflowHist('cutflow',SRTT,SRTT_cuts) # SRTT.DataFrame already has the cuts and numbers, SRTT_cuts is just to name the histogram bins (but that means they must match up!)
 SRTT_cutflow.Write()
 
+# Cleanup
 out_f.Close()
-
 print "Total time: "+str((time.time()-start_time)/60.) + ' min'
