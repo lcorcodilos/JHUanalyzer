@@ -235,9 +235,12 @@ class Node(object):
         if type(columns) == str:
             self.DataFrame.Snapshot(treename,outfilename,columns,lazy_opt)
         else:
-            column_vec = ROOT.std.vector('string')()
+            # column_vec = ROOT.std.vector('string')()
+            column_vec = ''
             for c in columns:
-               column_vec.push_back(c)
+                column_vec += c+'|'
+            column_vec = column_vec[:-1]
+               # column_vec.push_back(c)
             self.DataFrame.Snapshot(treename,outfilename,column_vec,lazy_opt)
 
 ##################
