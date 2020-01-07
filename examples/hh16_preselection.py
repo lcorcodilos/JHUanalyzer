@@ -53,7 +53,7 @@ else: norm = 1.
 a.SetCFunc(commonc.vector) # common library
 a.SetCFunc(commonc.invariantMass) # common library
 customc.Import("pdfweights","JHUanalyzer/Corrections/pdfweights.cc") # "extra"/custom library 
-a.SetCFunc(customc.pdfweights)
+# a.SetCFunc(customc.pdfweights)
 
 # Start an initial group of cuts
 preselection1 = CutGroup('preselection1')
@@ -97,10 +97,10 @@ newcolumns2.Add("ATLL","(FatJet_btagHbb[0] > 0.3 && FatJet_btagHbb[0] < 0.8 && F
 preselected = a.Apply([preselection1,newcolumns,preselection2,newcolumns2])
 
 # Since four analysis regions are covered with relatively complicated cuts to define them, a manual forking is simplest though a Disrcriminate function does exist for when you need to keep pass and fail of a selection
-SRTT = a.Cut("SRTT==1",name="SRTT",node=preselected)
-ATTT = a.Cut("ATTT==1",name="ATTT",node=preselected)
-SRLL = a.Cut("SRLL==1",name="SRLL",node=preselected)
-ATLL = a.Cut("ATLL==1",name="ATLL",node=preselected)
+SRTT = preselected.Cut("SRTT","SRTT==1")
+ATTT = preselected.Cut("ATTT","ATTT==1")
+SRLL = preselected.Cut("SRLL","SRLL==1")
+ATLL = preselected.Cut("ATLL","ATLL==1")
 
 # Snapshot the tree for later
 preselected.Snapshot("SR.*|AT.*|mh|mreduced|mhh|nFatJet|FatJet_pt",'snapshot_example.root',treename='preselected',lazy=True)
@@ -139,9 +139,9 @@ for h in hists:
     h.Write()
 
 # Draw a simple cutflow plot
-SRTT_cuts = preselection1+preselection2
-SRTT_cuts.Add("SRTT","SRTT==1")
-SRTT_cutflow = CutflowHist('cutflow',SRTT,SRTT_cuts) # SRTT.DataFrame already has the cuts and numbers, SRTT_cuts is just to name the histogram bins (but that means they must match up!)
+# SRTT_cuts = preselection1+preselection2
+# SRTT_cuts.Add("SRTT","SRTT==1")
+SRTT_cutflow = CutflowHist('cutflow',SRTT) # SRTT.DataFrame already has the cuts and numbers, SRTT_cuts is just to name the histogram bins (but that means they must match up!)
 SRTT_cutflow.Write()
 
 # Cleanup
