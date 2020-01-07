@@ -1,3 +1,5 @@
+import os, ROOT
+
 class CommonCscripts(object):
     """Common c scripts all in analyzer namespace"""
     def __init__(self):
@@ -56,6 +58,14 @@ class CustomCscripts(object):
         }
         '''
         
-    def Import(self,name,textfilename):
+    def Import(self,textfilename,name=None):
+        if name == None: name = textfilename.split('/')[-1].replace('.cc','')
+        if not os.path.isfile(textfilename): raise NameError('ERROR: %s does not exist'%textfilename)
+        else: print 'Found '+textfilename
         f = open(textfilename,'r')
-        setattr(self,name,f.read())
+        blockcode = f.read()
+        setattr(self,name,blockcode)
+        self.SetCFunc(blockcode)
+
+    def SetCFunc(self,blockcode):
+        ROOT.gInterpreter.Declare(blockcode)
