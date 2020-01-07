@@ -154,6 +154,7 @@ class Node(object):
         self.action = action
         self.parent = parent # None or specified
         self.children = children # list of length 0, 1, or 2
+        self._colnames = self.DataFrame.GetColumnNames()
         
     def Clone(self):
         return Node(self.name,self.DataFrame,parent=self.parent,children=self.children,action=self.action)
