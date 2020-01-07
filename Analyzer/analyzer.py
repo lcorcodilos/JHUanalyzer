@@ -1,5 +1,5 @@
 import ROOT
-import pprint, time, json, copy
+import pprint, time, json, copy, os
 pp = pprint.PrettyPrinter(indent=4)
 from collections import OrderedDict
 
@@ -111,32 +111,23 @@ class analyzer(object):
     def SetCFunc(self,blockcode):
         ROOT.gInterpreter.Declare(blockcode)
 
-    def makePUWeight(self,year,nvtx):
-        if year == '16':
-            pufile_mc_name="%s/src/PhysicsTools/NanoAODTools/python/postprocessing/data/pileup/pileup_profile_Summer16.root" % os.environ['CMSSW_BASE']
-            pufile_data_name="%s/src/PhysicsTools/NanoAODTools/python/postprocessing/data/pileup/PileupData_GoldenJSON_Full2016.root" % os.environ['CMSSW_BASE']
-        elif year == '17':
-            pufile_data_name="%s/src/PhysicsTools/NanoAODTools/python/postprocessing/data/pileup/PileupHistogram-goldenJSON-13tev-2018-99bins_withVar.root" % os.environ['CMSSW_BASE']
-            pufile_mc_name="%s/src/PhysicsTools/NanoAODTools/python/postprocessing/data/pileup/mcPileup2017.root" % os.environ['CMSSW_BASE']
-        elif year == '18':
-            pufile_data_name="%s/src/PhysicsTools/NanoAODTools/python/postprocessing/data/pileup/PileupHistogram-goldenJSON-13tev-2018-100bins_withVar.root" % os.environ['CMSSW_BASE']
-            pufile_mc_name="%s/src/PhysicsTools/NanoAODTools/python/postprocessing/data/pileup/mcPileup2018.root" % os.environ['CMSSW_BASE']
-
-        puFile_data = ROOT.TFile(pufile_data_name,"READ")
-        puHist_data = puFile_data.Get('pileup')
-        puFile_mc = ROOT.TFile(pufile_mc_name,"READ")
-        puHist_mc = puFile_mc.Get('pu_mc')
-
-        puWeights = puHist_data.Clone()
-        puWeights.Divide(puHist_mc)
-        puWeights.Sumw2()
-
-        ROOT.gInterpreter.ProcessLine("auto puWeights = pileup;")
+    def makePUWeight(self,nvtx):
 
         self.SetCFunc('''using namespace ROOT::VecOps;
-                float getWeight(float nvtx)
+                std::vector<double> getWeight(int nvtx)
                 {
-                    weight *= puWeights->GetBinContent(puWeights->FindBin(nvtx));
+                    std::vector<double> weight;
+                    double weightNom = 1;
+                    double weightUp = 1;
+                    double weightDown = 1;
+
+                    weightNom *= puWeightNom->GetBinContent(puWeightNom->FindBin(nvtx));
+                    weightUp *= puWeightUp->GetBinContent(puWeightUp->FindBin(nvtx));
+                    weightDown *= puWeightDown->GetBinContent(puWeightDown->FindBin(nvtx));
+
+                    weight.push_back(weightNom);
+                    weight.push_back(weightUp);
+                    weight.push_back(weightDown);
                     return weight;
                 } ''')
 

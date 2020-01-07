@@ -1,39 +1,38 @@
 #include <cmath>
+#include <stdbool.h>
 using namespace ROOT::VecOps;
-using rvec_f = const RVec<float> &;
 using rvec_i = const RVec<int> &;
+using rvec_d = const RVec<double> &;
 
 namespace analyzer {
-    std::vector<std::pair<float, bool>> PTW_Lookup(rvec_i nGenJet, rvec_i GPpdgId, rvec_i GPstatusFlags, rvec_f GPpt, rvec_f GPeta, rvec_f GPphi, rvec_f GPmass,TLorentzVector* jet0, TLorentzVector* jet1 ):
+    std::vector<float> PTWLookup(int nGenJet, rvec_i GPpdgId, rvec_i GPstatusFlags, rvec_d GPpt, rvec_d GPeta, rvec_d GPphi, rvec_d GPmass, ROOT::Math::PtEtaPhiMVector jet0, ROOT::Math::PtEtaPhiMVector jet1 ){
 
-        std::vector<std::pair<float, bool>> out;
+        std::vector<float> out;
 
         float genTpt = 0;
         float genTBpt = 0;
         float wTPt, wTbarPt; 
-        bool pair_exists = False;
+        bool pair_exists = 0.0;
 
         // For all gen particles
         for (int i =0; i < nGenJet; i++){
-            if ((GPpdgId == -6) && (GPstatusFlags & (1 << 13))){ 
-                TLorentzVector* antitop_lv = new TLorentzVector();
-                antitop_lv->SetPtEtaPhiM(GPpt,GPeta,GPphi,GPmass);
-                if ((antitop_lv.DeltaR(jet0) <0.8) || (antitop_lv.DeltaR(jet1) <0.8)){
-                    genTBpt = GPpt;
+            if ((GPpdgId[i] == -6) && (GPstatusFlags[i] & (1 << 13))){ 
+                ROOT::Math::PtEtaPhiMVector antitop_lv(GPpt[i],GPeta[i],GPphi[i],GPmass[i]);
+                if ((sqrt((antitop_lv.Eta()-jet0.Eta())*(antitop_lv.Eta()-jet0.Eta()) + (deltaPhi(antitop_lv.Phi(),jet0.Phi()))*(deltaPhi(antitop_lv.Phi(),jet0.Phi()))) <0.8) || (sqrt((antitop_lv.Eta()-jet1.Eta())*(antitop_lv.Eta()-jet1.Eta()) + (deltaPhi(antitop_lv.Phi(),jet1.Phi()))*(deltaPhi(antitop_lv.Phi(),jet1.Phi()))) <0.8)){
+                    genTBpt = GPpt[i];
                 }
-            }elif ((GPpdgId == 6) && (GPstatusFlags & (1 << 13))){ 
-                TLorentzVector* top_lv = new TLorentzVector();
-                top_lv->SetPtEtaPhiM(GPpt,GPeta,GPphi,GPmass);
-                if ((top_lv.DeltaR(jet0) <0.8) || (top_lv.DeltaR(jets1) <0.8)){
-                    genTpt = GPpt;
+            }else if ((GPpdgId[i] == 6) && (GPstatusFlags[i] & (1 << 13))){ 
+                ROOT::Math::PtEtaPhiMVector top_lv(GPpt[i],GPeta[i],GPphi[i],GPmass[i]);
+                if ((sqrt((top_lv.Eta()-jet0.Eta())*(top_lv.Eta()-jet0.Eta()) + (deltaPhi(top_lv.Phi(),jet0.Phi()))*(deltaPhi(top_lv.Phi(),jet0.Phi()))) <0.8) || (sqrt((top_lv.Eta()-jet1.Eta())*(top_lv.Eta()-jet1.Eta()) + (deltaPhi(top_lv.Phi(),jet1.Phi()))*(deltaPhi(top_lv.Phi(),jet1.Phi()))) <0.8)){
+                    genTpt = GPpt[i];
                 }
             }
         }
 
-        if (genTpt == 0) || (genTBpt == 0){
-            pair_exists = False;
+        if ((genTpt == 0) || (genTBpt == 0)){
+            pair_exists = 0.0;
         }else{ 
-            pair_exists = True;
+            pair_exists = 1.0;
         }
         
         if (genTpt == 0){ 
@@ -42,12 +41,16 @@ namespace analyzer {
             wTPt = exp(0.0615-0.0005*genTpt);
         }
 
-        if (genTBpt == None){ 
+        if (genTBpt == 0){ 
             wTbarPt = 1.0;
         }else{
             wTbarPt = exp(0.0615-0.0005*genTBpt);
         }
 
-        out.push_back(std::make_pair(sqrt(wTPt*wTbarPt),pair_exists));
+        out.push_back(sqrt(wTPt*wTbarPt));
+        out.push_back(1.5*sqrt(wTPt*wTbarPt));
+        out.push_back(0.5*sqrt(wTPt*wTbarPt));
+	      out.push_back(pair_exists);
         return out;
+    }
 }
