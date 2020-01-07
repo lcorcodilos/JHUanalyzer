@@ -47,9 +47,11 @@ class analyzer(object):
         # Cleanup
         del RunChain
 
-    ###################
-    # Node operations #
-    ###################
+    #############################################################
+    # Node operations - degenerate with Node class methods and  #
+    # so made to only work when operating on self.BaseNode so   #
+    # at least serves as a starting point.                      #
+    #############################################################
     def Cut(self,cuts,name='',node=None):
         if node == None: node = self.BaseNode
         newnode = node.Clone()
@@ -83,8 +85,9 @@ class analyzer(object):
         return newnode  
 
     # Applies a bunch of action groups (cut or var) in one-shot in the order they are given
-    def Apply(self,actiongrouplist,node=None):
-        if node == None: node = self.BaseNode
+    def Apply(self,actiongrouplist):
+        if type(actiongrouplist) != list: actiongrouplist = [actiongrouplist]
+        node = self.BaseNode
         for ag in actiongrouplist:
             if ag.type == 'cut':
                 node = self.Cut(ag,name=ag.name,node=node)
@@ -96,7 +99,7 @@ class analyzer(object):
         return node
 
     def Discriminate(self,discriminator,name='',node=None):
-        if node == None: node = self.BaseNode
+        node = self.BaseNode
         newnodes = node.Discriminate(name,cut)
         self.DataFrames[name] = newnodes
         return newnodes
@@ -199,12 +202,26 @@ class Node(object):
         pass_sel = self.DataFrame
         fail_sel = self.DataFrame
         passfail = {
-            "pass":Node(name+"_pass",pass_sel.Filter(name+"_pass",discriminator),parent=self,action=discriminator),
-            "fail":Node(name+"_fail",fail_sel.Filter(name+"_fail","!("+discriminator+")"),parent=self,action="!("+discriminator+")")
+            "pass":Node(name+"_pass",pass_sel.Filter(discriminator,name+"_pass"),parent=self,action=discriminator),
+            "fail":Node(name+"_fail",fail_sel.Filter("!("+discriminator+")",name+"_fail"),parent=self,action="!("+discriminator+")")
         }
         self.SetChildren(passfail)
         return passfail
             
+    # Applies a bunch of action groups (cut or var) in one-shot in the order they are given
+    def Apply(self,actiongrouplist):
+        if type(actiongrouplist) != list: actiongrouplist = [actiongrouplist]
+        node = self
+        for ag in actiongrouplist:
+            if ag.type == 'cut':
+                node = node.Cut(ag,name=ag.name)
+            elif ag.type == 'var':
+                node = node.Define(ag,name=ag.name)
+            else:
+                raise TypeError("ERROR: Group %s does not have a defined type. Please initialize with either CutGroup or VarGroup." %ag.name)
+
+        return node
+
     # IMPORTANT: When writing a variable size array through Snapshot, it is required that the column indicating its size is also written out and it appears before the array in the columns list.
     # columns should be an empty string if you'd like to keep everything
 
