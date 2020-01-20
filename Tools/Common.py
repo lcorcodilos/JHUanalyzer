@@ -1,5 +1,6 @@
 import json, ROOT
 from ROOT import RDataFrame
+import CMS_lumi, tdrstyle
 ########################
 # JHUanalyzer specific #
 ########################
@@ -126,7 +127,7 @@ def dictToLatexTable(dict2convert,outfilename,roworder=[],columnorder=[]):
 def easyPlot(name, tag, histlist, bkglist=[],signals=[],colors=[],titles=[],logy=False,rootfile=False,xtitle='',ytitle='',dataOff=False,datastyle='pe'):  
     # histlist is just the generic list but if bkglist is specified (non-empty)
     # then this function will stack the backgrounds and compare against histlist as if 
-    # it is data. The imporant bit is that bkglist is a list of lists. The first index
+    # it is data. The important bit is that bkglist is a list of lists. The first index
     # of bkglist corresponds to the index in histlist (the corresponding data). 
     # For example you could have:
     #   histlist = [data1, data2]
@@ -158,8 +159,9 @@ def easyPlot(name, tag, histlist, bkglist=[],signals=[],colors=[],titles=[],logy
         padx = 3
         pady = 2
     else:
-        print 'histlist of size ' + str(len(histlist)) + ' not currently supported'
-        return 0
+        raise ValueError('histlist of size ' + str(len(histlist)) + ' not currently supported')
+
+    tdrstyle.setTDRStyle()
 
     myCan = TCanvas(name,name,width,height)
     myCan.Divide(padx,pady)
@@ -180,11 +182,9 @@ def easyPlot(name, tag, histlist, bkglist=[],signals=[],colors=[],titles=[],logy
     for hist_index, hist in enumerate(histlist):
         # Grab the pad we want to draw in
         myCan.cd(hist_index+1)
-        if len(histlist) > 1:
-            thisPad = myCan.GetPrimitive(name+'_'+str(hist_index+1))
-            thisPad.cd()
-        
-        
+        # if len(histlist) > 1:
+        thisPad = myCan.GetPrimitive(name+'_'+str(hist_index+1))
+        thisPad.cd()
 
         # If this is a TH2, just draw the lego
         if hist.ClassName().find('TH2') != -1:
@@ -357,6 +357,8 @@ def easyPlot(name, tag, histlist, bkglist=[],signals=[],colors=[],titles=[],logy
 
                 if logy == True:
                     mains[hist_index].SetLogy()
+
+                CMS_lumi.CMS_lumi(thisPad, 4, 11)
 
     if rootfile:
         myCan.Print(tag+'plots/'+name+'.root','root')
