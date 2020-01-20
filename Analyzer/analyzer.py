@@ -192,6 +192,7 @@ class Node(object):
 
         return node
 
+
     # IMPORTANT: When writing a variable size array through Snapshot, it is required that the column indicating its size is also written out and it appears before the array in the columns list.
     # columns should be an empty string if you'd like to keep everything
 
@@ -221,17 +222,26 @@ class Group(object):
         super(Group, self).__init__()
         self.name = name
         self.items = OrderedDict()
+        self.type = None
 
     def Add(self,name,item):
         self.items[name] = item 
         
     def Drop(self,name):
-        del self.items[name]
+        dropped = copy.deepcopy(self.items)
+        del dropped[name]
+        if self.type == None: newGroup = Group(self.name+'-'+name)
+        elif self.type == 'var': newGroup = VarGroup(self.name+'-'+name)
+        elif self.type == 'cut': newGroup = CutGroup(self.name+'-'+name)
+        newGroup.items = dropped
+        return newGroup
 
     def __add__(self,other):
         added = copy.deepcopy(self.items)
         added.update(other.items)
-        newGroup = Group(self.name+"+"+other.name)
+        if self.type == 'var' and self.type == 'var': newGroup = VarGroup(self.name+"+"+other.name)
+        elif self.type == 'cut' and self.type == 'cut': newGroup = CutGroup(self.name+"+"+other.name)
+        else: newGroup = Group(self.name+"+"+other.name)
         newGroup.items = added
         return newGroup
 
@@ -254,3 +264,27 @@ class VarGroup(Group):
     def __init__(self, name):
         super(VarGroup,self).__init__(name)
         self.type = 'var'
+
+################################################
+# Build N-1 "tree" and outputs the final nodes #
+# Beneficial to put most aggressive cuts first #
+# Return dictionary of N-1 nodes keyed by the  #
+# cut that gets dropped                        #
+################################################
+def Nminus1(node,cutgroup):
+    # Initialize
+    nminusones = {}
+    thisnode = node
+    thiscutgroup = cutgroup
+
+    # Loop over all cuts (`cut` is the name not the string to filter on)
+    for cut in cutgroup.keys():
+        # Get the N-1 group of this cut (where N is determined by thiscutgroup)
+        minusgroup = thiscutgroup.Drop(cut)
+        # Store the node with N-1 applied
+        nminusones[cut] = thisnode.Apply(minusgroup)
+        # If there are any more cuts left, go to the next node with current cut applied (this is how we keep N as the total N and not just the current N)
+        if len(nminusones.keys()) > 0:
+            thisnode = thisnode.Cut(cut,cutgroup[cut])
+
+    return nminusones
