@@ -183,12 +183,16 @@ class Node(object):
         if type(actiongrouplist) != list: actiongrouplist = [actiongrouplist]
         node = self
         for ag in actiongrouplist:
-            if ag.type == 'cut':
-                node = node.Cut(ag,name=ag.name)
-            elif ag.type == 'var':
-                node = node.Define(ag,name=ag.name)
+            if isinstance(ag,CutGroup):
+                for c in ag.keys():
+                    cut = ag[c]
+                    node = node.Cut(c,cut)
+            elif isinstance(ag,VarGroup):
+                for v in ag.keys():
+                    var = ag[v]
+                    node = node.Define(v,var)
             else:
-                raise TypeError("ERROR: Group %s does not have a defined type. Please initialize with either CutGroup or VarGroup." %ag.name)
+                raise TypeError("ERROR: Group %s does not have a defined type. Please initialize with either CutGroup or VarGroup." %ag.name)                
 
         return node
 
