@@ -1,6 +1,7 @@
 import json, ROOT
 from ROOT import RDataFrame
 import CMS_lumi, tdrstyle
+from contextlib import contextmanager
 ########################
 # JHUanalyzer specific #
 ########################
