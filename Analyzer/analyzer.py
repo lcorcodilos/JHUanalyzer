@@ -286,5 +286,7 @@ def Nminus1(node,cutgroup):
         # If there are any more cuts left, go to the next node with current cut applied (this is how we keep N as the total N and not just the current N)
         if len(nminusones.keys()) > 0:
             thisnode = thisnode.Cut(cut,cutgroup[cut])
+        else:
+            nminusones['full'] = thisnode.Cut(cut,cutgroup[cut])
 
     return nminusones
