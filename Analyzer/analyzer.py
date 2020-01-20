@@ -40,9 +40,9 @@ class analyzer(object):
         # Count number of generated events if not data
         self.genEventCount = 0
         if not self.isData: 
-            for i in range(self.RunChain.GetEntries()): 
-                self.RunChain.GetEntry(i)
-                self.genEventCount+= self.RunChain.genEventCount
+            for i in range(RunChain.GetEntries()): 
+                RunChain.GetEntry(i)
+                self.genEventCount+= RunChain.genEventCount
         
         # Cleanup
         del RunChain
