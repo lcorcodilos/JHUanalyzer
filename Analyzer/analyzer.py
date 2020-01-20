@@ -285,10 +285,12 @@ def Nminus1(node,cutgroup):
     for cut in cutgroup.keys():
         # Get the N-1 group of this cut (where N is determined by thiscutgroup)
         minusgroup = thiscutgroup.Drop(cut)
+        thiscutgroup = minusgroup
         # Store the node with N-1 applied
         nminusones[cut] = thisnode.Apply(minusgroup)
+        
         # If there are any more cuts left, go to the next node with current cut applied (this is how we keep N as the total N and not just the current N)
-        if len(nminusones.keys()) > 0:
+        if len(minusgroup.keys()) > 0:
             thisnode = thisnode.Cut(cut,cutgroup[cut])
         else:
             nminusones['full'] = thisnode.Cut(cut,cutgroup[cut])
