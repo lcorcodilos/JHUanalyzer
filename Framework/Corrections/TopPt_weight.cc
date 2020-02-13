@@ -48,9 +48,9 @@ namespace analyzer {
         }
 
         out.push_back(sqrt(wTPt*wTbarPt));
-        out.push_back(1.5*sqrt(wTPt*wTbarPt));
-        out.push_back(0.5*sqrt(wTPt*wTbarPt));
-	      out.push_back(pair_exists);
+        out.push_back(1.25*sqrt(wTPt*wTbarPt));
+        out.push_back(0.75*sqrt(wTPt*wTbarPt));
+        out.push_back(pair_exists);
         return out;
     }
 }
