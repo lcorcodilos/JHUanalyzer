@@ -155,14 +155,14 @@ class Node(object):
 
     # Define a new column to calculate
     def Define(self,name,var):
-        print 'Defining %s: %s' %(name,var)
+        print('Defining %s: %s' %(name,var))
         newNode = Node(name,self.DataFrame.Define(name,var),parent=self,action=var)
         self.SetChild(newNode)
         return newNode
 
     # Define a new cut to make
     def Cut(self,name,cut):
-        print 'Filtering %s: %s' %(name,cut)
+        print('Filtering %s: %s' %(name,cut))
         newNode = Node(name,self.DataFrame.Filter(cut,name),parent=self,action=cut)
         self.SetChild(newNode)
         return newNode
@@ -203,7 +203,7 @@ class Node(object):
     def Snapshot(self,columns,outfilename,treename,lazy=False): # columns can be a list or a regular expression or 'all'
         lazy_opt = ROOT.RDF.RSnapshotOptions()
         lazy_opt.fLazy = lazy
-        print "Snapshotting columns: %s"%columns
+        print("Snapshotting columns: %s"%columns)
         if columns == 'all':
             self.DataFrame.Snapshot(treename,outfilename,'',lazy_opt)
         if type(columns) == str:

@@ -34,7 +34,7 @@ if '_loc.txt' in options.input: setname = options.input.split('/')[-1].split('_l
 else: setname = ''
 
 if os.path.exists(options.config):
-    print 'JSON config imported'
+    print('JSON config imported')
     c = openJSON(options.config)
     if setname != '' and not a.isData: 
         xsec = c['XSECS'][setname]
@@ -110,4 +110,4 @@ h_yHigh_b2.Write()
 
 out_f.Close()
 
-print "Total time: "+str((time.time()-start_time)/60.) + ' min'
+print("Total time: "+str((time.time()-start_time)/60.) + ' min')

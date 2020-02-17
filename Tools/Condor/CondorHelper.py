@@ -23,7 +23,7 @@ parser.add_option('-a', '--args', metavar='FILE', type='string', action='store',
 
 commands = []
 
-print options.args
+print(options.args)
 
 # Tar stuff
 if options.inputs != '':
@@ -39,5 +39,5 @@ commands.append("mv "+out_jdl+" logs/")
 # commands.append("condor_q lcorcodi")
 
 for s in commands:
-    print s
+    print(s)
     subprocess.call([s],shell=True)

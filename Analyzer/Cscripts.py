@@ -61,7 +61,7 @@ class CustomCscripts(object):
     def Import(self,textfilename,name=None):
         if name == None: name = textfilename.split('/')[-1].replace('.cc','')
         if not os.path.isfile(textfilename): raise NameError('ERROR: %s does not exist'%textfilename)
-        else: print 'Found '+textfilename
+        else: print('Found '+textfilename)
         f = open(textfilename,'r')
         blockcode = f.read()
         setattr(self,name,blockcode)

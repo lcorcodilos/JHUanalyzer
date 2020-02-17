@@ -14,7 +14,7 @@ def GetValidTriggers(self,trigList,DataFrame):
             if trigOR == '': trigOR = "(("+t+"==1)" 
             else: trigOR += " || ("+t+"==1)"
         else:
-            print "Trigger %s does not exist in TTree. Skipping." %(t)   
+            print("Trigger %s does not exist in TTree. Skipping." %(t))
 
     if trigOR != "": 
         trigOR += ")" 
@@ -77,7 +77,7 @@ def dictCopy(inDict):
     return newDict
 
 def executeCmd(cmd,dryrun=False):
-    print 'Executing: '+cmd
+    print('Executing: '+cmd)
     if not dryrun:
         subprocess.call([cmd],shell=True)
 
@@ -202,7 +202,7 @@ def easyPlot(name, tag, histlist, bkglist=[],signals=[],colors=[],titles=[],logy
 
             hist.Draw('lego')
             if len(bkglist) > 0:
-                print 'ERROR: It seems you are trying to plot backgrounds with data on a 2D plot. This is not supported since there is no good way to view this type of distribution.'
+                print('ERROR: It seems you are trying to plot backgrounds with data on a 2D plot. This is not supported since there is no good way to view this type of distribution.')
         
         # Otherwise it's a TH1 hopefully
         else:

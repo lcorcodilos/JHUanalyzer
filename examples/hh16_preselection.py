@@ -38,7 +38,7 @@ a = analyzer(options.input)
 if '_loc.txt' in options.input: setname = options.input.split('/')[-1].split('_loc.txt')[0]
 else: setname = ''
 if os.path.exists(options.config):
-    print 'JSON config imported'
+    print('JSON config imported')
     c = openJSON(options.config)
     if setname != '' and not a.isData:
         xsec = c['XSECS'][setname]
@@ -109,7 +109,7 @@ preselected.Snapshot("SR.*|AT.*|mh|mreduced|mhh|nFatJet|FatJet_pt",'snapshot_exa
 out_f = ROOT.TFile(options.output,"RECREATE")
 out_f.cd()
 
-print "Outfile booked"
+print("Outfile booked")
 
 # Need to call DataFrame attribute since Histo2D is a method of RDataFrame - this means at any point, you have access to the plain RDataFrame object corresponding to each node!
 hists = [SRTT.DataFrame.Histo2D(("SRTT","SRTT",9 ,40 ,220 ,28 ,700 ,3500),'mh','mhh'),
@@ -146,4 +146,4 @@ SRTT_cutflow.Write()
 
 # Cleanup
 out_f.Close()
-print "Total time: "+str((time.time()-start_time)/60.) + ' min'
+print("Total time: "+str((time.time()-start_time)/60.) + ' min')

@@ -98,18 +98,18 @@ if options.noTrig:
                 found_trig = True
                 break
 
-        if not found_trig: print '\nEvent %s has no trigger bits that are non-zero!' %(i)
+        if not found_trig: print('\nEvent %s has no trigger bits that are non-zero!' %(i))
     quit()
 
 # Otherwise, establish what we're looking for
 fullSelection_string = '(%s) && (%s)'%(options.cuts,options.Not)
-print 'Full selection will be evaluated as '+fullSelection_string
+print('Full selection will be evaluated as '+fullSelection_string)
 if options.vs == '': 
     fullSelection = tree.GetEntries(fullSelection_string)
-    print 'Selected %s events with standard triggers' %fullSelection
+    print('Selected %s events with standard triggers' %fullSelection)
 else: 
     fullSelection = drawHere('fullSelection',tree,options.vs,fullSelection_string)
-    print 'Selected %s events with standard triggers' %fullSelection.Integral()
+    print('Selected %s events with standard triggers' %fullSelection.Integral())
 
 # Automatically scan all triggers
 if options.manual == '':
@@ -119,12 +119,12 @@ if options.manual == '':
             ignore = False
             for ign in options.ignore.split(','):
                 if ign.lower() in branchObj.GetName().lower(): 
-                    print 'Ignoring '+branchObj.GetName()
+                    print('Ignoring '+branchObj.GetName())
                     ignore = True
             if ignore: continue
 
             # Say what's being processed
-            print branchObj.GetName()+'...'
+            print(branchObj.GetName()+'...')
 
             # If no comparison against another branch, just count
             if options.vs == '':
@@ -193,13 +193,13 @@ else:
         # Loop over all triggers and find minimum
         for k in possible_trigs.keys():
             if possible_trigs[k].Integral() < minval:
-                print 'Replacing %s(%s) with %s(%s) as min' %(mintrig,minval,k,possible_trigs[k].Integral())
+                print('Replacing %s(%s) with %s(%s) as min' %(mintrig,minval,k,possible_trigs[k].Integral()))
                 minval = possible_trigs[k].Integral()
                 mintrig = k
 
         # Drop the found minimum and reflect this in the ntrigs count
         if mintrig in possible_trigs.keys():
-            print 'Removing min %s(%s)' %(mintrig,minval)
+            print('Removing min %s(%s)' %(mintrig,minval))
             del possible_trigs[mintrig]
 
         ntrigs = ntrigs-1
@@ -217,7 +217,7 @@ else:
 
     first = True
     for k in possible_trigs.keys():
-        print '%s: %s' %(k,possible_trigs[k].Integral())
+        print('%s: %s' %(k,possible_trigs[k].Integral()))
         this_hist = possible_trigs[k]
         if first: this_hist.SetMaximum(trig_max*1.1)
         this_hist.SetLineColor(color)
