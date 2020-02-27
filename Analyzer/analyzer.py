@@ -104,12 +104,8 @@ class analyzer(object):
         self.DataFrames[name] = newnodes
         return newnodes
 
+    # def AddCorrection():
 
-    #############
-    # No return #
-    #############
-    def SetCFunc(self,blockcode):
-        ROOT.gInterpreter.Declare(blockcode)
 
 ##############
 # Node Class #
@@ -269,6 +265,30 @@ class VarGroup(Group):
     def __init__(self, name):
         super(VarGroup,self).__init__(name)
         self.type = 'var'
+
+#####################
+# Corrections class #
+#####################
+# class Correction(object):
+#     def __init__(self,name,script):
+#         self.name = name
+#         self.script = script
+
+#         if '_weight.cc' in script or '_SF.cc' in script:
+#             self.type = 'weight'
+#         elif '_uncert.cc' in script:
+#             self.type = 'uncert'
+#         else:
+#             raise ValueError('ERROR: Attempting to add correction "%s" but script name (%s) does not end in "_weight.cc", "_SF.cc" or "_uncert.cc" and so the type of correction cannot be determined.'%(name))
+
+#         script_file = open(script,'r')
+#         SetCFunc(script)
+
+#############
+# No return #
+#############
+def SetCFunc(blockcode):
+    ROOT.gInterpreter.Declare(blockcode)
 
 ################################################
 # Build N-1 "tree" and outputs the final nodes #
