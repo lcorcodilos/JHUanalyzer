@@ -125,8 +125,9 @@ class Node(object):
         self.children = children # list of length 0, 1, or 2
         self._colnames = self.DataFrame.GetColumnNames()
         
-    def Clone(self):
-        return Node(self.name,self.DataFrame,parent=self.parent,children=self.children,action=self.action)
+    def Clone(self,name=''):
+        if name == '':return Node(self.name,self.DataFrame,parent=self.parent,children=self.children,action=self.action)
+        else: return Node(name,self.DataFrame,parent=self.parent,children=self.children,action=self.action)
 
     # Set parent of type Node
     def SetParent(self,parent): 
