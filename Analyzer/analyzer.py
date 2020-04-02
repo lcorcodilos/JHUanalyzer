@@ -52,7 +52,7 @@ class analyzer(object):
     # so made to only work when operating on self.BaseNode so   #
     # at least serves as a starting point.                      #
     #############################################################
-    def Cut(self,cuts,name='',node=None):
+    def Cut(self,name='',cuts='',node=None):
         if node == None: node = self.BaseNode
         newnode = node.Clone()
 
@@ -68,8 +68,8 @@ class analyzer(object):
         self.DataFrames[name] = newnode
         return newnode 
 
-    def Define(self,variables,name='',node=None):
-        if node == None: node = BaseNode
+    def Define(self,name='',variables='',node=None):
+        if node == None: node = self.BaseNode
         newnode = node.Clone()
 
         if isinstance(variables,VarGroup):
@@ -90,9 +90,9 @@ class analyzer(object):
         node = self.BaseNode
         for ag in actiongrouplist:
             if ag.type == 'cut':
-                node = self.Cut(ag,name=ag.name,node=node)
+                node = self.Cut(name=ag.name,cuts=ag,node=node)
             elif ag.type == 'var':
-                node = self.Define(ag,name=ag.name,node=node)
+                node = self.Define(name=ag.name,variables=ag,node=node)
             else:
                 raise TypeError("ERROR: Group %s does not have a defined type. Please initialize with either CutGroup or VarGroup." %ag.name)
 
