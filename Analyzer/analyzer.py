@@ -34,7 +34,12 @@ class analyzer(object):
         self.DataFrames = {} # All dataframes
 
         # Check if dealing with data
-        if hasattr(RunChain,'genEventCount'): self.isData = False
+        if hasattr(RunChain,'genEventCount'): 
+            self.isData = False
+            self.preV6 = True
+        elif hasattr(RunChain,'genEventCount_'): 
+            self.isData = False
+            self.preV6 = False
         else: self.isData = True
  
         # Count number of generated events if not data
@@ -42,7 +47,8 @@ class analyzer(object):
         if not self.isData: 
             for i in range(RunChain.GetEntries()): 
                 RunChain.GetEntry(i)
-                self.genEventCount+= RunChain.genEventCount
+                if self.preV6: self.genEventCount+= RunChain.genEventCount
+                else: self.genEventCount+= RunChain.genEventCount_
         
         # Cleanup
         del RunChain
@@ -201,6 +207,7 @@ class Node(object):
         lazy_opt = ROOT.RDF.RSnapshotOptions()
         lazy_opt.fLazy = lazy
         print("Snapshotting columns: %s"%columns)
+        print("Saving tree %s to file %s"%(treename,outfilename))
         if columns == 'all':
             self.DataFrame.Snapshot(treename,outfilename,'',lazy_opt)
         if type(columns) == str:
