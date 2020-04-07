@@ -1,7 +1,12 @@
 import ROOT
-import pprint, time, json, copy, os
-pp = pprint.PrettyPrinter(indent=4)
+import pprint, time, json, copy, os,sys
 from collections import OrderedDict
+pp = pprint.PrettyPrinter(indent=4)
+sys.path.append('../')
+from Tools.Common import GetHistBinningTuple, CompileCpp
+from Node import *
+from Correction import *
+from Group import *
 
 class analyzer(object):
     """Main class for JHUanalyzer package. Works on the basis of nodes, edges, and forks
@@ -32,6 +37,7 @@ class analyzer(object):
         self.BaseDataFrame = ROOT.RDataFrame(self.EventsChain)
         self.BaseNode = Node('base',self.BaseDataFrame)
         self.DataFrames = {} # All dataframes
+        self.Corrections = {} # All corrections
 
         # Check if dealing with data
         if hasattr(RunChain,'genEventCount'): 
@@ -52,275 +58,239 @@ class analyzer(object):
         
         # Cleanup
         del RunChain
+        self.ActiveNode = self.BaseNode
+ 
+    def SetActiveNode(self,node):
+        if not isinstance(node,Node): raise ValueError('ERROR: SetActiveNode() does not support argument of type %s. Please provide a Node.'%(type(node)))
+        else: self.ActiveNode = node
 
-    #############################################################
-    # Node operations - degenerate with Node class methods and  #
-    # so made to only work when operating on self.BaseNode so   #
-    # at least serves as a starting point.                      #
-    #############################################################
-    def Cut(self,name='',cuts='',node=None):
-        if node == None: node = self.BaseNode
-        newnode = node.Clone()
+    def GetActiveNode(self):
+        return self.ActiveNode
+
+    def GetBaseNode(self):
+        return self.BaseNode
+
+    def TrackNode(self,node):
+        if isinstance(node,Node):
+            self.DataFrames[node.name] = node
+        else:
+            raise TypeError('ERROR: TrackNode() does not support arguments of type %s. Please provide a Node.'%(type(node)))
+
+    def GetCorrectionNames(self):
+        return self.Corrections.keys()
+
+    #-----------------------------------------------------------#
+    # Node operations - degenerate with Node class methods but  #
+    # have benefit of keeping track of an Active Node (reset by #
+    # each action and used by default).                         #
+    #-----------------------------------------------------------#
+    def Cut(self,name='',cuts='',node=self.ActiveNode):
+        newNode = node.Clone()
 
         if isinstance(cuts,CutGroup):
             for c in cuts.keys():
                 cut = cuts[c]
-                newnode = newnode.Cut(c,cut)
+                newNode = newNode.Cut(c,cut)
         elif isinstance(cuts,str):
-            newnode = newnode.Cut(name,cuts)
+            newNode = newNode.Cut(name,cuts)
         else:
-            raise TypeError("ERROR: Second argument to Cut method must be a string of a single cut or of type CutGroup (which provides an OrderedDict)")
+            raise TypeError("ERROR: Second argument to Cut method must be a string of a single cut or of type CutGroup (which provides an OrderedDict).")
 
-        self.DataFrames[name] = newnode
-        return newnode 
+        self.TrackNode(newNode)
+        self.SetActiveNode(newNode)
+        return newNode 
 
-    def Define(self,name='',variables='',node=None):
-        if node == None: node = self.BaseNode
-        newnode = node.Clone()
+    def Define(self,name='',variables='',node=self.ActiveNode):
+        newNode = node.Clone()
 
         if isinstance(variables,VarGroup):
             for v in variables.keys():
                 var = variables[v]
-                newnode = newnode.Define(v,var)
+                newNode = newNode.Define(v,var)
         elif isinstance(variables,str):
-            newnode = newnode.Define(name,variables)
+            newNode = newNode.Define(name,variables)
         else:
-            raise TypeError("ERROR: Second argument to Define method must be a string of a single var or of type VarGroup (which provides an OrderedDict)")
+            raise TypeError("ERROR: Second argument to Define method must be a string of a single var or of type VarGroup (which provides an OrderedDict).")
 
-        self.DataFrames[name] = newnode
-        return newnode  
+        self.TrackNode(newNode)
+        self.SetActiveNode(newNode)
+        return newNode  
 
     # Applies a bunch of action groups (cut or var) in one-shot in the order they are given
-    def Apply(self,actiongrouplist):
+    def Apply(self,actiongrouplist,node=self.ActiveNode):
         if type(actiongrouplist) != list: actiongrouplist = [actiongrouplist]
-        node = self.BaseNode
         for ag in actiongrouplist:
             if ag.type == 'cut':
-                node = self.Cut(name=ag.name,cuts=ag,node=node)
+                newNode = self.Cut(name=ag.name,cuts=ag,node=node)
             elif ag.type == 'var':
-                node = self.Define(name=ag.name,variables=ag,node=node)
+                newNode = self.Define(name=ag.name,variables=ag,node=node)
             else:
-                raise TypeError("ERROR: Group %s does not have a defined type. Please initialize with either CutGroup or VarGroup." %ag.name)
+                raise TypeError("ERROR: Apply() group %s does not have a defined type. Please initialize with either CutGroup or VarGroup." %ag.name)
 
-        return node
-
-    def Discriminate(self,discriminator,name='',node=None):
-        node = self.BaseNode
-        newnodes = node.Discriminate(name,cut)
-        self.DataFrames[name] = newnodes
-        return newnodes
-
-    # def AddCorrection():
-
-
-##############
-# Node Class #
-##############
-class Node(object):
-    """Class to represent nodes in the DataFrame processing graph. Can make new nodes via Define, Cut, and Discriminate and setup relations between nodes (done automatically via Define, Cut, Discriminate)"""
-    def __init__(self, name, DataFrame, parent=None, children=[],action=''):
-        super(Node, self).__init__()
-        self.DataFrame = DataFrame
-        self.name = name
-        self.action = action
-        self.parent = parent # None or specified
-        self.children = children # list of length 0, 1, or 2
-        self._colnames = self.DataFrame.GetColumnNames()
-        
-    def Clone(self,name=''):
-        if name == '':return Node(self.name,self.DataFrame,parent=self.parent,children=self.children,action=self.action)
-        else: return Node(name,self.DataFrame,parent=self.parent,children=self.children,action=self.action)
-
-    # Set parent of type Node
-    def SetParent(self,parent): 
-        if isinstance(parent,Node): self.parent = parent
-        else: raise TypeError('ERROR: Parent is not an instance of Node class for node %s'%self.name)
-
-    # Set one child of type Node
-    def SetChild(self,child,overwrite=False,silence=False):
-        if overwrite: self.children = []
-        # if len(children > 1): raise ValueError("ERROR: More than two children are trying to be added node %s. You may use the overwrite option to erase current children or find your bug."%self.name)
-        # if len(children == 1) and silence == False: raw_input('WARNING: One child is already specified for node %s and you are attempting to add another (max 2). Press enter to confirm and continue.'%self.name)
-
-        if isinstance(child,Node): self.children.append(child)
-        else: raise TypeError('ERROR: Child is not an instance of Node class for node %s' %self.name)
-
-    # Set children of type Node
-    def SetChildren(self,children,overwrite=False):
-        if overwrite: self.children = []
-        # if len(children > 0): raise ValueError("ERROR: More than two children are trying to be added node %s. You may use the overwrite option to erase current children or find your bug."%self.name)
-        
-        if isinstance(children,dict) and 'pass' in children.keys() and 'fail' in children.keys() and len(children.keys()) == 2:
-            self.SetChild(children['pass'])
-            self.SetChild(children['fail'])
-        else:
-            raise TypeError('ERROR: Attempting to add a dictionary of children of incorrect format. Argument must be a dict of format {"pass":class.Node,"fail":class.Node}')
-
-    # Define a new column to calculate
-    def Define(self,name,var):
-        print('Defining %s: %s' %(name,var))
-        newNode = Node(name,self.DataFrame.Define(name,var),parent=self,action=var)
-        self.SetChild(newNode)
+        self.TrackNode(newNode)
+        self.SetActiveNode(newNode)
         return newNode
 
-    # Define a new cut to make
-    def Cut(self,name,cut):
-        print('Filtering %s: %s' %(name,cut))
-        newNode = Node(name,self.DataFrame.Filter(cut,name),parent=self,action=cut)
-        self.SetChild(newNode)
+    def Discriminate(self,discriminator,name='',node=self.ActiveNode,passAsActiveNode=None):
+        newNodes = node.Discriminate(name,cut)
+
+        self.TrackNode(newNodes['pass'])
+        self.TrackNode(newNodes['fail'])
+
+        if passAsActiveNode == True: self.SetActiveNode(newNodes['pass'])
+        elif passAsActiveNode == False: self.SetActiveNode(newNodes['fail'])
+
+        return newNodes
+
+    #######################
+    # Corrections/Weights #
+    #######################
+    # Want to correct with analyzer class so we can track what corrections have been made for final weights and if we want to save them out in a group when snapshotting
+    def AddCorrection(self,correction,node=self.ActiveNode):
+        # Quick type checking
+        if not isinstance(node,Node): raise TypeError('ERROR: AddCorrection() does not support argument of type %s for node. Please provide a Node.'%(type(node)))
+        elif not isinstance(correction,Correction): raise TypeError('ERROR: AddCorrection() does not support argument type %s for correction. Please provide a Correction.'%(type(correction)))
+
+        # Add correction to track
+        self.Corrections[correction.name] = correction
+
+        # Make new node
+        newNode = node.Define(correction.name+'__vec',correction.GetCall())
+        if correction.type == 'weight':
+            returnNode = newNode.Define(correction.name+'__nom',correction.name+'__vec[0]').Define(correction.name+'__up',correction.name+'__vec[1]').Define(correction.name+'__down',correction.name+'__vec[2]')
+        elif correction.type == 'uncert'
+            returnNode = newNode.Define(correction.name+'__up',correction.name+'__vec[0]').Define(correction.name+'__down',correction.name+'__vec[1]')
+
+        self.TrackNode(returnNode)
+        self.SetActiveNode(returnNode)
+        return returnNode
+
+    def AddCorrections(self,node=self.ActiveNode,correctionList):
+        newNode = node
+        for c in correctionList:
+            newNode = self.AddCorrection(newNode,c)
+
+        self.TrackNode(newNode)
+        self.SetActiveNode(newNode)
         return newNode
 
-    # Discriminate based on a discriminator
-    def Discriminate(self,name,discriminator):
-        pass_sel = self.DataFrame
-        fail_sel = self.DataFrame
-        passfail = {
-            "pass":Node(name+"_pass",pass_sel.Filter(discriminator,name+"_pass"),parent=self,action=discriminator),
-            "fail":Node(name+"_fail",fail_sel.Filter("!("+discriminator+")",name+"_fail"),parent=self,action="!("+discriminator+")")
-        }
-        self.SetChildren(passfail)
-        return passfail
-            
-    # Applies a bunch of action groups (cut or var) in one-shot in the order they are given
-    def Apply(self,actiongrouplist):
-        if type(actiongrouplist) != list: actiongrouplist = [actiongrouplist]
-        node = self
-        for ag in actiongrouplist:
-            if isinstance(ag,CutGroup):
-                for c in ag.keys():
-                    cut = ag[c]
-                    node = node.Cut(c,cut)
-            elif isinstance(ag,VarGroup):
-                for v in ag.keys():
-                    var = ag[v]
-                    node = node.Define(v,var)
+    def MakeWeightCols(self,node=self.ActiveNode,CorrectionNames=None,dropList=[]):
+        correctionsToApply = _checkCorrections(CorrectionNames,dropList)
+        
+        # Build nominal weight first (only "weight", no "uncert")
+        weights = {'nominal':''}
+        for corrname in correctionsToApply:
+            corr = self.Corrections[corrname] # MIGHT BE ABLE TO REMOVE THIS LINE AND THE STORING OF Correction INSTANCES ENTIRELY (ie just store names)
+            if corr.GetType() == 'weight':
+                weights['nominal']+=corrname+'__nom * '
+            weights['nominal'] = weights['nominal'][:-3]
+
+        # Vary nominal weight for each correction ("weight" and "uncert")
+        for corrname in correctionsToApply:
+            corr = self.Corrections[corrname]
+            if corr.GetType() == 'weight':
+                weights[corrname+'_up'] = weights['nominal'].replace(corrname+'__nom',corrname+'__up')
+                weights[corrname+'_down'] = weights['nominal'].replace(corrname+'__nom',corrname+'__down')
+            elif corr.GetType() == 'uncert':
+                weights[corrname+'_up'] = weights['nominal']+' * '+corrname+'__up'
+                weights[corrname+'_down'] = weights['nominal']+' * '+corrname+'__down'
             else:
-                raise TypeError("ERROR: Group %s does not have a defined type. Please initialize with either CutGroup or VarGroup." %ag.name)                
+                raise TypeError('ERROR: Correction "%s" not identified as either "weight" or "uncert"'%(corrname))
 
-        return node
+        # Make a node with all weights calculated
+        returnNode = node
+        for weight in weights.keys():
+            returnNode = returnNode.Define('weight__'+weight,weights[weight])
+        
+        self.TrackNode(returnNode)
+        self.SetActiveNode(returnNode)
+        return returnNode 
 
+    def MakeTemplateHistos(self,templateHist,variables,node=self.ActiveNode,CorrectionNames=None,dropList=[]):
+        out = HistGroup('Templates')
 
-    # IMPORTANT: When writing a variable size array through Snapshot, it is required that the column indicating its size is also written out and it appears before the array in the columns list.
-    # columns should be an empty string if you'd like to keep everything
+        weight_cols = [cname for cname in node.GetColumnNames() if 'weight__' in cname]
+        baseName = templateHist.GetName()
+        baseTitle = templateHist.GetTitle()
+        binningTuple,dimension = GetHistBinningTuple(templateHist)
 
-    def Snapshot(self,columns,outfilename,treename,lazy=False): # columns can be a list or a regular expression or 'all'
-        lazy_opt = ROOT.RDF.RSnapshotOptions()
-        lazy_opt.fLazy = lazy
-        print("Snapshotting columns: %s"%columns)
-        print("Saving tree %s to file %s"%(treename,outfilename))
-        if columns == 'all':
-            self.DataFrame.Snapshot(treename,outfilename,'',lazy_opt)
-        if type(columns) == str:
-            self.DataFrame.Snapshot(treename,outfilename,columns,lazy_opt)
+        for c in weight_cols:
+            histname = '%s__%s'%(baseName,cname.replace('weight__',''))
+            histtitle = '%s__%s'%(baseTitle,cname.replace('weight__',''))
+
+            # Build the tuple to give as argument for template
+            template_attr = (histname,histtitle) + binningTuple
+
+            if dimension == 1: thishist = node.DataFrame.Histo1D(template_attr,variables[0],cname)
+            elif dimension == 2: thishist = node.DataFrame.Histo2D(template_attr,variables[0],variables[1],cname)
+            elif dimension == 3: thishist = node.DataFrame.Histo3D(template_attr,variables[0],variables[1],variables[2],cname)
+           
+            out.Add(histname,thishist)
+
+        return out
+
+    ##################################################################
+    # Draw templates together to see up/down effects against nominal #
+    ##################################################################
+    def DrawTemplates(hGroup,saveLocation,projection='X',projectionArgs=(),fileType='pdf'):
+        canvas = TCanvas('c','',800,700)
+
+        # Initial setup
+        baseName = list(hGroup.keys())[0].split('__')[0]
+
+        if isinstance(hGroup[baseName+'__nominal'],ROOT.TH2) or isinstance(hGroup[baseName+'__nominal'],ROOT.TH3): 
+            projectedGroup = hGroup.Do("Projection"+projection,projectionArgs)
         else:
-            # column_vec = ROOT.std.vector('string')()
-            column_vec = ''
-            for c in columns:
-                column_vec += c+'|'
-            column_vec = column_vec[:-1]
-               # column_vec.push_back(c)
-            self.DataFrame.Snapshot(treename,outfilename,column_vec,lazy_opt)
+            projectedGroup = hGroup
 
-##################
-# CutGroup Class #
-##################
-class Group(object):
-    """docstring for Group"""
-    def __init__(self, name):
-        super(Group, self).__init__()
-        self.name = name
-        self.items = OrderedDict()
-        self.type = None
+        nominal = projectedGroup[baseName+'__nominal']
+        nominal.SetLineColor(kBlack)
+        nominal.SetFillColor(kYellow-2)
+        corrections = []
+        for name in projectedGroup.keys():
+            corr = name.split('__')[1].split('_')[0]
+            if corr not in corrections:
+                corrections.append(corr)
 
-    def Add(self,name,item):
-        self.items[name] = item 
-        
-    def Drop(self,name):
-        dropped = copy.deepcopy(self.items)
-        del dropped[name]
-        if self.type == None: newGroup = Group(self.name+'-'+name)
-        elif self.type == 'var': newGroup = VarGroup(self.name+'-'+name)
-        elif self.type == 'cut': newGroup = CutGroup(self.name+'-'+name)
-        newGroup.items = dropped
-        return newGroup
+        # Loop over corrections
+        for corr in corrections:
+            nominal.Draw('hist')
 
-    def __add__(self,other):
-        added = copy.deepcopy(self.items)
-        added.update(other.items)
-        if self.type == 'var' and self.type == 'var': newGroup = VarGroup(self.name+"+"+other.name)
-        elif self.type == 'cut' and self.type == 'cut': newGroup = CutGroup(self.name+"+"+other.name)
-        else: newGroup = Group(self.name+"+"+other.name)
-        newGroup.items = added
-        return newGroup
+            up = projectedGroup[baseName+'__'+corr+'_up']
+            down = projectedGroup[baseName+'__'+corr+'_down']
 
-    def keys(self):
-        return self.items.keys()
+            up.SetLineColor(kRed)
+            down.SetLineColor(kBlue)
 
-    def __getitem__(self,key):
-        return self.items[key]
+            leg = TLegend(0.8,0.8,0.9,0.9)
+            leg.AddEntry('Nominal',nominal,'lf')
+            leg.AddEntry('Up',up,'l')
+            leg.AddEntry('Down',down,'l')
 
-    # Subclass for cuts
-class CutGroup(Group):
-    """docstring for CutGroup"""
-    def __init__(self, name):
-        super(CutGroup,self).__init__(name)
-        self.type = 'cut'
-        
-# Subclass for vars/columns
-class VarGroup(Group):
-    """docstring for VarGroup"""
-    def __init__(self, name):
-        super(VarGroup,self).__init__(name)
-        self.type = 'var'
+            up.Draw('same hist')
+            down.Draw('same hist')
+            leg.Draw()
 
-#####################
-# Corrections class #
-#####################
-# class Correction(object):
-#     def __init__(self,name,script):
-#         self.name = name
-#         self.script = script
+            canvas.Print('%s/%s_%s.%s'%(saveLocation,baseName,corr,fileType),fileType)
 
-#         if '_weight.cc' in script or '_SF.cc' in script:
-#             self.type = 'weight'
-#         elif '_uncert.cc' in script:
-#             self.type = 'uncert'
-#         else:
-#             raise ValueError('ERROR: Attempting to add correction "%s" but script name (%s) does not end in "_weight.cc", "_SF.cc" or "_uncert.cc" and so the type of correction cannot be determined.'%(name))
+    #####################
+    # Private functions #
+    #####################
+    def _checkCorrections(self,CorrectionNames,dropList):
+        # Quick type checking
+        if CorrectionNames == None: correctionsToApply = self.Corrections.keys()
+        elif not isinstance(CorrectionNames,list):
+            raise ValueError('ERROR: MakeWeights() does not support CorrectionNames argument of type %s. Please provide a list.'%(type(CorrectionNames)))
+        else: correctionsToApply = CorrectionNames
 
-#         script_file = open(script,'r')
-#         SetCFunc(script)
+        # Drop specified weights from consideration
+        if not isinstance(dropList,list):
+            raise ValueError('ERROR: MakeWeights() does not support dropList argument of type %s. Please provide a list.'%(type(dropList)))
+        else: 
+            newCorrsToApply = []
+            for corr in correctionsToApply:
+                if corr not in dropList: newCorrsToApply.append(corr)
+            correctionsToApply = newCorrsToApply
 
-#############
-# No return #
-#############
-def SetCFunc(blockcode):
-    ROOT.gInterpreter.Declare(blockcode)
+        return correctionsToApply
 
-################################################
-# Build N-1 "tree" and outputs the final nodes #
-# Beneficial to put most aggressive cuts first #
-# Return dictionary of N-1 nodes keyed by the  #
-# cut that gets dropped                        #
-################################################
-def Nminus1(node,cutgroup):
-    # Initialize
-    nminusones = {}
-    thisnode = node
-    thiscutgroup = cutgroup
-
-    # Loop over all cuts (`cut` is the name not the string to filter on)
-    for cut in cutgroup.keys():
-        # Get the N-1 group of this cut (where N is determined by thiscutgroup)
-        minusgroup = thiscutgroup.Drop(cut)
-        thiscutgroup = minusgroup
-        # Store the node with N-1 applied
-        nminusones[cut] = thisnode.Apply(minusgroup)
-        
-        # If there are any more cuts left, go to the next node with current cut applied (this is how we keep N as the total N and not just the current N)
-        if len(minusgroup.keys()) > 0:
-            thisnode = thisnode.Cut(cut,cutgroup[cut])
-        else:
-            nminusones['full'] = thisnode.Cut(cut,cutgroup[cut])
-
-    return nminusones
