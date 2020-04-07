@@ -1,4 +1,6 @@
-import os, ROOT
+import os, ROOT, sys
+sys.path.append('../')
+from Tools.Common import CompileCpp
 
 class CommonCscripts(object):
     """Common c scripts all in analyzer namespace"""
@@ -65,7 +67,4 @@ class CustomCscripts(object):
         f = open(textfilename,'r')
         blockcode = f.read()
         setattr(self,name,blockcode)
-        self.SetCFunc(blockcode)
-
-    def SetCFunc(self,blockcode):
-        ROOT.gInterpreter.Declare(blockcode)
+        CompileCpp(blockcode)

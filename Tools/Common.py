@@ -34,15 +34,89 @@ def CutflowHist(name,node):
 
     return h
 
+#----------------------------------------------#
+# Build N-1 "tree" and outputs the final nodes #
+# Beneficial to put most aggressive cuts first #
+# Return dictionary of N-1 nodes keyed by the  #
+# cut that gets dropped                        #
+#----------------------------------------------#
+def Nminus1(node,cutgroup):
+    # Initialize
+    nminusones = {}
+    thisnode = node
+    thiscutgroup = cutgroup
+
+    # Loop over all cuts (`cut` is the name not the string to filter on)
+    for cut in cutgroup.keys():
+        # Get the N-1 group of this cut (where N is determined by thiscutgroup)
+        minusgroup = thiscutgroup.Drop(cut)
+        thiscutgroup = minusgroup
+        # Store the node with N-1 applied
+        nminusones[cut] = thisnode.Apply(minusgroup)
+        
+        # If there are any more cuts left, go to the next node with current cut applied (this is how we keep N as the total N and not just the current N)
+        if len(minusgroup.keys()) > 0:
+            thisnode = thisnode.Cut(cut,cutgroup[cut])
+        else:
+            nminusones['full'] = thisnode.Cut(cut,cutgroup[cut])
+
+    return nminusones
+
 ###########
 # Generic #
 ###########
+def CompileCpp(blockcode):
+    if isinstance(blockcode,str):
+        ROOT.gInterpreter.Declare(blockcode)
+    else:
+        blockcode_str = open(blockcode,'r').read()
+        ROOT.gInterpreter.Declare(blockcode_str)
+
 def openJSON(f):
     return json.load(open(f,'r'), object_hook=ascii_encode_dict) 
 
 def ascii_encode_dict(data):    
     ascii_encode = lambda x: x.encode('ascii') if isinstance(x, unicode) else x 
     return dict(map(ascii_encode, pair) for pair in data.items())
+
+def GetHistBinningTuple(h):
+    # At least 1D (since TH2 and TH3 inherit from TH1)
+    if isinstance(h,ROOT.TH1):
+        # Variable array vs fixed binning
+        if h.GetXaxis().GetXbins().GetSize() > 0:
+            xbinning = (h.GetNbinsX(),h.GetXaxis().GetXbins())
+        else:
+            xbinning = (h.GetNbinsX(),h.GetXaxis().GetXmin(),h.GetXaxis().GetXmax())
+        ybinning = ()
+        zbinning = ()
+        dimension = 1
+    else:
+        raise TypeError('ERROR: GetHistBinningTuple() does not support a template histogram of type %s. Please provide a TH1, TH2, or TH3.'%type(h))
+
+    # Check if 2D
+    if isinstance(h,ROOT.TH2):
+        # Y variable vs fixed binning
+        if h.GetYaxis().GetXbins().GetSize() > 0:
+            ybinning = (h.GetNbinsY(),h.GetYaxis().GetXbins())
+        else:
+            ybinning = (h.GetNbinsY(),h.GetYaxis().GetXmin(),h.GetYaxis().GetXmax())
+        zbinning = ()
+        dimension = 2
+    # Check if 3D
+    elif isinstance(h,ROOT.TH3):
+        # Y variable vs fixed binning
+        if h.GetYaxis().GetXbins().GetSize() > 0:
+            ybinning = (h.GetNbinsY(),h.GetYaxis().GetXbins())
+        else:
+            ybinning = (h.GetNbinsY(),h.GetYaxis().GetXmin(),h.GetYaxis().GetXmax())
+        # Z variable vs fixed binning
+        if h.GetZaxis().GetXbins().GetSize() > 0:
+            zbinning = (h.GetNbinsZ(),h.GetZaxis().GetXbins())
+        else:
+            zbinning = (h.GetNbinsZ(),h.GetZaxis().GetXmin(),h.GetZaxis().GetXmax())
+        dimension = 3
+
+    return xbinning + ybinning + zbinning, dimension
 
 def colliMate(myString,width=18):
     sub_strings = myString.split(' ')
