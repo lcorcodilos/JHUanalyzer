@@ -15,15 +15,31 @@ from Correction import *
 from Group import *
 
 class analyzer(object):
-    """Main class for HAMMER package. Works on the basis of nodes, edges, and forks
-    where nodes are an RDF instance after an action (or series of actions) is performed, 
-    the edges are actions, and forks split the processing of one node into two via a discriminator."""
+    """Main class for HAMMER. 
+
+    Implements an interface with ROOT's RDataFrame (RDF). The default values assume the data is in
+    NanoAOD format. However, any TTree can be used. The class works on the basis of nodes and actions
+    where nodes are an RDF instance and an action (or series of actions) can transform the RDF to create a new node(s).
+
+    When using class functions to perform actions, an active node will always be tracked so that the next action uses 
+    the active node and assigns the output node as the new active node"""
     def __init__(self,fileName,eventsTreeName="Events",runTreeName="Runs"):
+        '''
+        Constructor
+
+        Args:
+            fileName (str): A ROOT file path or the path to a txt file which contains several ROOT file paths separated by 
+                new line characters.
+
+            eventsTreeName (str): Name of TTree in fileName where events are stored. Defaults to "Events" (for NanoAOD)
+            
+            runTreeName (str): NAme of TTree in fileName where run information is stored (for generated event info in 
+                simulation). Defaults to "Runs" (for NanoAOD) 
+        '''
+
         super(analyzer, self).__init__()
-        self.fileName = fileName # Can be single root file txt file with list of ROOT file locations (including xrootd locations)
+        self.fileName = fileName 
         self.eventsTreeName = eventsTreeName
-        # self.cuts = OrderedDict()
-        # self.Cfuncs = {}
 
         # Setup TChains for multiple or single file
         self.EventsChain = ROOT.TChain(self.eventsTreeName) # Has events to turn into starting RDF
@@ -40,22 +56,22 @@ class analyzer(object):
             raise Exception("File name extension not supported. Please provide a single .root file or a .txt file with a line-separated list of .root files to chain together.")
 
         # Make base RDataFrame
-        self.BaseDataFrame = ROOT.RDataFrame(self.EventsChain)
-        self.BaseNode = Node('base',self.BaseDataFrame)
-        self.DataFrames = {} # All dataframes
-        self.Corrections = {} # All corrections
+        self.BaseDataFrame = ROOT.RDataFrame(self.EventsChain) #: ROOT.RDataFrame: Initial RDataFrame - no modifications
+        self.BaseNode = Node('base',self.BaseDataFrame) #: Node: Initial Node - no modifications
+        self.DataFrames = {} #: dict: All data frames
+        self.Corrections = {} #: dict: All corrections added to track
 
         # Check if dealing with data
         if hasattr(RunChain,'genEventCount'): 
-            self.isData = False
-            self.preV6 = True
+            self.isData = False #: bool: Is data (true) or simulation (false) based on existence of _genEventCount branch
+            self.preV6 = True #: bool: Is pre-NanoAODv6 (true) or not (false) based on existence of _genEventCount branch
         elif hasattr(RunChain,'genEventCount_'): 
             self.isData = False
             self.preV6 = False
         else: self.isData = True
  
         # Count number of generated events if not data
-        self.genEventCount = 0
+        self.genEventCount = 0 #: int: Number of generated events in imported simulation files. Zero if data.
         if not self.isData: 
             for i in range(RunChain.GetEntries()): 
                 RunChain.GetEntry(i)
@@ -64,25 +80,38 @@ class analyzer(object):
         
         # Cleanup
         del RunChain
-        self.ActiveNode = self.BaseNode
+        self.ActiveNode = self.BaseNode #: Mode: Active node. Access via GetActiveNode(). Set via SetActiveNode().
  
     def SetActiveNode(self,node):
+        '''Sets the active node (#ActiveNode)'''
         if not isinstance(node,Node): raise ValueError('ERROR: SetActiveNode() does not support argument of type %s. Please provide a Node.'%(type(node)))
         else: self.ActiveNode = node
 
     def GetActiveNode(self):
+        '''Return the active node (#ActiveNode)'''
         return self.ActiveNode
 
     def GetBaseNode(self):
+        '''Return the base node (#BaseNode)'''
         return self.BaseNode
 
     def TrackNode(self,node):
+        '''Add a node to track. 
+
+        Will add the node to #DataFrames dictionary with key node.name.
+
+        Raise exception if node.name already exists as a key.'''
         if isinstance(node,Node):
+            if node.Name in self.DataFrames.keys():
+                raise ValueError('ERROR: Attempting to track a node with the same name as one that is already being tracked (%s). Please provide a unique node.'%(node.name))
             self.DataFrames[node.name] = node
         else:
             raise TypeError('ERROR: TrackNode() does not support arguments of type %s. Please provide a Node.'%(type(node)))
 
     def GetCorrectionNames(self):
+        '''Return names of all corrections being tracked.
+
+        Names are stored as keys in #Corrections dictionary.'''
         return self.Corrections.keys()
 
     #-----------------------------------------------------------#
@@ -164,14 +193,14 @@ class analyzer(object):
         newNode = node.Define(correction.name+'__vec',correction.GetCall())
         if correction.type == 'weight':
             returnNode = newNode.Define(correction.name+'__nom',correction.name+'__vec[0]').Define(correction.name+'__up',correction.name+'__vec[1]').Define(correction.name+'__down',correction.name+'__vec[2]')
-        elif correction.type == 'uncert'
+        elif correction.type == 'uncert':
             returnNode = newNode.Define(correction.name+'__up',correction.name+'__vec[0]').Define(correction.name+'__down',correction.name+'__vec[1]')
 
         self.TrackNode(returnNode)
         self.SetActiveNode(returnNode)
         return returnNode
 
-    def AddCorrections(self,node=self.ActiveNode,correctionList):
+    def AddCorrections(self,node=self.ActiveNode,correctionList=[]):
         newNode = node
         for c in correctionList:
             newNode = self.AddCorrection(newNode,c)

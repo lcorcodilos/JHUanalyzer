@@ -1,10 +1,16 @@
+'''@docstring Common.py
+
+Home to commonly used tools available for use that can be generic or HAMMER specific
+
+'''
+
 import json, ROOT
 from ROOT import RDataFrame
 import CMS_lumi, tdrstyle
 from contextlib import contextmanager
-########################
-# JHUanalyzer specific #
-########################
+###################
+# HAMMER specific #
+###################
 # Returns OR string of triggers that can be given to a cut group
 def GetValidTriggers(self,trigList,DataFrame):
     trigOR = ""

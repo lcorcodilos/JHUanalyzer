@@ -1,3 +1,9 @@
+'''@docstring Cscripts.py
+
+Home of classes for handling C++
+
+'''
+
 import os, ROOT, sys
 sys.path.append('../')
 from Tools.Common import CompileCpp

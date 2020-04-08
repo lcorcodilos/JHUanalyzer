@@ -1,3 +1,9 @@
+'''@docstring Group.py
+
+Home of Group classes for organizing cuts, new variables, and histograms
+
+'''
+
 from collections import OrderedDict
 #################
 # Group Classes #

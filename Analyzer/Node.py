@@ -1,3 +1,8 @@
+'''@docstring Group.py
+
+Home of Node class for handling and tracking of RDataFrame objects
+'''
+
 import ROOT
 ##############
 # Node Class #

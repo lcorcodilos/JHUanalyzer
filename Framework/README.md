@@ -1,1 +1,3 @@
-Stores basic framework classes and functions.
+# Framework
+
+Home to generic C++ modules. 
