@@ -1,3 +1,9 @@
+'''@docstring Analyzer.py
+
+Home of main class for HAMMER.
+
+'''
+
 import ROOT
 import pprint, time, json, copy, os,sys
 from collections import OrderedDict
@@ -9,7 +15,7 @@ from Correction import *
 from Group import *
 
 class analyzer(object):
-    """Main class for JHUanalyzer package. Works on the basis of nodes, edges, and forks
+    """Main class for HAMMER package. Works on the basis of nodes, edges, and forks
     where nodes are an RDF instance after an action (or series of actions) is performed, 
     the edges are actions, and forks split the processing of one node into two via a discriminator."""
     def __init__(self,fileName,eventsTreeName="Events",runTreeName="Runs"):
