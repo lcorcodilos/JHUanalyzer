@@ -130,16 +130,16 @@ class analyzer(object):
     def GetActiveNode(self):
         """Get the active node.
 
-        Returns:
-            #ActiveNode (Node)
+        Returns: 
+            Value of #ActiveNode (Node)
         """
         return self.ActiveNode
 
     def GetBaseNode(self):
         """Get the base node.
 
-        Returns:
-            #BaseNode (Node)
+        Returns: 
+            Value of #BaseNode (Node)
         """
         return self.BaseNode
 
@@ -166,7 +166,7 @@ class analyzer(object):
         """Get names of all corrections being tracked.
 
         Returns:
-            List of #Corrections keys/names
+            List of Correction keys/names
         """
         return self.Corrections.keys()
 
@@ -267,8 +267,7 @@ class analyzer(object):
             discriminator (str): A one-line C++ string that evaluates as a boolean to discriminate for the forking of the node.
             node (Node): Node to discriminate. Must be of type Node (not RDataFrame). Defaults to #ActiveNode.
             passAsActiveNode (bool): True if the #ActiveNode should be set to the node that passes the discriminator.
-                False if the #ActiveNode should be set to the node that fails the discriminator. Defaults to None in which case
-                the #ActiveNode does not change.
+                False if the #ActiveNode should be set to the node that fails the discriminator. Defaults to None in which case the #ActiveNode does not change.
 
         Returns:
             Dictionary with keys "pass" and "fail" corresponding to the passing and failing Nodes stored as values.
@@ -289,7 +288,7 @@ class analyzer(object):
     #---------------------#
     # Want to correct with analyzer class so we can track what corrections have been made for final weights and if we want to save them out in a group when snapshotting
     def AddCorrection(self,correction,node=self.ActiveNode):
-        """Add a #Correction to track.
+        """Add a Correction to track.
 
         Args:
             correction (Correction): Correction object to add.

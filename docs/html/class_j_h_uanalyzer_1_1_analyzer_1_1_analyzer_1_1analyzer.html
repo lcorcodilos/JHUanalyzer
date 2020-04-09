@@ -118,7 +118,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a48340041ebbcb65cda2e7e58c57c325a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forks a node based upon a discriminator being True or False (<a class="el" href="class_j_h_uanalyzer_1_1_analyzer_1_1_analyzer_1_1analyzer.html#a10d1bd46795cf1c0abfd8f16afcc54a1" title="Node. ">ActiveNode</a> by default).  <a href="#a48340041ebbcb65cda2e7e58c57c325a">More...</a><br /></td></tr>
 <tr class="separator:a48340041ebbcb65cda2e7e58c57c325a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5363aa8e5cd2a3998f580f74cb46bae2"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_j_h_uanalyzer_1_1_analyzer_1_1_analyzer_1_1analyzer.html#a5363aa8e5cd2a3998f580f74cb46bae2">AddCorrection</a> (self, correction, node=self.ActiveNode)</td></tr>
-<tr class="memdesc:a5363aa8e5cd2a3998f580f74cb46bae2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a #Correction to track.  <a href="#a5363aa8e5cd2a3998f580f74cb46bae2">More...</a><br /></td></tr>
+<tr class="memdesc:a5363aa8e5cd2a3998f580f74cb46bae2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a Correction to track.  <a href="#a5363aa8e5cd2a3998f580f74cb46bae2">More...</a><br /></td></tr>
 <tr class="separator:a5363aa8e5cd2a3998f580f74cb46bae2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0373afeeea38e5875a2a591b347355fc"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_j_h_uanalyzer_1_1_analyzer_1_1_analyzer_1_1analyzer.html#a0373afeeea38e5875a2a591b347355fc">AddCorrections</a> (self, correctionList=[], node=self.ActiveNode)</td></tr>
 <tr class="memdesc:a0373afeeea38e5875a2a591b347355fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add multiple Corrections to track.  <a href="#a0373afeeea38e5875a2a591b347355fc">More...</a><br /></td></tr>
@@ -248,7 +248,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Add a #Correction to track. </p>
+<p>Add a Correction to track. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">correction</td><td>Correction object to add. </td></tr>
@@ -501,10 +501,11 @@ Public Attributes</h2></td></tr>
     <tr><td class="paramname">name</td><td>Name for the discrimination for internal tracking and later reference. </td></tr>
     <tr><td class="paramname">discriminator</td><td>A one-line C++ string that evaluates as a boolean to discriminate for the forking of the node. </td></tr>
     <tr><td class="paramname">node</td><td>Node to discriminate. Must be of type Node (not RDataFrame). Defaults to <a class="el" href="class_j_h_uanalyzer_1_1_analyzer_1_1_analyzer_1_1analyzer.html#a10d1bd46795cf1c0abfd8f16afcc54a1" title="Node. ">ActiveNode</a>. </td></tr>
-    <tr><td class="paramname">passAsActiveNode</td><td>True if the <a class="el" href="class_j_h_uanalyzer_1_1_analyzer_1_1_analyzer_1_1analyzer.html#a10d1bd46795cf1c0abfd8f16afcc54a1" title="Node. ">ActiveNode</a> should be set to the node that passes the discriminator. False if the <a class="el" href="class_j_h_uanalyzer_1_1_analyzer_1_1_analyzer_1_1analyzer.html#a10d1bd46795cf1c0abfd8f16afcc54a1" title="Node. ">ActiveNode</a> should be set to the node that fails the discriminator. Defaults to None in which case <div class="fragment"><div class="line">               the <span class="comment">#ActiveNode does not change.</span></div><div class="line"></div><div class="line">@<span class="keywordflow">return</span></div></div><!-- fragment --> Dictionary with keys "pass" and "fail" corresponding to the passing and failing Nodes stored as values. </td></tr>
+    <tr><td class="paramname">passAsActiveNode</td><td>True if the <a class="el" href="class_j_h_uanalyzer_1_1_analyzer_1_1_analyzer_1_1analyzer.html#a10d1bd46795cf1c0abfd8f16afcc54a1" title="Node. ">ActiveNode</a> should be set to the node that passes the discriminator. False if the <a class="el" href="class_j_h_uanalyzer_1_1_analyzer_1_1_analyzer_1_1analyzer.html#a10d1bd46795cf1c0abfd8f16afcc54a1" title="Node. ">ActiveNode</a> should be set to the node that fails the discriminator. Defaults to None in which case the <a class="el" href="class_j_h_uanalyzer_1_1_analyzer_1_1_analyzer_1_1analyzer.html#a10d1bd46795cf1c0abfd8f16afcc54a1" title="Node. ">ActiveNode</a> does not change.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Dictionary with keys "pass" and "fail" corresponding to the passing and failing Nodes stored as values. </dd></dl>
 
 </div>
 </div>
@@ -587,7 +588,7 @@ None </dd></dl>
 </div><div class="memdoc">
 
 <p>Get the active node. </p>
-<dl class="section return"><dt>Returns</dt><dd><div class="fragment"><div class="line"><span class="comment">#ActiveNode (Node)</span></div></div><!-- fragment --></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Value of <a class="el" href="class_j_h_uanalyzer_1_1_analyzer_1_1_analyzer_1_1analyzer.html#a10d1bd46795cf1c0abfd8f16afcc54a1" title="Node. ">ActiveNode</a> (Node) </dd></dl>
 
 </div>
 </div>
@@ -608,7 +609,7 @@ None </dd></dl>
 </div><div class="memdoc">
 
 <p>Get the base node. </p>
-<dl class="section return"><dt>Returns</dt><dd><div class="fragment"><div class="line"><span class="comment">#BaseNode (Node)</span></div></div><!-- fragment --></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Value of <a class="el" href="class_j_h_uanalyzer_1_1_analyzer_1_1_analyzer_1_1analyzer.html#ad3b163ecdfa1b786351c41a626e09346" title="Node. ">BaseNode</a> (Node) </dd></dl>
 
 </div>
 </div>
@@ -629,7 +630,7 @@ None </dd></dl>
 </div><div class="memdoc">
 
 <p>Get names of all corrections being tracked. </p>
-<dl class="section return"><dt>Returns</dt><dd>List of <a class="el" href="class_j_h_uanalyzer_1_1_analyzer_1_1_analyzer_1_1analyzer.html#a223f55b74322d3fd59411eee2783977a" title="dict ">Corrections</a> keys/names </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>List of Correction keys/names </dd></dl>
 
 </div>
 </div>
