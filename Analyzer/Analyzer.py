@@ -1,8 +1,8 @@
-'''@docstring Analyzer.py
+"""@docstring Analyzer.py
 
 Home of main class for HAMMER.
 
-'''
+"""
 
 import ROOT
 import pprint, time, json, copy, os,sys
@@ -24,7 +24,7 @@ class analyzer(object):
     When using class functions to perform actions, an active node will always be tracked so that the next action uses 
     the active node and assigns the output node as the new active node"""
     def __init__(self,fileName,eventsTreeName="Events",runTreeName="Runs"):
-        '''
+        """
         Constructor
 
         Args:
@@ -35,43 +35,76 @@ class analyzer(object):
             
             runTreeName (str): NAme of TTree in fileName where run information is stored (for generated event info in 
                 simulation). Defaults to "Runs" (for NanoAOD) 
-        '''
+        """
+
+        ## @var BaseDataFrame 
+        # ROOT.RDataFrame
+        #
+        # Initial RDataFrame - no modifications
+        ## @var BaseNode
+        # Node
+        #
+        # Initial Node - no modifications
+        ## @var DataFrames
+        # dict
+        #
+        # All data frames
+        ## @var Corrections
+        # dict
+        #
+        # All corrections added to track
+        ## @var isData
+        # bool
+        #
+        # Is data (true) or simulation (false) based on existence of _genEventCount branch
+        ## @var preV6
+        # bool
+        #
+        # Is pre-NanoAODv6 (true) or not (false) based on existence of _genEventCount branch
+        ## @var genEventCount
+        # int
+        #
+        # Number of generated events in imported simulation files. Zero if data.
+        ## @var ActiveNode
+        # Node
+        #
+        # Active node. Access via GetActiveNode(). Set via SetActiveNode().
 
         super(analyzer, self).__init__()
-        self.fileName = fileName 
-        self.eventsTreeName = eventsTreeName
+        self.__fileName = fileName 
+        self.__eventsTreeName = eventsTreeName
 
         # Setup TChains for multiple or single file
-        self.EventsChain = ROOT.TChain(self.eventsTreeName) # Has events to turn into starting RDF
+        self.__eventsChain = ROOT.TChain(self.__eventsTreeName) 
         RunChain = ROOT.TChain(runTreeName) # Has generated event count information - will be deleted after initialization
-        if ".root" in self.fileName: 
-            self.EventsChain.Add(self.fileName)
-            RunChain.Add(self.fileName)
-        elif ".txt" in self.fileName: 
-            txt_file = open(self.fileName,"r")
+        if ".root" in self.__fileName: 
+            self.__eventsChain.Add(self.__fileName)
+            RunChain.Add(self.__fileName)
+        elif ".txt" in self.__fileName: 
+            txt_file = open(self.__fileName,"r")
             for l in txt_file.readlines():
-                self.EventsChain.Add(l.strip())
+                self.__eventsChain.Add(l.strip())
                 RunChain.Add(l.strip())
         else: 
             raise Exception("File name extension not supported. Please provide a single .root file or a .txt file with a line-separated list of .root files to chain together.")
 
         # Make base RDataFrame
-        self.BaseDataFrame = ROOT.RDataFrame(self.EventsChain) #: ROOT.RDataFrame: Initial RDataFrame - no modifications
-        self.BaseNode = Node('base',self.BaseDataFrame) #: Node: Initial Node - no modifications
-        self.DataFrames = {} #: dict: All data frames
-        self.Corrections = {} #: dict: All corrections added to track
+        self.BaseDataFrame = ROOT.RDataFrame(self.__eventsChain) 
+        self.BaseNode = Node('base',self.BaseDataFrame) 
+        self.DataFrames = {} 
+        self.Corrections = {} 
 
         # Check if dealing with data
         if hasattr(RunChain,'genEventCount'): 
-            self.isData = False #: bool: Is data (true) or simulation (false) based on existence of _genEventCount branch
-            self.preV6 = True #: bool: Is pre-NanoAODv6 (true) or not (false) based on existence of _genEventCount branch
+            self.isData = False 
+            self.preV6 = True 
         elif hasattr(RunChain,'genEventCount_'): 
             self.isData = False
             self.preV6 = False
         else: self.isData = True
  
         # Count number of generated events if not data
-        self.genEventCount = 0 #: int: Number of generated events in imported simulation files. Zero if data.
+        self.genEventCount = 0 
         if not self.isData: 
             for i in range(RunChain.GetEntries()): 
                 RunChain.GetEntry(i)
@@ -80,27 +113,48 @@ class analyzer(object):
         
         # Cleanup
         del RunChain
-        self.ActiveNode = self.BaseNode #: Mode: Active node. Access via GetActiveNode(). Set via SetActiveNode().
+        self.ActiveNode = self.BaseNode
  
     def SetActiveNode(self,node):
-        '''Sets the active node (#ActiveNode)'''
+        """Sets the active node.
+
+        Args:
+            node: Node to set as #ActiveNode
+
+        Returns:
+            None
+        """
         if not isinstance(node,Node): raise ValueError('ERROR: SetActiveNode() does not support argument of type %s. Please provide a Node.'%(type(node)))
         else: self.ActiveNode = node
 
     def GetActiveNode(self):
-        '''Return the active node (#ActiveNode)'''
+        """Get the active node.
+
+        Returns:
+            #ActiveNode (Node)
+        """
         return self.ActiveNode
 
     def GetBaseNode(self):
-        '''Return the base node (#BaseNode)'''
+        """Get the base node.
+
+        Returns:
+            #BaseNode (Node)
+        """
         return self.BaseNode
 
     def TrackNode(self,node):
-        '''Add a node to track. 
+        """Add a node to track. 
 
-        Will add the node to #DataFrames dictionary with key node.name.
+        Will add the node to #DataFrames dictionary with key node.name. Will raise ValueError if attempting to overwrite an already tracked Node.
 
-        Raise exception if node.name already exists as a key.'''
+        Args:
+            node (Node): Node to start tracking. 
+
+        Returns:
+            None
+
+        """
         if isinstance(node,Node):
             if node.Name in self.DataFrames.keys():
                 raise ValueError('ERROR: Attempting to track a node with the same name as one that is already being tracked (%s). Please provide a unique node.'%(node.name))
@@ -109,9 +163,11 @@ class analyzer(object):
             raise TypeError('ERROR: TrackNode() does not support arguments of type %s. Please provide a Node.'%(type(node)))
 
     def GetCorrectionNames(self):
-        '''Return names of all corrections being tracked.
+        """Get names of all corrections being tracked.
 
-        Names are stored as keys in #Corrections dictionary.'''
+        Returns:
+            List of #Corrections keys/names
+        """
         return self.Corrections.keys()
 
     #-----------------------------------------------------------#
@@ -120,6 +176,19 @@ class analyzer(object):
     # each action and used by default).                         #
     #-----------------------------------------------------------#
     def Cut(self,name='',cuts='',node=self.ActiveNode):
+        """Apply a cut/filter to a provided node or the #ActiveNode by default.
+
+        Will add the resulting node to tracking and set it as the #ActiveNode.
+
+        Args:
+            name (str): Name for the cut for internal tracking and later reference.
+            cuts (str,CutGroup): A one-line C++ string that evaluates as a boolean or a CutGroup object which contains multiple C++ strings that evaluate as booleans. 
+            node (Node): Node to apply the cut/filter. Must be of type Node (not RDataFrame). Defaults to #ActiveNode.
+
+        Returns:
+            New active Node.
+
+        """
         newNode = node.Clone()
 
         if isinstance(cuts,CutGroup):
@@ -136,6 +205,20 @@ class analyzer(object):
         return newNode 
 
     def Define(self,name='',variables='',node=self.ActiveNode):
+        """Defines a variable/column on top of a provided node or the #ActiveNode by default.
+
+        Will add the resulting node to tracking and set it as the #ActiveNode
+
+        Args:
+
+            name (str): Name for the column for internal tracking and later reference.
+            cuts (str,CutGroup): A one-line C++ string that evaluates to desired value to store or a VarGroup object which contains multiple C++ strings that evaluate to the desired value(s). 
+            node (Node): Node to create the new variable/column on top of. Must be of type Node (not RDataFrame). Defaults to #ActiveNode.
+
+        Returns:
+            New active Node.
+
+        """
         newNode = node.Clone()
 
         if isinstance(variables,VarGroup):
@@ -152,9 +235,19 @@ class analyzer(object):
         return newNode  
 
     # Applies a bunch of action groups (cut or var) in one-shot in the order they are given
-    def Apply(self,actiongrouplist,node=self.ActiveNode):
-        if type(actiongrouplist) != list: actiongrouplist = [actiongrouplist]
-        for ag in actiongrouplist:
+    def Apply(self,actionGroupList,node=self.ActiveNode):
+        """Applies a single CutGroup/VarGroup or an ordered list of Groups to the provided node or the #ActiveNode by default.
+
+        Args:
+
+            actionGroupList (Group, list(Group)): The CutGroup or VarGroup to act on node or a list of CutGroups or VarGroups to act (in order) on node.
+            node (Node): Node to create the new variable/column on top of. Must be of type Node (not RDataFrame). Defaults to #ActiveNode.
+
+        Returns:
+            New active Node.
+        """
+        if not isinstance(actionGroupList, list): actionGroupList = [actionGroupList]
+        for ag in actionGroupList:
             if ag.type == 'cut':
                 newNode = self.Cut(name=ag.name,cuts=ag,node=node)
             elif ag.type == 'var':
@@ -166,7 +259,21 @@ class analyzer(object):
         self.SetActiveNode(newNode)
         return newNode
 
-    def Discriminate(self,discriminator,name='',node=self.ActiveNode,passAsActiveNode=None):
+    def Discriminate(self,name,discriminator,node=self.ActiveNode,passAsActiveNode=None):
+        """Forks a node based upon a discriminator being True or False (#ActiveNode by default).
+
+        Args:
+            name (str): Name for the discrimination for internal tracking and later reference.
+            discriminator (str): A one-line C++ string that evaluates as a boolean to discriminate for the forking of the node.
+            node (Node): Node to discriminate. Must be of type Node (not RDataFrame). Defaults to #ActiveNode.
+            passAsActiveNode (bool): True if the #ActiveNode should be set to the node that passes the discriminator.
+                False if the #ActiveNode should be set to the node that fails the discriminator. Defaults to None in which case
+                the #ActiveNode does not change.
+
+        Returns:
+            Dictionary with keys "pass" and "fail" corresponding to the passing and failing Nodes stored as values.
+            
+        """
         newNodes = node.Discriminate(name,cut)
 
         self.TrackNode(newNodes['pass'])
@@ -177,11 +284,21 @@ class analyzer(object):
 
         return newNodes
 
-    #######################
+    #---------------------#
     # Corrections/Weights #
-    #######################
+    #---------------------#
     # Want to correct with analyzer class so we can track what corrections have been made for final weights and if we want to save them out in a group when snapshotting
     def AddCorrection(self,correction,node=self.ActiveNode):
+        """Add a #Correction to track.
+
+        Args:
+            correction (Correction): Correction object to add.
+            node (Node): Node to add correction on top of. Must be of type Node (not RDataFrame). Defaults to #ActiveNode.
+
+        Returns:
+            New active Node.
+
+        """
         # Quick type checking
         if not isinstance(node,Node): raise TypeError('ERROR: AddCorrection() does not support argument of type %s for node. Please provide a Node.'%(type(node)))
         elif not isinstance(correction,Correction): raise TypeError('ERROR: AddCorrection() does not support argument type %s for correction. Please provide a Correction.'%(type(correction)))
@@ -200,7 +317,17 @@ class analyzer(object):
         self.SetActiveNode(returnNode)
         return returnNode
 
-    def AddCorrections(self,node=self.ActiveNode,correctionList=[]):
+    def AddCorrections(self,correctionList=[],node=self.ActiveNode):
+        """Add multiple Corrections to track.
+
+        Args:
+            correctionList (list(Correction)): List of Correction objects to add.
+            node (Node): Node to add corrections on top of. Must be of type Node (not RDataFrame). Defaults to #ActiveNode.
+
+        Returns:
+            New active Node.
+
+        """
         newNode = node
         for c in correctionList:
             newNode = self.AddCorrection(newNode,c)
@@ -209,8 +336,32 @@ class analyzer(object):
         self.SetActiveNode(newNode)
         return newNode
 
-    def MakeWeightCols(self,node=self.ActiveNode,CorrectionNames=None,dropList=[]):
-        correctionsToApply = _checkCorrections(CorrectionNames,dropList)
+    def MakeWeightCols(self,node=self.ActiveNode,correctionNames=None,dropList=[]):
+        """Makes columns/variables to store total weights based on the Corrections that have been added.
+
+        This function automates the calculation of the columns that store the nominal weight and the 
+        variation of weights based on the corrections in consideration. The nominal weight will be the product
+        of all "weight" type Correction objects. The variations on the nominal weight correspond to 
+        the variations/uncertainties in each Correction object (both "weight" and "uncert" types).
+
+        For example, if there are five different Correction objects considered, there will be 11 weights
+        calculated (nominal + 5 up + 5 down).
+
+        A list of correction names can be provided if only a subset of the corrections being tracked are 
+        desired. A drop list can also be supplied to remove a subset of corrections.
+
+        Args:
+            node (Node): Node to calculate weights on top of. Must be of type Node (not RDataFrame). Defaults to #ActiveNode.
+            correctionNames list(str): List of correction names (strings) to consider. Default is None in which case all corrections
+                being tracked are considered.
+            dropList list(str): List of correction names (strings) to not consider. Default is empty lists in which case no corrections
+                are dropped from consideration.
+
+        Returns:
+            New active Node.
+
+        """
+        correctionsToApply = _checkCorrections(correctionNames,dropList)
         
         # Build nominal weight first (only "weight", no "uncert")
         weights = {'nominal':''}
@@ -241,7 +392,18 @@ class analyzer(object):
         self.SetActiveNode(returnNode)
         return returnNode 
 
-    def MakeTemplateHistos(self,templateHist,variables,node=self.ActiveNode,CorrectionNames=None,dropList=[]):
+    def MakeTemplateHistos(self,templateHist,variables,node=self.ActiveNode):
+        """Generates the uncertainty template histograms based on the weights created by MakeWeightCols(). 
+
+        Args:
+            templateHist (TH1,TH2,TH3): An TH1, TH2, or TH3 used as a template to create the histograms.
+            variables (list(str)): A list of the columns/variables to plot (["x","y","z"]).
+            node (Node): Node to plot histograms from. Must be of type Node (not RDataFrame). Defaults to #ActiveNode.
+
+        Returns:
+            HistGroup object which stores the uncertainty template histograms.
+
+        """
         out = HistGroup('Templates')
 
         weight_cols = [cname for cname in node.GetColumnNames() if 'weight__' in cname]
@@ -268,13 +430,28 @@ class analyzer(object):
     # Draw templates together to see up/down effects against nominal #
     ##################################################################
     def DrawTemplates(hGroup,saveLocation,projection='X',projectionArgs=(),fileType='pdf'):
+        """Draw the template uncertainty histograms created by MakeTemplateHistos(). 
+
+        Args:
+            hGroup (HistGroup): A HistGroup object storing the uncertainty template histograms.
+            saveLocation (str): Path to folder to save histograms.
+            projection (str): "X" (Default), "Y", or "Z". Axis to project onto if templates are not 1D.
+            projectionArgs (tuple): A tuple of arguments provided to ROOT TH1 ProjectionX(Y)(Z).
+            fileType (str): File type - "pdf", "png", etc (must be supported by TCanvas.Print()).
+
+        Returns:
+            None
+
+        """
         canvas = TCanvas('c','',800,700)
 
         # Initial setup
         baseName = list(hGroup.keys())[0].split('__')[0]
 
-        if isinstance(hGroup[baseName+'__nominal'],ROOT.TH2) or isinstance(hGroup[baseName+'__nominal'],ROOT.TH3): 
-            projectedGroup = hGroup.Do("Projection"+projection,projectionArgs)
+        if isinstance(hGroup[baseName+'__nominal'],ROOT.TH2):
+            projectedGroup = hGroup.Do("Projection"+projection.upper(),projectionArgs)
+        if isinstance(hGroup[baseName+'__nominal'],ROOT.TH3): 
+            raise TypeError("ERROR: DrawTemplates() does not currently support TH3 templates.")
         else:
             projectedGroup = hGroup
 
@@ -311,12 +488,12 @@ class analyzer(object):
     #####################
     # Private functions #
     #####################
-    def _checkCorrections(self,CorrectionNames,dropList):
+    def __checkCorrections(self,correctionNames,dropList):
         # Quick type checking
-        if CorrectionNames == None: correctionsToApply = self.Corrections.keys()
-        elif not isinstance(CorrectionNames,list):
-            raise ValueError('ERROR: MakeWeights() does not support CorrectionNames argument of type %s. Please provide a list.'%(type(CorrectionNames)))
-        else: correctionsToApply = CorrectionNames
+        if correctionNames == None: correctionsToApply = self.Corrections.keys()
+        elif not isinstance(correctionNames,list):
+            raise ValueError('ERROR: MakeWeights() does not support correctionNames argument of type %s. Please provide a list.'%(type(correctionNames)))
+        else: correctionsToApply = correctionNames
 
         # Drop specified weights from consideration
         if not isinstance(dropList,list):
