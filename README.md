@@ -1,4 +1,6 @@
 # HAMMER {#mainpage}
+[Full Documentation](http://hammer.lucascorcodilos.com/)
+
 HAMMER is an easy-to-use and fast python analysis framework used to quickly process CMS data sets. 
 Default arguments assume the use of the NanoAOD format but any ROOT TTree can be processed.
 
